@@ -82,6 +82,23 @@ depuis un tiers transmet l’adresse IP du lecteur à ce tiers, ce qui constitue
 une communication de renseignement personnel au sens de la Loi 25. Les piles de
 repli sont définies dans `tokens.css` et le rendu reste correct hors ligne.
 
+## Version consultable en ligne
+
+Le prototype est aussi publié en un document unique, tous écrans réunis, avec
+leur navigation réelle&nbsp;:
+**[claude.ai/code/artifact/e33beee5-e998-48d5-b1dd-ffb984705ac5](https://claude.ai/code/artifact/e33beee5-e998-48d5-b1dd-ffb984705ac5)**
+
+```bash
+npm run artefact                 # régénère le document unique
+```
+
+`tools/artefact.mjs` replie les quatre feuilles de style et le script dans un
+seul fichier, espace les identifiants — les cinq pages en partagent (`#principal`,
+`#courriel`, `#regulation`) et, réunies, ils deviendraient ambigus — et remplace
+les liens entre fichiers par des changements d'écran en conservant l'ancre visée.
+**Il ne modifie ni le balisage, ni les feuilles de style, ni le script** : ce que
+l'artefact montre est exactement ce que le prototype rend.
+
 ## Vérifier
 
 ```bash

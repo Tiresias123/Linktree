@@ -10,7 +10,8 @@
     "emails": "node tools/emails.mjs",
     "verifier": "node tools/verifier.mjs",
     "captures": "node tools/captures.mjs",
-    "tout": "npm run structure && npm run docs && npm run emails && npm run verifier"
+    "tout": "npm run structure && npm run docs && npm run emails && npm run verifier",
+    "artefact": "node tools/artefact.mjs"
   },
   "devDependencies": {
     "playwright-core": "^1.56.0"
