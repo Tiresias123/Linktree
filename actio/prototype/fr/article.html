@@ -6,6 +6,9 @@
 <title>Après Gagnon, où s’arrête le contrat d’investissement pour les « finfluenceurs » québécois ? — Actio</title>
 <meta name="description" content="Le Tribunal administratif des marchés financiers distingue la gestion des fonds d’autrui de la vente d’information. Analyse de la portée de cette ligne de partage pour les créateurs de contenu financier au Québec.">
 <meta name="theme-color" content="#FAF8F4">
+<link rel="alternate" hreflang="fr-CA" href="/fr/">
+<link rel="alternate" hreflang="en-CA" href="/en/">
+<link rel="alternate" hreflang="x-default" href="/fr/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -15,9 +18,9 @@
 (function(){try{var t=localStorage.getItem('actio.theme');
 if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
 </script>
-<link rel="stylesheet" href="assets/tokens.css">
-<link rel="stylesheet" href="assets/actio.css">
-<link rel="stylesheet" href="assets/article.css">
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/actio.css">
+<link rel="stylesheet" href="../assets/article.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230F3D68'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' font-weight='700' fill='%23FAF8F4' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -37,7 +40,7 @@ if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)
       <a class="logo" href="index.html" aria-label="Actio, accueil"><span>Actio<span class="logo__point">.</span></span></a>
       <button class="burger" type="button" data-menu-mobile aria-expanded="false"
               aria-controls="nav-principale" aria-label="Ouvrir le menu"
-              data-fr-aria="Ouvrir le menu" data-en-aria="Open menu">
+             >
         <span class="burger__trait" aria-hidden="true"></span>
       </button>
 
@@ -50,8 +53,8 @@ if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)
       </nav>
       <div class="entete__actions">
         <div class="selecteur" role="group" aria-label="Langue du site">
-          <button type="button" data-action="langue" data-langue="fr" aria-pressed="true">FR</button>
-          <button type="button" data-action="langue" data-langue="en" aria-pressed="false">EN</button>
+          <a href="article.html" hreflang="fr-CA" lang="fr-CA" aria-current="true">FR</a>
+          <a href="../en/index.html" hreflang="en-CA" lang="en-CA" title="Cet article n’est pas disponible en anglais. Le bouton mène à l’accueil anglais.">EN</a>
         </div>
         <div class="selecteur" role="group" aria-label="Thème d’affichage">
           <button type="button" data-action="theme" data-theme="light" aria-pressed="false" title="Mode clair">☀</button>
@@ -545,6 +548,6 @@ if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)
   </div>
 </footer>
 
-<script src="assets/actio.js"></script>
+<script src="../assets/actio.js"></script>
 </body>
 </html>

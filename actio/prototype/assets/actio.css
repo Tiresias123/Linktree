@@ -81,10 +81,10 @@ p { margin: 0 0 var(--e-4); }
 @media (max-width: 1024px) {
   .col-8, .col-7, .col-6, .col-5 { grid-column: span 12; }
   .col-4 { grid-column: span 6; }
-  .col-3 { grid-column: span 6; }
+  .col-3, .col-2 { grid-column: span 6; }
 }
 @media (max-width: 640px) {
-  .col-4, .col-3 { grid-column: span 12; }
+  .col-4, .col-3, .col-2 { grid-column: span 12; }
 }
 
 /* ---------- 2. Étiquettes de statut réglementaire --------------------- *
@@ -419,14 +419,20 @@ p { margin: 0 0 var(--e-4); }
   display: inline-flex; border: var(--trait) solid var(--bordure-forte);
   border-radius: var(--rayon-2); overflow: hidden;
 }
-.selecteur button {
+.selecteur button, .selecteur a {
   background: transparent; border: 0; cursor: pointer;
   padding: 6px var(--e-3); font-size: var(--t-micro);
   font-weight: var(--graisse-demi); letter-spacing: .06em; text-transform: uppercase;
-  color: var(--texte-secondaire);
+  color: var(--texte-secondaire); text-decoration: none; display: inline-flex; align-items: center;
 }
-.selecteur button[aria-pressed="true"] { background: var(--texte-primaire); color: var(--fond-page); }
-.selecteur button:not([aria-pressed="true"]):hover { background: var(--fond-surface-2); }
+.selecteur button[aria-pressed="true"],
+.selecteur a[aria-current="true"] { background: var(--texte-primaire); color: var(--fond-page); }
+.selecteur button:not([aria-pressed="true"]):hover,
+.selecteur a:not([aria-current="true"]):hover { background: var(--fond-surface-2); }
+/* Une version dans l'autre langue qui n'existe pas se signale, elle ne se cache pas. */
+.selecteur a[title]:not([aria-current="true"])::after {
+  content: "*"; margin-left: 2px; color: var(--statut-consultation);
+}
 
 /* ---------- 9. Hero / À la une ------------------------------------------ */
 .une { padding-block: var(--e-10) var(--e-12); }
@@ -448,7 +454,7 @@ p { margin: 0 0 var(--e-4); }
 .une__visuel {
   aspect-ratio: 16 / 9; border-radius: var(--rayon-3);
   background:
-    linear-gradient(135deg, color-mix(in srgb, var(--actio-bleu-palais) 92%, #000) 0%, var(--actio-bleu-palais) 45%, var(--actio-turquoise-fonce) 100%);
+    linear-gradient(135deg, var(--degrade-1) 0%, var(--degrade-2) 45%, var(--degrade-3) 100%);
   border: var(--trait) solid var(--bordure);
   display: grid; place-items: center; overflow: hidden; position: relative;
 }
@@ -506,7 +512,7 @@ p { margin: 0 0 var(--e-4); }
   position: relative;
 }
 .flux__etape::after {
-  content: "→"; position: absolute; right: calc(var(--e-3) * -1 - 5px); top: 50%;
+  content: "→"; position: absolute; right: calc(var(--e-3) / -2 - 4px); top: 50%;
   transform: translateY(-50%); color: var(--bordure-forte); font-size: 1.1rem;
 }
 .flux__etape:last-child::after { content: none; }
@@ -519,7 +525,8 @@ p { margin: 0 0 var(--e-4); }
 .flux__detail { font-size: var(--t-micro); color: var(--texte-secondaire); line-height: var(--lh-dense); }
 .flux__etape--actuel { border-color: var(--actio-turquoise); background: var(--actio-turquoise-pale); }
 .flux__etape--actuel .flux__num { color: var(--actio-turquoise-fonce); }
-.flux__etape--futur { opacity: .72; }
+.flux__etape--futur { background: transparent; border-style: dashed; }
+.flux__etape--futur .flux__num { color: var(--texte-tertiaire); }
 
 /* ---------- 11. Paliers pédagogiques ------------------------------------ */
 .palier {
@@ -591,7 +598,7 @@ p { margin: 0 0 var(--e-4); }
 }
 .champ::placeholder { color: color-mix(in srgb, var(--encre-texte) 68%, transparent); }
 .champ:focus { border-color: var(--encre-accent); background: color-mix(in srgb, var(--encre-texte) 12%, transparent); }
-.infolettre .btn--primaire { background: var(--encre-accent); color: #06231F; border-color: var(--encre-accent); padding-inline: var(--e-8); font-weight: var(--graisse-grasse); }
+.infolettre .btn--primaire { background: var(--encre-accent); color: var(--encre-accent-texte); border-color: var(--encre-accent); padding-inline: var(--e-8); font-weight: var(--graisse-grasse); }
 .infolettre .btn--primaire:hover { background: #fff; color: var(--encre-fond); border-color: #fff; }
 .infolettre__consentement {
   display: flex; gap: var(--e-3); align-items: flex-start;

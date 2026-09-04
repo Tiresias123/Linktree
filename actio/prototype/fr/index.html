@@ -1,0 +1,910 @@
+<!doctype html>
+<html lang="fr-CA" data-page="accueil">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Actio — Régulation des cryptoactifs au Canada</title>
+<meta name="description" content="Actio décrypte le cadre réglementaire, fiscal et prudentiel des cryptoactifs au Canada. Analyses ACVM, AMF, OCRI, CANAFE et ARC, pour investisseurs informés et professionnels de la conformité.">
+<meta name="theme-color" content="#FAF8F4">
+<link rel="alternate" hreflang="fr-CA" href="/fr/">
+<link rel="alternate" hreflang="en-CA" href="/en/">
+<link rel="alternate" hreflang="x-default" href="/fr/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<script>
+/* Anti-scintillement : applique le thème stocké avant le premier rendu.
+   Doit rester en ligne et synchrone — un fichier externe arriverait trop tard. */
+(function(){try{var t=localStorage.getItem('actio.theme');
+if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/actio.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230F3D68'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' font-weight='700' fill='%23FAF8F4' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<a class="evitement" href="#principal">Aller au contenu principal</a>
+
+<!-- ===================================================================
+     BANDEAU DE PROBITÉ — prototype
+     Obligatoire tant que le site n'est pas alimenté par la rédaction.
+     =================================================================== -->
+<div class="demo" role="note">
+  <strong>Prototype éditorial</strong> — Les articles ci-dessous sont des <em>maquettes de démonstration</em>
+  rédigées à partir de faits réglementaires réels arrêtés au 4 septembre 2026. Aucune de ces pages n’a été
+  vérifiée par un juriste ni publiée. Voir le
+  <a href="../docs/annexes/registre-de-verification.md">registre de vérification</a>.
+</div>
+
+<!-- ===================================================================
+     SUB-HEADER — Bandeau de cotations + indicateur de conformité
+     Rangée 1 de la grille. Hauteur fixe 36 px.
+     =================================================================== -->
+<div class="cotations">
+  <div class="contenant">
+    <div class="cotations__piste" role="region" aria-label="Cours des principaux actifs et statut réglementaire">
+      <span class="badge badge--consultation" style="margin-right:4px" data-arrete>Démo</span>
+
+      <span class="cours"><span class="cours__sym">BTC/CAD</span>
+        <span class="cours__val" data-arrete>—</span>
+        <span class="cours__var cours__var--stable"><span class="vh">variation&nbsp;: </span>n. d.</span></span>
+
+      <span class="cours"><span class="cours__sym">ETH/CAD</span>
+        <span class="cours__val" data-arrete>—</span>
+        <span class="cours__var cours__var--stable"><span class="vh">variation&nbsp;: </span>n. d.</span></span>
+
+      <span class="cours"><span class="cours__sym">SOL/CAD</span>
+        <span class="cours__val" data-arrete>—</span>
+        <span class="cours__var cours__var--stable"><span class="vh">variation&nbsp;: </span>n. d.</span></span>
+
+      <span class="cours"><span class="cours__sym">CAD/USD</span>
+        <span class="cours__val" data-arrete>—</span>
+        <span class="cours__var cours__var--stable"><span class="vh">variation&nbsp;: </span>n. d.</span></span>
+
+      <span class="cours" style="color:var(--encre-stable)">
+        <span class="cours__sym">Flux de marché</span>
+        <span class="cours__val">non branché</span>
+      </span>
+
+      <a class="conformite" href="registre.html">
+        <span class="conformite__pastille" aria-hidden="true"></span>
+        <span>Registre des plateformes autorisées</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ===================================================================
+     HEADER PRINCIPAL — collant, 64 px
+     =================================================================== -->
+<header class="entete">
+  <div class="contenant">
+    <div class="entete__barre">
+
+      <a class="logo" href="index.html" aria-label="Actio, accueil">
+        <span>Actio<span class="logo__point">.</span></span>
+      </a>
+
+      <button class="burger" type="button" data-menu-mobile aria-expanded="false"
+              aria-controls="nav-principale" aria-label="Ouvrir le menu"
+             >
+        <span class="burger__trait" aria-hidden="true"></span>
+      </button>
+
+      <nav class="nav" id="nav-principale" aria-label="Navigation principale">
+        <button class="nav__lien" type="button" aria-expanded="false" aria-controls="mm-regulation"
+                data-menu-declencheur style="background:none;border:0;cursor:pointer;font:inherit">
+          <span>Régulation &amp; ACVM</span>
+          <svg class="nav__chevron" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+        </button>
+        <a class="nav__lien" href="#marches">Marchés &amp; Macro</a>
+        <a class="nav__lien" href="#guides">Guides &amp; Éducation</a>
+        <a class="nav__lien" href="#fiscalite">Fiscalité canadienne</a>
+        <a class="nav__lien" href="#pro">Actio Pro</a>
+      </nav>
+
+      <div class="entete__actions">
+        <div class="selecteur" role="group" aria-label="Langue du site">
+          <a href="index.html" hreflang="fr-CA" lang="fr-CA" aria-current="true">FR</a>
+          <a href="../en/index.html" hreflang="en-CA" lang="en-CA">EN</a>
+        </div>
+        <div class="selecteur" role="group" aria-label="Thème d’affichage">
+          <button type="button" data-action="theme" data-theme="light" aria-pressed="false" title="Mode clair">☀</button>
+          <button type="button" data-action="theme" data-theme="auto" aria-pressed="true" title="Suivre le système">A</button>
+          <button type="button" data-action="theme" data-theme="dark" aria-pressed="false" title="Mode sombre">☾</button>
+        </div>
+        <a class="btn btn--pro" href="#infolettre">S’abonner</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mega-menu de la rubrique Régulation -->
+  <div class="megamenu" id="mm-regulation" hidden>
+    <div class="contenant">
+      <div class="grille megamenu__grille">
+        <div class="col-3 megamenu__colonne">
+          <h3>Par autorité</h3>
+          <ul class="megamenu__liste">
+            <li><a href="#">ACVM — avis du personnel</a></li>
+            <li><a href="#">AMF — Québec</a></li>
+            <li><a href="#">CVMO — Ontario</a></li>
+            <li><a href="#">OCRI — autoréglementation</a></li>
+            <li><a href="#">CANAFE — LBC/FT</a></li>
+            <li><a href="#">Banque du Canada — paiements</a></li>
+          </ul>
+        </div>
+        <div class="col-3 megamenu__colonne">
+          <h3>Par type d’acte</h3>
+          <ul class="megamenu__liste">
+            <li><a href="#">Avis du personnel</a></li>
+            <li><a href="#">Consultation publique</a></li>
+            <li><a href="#">Décision et sanction</a></li>
+            <li><a href="#">Mise en garde</a></li>
+            <li><a href="#">Règlement et modification</a></li>
+            <li><a href="#">Dispense discrétionnaire</a></li>
+          </ul>
+        </div>
+        <div class="col-3 megamenu__colonne">
+          <h3>Par juridiction</h3>
+          <ul class="megamenu__liste">
+            <li><a href="#">Fédéral / Ottawa</a></li>
+            <li><a href="#">Québec</a></li>
+            <li><a href="#">Ontario</a></li>
+            <li><a href="#">Harmonisé ACVM</a></li>
+            <li><a href="#">International</a></li>
+          </ul>
+        </div>
+        <div class="col-3 megamenu__vedette">
+          <span class="badge badge--info" style="margin-bottom:12px">Dossier permanent</span>
+          <h3 style="font-family:var(--police-titre);font-size:var(--t-h5);text-transform:none;letter-spacing:normal;color:var(--texte-primaire);margin-bottom:8px">
+            La sortie du régime de courtier restreint
+          </h3>
+          <p style="font-size:var(--t-petit);color:var(--texte-secondaire);margin:0">
+            Suivi continu de la migration des plateformes vers l’inscription de courtier en placement
+            et l’adhésion à l’OCRI, annoncée par les ACVM le 6 août 2024.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="principal">
+<div class="contenant">
+
+<!-- ===================================================================
+     À LA UNE — grille asymétrique 7 / 5
+     =================================================================== -->
+<h1 class="vh">Actio — le droit des cryptoactifs au Canada, décrypté</h1>
+
+<section class="une grille" aria-labelledby="titre-une">
+  <h2 id="titre-une" class="vh">À la une</h2>
+
+  <article class="col-7 une__principal">
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+      <a class="rubrique" href="#regulation">Régulation &amp; ACVM</a>
+      <span class="badge badge--alerte">Décision</span>
+      <span class="juridiction juridiction--quebec">Québec · TMF</span>
+    </div>
+
+    <h3 class="une__titre">
+      <a href="article.html">Après <i>Gagnon</i>, où s’arrête le contrat d’investissement pour les
+      « finfluenceurs » québécois&nbsp;?</a>
+    </h3>
+
+    <p class="une__chapeau">
+      Le Tribunal administratif des marchés financiers a jugé, le 22 août 2025, que gérer les éthers
+      d’investisseurs contre 20&nbsp;% des profits constitue un contrat d’investissement — mais que vendre
+      un abonnement à des signaux de négociation n’en est pas un. Cette ligne de partage, plus restrictive
+      que la lecture historique de l’AMF, redistribue le risque d’exercice illégal pour toute une
+      économie de créateurs de contenu.
+    </p>
+
+    <div class="une__visuel" role="img"
+         aria-label="Schéma : ligne de partage tracée par le TMF entre gestion de fonds d’autrui et vente d’information.">
+      <svg viewBox="0 0 720 400" style="width:100%;height:100%" aria-hidden="true"
+           fill="none" color="var(--encre-texte)">
+        <defs>
+          <pattern id="q" width="28" height="28" patternUnits="userSpaceOnUse">
+            <path d="M28 0H0v28" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="1"/>
+          </pattern>
+        </defs>
+        <rect width="720" height="400" fill="url(#q)"/>
+        <line x1="360" y1="40" x2="360" y2="360" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-dasharray="8 8"/>
+        <text x="176" y="120" fill="var(--encre-texte)" font-family="Georgia,serif" font-size="21" text-anchor="middle" opacity=".95">Apport de fonds</text>
+        <text x="176" y="150" fill="var(--encre-texte)" font-family="Georgia,serif" font-size="21" text-anchor="middle" opacity=".95">+ gestion par un tiers</text>
+        <text x="176" y="180" fill="var(--encre-texte)" font-family="Georgia,serif" font-size="21" text-anchor="middle" opacity=".95">+ partage des profits</text>
+        <rect x="76" y="216" width="200" height="34" rx="6" fill="var(--statut-alerte-fixe)"/>
+        <text x="176" y="239" fill="#FFFFFF" font-family="Inter,sans-serif" font-size="14" font-weight="700" text-anchor="middle" letter-spacing="1.2">CONTRAT D’INVESTISSEMENT</text>
+        <text x="544" y="135" fill="var(--encre-texte)" font-family="Georgia,serif" font-size="21" text-anchor="middle" opacity=".95">Abonnement payant</text>
+        <text x="544" y="165" fill="var(--encre-texte)" font-family="Georgia,serif" font-size="21" text-anchor="middle" opacity=".95">à des signaux</text>
+        <rect x="452" y="216" width="184" height="34" rx="6" fill="var(--encre-accent)"/>
+        <text x="544" y="239" fill="var(--encre-accent-texte)" font-family="Inter,sans-serif" font-size="14" font-weight="700" text-anchor="middle" letter-spacing="1.2">HORS CHAMP</text>
+        <text x="360" y="330" fill="var(--encre-texte-2)" font-family="IBM Plex Mono,monospace" font-size="12" text-anchor="middle">TMF · 22 août 2025 · autonomie décisionnelle de l’investisseur</text>
+      </svg>
+    </div>
+
+    <div class="une__signature">
+      <span><strong>Marie-Claude Fortin</strong>, juriste en valeurs mobilières</span>
+      <span class="juridiction juridiction--quebec">AMF / Québec</span>
+      <time datetime="2026-09-03">3 septembre 2026</time>
+      <span class="lecture">11 min</span>
+    </div>
+  </article>
+
+  <div class="col-5 breves">
+    <h3 class="breves__titre">Le fil réglementaire</h3>
+
+    <article class="breve">
+      <div class="breve__meta">
+        <span class="badge badge--consultation">Consultation</span>
+        <span class="juridiction juridiction--federal">Fédéral</span>
+      </div>
+      <h4 class="breve__titre">
+        <a href="article.html">Cryptoactifs arrimés à une valeur&nbsp;: la Banque du Canada ouvre
+        les consultations sur les règlements d’application de la loi adoptée en mars</a>
+      </h4>
+      <p class="carte__resume">
+        Le régime prudentiel des émetteurs de cryptoactifs arrimés à une monnaie fiduciaire, adopté au
+        printemps, reste suspendu à ses décrets. Enjeu&nbsp;: l’articulation avec l’Avis 21-333 des ACVM,
+        toujours en vigueur.
+      </p>
+      <div class="breve__meta"><time datetime="2026-09-04">4 sept.</time><span>· 4 min</span></div>
+    </article>
+
+    <article class="breve">
+      <div class="breve__meta">
+        <span class="badge badge--info">Avis</span>
+        <span class="juridiction juridiction--multi">Harmonisé</span>
+      </div>
+      <h4 class="breve__titre">
+        <a href="article.html">Garde des actifs numériques&nbsp;: ce que le cadre de l’OCRI change
+        pour les courtiers de taille moyenne</a>
+      </h4>
+      <p class="carte__resume">
+        Le classement des dépositaires par paliers, assorti de plafonds décroissants et d’exigences de
+        capital, restreint l’autogarde. Trois modèles d’affaires deviennent difficilement tenables.
+      </p>
+      <div class="breve__meta"><time datetime="2026-09-02">2 sept.</time><span>· 6 min</span></div>
+    </article>
+
+    <article class="breve">
+      <div class="breve__meta">
+        <span class="badge badge--alerte">Mise en garde</span>
+        <span class="juridiction juridiction--quebec">Québec</span>
+      </div>
+      <h4 class="breve__titre">
+        <a href="article.html">Blocage d’accès aux plateformes non inscrites&nbsp;: l’outil monte
+        en puissance, ses limites juridiques aussi</a>
+      </h4>
+      <p class="carte__resume">
+        Après XT.com et CoinEx, l’ordonnance adressée aux fournisseurs de télécommunication s’installe
+        dans l’arsenal de l’AMF. Reste la question de sa proportionnalité et de son contrôle.
+      </p>
+      <div class="breve__meta"><time datetime="2026-08-31">31 août</time><span>· 5 min</span></div>
+    </article>
+  </div>
+</section>
+
+<!-- ===================================================================
+     RÉGULATION & DÉCRYPTAGES INSTITUTIONNELS
+     Grille 4 / 4 / 4 avec badge statutaire et résumé exécutif.
+     =================================================================== -->
+<section class="section" id="regulation" aria-labelledby="titre-regulation">
+  <div class="section__entete">
+    <div>
+      <span class="section__sur">Sources primaires décryptées</span>
+      <h2 class="section__titre" id="titre-regulation">Régulation &amp; décryptages institutionnels</h2>
+    </div>
+    <a class="section__lien" href="#">Toutes les analyses</a>
+  </div>
+
+  <div class="grille">
+
+    <article class="carte col-4">
+      <div class="carte__meta">
+        <span class="badge badge--consultation">Consultation publique</span>
+        <span class="juridiction juridiction--multi">ACVM</span>
+      </div>
+      <h3 class="carte__titre"><a href="article.html">Négociation de cryptoactifs&nbsp;: les ACVM
+        consultent sur le régime permanent qui doit succéder aux avis du personnel</a></h3>
+      <p class="carte__resume">
+        Cinq ans après l’Avis 21-327, l’encadrement des plateformes repose toujours sur un empilement
+        d’avis, de conditions d’inscription et de dispenses discrétionnaires — sans règlement publié.
+      </p>
+      <div class="carte__synthese">
+        <strong>Résumé exécutif.</strong> Le déficit de sécurité juridique est devenu l’argument central
+        de l’industrie&nbsp;: un avis du personnel n’est pas un texte réglementaire, n’est pas soumis à la
+        procédure de publication et se prête mal au contrôle judiciaire. Trois options sont sur la table&nbsp;:
+        un règlement autonome propre aux plateformes, l’extension du Règlement 31-103 par catégorie
+        d’inscription dédiée, ou le transfert complet du normatif à l’OCRI. La troisième, la plus rapide,
+        est aussi la moins démocratique&nbsp;: elle confie à un organisme d’autoréglementation le pouvoir
+        de fixer des exigences prudentielles de fond.
+      </div>
+      <div class="carte__pied"><span>Analyse</span><span>9 min</span><span>2 sept. 2026</span></div>
+    </article>
+
+    <article class="carte col-4">
+      <div class="carte__meta">
+        <span class="badge badge--info">Avis du personnel</span>
+        <span class="juridiction juridiction--multi">ACVM · OCRI</span>
+      </div>
+      <h3 class="carte__titre"><a href="article.html">Publicité et marketing d’influence&nbsp;: l’Avis
+        21-330 sort de son sommeil</a></h3>
+      <p class="carte__resume">
+        Publié en septembre 2021 et longtemps resté lettre morte, l’avis conjoint sur la publicité, le
+        marketing et les médias sociaux redevient un instrument d’exécution.
+      </p>
+      <div class="carte__synthese">
+        <strong>Résumé exécutif.</strong> L’avis vise trois pratiques&nbsp;: les affirmations de rendement
+        non étayées, les concours et primes d’inscription assimilables à une incitation à négocier, et
+        la rémunération non divulguée de créateurs de contenu. La difficulté tient au rattachement&nbsp;:
+        l’influenceur n’est pas inscrit, mais la plateforme qui le rémunère l’est — et répond de la
+        communication faite pour son compte. Pour un média, la conséquence est directe&nbsp;: toute
+        rémunération reçue d’une plateforme doit être divulguée dans le corps même du contenu, et non
+        dans une page de mentions.
+      </div>
+      <div class="carte__pied"><span>Décryptage</span><span>7 min</span><span>29 août 2026</span></div>
+    </article>
+
+    <article class="carte col-4">
+      <div class="carte__meta">
+        <span class="badge badge--info">Avis du personnel</span>
+        <span class="juridiction juridiction--multi">ACVM</span>
+      </div>
+      <h3 class="carte__titre"><a href="article.html">Prêts adossés à des cryptoactifs&nbsp;: pourquoi
+        le rappel des ACVM vise aussi le rendement passif</a></h3>
+      <p class="carte__resume">
+        Le communiqué du 22 octobre 2025 étend explicitement la lecture des autorités au-delà de la
+        négociation&nbsp;: prêt garanti, jalonnement et produits de rendement entrent dans le champ.
+      </p>
+      <div class="carte__synthese">
+        <strong>Résumé exécutif.</strong> Le raisonnement reste celui de l’Avis 21-327&nbsp;: dès lors que
+        le client ne dispose pas immédiatement et librement de son actif, la relation prend la forme d’un
+        contrat soumis au droit des valeurs mobilières. Appliqué au prêt garanti, cela signifie qu’une
+        offre de liquidité contre nantissement de cryptoactifs peut exiger une inscription, voire un
+        prospectus. Trois questions restent ouvertes&nbsp;: le sort du jalonnement non custodial, celui
+        des protocoles décentralisés sans émetteur identifiable, et l’articulation avec le régime fédéral
+        des paiements de détail.
+      </div>
+      <div class="carte__pied"><span>Analyse</span><span>8 min</span><span>26 août 2026</span></div>
+    </article>
+  </div>
+</section>
+
+<!-- ===================================================================
+     BLOC SCHÉMA — cheminement de conformité
+     =================================================================== -->
+<section class="section" aria-labelledby="titre-schema">
+  <div class="schema">
+    <div class="schema__entete">
+      <div>
+        <h2 class="schema__titre" id="titre-schema">Le chemin de conformité d’une plateforme de
+          négociation de cryptoactifs au Canada</h2>
+        <p class="schema__sous">
+          Depuis l’annonce des ACVM du 6 août 2024, la voie du courtier restreint à durée limitée n’est
+          plus la destination&nbsp;: elle n’est qu’une étape vers l’inscription de courtier en placement et
+          l’adhésion à l’OCRI. Le parcours se double d’un second guichet, fédéral et provincial, en
+          matière de lutte contre le blanchiment.
+        </p>
+      </div>
+      <a class="btn btn--secondaire" href="#">Version imprimable</a>
+    </div>
+
+    <div class="schema__corps">
+      <ol class="flux" style="list-style:none;margin:0;padding:0">
+        <li class="flux__etape">
+          <span class="flux__num">ÉTAPE 01</span>
+          <span class="flux__nom">Engagement préalable</span>
+          <span class="flux__detail">Dépôt de l’engagement préalable à l’inscription (EPI) auprès de
+            l’autorité principale. Conditions d’exploitation immédiatement opposables.</span>
+        </li>
+        <li class="flux__etape">
+          <span class="flux__num">ÉTAPE 02</span>
+          <span class="flux__nom">Courtier restreint</span>
+          <span class="flux__detail">Inscription transitoire assortie de conditions et de dispenses&nbsp;:
+            plafonds d’achat pour les investisseurs de détail, actifs négociables limités, obligations
+            de garde.</span>
+        </li>
+        <li class="flux__etape flux__etape--actuel">
+          <span class="flux__num">ÉTAPE 03 · POINT DE BASCULE</span>
+          <span class="flux__nom">Demande de courtier en placement</span>
+          <span class="flux__detail">Depuis le 6 août 2024, c’est la seule trajectoire ouverte&nbsp;:
+            capital réglementaire, gouvernance, personnes désignées responsables, contrôle interne.</span>
+        </li>
+        <li class="flux__etape flux__etape--futur">
+          <span class="flux__num">ÉTAPE 04</span>
+          <span class="flux__nom">Adhésion à l’OCRI</span>
+          <span class="flux__detail">Application des règles de l’organisme, dont le cadre de garde des
+            actifs numériques et le classement des dépositaires par paliers.</span>
+        </li>
+        <li class="flux__etape flux__etape--futur">
+          <span class="flux__num">EN PARALLÈLE</span>
+          <span class="flux__nom">Guichet LBC/FT</span>
+          <span class="flux__detail">Inscription d’ESM auprès du CANAFE (fédéral) et, au Québec, permis
+            d’entreprise de services monétaires délivré par <strong>Revenu Québec</strong> — et non
+            par l’AMF.</span>
+        </li>
+      </ol>
+    </div>
+
+    <div class="schema__pied">
+      <span>Source&nbsp;: reconstitution Actio d’après les avis du personnel des ACVM et le cadre de l’OCRI</span>
+      <span>Arrêté au 4 septembre 2026</span>
+      <span>Schéma pédagogique — ne constitue pas un avis juridique</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================
+     MARCHÉS & MACRO — format dépêches, dense
+     =================================================================== -->
+<section class="section" id="marches" aria-labelledby="titre-marches">
+  <div class="section__entete">
+    <div>
+      <span class="section__sur">Le fil des marchés</span>
+      <h2 class="section__titre" id="titre-marches">Marchés &amp; macro</h2>
+    </div>
+    <a class="section__lien" href="#">Tout le fil</a>
+  </div>
+
+  <ol class="depeches">
+    <li class="depeche">
+      <span class="depeche__heure">4 sept. · 14 h 05</span>
+      <div>
+        <h3 class="depeche__titre"><a href="article.html">Les FNB de cryptoactifs cotés au Canada
+          restent le seul véhicule admissible aux régimes enregistrés</a></h3>
+        <p class="depeche__resume">
+          La détention directe demeure fermée au REER et au CELI&nbsp;; l’exposition passe par des
+          fonds cotés soumis au Règlement 81-102. La conséquence fiscale est loin d’être neutre.
+        </p>
+      </div>
+      <span class="depeche__cote"><span class="juridiction juridiction--multi">Canada</span></span>
+    </li>
+
+    <li class="depeche">
+      <span class="depeche__heure">4 sept. · 09 h 40</span>
+      <div>
+        <h3 class="depeche__titre"><a href="article.html">Dollar canadien et cryptoactifs&nbsp;:
+          pourquoi la paire CAD/USD compte plus que le prix en dollars américains</a></h3>
+        <p class="depeche__resume">
+          Un investisseur canadien qui raisonne en dollars américains se trompe deux fois&nbsp;: sur
+          son rendement réel, et sur sa base de coût au moment de la disposition.
+        </p>
+      </div>
+      <span class="depeche__cote"><span class="badge badge--info">Analyse</span></span>
+    </li>
+
+    <li class="depeche">
+      <span class="depeche__heure">3 sept. · 16 h 20</span>
+      <div>
+        <h3 class="depeche__titre"><a href="article.html">Paiements de détail&nbsp;: l’enregistrement
+          auprès de la Banque du Canada change la carte des acteurs</a></h3>
+        <p class="depeche__resume">
+          Le régime des fournisseurs de services de paiement recoupe partiellement l’activité des
+          plateformes. Un même acteur peut relever de trois autorités sans le savoir.
+        </p>
+      </div>
+      <span class="depeche__cote"><span class="juridiction juridiction--federal">Fédéral</span></span>
+    </li>
+
+    <li class="depeche">
+      <span class="depeche__heure">2 sept. · 11 h 15</span>
+      <div>
+        <h3 class="depeche__titre"><a href="article.html">Le marché canadien est étroit&nbsp;: ce que
+          cela implique pour la liquidité et pour l’exécution</a></h3>
+        <p class="depeche__resume">
+          Peu de plateformes inscrites, des volumes modestes, des écarts plus larges qu’ailleurs.
+          Un état des lieux sans complaisance.
+        </p>
+      </div>
+      <span class="depeche__cote"><span class="badge badge--neutre">Dossier</span></span>
+    </li>
+  </ol>
+</section>
+
+<!-- ===================================================================
+     GUIDES PÉDAGOGIQUES — trois paliers
+     =================================================================== -->
+<section class="section" id="guides" aria-labelledby="titre-guides">
+  <div class="section__entete">
+    <div>
+      <span class="section__sur">Parcours d’apprentissage</span>
+      <h2 class="section__titre" id="titre-guides">Guides &amp; éducation</h2>
+    </div>
+    <a class="section__lien" href="#">Tous les guides</a>
+  </div>
+
+  <div class="grille">
+
+    <article class="palier palier--n1 col-4">
+      <div class="palier__niveau">
+        <span class="palier__jauge" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>Niveau 1 · Débutant</span>
+      </div>
+      <h3 class="palier__titre">Déclarer ses cryptoactifs au Canada</h3>
+      <p class="palier__desc">
+        Le socle&nbsp;: savoir si une opération est imposable, sous quelle qualification, et quoi
+        conserver comme pièce justificative.
+      </p>
+      <ul class="palier__liste">
+        <li><a href="#">Gain en capital ou revenu d’entreprise&nbsp;: les critères que retient l’ARC</a></li>
+        <li><a href="#">Quelles opérations déclenchent une disposition&nbsp;: échange, conversion, achat de bien</a></li>
+        <li><a href="#">Tenir un registre opposable&nbsp;: ce que l’ARC exige réellement</a></li>
+        <li><a href="#">Québec&nbsp;: ce que Revenu Québec traite différemment</a></li>
+      </ul>
+      <div class="palier__pied">4 guides · ~45 min</div>
+    </article>
+
+    <article class="palier palier--n2 col-4">
+      <div class="palier__niveau">
+        <span class="palier__jauge" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>Niveau 2 · Intermédiaire</span>
+      </div>
+      <h3 class="palier__titre">Régimes enregistrés, jalonnement et revenus étrangers</h3>
+      <p class="palier__desc">
+        Là où la fiscalité canadienne devient contre-intuitive&nbsp;: comptes enregistrés, rendement
+        passif et déclaration des biens détenus hors Canada.
+      </p>
+      <ul class="palier__liste">
+        <li><a href="#">REER et CELI&nbsp;: pourquoi la détention directe reste fermée, et ce qui s’y loge</a></li>
+        <li><a href="#">Jalonnement&nbsp;: revenu au moment de la réception, ou à la disposition&nbsp;?</a></li>
+        <li><a href="#">Formulaire T1135&nbsp;: quand un cryptoactif devient un bien étranger déterminé</a></li>
+        <li><a href="#">Pertes, superficialité et report&nbsp;: le régime applicable aux cryptoactifs</a></li>
+      </ul>
+      <div class="palier__pied">4 guides · ~1 h 10</div>
+    </article>
+
+    <article class="palier palier--n3 col-4">
+      <div class="palier__niveau">
+        <span class="palier__jauge" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>Niveau 3 · Professionnel</span>
+      </div>
+      <h3 class="palier__titre">Conformité des plateformes et garde d’actifs</h3>
+      <p class="palier__desc">
+        Le parcours destiné aux directions de la conformité, aux cabinets et aux administrateurs&nbsp;:
+        inscription, garde, LBC/FT et responsabilité.
+      </p>
+      <ul class="palier__liste">
+        <li><a href="#">Du courtier restreint à l’OCRI&nbsp;: monter un dossier d’inscription</a></li>
+        <li><a href="#">Garde d’actifs numériques&nbsp;: paliers de dépositaires et limites de l’autogarde</a></li>
+        <li><a href="#">CANAFE et Revenu Québec&nbsp;: cumuler deux régimes d’ESM sans angle mort</a></li>
+        <li><a href="#">Marketing, influence et Avis 21-330&nbsp;: cartographie du risque</a></li>
+      </ul>
+      <div class="palier__pied">4 guides · ~2 h · <strong>Actio&nbsp;Pro</strong></div>
+    </article>
+  </div>
+</section>
+
+<!-- ===================================================================
+     FISCALITÉ CANADIENNE — articles + échéancier
+     =================================================================== -->
+<section class="section" id="fiscalite" aria-labelledby="titre-fiscalite">
+  <div class="section__entete">
+    <div>
+      <span class="section__sur">ARC · Revenu Québec</span>
+      <h2 class="section__titre" id="titre-fiscalite">Fiscalité canadienne</h2>
+    </div>
+    <a class="section__lien" href="#">Toute la fiscalité</a>
+  </div>
+
+  <div class="grille">
+    <div class="col-8 grille" style="align-content:start">
+      <article class="carte col-6">
+        <div class="carte__meta">
+          <span class="badge badge--consultation">Position administrative</span>
+          <span class="juridiction juridiction--federal">ARC</span>
+        </div>
+        <h3 class="carte__titre"><a href="article.html">Gain en capital ou revenu d’entreprise&nbsp;:
+          le faisceau d’indices, appliqué aux opérations de finance décentralisée</a></h3>
+        <p class="carte__resume">
+          Fréquence, durée de détention, intention, expertise, recours à l’emprunt&nbsp;: les critères
+          hérités de la jurisprudence sur le commerce de valeurs se retournent contre le fournisseur
+          de liquidité.
+        </p>
+        <div class="carte__pied"><span>Guide · Niveau 2</span><span>10 min</span></div>
+      </article>
+
+      <article class="carte col-6">
+        <div class="carte__meta">
+          <span class="badge badge--alerte">Obligation déclarative</span>
+          <span class="juridiction juridiction--quebec">Québec</span>
+        </div>
+        <h3 class="carte__titre"><a href="article.html">L’obligation québécoise que le régime fédéral
+          ne prévoit pas</a></h3>
+        <p class="carte__resume">
+          Revenu Québec impose une déclaration propre à la détention de cryptoactifs, indépendante de
+          toute transaction. Beaucoup de contribuables l’ignorent&nbsp;; la pénalité, elle, ne
+          l’ignore pas.
+        </p>
+        <div class="carte__pied"><span>Décryptage</span><span>6 min</span></div>
+      </article>
+
+      <article class="carte col-6">
+        <div class="carte__meta">
+          <span class="badge badge--info">Biens étrangers</span>
+          <span class="juridiction juridiction--federal">Fédéral</span>
+        </div>
+        <h3 class="carte__titre"><a href="article.html">Formulaire T1135&nbsp;: quand un cryptoactif
+          devient un bien étranger déterminé</a></h3>
+        <p class="carte__resume">
+          La réponse dépend du lieu de détention et de la nature du dépositaire — deux notions que
+          l’autogarde rend délicates à établir.
+        </p>
+        <div class="carte__pied"><span>Guide · Niveau 2</span><span>8 min</span></div>
+      </article>
+
+      <article class="carte col-6">
+        <div class="carte__meta">
+          <span class="badge badge--consultation">TPS / TVH</span>
+          <span class="juridiction juridiction--federal">Fédéral</span>
+        </div>
+        <h3 class="carte__titre"><a href="article.html">Minage et taxes à la consommation&nbsp;: le
+          refus des crédits de taxe sur les intrants</a></h3>
+        <p class="carte__resume">
+          Un régime particulier, un effet de trésorerie immédiat, et une zone grise persistante sur
+          les bassins et les groupes de minage.
+        </p>
+        <div class="carte__pied"><span>Analyse</span><span>9 min</span></div>
+      </article>
+    </div>
+
+    <aside class="col-4 echeancier" aria-labelledby="titre-echeancier">
+      <h3 class="echeancier__titre" id="titre-echeancier">Échéancier fiscal</h3>
+      <ul class="echeancier__liste">
+        <li>
+          <span class="echeancier__date">30 <span>avr.</span></span>
+          <span class="echeancier__objet">
+            <strong>Déclaration de revenus des particuliers</strong>
+            <span>Y compris les dispositions de cryptoactifs de l’année civile précédente.</span>
+          </span>
+        </li>
+        <li>
+          <span class="echeancier__date">15 <span>juin</span></span>
+          <span class="echeancier__objet">
+            <strong>Travailleurs autonomes</strong>
+            <span>Le solde dû reste exigible au 30 avril&nbsp;: l’échéance de production n’est pas
+            l’échéance de paiement.</span>
+          </span>
+        </li>
+        <li>
+          <span class="echeancier__date">15 <span>mars</span></span>
+          <span class="echeancier__objet">
+            <strong>Acomptes provisionnels</strong>
+            <span>Un premier exercice de négociation active peut y basculer sans préavis.</span>
+          </span>
+        </li>
+        <li>
+          <span class="echeancier__date">—</span>
+          <span class="echeancier__objet">
+            <strong>Cadre de déclaration des crypto-actifs</strong>
+            <span>Échange automatique de renseignements&nbsp;: le calendrier canadien reste à
+            confirmer sur les textes officiels.</span>
+          </span>
+        </li>
+      </ul>
+      <p class="echeancier__pied">
+        Dates de principe. Vérifiez toujours l’échéance applicable à votre situation auprès de
+        l’ARC et de Revenu Québec.
+      </p>
+    </aside>
+  </div>
+</section>
+
+<!-- ===================================================================
+     ACTIO PRO — offre professionnelle
+     =================================================================== -->
+<section class="section" id="pro" aria-labelledby="titre-pro">
+  <div class="pro">
+    <div>
+      <p class="pro__sur">Actio Pro · Research</p>
+      <h2 class="pro__titre" id="titre-pro">Pour ceux dont la conformité est le métier.</h2>
+      <p class="pro__texte">
+        Le suivi documenté de chaque dossier réglementaire canadien, avec ses pièces, ses échéances
+        et ses conséquences opérationnelles. Conçu pour les directions de la conformité, les
+        cabinets et les administrateurs.
+      </p>
+      <a class="btn btn--primaire" href="#">Découvrir Actio Pro</a>
+      <p class="pro__mention">
+        Abonnement institutionnel. Facturation annuelle, sièges multiples, accès par domaine.
+        Aucun contenu commandité dans l’offre Pro.
+      </p>
+    </div>
+
+    <ul class="pro__liste">
+      <li><span><strong>Notes de recherche</strong>
+        <span>Analyse longue d’un dossier, avec ses sources primaires et l’état de chaque question ouverte.</span></span></li>
+      <li><span><strong>Suivi de dossiers</strong>
+        <span>Chaque consultation, avis, décision et échéance rattaché au dossier qu’il fait avancer.</span></span></li>
+      <li><span><strong>Registre enrichi</strong>
+        <span>Historique des inscriptions, conditions et dispenses plateforme par plateforme, exportable.</span></span></li>
+      <li><span><strong>Alertes</strong>
+        <span>Notification à la publication d’un acte visant une autorité, une plateforme ou un thème suivi.</span></span></li>
+      <li><span><strong>Données structurées</strong>
+        <span>Accès par interface de programmation aux taxonomies, aux échéances et au registre.</span></span></li>
+      <li><span><strong>Séances avec la rédaction</strong>
+        <span>Point trimestriel à huis clos sur l’état du cadre réglementaire canadien.</span></span></li>
+    </ul>
+  </div>
+</section>
+
+</div><!-- /contenant -->
+
+<!-- ===================================================================
+     APPEL À L’ABONNEMENT — pleine largeur
+     Conformité LCAP : consentement exprès, non pré-coché, distinct.
+     =================================================================== -->
+<section class="section" id="infolettre" aria-labelledby="titre-infolettre">
+  <div class="contenant">
+    <div class="infolettre">
+      <div class="infolettre__inner">
+        <p class="infolettre__sur">Actio Dispatch · l’infolettre</p>
+        <h2 class="infolettre__titre" id="titre-infolettre">
+          Le mardi matin, ce qui a changé dans le droit canadien des cryptoactifs.
+        </h2>
+        <p class="infolettre__promesse">
+          Une édition par semaine&nbsp;: le décryptage d’un acte réglementaire, le radar des juridictions
+          (Ottawa, Québec, Ontario, international) avec son niveau d’impact, et un point de fiscalité
+          appliqué à un cas réel. Lu en huit minutes. Sourcé, daté, sans conseil d’achat.
+        </p>
+
+        <div class="infolettre__preuves">
+          <div class="infolettre__preuve">
+            <span class="infolettre__chiffre">Mardi · 6 h 30</span>
+            <span class="infolettre__label">Heure de l’Est</span>
+          </div>
+          <div class="infolettre__preuve">
+            <span class="infolettre__chiffre">8 min</span>
+            <span class="infolettre__label">Temps de lecture</span>
+          </div>
+          <div class="infolettre__preuve">
+            <span class="infolettre__chiffre">100 %</span>
+            <span class="infolettre__label">Sources primaires citées</span>
+          </div>
+        </div>
+
+        <form data-formulaire="infolettre" novalidate>
+        <label class="infolettre__consentement" style="margin:0 0 var(--e-5)">
+          <input type="checkbox" name="consentement" style="margin-top:3px;flex:none">
+          <span>
+            Je consens expressément à recevoir l’infolettre <em>Actio Dispatch</em> et les communications
+            électroniques commerciales d’Actio, conformément à la <strong>Loi canadienne anti-pourriel
+            (LCAP)</strong>. Ce consentement peut être retiré en tout temps par le lien de désabonnement
+            présent dans chaque message. Voir la <a href="#">politique de confidentialité</a> et les
+            <a href="#">conditions d’utilisation</a>.
+          </span>
+        </label>
+
+         <div class="infolettre__form">
+          <label class="vh" for="courriel">Adresse de courriel</label>
+          <input class="champ" id="courriel" name="courriel" type="email" required
+                 autocomplete="email" placeholder="prenom.nom@cabinet.ca"
+                >
+          <button class="btn btn--primaire" type="submit">Recevoir Actio Dispatch</button>
+         </div>
+
+
+        <p class="infolettre__reassurance">
+          <span>Une seule édition par semaine</span>
+          <span>Désabonnement en un clic, traité sous 10 jours ouvrables</span>
+          <span>Aucune revente ni cession de vos renseignements</span>
+          <span>Données hébergées au Canada</span>
+        </p>
+
+        <p role="status" aria-live="polite" data-etat
+           style="margin:16px 0 0;font-size:var(--t-petit);min-height:1.4em;opacity:.9"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================================================================
+     PIED DE PAGE INSTITUTIONNEL
+     =================================================================== -->
+<footer class="pied">
+  <div class="contenant">
+    <div class="pied__principal grille">
+
+      <div class="col-4 pied__colonne">
+        <a class="logo" href="index.html" style="margin-bottom:12px">
+          <span>Actio<span class="logo__point">.</span></span>
+        </a>
+        <p style="font-size:var(--t-petit);color:var(--texte-secondaire);max-width:36ch">
+          Média indépendant d’analyse du cadre réglementaire, fiscal et prudentiel des cryptoactifs
+          au Canada. Publié en français et en anglais canadien.
+        </p>
+        <p style="font-size:var(--t-micro);color:var(--texte-tertiaire);font-family:var(--police-donnee)">
+          Actio Média inc.<br>
+          1000, rue De La Gauchetière Ouest, bureau 2400<br>
+          Montréal (Québec) H3B 4W5, Canada<br>
+          redaction@actio.ca
+        </p>
+      </div>
+
+      <div class="col-2 pied__colonne">
+        <h3>Rubriques</h3>
+        <ul class="pied__liste">
+          <li><a href="#regulation">Régulation &amp; ACVM</a></li>
+          <li><a href="#marches">Marchés &amp; Macro</a></li>
+          <li><a href="#guides">Guides &amp; Éducation</a></li>
+          <li><a href="#fiscalite">Fiscalité canadienne</a></li>
+          <li><a href="#pro">Actio Pro</a></li>
+        </ul>
+      </div>
+
+      <div class="col-3 pied__colonne">
+        <h3>Registres et sources officielles</h3>
+        <ul class="pied__liste">
+          <li><a href="https://www.autorites-valeurs-mobilieres.ca/" rel="external noopener">Autorités canadiennes en valeurs mobilières</a></li>
+          <li><a href="https://lautorite.qc.ca/" rel="external noopener">Autorité des marchés financiers (Québec)</a></li>
+          <li><a href="https://www.osc.ca/" rel="external noopener">Commission des valeurs mobilières de l’Ontario</a></li>
+          <li><a href="https://www.ciro.ca/" rel="external noopener">Organisme canadien de réglementation des investissements</a></li>
+          <li><a href="https://fintrac-canafe.canada.ca/" rel="external noopener">CANAFE</a></li>
+          <li><a href="https://www.revenuquebec.ca/" rel="external noopener">Revenu Québec — permis d’ESM</a></li>
+          <li><a href="https://gazette.gc.ca/" rel="external noopener">Gazette du Canada</a></li>
+        </ul>
+      </div>
+
+      <div class="col-3 pied__colonne">
+        <h3>Transparence</h3>
+        <ul class="pied__liste">
+          <li><a href="#">Charte éditoriale et indépendance</a></li>
+          <li><a href="#">Politique sur les partenariats rémunérés</a></li>
+          <li><a href="#">Politique d’affiliation et de divulgation</a></li>
+          <li><a href="#">Méthode de vérification des sources</a></li>
+          <li><a href="#">Politique de correction</a></li>
+          <li><a href="#">Conflits d’intérêts de la rédaction</a></li>
+          <li><a href="#">Nous signaler une erreur</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="avertissement" role="note">
+      <p class="avertissement__titre">
+        <span aria-hidden="true">⚠</span>
+        Avertissement sur les risques et absence de conseil
+      </p>
+      <p>
+        <strong>Actio ne fournit ni conseil en placement, ni conseil juridique, ni conseil fiscal.</strong>
+        Actio n’est inscrite à aucun titre auprès des Autorités canadiennes en valeurs mobilières, de
+        l’Autorité des marchés financiers, de la Commission des valeurs mobilières de l’Ontario ou de
+        l’Organisme canadien de réglementation des investissements, et n’exerce aucune activité de
+        courtage, de conseil ou de gestion de portefeuille.
+      </p>
+      <p>
+        Les contenus publiés sont de nature journalistique et éducative. Ils décrivent un état du droit
+        à une date donnée&nbsp;; le droit évolue, et une analyse exacte à sa date de publication peut
+        cesser de l’être. Aucun contenu ne tient compte de votre situation personnelle, de vos objectifs
+        de placement ni de votre tolérance au risque. <strong>Consultez un professionnel inscrit ou un
+        avocat avant toute décision.</strong>
+      </p>
+      <p>
+        Les cryptoactifs sont des actifs volatils. Vous pouvez perdre la totalité des sommes investies.
+        Une plateforme non inscrite auprès de l’autorité de votre province ne vous fait bénéficier
+        d’aucune des protections prévues par la législation en valeurs mobilières, y compris en cas
+        d’insolvabilité. <strong>Vérifiez toujours l’inscription d’une plateforme dans le registre de
+        votre autorité provinciale avant d’y déposer des fonds.</strong>
+      </p>
+    </div>
+
+    <div class="pied__legal">
+      <span>© 2026 Actio Média inc. Tous droits réservés. Prototype non publié.</span>
+      <nav aria-label="Liens légaux">
+        <a href="#">Mentions légales</a>
+        <a href="#">Conditions d’utilisation</a>
+        <a href="#">Politique de confidentialité (Loi 25 / LPRPDE)</a>
+        <a href="#">Gestion des témoins</a>
+        <a href="#">Accessibilité (WCAG 2.1 AA)</a>
+        <a href="#">Nous joindre</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/actio.js"></script>
+</body>
+</html>

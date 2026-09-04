@@ -22,9 +22,11 @@ const CHROME = process.env.ACTIO_CHROME
   ?? '/opt/pw-browsers/chromium-1194/chrome-linux/chrome';
 
 const PAGES = [
-  { nom: 'accueil', fichier: 'index.html' },
-  { nom: 'article', fichier: 'article.html' },
-  { nom: 'registre', fichier: 'registre.html' },
+  { nom: 'portail', fichier: 'index.html' },
+  { nom: 'accueil-fr', fichier: 'fr/index.html' },
+  { nom: 'article-fr', fichier: 'fr/article.html' },
+  { nom: 'registre-fr', fichier: 'fr/registre.html' },
+  { nom: 'accueil-en', fichier: 'en/index.html' },
 ];
 const LARGEURS = [
   { nom: 'bureau', w: 1440, h: 900 },

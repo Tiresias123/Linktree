@@ -23,7 +23,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 const ICI = dirname(fileURLToPath(import.meta.url));
 const PROTO = resolve(ICI, '..', 'prototype');
 const CHROME = process.env.ACTIO_CHROME ?? '/opt/pw-browsers/chromium-1194/chrome-linux/chrome';
-const PAGES = ['index.html', 'article.html', 'registre.html'];
+const PAGES = ['index.html', 'fr/index.html', 'fr/article.html', 'fr/registre.html', 'en/index.html'];
 
 /* --- Calcul du rapport de contraste WCAG ------------------------------- */
 function canal(v) { v /= 255; return v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }
@@ -74,9 +74,7 @@ for (const fichier of PAGES) {
         }
         const cible = l.href.split('#')[0];
         if (!cible) continue;
-        const chemin = cible.startsWith('../')
-          ? resolve(PROTO, cible)
-          : join(PROTO, cible);
+        const chemin = resolve(dirname(join(PROTO, fichier)), cible);
         if (!existsSync(chemin)) note(etiquette, 'liens', `lien interne cassé : ${cible} (« ${l.texte} »)`);
       }
 
@@ -176,6 +174,7 @@ for (const fichier of PAGES) {
         return `rgb(${Math.round(acc.r)}, ${Math.round(acc.v)}, ${Math.round(acc.b)})`;
       };
       const vus = new Set(), sortie = [];
+      let st_color_effective;
       const noeuds = document.querySelectorAll(
         'p, li, a, span, h1, h2, h3, h4, h5, h6, td, th, label, button, .badge, .juridiction, .carte__pied, .filtres__compte'
       );
@@ -184,15 +183,29 @@ for (const fichier of PAGES) {
         if (!t || el.children.length > 0 && !/\S/.test(el.childNodes[0]?.textContent || '')) continue;
         const st = getComputedStyle(el);
         if (st.visibility === 'hidden' || st.display === 'none' || +st.opacity === 0) continue;
+        // L'opacité d'un ancêtre atténue le texte sans changer sa couleur
+        // calculée : sans ce cumul, un bloc à opacity:.72 passe inaperçu.
+        let opacite = 1;
+        for (let a = el; a && a !== document.documentElement; a = a.parentElement) {
+          opacite *= parseFloat(getComputedStyle(a).opacity || '1');
+        }
+        if (opacite < 0.999) {
+          const t = lire(st.color), f = lire(fondEffectif(el) || 'rgb(255,255,255)');
+          if (t && f) {
+            st_color_effective = `rgb(${Math.round(t.r * opacite + f.r * (1 - opacite))}, ` +
+              `${Math.round(t.v * opacite + f.v * (1 - opacite))}, ` +
+              `${Math.round(t.b * opacite + f.b * (1 - opacite))})`;
+          }
+        } else { st_color_effective = st.color; }
         const r = el.getBoundingClientRect();
         if (r.width < 2 || r.height < 2) continue;
         const fond = fondEffectif(el);
         if (fond === null) continue;   // fond en dégradé : non mesurable
-        const cle = `${st.color}|${fond}|${st.fontSize}|${st.fontWeight}`;
+        const cle = `${st_color_effective}|${fond}|${st.fontSize}|${st.fontWeight}`;
         if (vus.has(cle)) continue;
         vus.add(cle);
         sortie.push({
-          couleur: st.color, fond,
+          couleur: st_color_effective, fond,
           px: parseFloat(st.fontSize), graisse: +st.fontWeight,
           selecteur: el.tagName.toLowerCase() + (el.className && typeof el.className === 'string' ? '.' + el.className.trim().split(/\s+/).slice(0, 2).join('.') : ''),
           extrait: t.slice(0, 40),

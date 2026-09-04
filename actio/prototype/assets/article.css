@@ -40,7 +40,7 @@
 .article__auteur { display: flex; align-items: center; gap: var(--e-3); }
 .article__portrait {
   width: 40px; height: 40px; border-radius: var(--rayon-plein); flex: none;
-  background: linear-gradient(135deg, var(--actio-bleu-palais), var(--actio-turquoise-fonce));
+  background: linear-gradient(135deg, var(--degrade-2), var(--degrade-3));
   display: grid; place-items: center; color: #fff;
   font-family: var(--police-titre); font-weight: var(--graisse-grasse); font-size: .85rem;
 }
@@ -262,7 +262,7 @@
 @media (max-width: 560px) { .bio { grid-template-columns: 1fr; } }
 .bio__portrait {
   width: 72px; height: 72px; border-radius: var(--rayon-plein);
-  background: linear-gradient(135deg, var(--actio-bleu-palais), var(--actio-turquoise-fonce));
+  background: linear-gradient(135deg, var(--degrade-2), var(--degrade-3));
   display: grid; place-items: center; color: #fff;
   font-family: var(--police-titre); font-weight: var(--graisse-grasse); font-size: 1.4rem;
 }

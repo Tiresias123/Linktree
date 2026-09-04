@@ -57,6 +57,15 @@
   --encre-baisse:  #FF6B7F;
   --encre-stable:  #8FA0B2;
   --encre-ambre:   #E8A93C;
+  --encre-accent-texte: #06231F;   /* sur --encre-accent : 8,8:1 */
+  --statut-alerte-fixe: #C8102E;   /* alerte sur bande d’encre — blanc dessus : 5,9:1 */
+
+  /* Dégradés d’illustration — invariants. Un dégradé qui porte du texte blanc
+     ne peut pas suivre le thème : il s’éclaircirait en mode sombre et rendrait
+     ses libellés illisibles. Blanc dessus : 14,4:1 / 11,1:1 / 6,4:1.          */
+  --degrade-1: #0A2B4B;
+  --degrade-2: #0F3D68;
+  --degrade-3: #096B61;
 
   /* Bandeau de probité du prototype — ambre invariant, blanc dessus 6,3:1.  */
   --demo-fond:  #8A5300;
@@ -66,7 +75,7 @@
   --jur-federal:   #0F3D68;   /* Canada / Ottawa      */
   --jur-quebec:    #16688A;   /* Québec / AMF         */
   --jur-ontario:   #6B4FA8;   /* Ontario / CVMO       */
-  --jur-multi:     #0B7F74;   /* Harmonisé ACVM       */
+  --jur-multi:     #096B61;   /* Harmonisé ACVM       */
   --jur-intl:      #8A6D3B;   /* International        */
 
   /* ---------- 4. Surfaces — mode clair (défaut) ------------------------ */
@@ -261,16 +270,47 @@
 }
 
 /* ==========================================================================
-   Règle d'accessibilité opposable (WCAG 2.1 AA — vérifiée par calcul)
+   Règle d'accessibilité opposable — WCAG 2.1 AA, vérifiée par calcul
+   (voir tools/verifier.mjs, qui mesure sur le DOM rendu dans les deux thèmes)
    --------------------------------------------------------------------------
-   Aplat plein + texte BLANC  : autorisé sur bleu-palais (11,1), bleu-palais-
-     foncé (14,4), alerte (5,9), consultation (5,7), conforme (5,2),
-     turquoise-foncé (4,9), neutre (5,5).
-   Aplat plein + texte ENCRE  : OBLIGATOIRE sur --actio-turquoise (6,8 en encre,
-     2,6 en blanc → le blanc y est INTERDIT).
-   Textes de statut sur fond pâle : employer le jeton plein correspondant
-     (ex. --statut-alerte sur --statut-alerte-pale) — tous ≥ 4,5:1.
-   Aucun jeton de texte n'est autorisé sous 4,5:1 sur --fond-surface-2.
+   RÈGLE GÉNÉRALE. Les jetons de marque et de statut sont des couleurs de
+   TEXTE. Ils s'éclaircissent en mode sombre pour rester lisibles sur fond
+   foncé — et deviennent, de ce fait, incapables de porter du texte blanc :
+
+       jeton (valeur en mode sombre)        blanc dessus
+       --actio-bleu-palais      #4E9BE0        2,96:1
+       --statut-alerte          #FF6B7F        2,74:1
+       --statut-consultation    #E8A93C        2,06:1
+       --statut-conforme        #3FCB96        2,06:1
+       --actio-turquoise-fonce  #3FD8C7        1,77:1
+       --actio-turquoise        #35D6C4        1,82:1
+
+   Aucun de ces jetons ne peut donc servir d'APLAT PLEIN. C'est une règle,
+   pas une préférence : elle a été établie après que six composants du
+   prototype eurent échoué pour cette exact raison.
+
+   APLATS AUTORISÉS SOUS DU TEXTE BLANC — invariants par thème :
+       --fill-primaire        #0F3D68 clair / #1B5A96 sombre   11,1 / 7,1
+       --statut-alerte-fixe   #C8102E                           5,9
+       --demo-fond            #8A5300                           6,3
+       --encre-fond           #0E1A2B clair / #16263A sombre   17,5 / 15,3
+       --degrade-1/2/3        #0A2B4B / #0F3D68 / #096B61  14,4 / 11,1 / 6,4
+
+   APLAT EXIGEANT DU TEXTE D'ENCRE :
+       --encre-accent #35D6C4 + --encre-accent-texte #06231F     9,1:1
+       (le blanc y tombe à 1,8:1 — il est INTERDIT)
+
+   TEXTE PORTÉ PAR UNE BANDE D'ENCRE — tous ≥ 5,5:1 sur les deux valeurs
+   de --encre-fond : --encre-texte 16,3 / 14,2 · --encre-texte-2 8,7 / 7,6 ·
+   --encre-accent 9,6 / 8,4 · --encre-hausse 8,5 / 7,4 · --encre-baisse
+   6,4 / 5,6 · --encre-stable 6,5 / 5,7 · --encre-ambre 8,5 / 7,4.
+
+   TEXTE DE STATUT SUR SON FOND PÂLE : employer le jeton plein correspondant
+   (--statut-alerte sur --statut-alerte-pale, etc.) — tous ≥ 4,5:1 une fois
+   la transparence composée sur la surface porteuse.
+
+   Aucun jeton de texte n'est autorisé sous 4,5:1 sur --fond-surface-2, qui
+   est la surface la plus défavorable du mode clair.
    ========================================================================== */
 
 :root[data-theme="light"] { color-scheme: light; }

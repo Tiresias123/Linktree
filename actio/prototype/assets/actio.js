@@ -6,10 +6,7 @@
 (function () {
   'use strict';
 
-  var STOCKAGE = {
-    theme:  'actio.theme',
-    langue: 'actio.langue'
-  };
+  var STOCKAGE = { theme: 'actio.theme' };
 
   /* --- Utilitaires de stockage tolérants aux pannes ---------------------- */
   function lire(cle) {
@@ -56,43 +53,16 @@
   });
 
   /* ======================================================================
-     2. Bilinguisme FR / EN canadien
-     Chaque nœud traduisible porte data-fr et data-en. On bascule le texte,
-     l'attribut lang du document et les libellés d'accessibilité.
+     2. Bilinguisme
+     Aucune bascule d'attribut ici, volontairement. Chaque langue est servie
+     comme un document distinct sous sa propre URL (/fr/… et /en/…), ce que
+     le sélecteur du gabarit traduit par deux liens et non deux boutons.
+     Motif : la Charte de la langue française impose une version française
+     d'une qualité et d'une accessibilité au moins égales — une équivalence
+     qu'on ne peut pas démontrer si les deux langues partagent une URL. Le
+     lecteur doit pouvoir partager le lien de la version qu'il lit.
+     La langue du document est déclarée par l'attribut lang de <html>.
      ====================================================================== */
-  function appliquerLangue(langue) {
-    var lang = langue === 'en' ? 'en-CA' : 'fr-CA';
-    document.documentElement.setAttribute('lang', lang);
-
-    document.querySelectorAll('[data-fr]').forEach(function (n) {
-      var v = langue === 'en' ? n.getAttribute('data-en') : n.getAttribute('data-fr');
-      if (v !== null) n.textContent = v;
-    });
-    document.querySelectorAll('[data-fr-aria]').forEach(function (n) {
-      var v = langue === 'en' ? n.getAttribute('data-en-aria') : n.getAttribute('data-fr-aria');
-      if (v !== null) n.setAttribute('aria-label', v);
-    });
-    document.querySelectorAll('[data-fr-placeholder]').forEach(function (n) {
-      var v = langue === 'en' ? n.getAttribute('data-en-placeholder') : n.getAttribute('data-fr-placeholder');
-      if (v !== null) n.setAttribute('placeholder', v);
-    });
-    document.querySelectorAll('[data-action="langue"]').forEach(function (b) {
-      b.setAttribute('aria-pressed', String(b.dataset.langue === langue));
-    });
-    // Lien alternatif hreflang mis à jour pour le référencement.
-    var alt = document.querySelector('link[rel="alternate"][data-bascule]');
-    if (alt) alt.setAttribute('hreflang', langue === 'en' ? 'fr-CA' : 'en-CA');
-  }
-
-  appliquerLangue(lire(STOCKAGE.langue) ||
-                  (document.documentElement.lang.indexOf('en') === 0 ? 'en' : 'fr'));
-
-  document.addEventListener('click', function (e) {
-    var b = e.target.closest('[data-action="langue"]');
-    if (!b) return;
-    ecrire(STOCKAGE.langue, b.dataset.langue);
-    appliquerLangue(b.dataset.langue);
-  });
 
   /* ======================================================================
      3. Mega-menu accessible (clavier + souris + Échap + clic extérieur)
