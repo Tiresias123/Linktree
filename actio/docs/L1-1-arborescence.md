@@ -4,7 +4,7 @@ Trois arbitrages gouvernent cette section. **Premier :** la rubrique est une pro
 
 ### 1.1 Les cinq rubriques d'Actio
 
-Les cinq libellés sont ceux du prototype (`prototype/index.html`, attributs `data-fr` / `data-en` des `.nav__lien`). Toute divergence entre ce tableau et le prototype est un défaut à corriger dans le prototype, pas ici.
+Les cinq libellés sont ceux du prototype (`prototype/fr/index.html` et `prototype/en/index.html`, textes des `.nav__lien`). Toute divergence entre ce tableau et le prototype est un défaut à corriger dans le prototype, pas ici.
 
 | # | Nom FR | Nom EN (canadien) | Slug FR | Slug EN |
 |---|---|---|---|---|
@@ -93,7 +93,7 @@ Le niveau 0 est une redirection 302 vers `/fr/` (voir § 1.5). Les sous-rubrique
 
 ```
 /                                   → 302 vers /fr/  (jamais indexé)
-├── /fr/                            [N1] accueil — prototype/index.html
+├── /fr/                            [N1] accueil — prototype/fr/index.html
 │   ├── /fr/regulation-acvm/                       [N2] rubrique
 │   │   ├── /fr/regulation-acvm/inscription-plateformes/       [N3]
 │   │   ├── /fr/regulation-acvm/avis-du-personnel/             [N3]

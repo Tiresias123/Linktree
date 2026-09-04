@@ -109,29 +109,33 @@ Loi 25 l'impose.
 
 La règle B fait le travail de fond : elle garantit que C1 et l'édition ne tombent jamais le même jour, et
 produit mécaniquement la promesse de C1 — la première édition reçue est **le premier mardi situé à plus de
-24 heures après la confirmation**. C'est cette date, calculée à l'envoi, qui est écrite en toutes lettres
-dans C1 ; elle n'est jamais approximée par « la semaine prochaine ».
+24 heures après la confirmation**. Cette date, calculée à l'envoi, est écrite en toutes lettres dans C1 ;
+elle n'est jamais approximée par « la semaine prochaine ».
 
 **Conséquence d'intégration.** Les trois courriels passent par la chaîne de l'édition — `chassis.html`, un
 fragment dans `newsletter/contenus/`, une entrée de manifeste — avec `bandeau_cours: false`, qui retire le
 bloc `<!--DEBUT:COURS-->` … `<!--FIN:COURS-->`. Clés : `bienvenue-01`, `bienvenue-02`, `bienvenue-03`. Le
 fichier `newsletter/manifeste.json` que lit `tools/emails.mjs` **n'existe pas encore dans le dépôt** :
-premier ticket. Le tableau `MENTIONS_OBLIGATOIRES` reçoit une septième entrée, propre à `bienvenue-01` :
+premier ticket. `MENTIONS_OBLIGATOIRES` reçoit une septième entrée, propre à `bienvenue-01` :
 `{{lien_guide}}` — un courriel d'accueil qui ne livre pas le guide qu'il annonce doit être un échec de
 compilation, pas une coquille.
 
 ### 3.2 Les trois courriels
 
-#### Courriel 1 — Accueil, positionnement et remise du guide
+**Fiche technique des trois envois.** Expéditeur affiché identique pour les trois — **Actio Dispatch**,
+`dispatch@actio.ca`, `Reply-To: redaction@actio.ca` : changer de nom d'affichage en cours de séquence
+disperse la réputation d'expéditeur et casse la reconnaissance en boîte de réception. Objets sous le
+plafond dur de 60 caractères du § 1.3, sans émoji, sans capitale d'insistance.
 
-| Champ | Valeur |
-|---|---|
-| Expéditeur affiché | **Actio Dispatch** — `dispatch@actio.ca` ; `Reply-To: redaction@actio.ca` |
-| Objet témoin | **Bienvenue. Votre guide de conformité est prêt.** (46 car.) |
-| Variante A/B nº 1 | **Votre guide de conformité canadienne est prêt** (45 car.) |
-| Variante A/B nº 2 | **C'est confirmé — et voici le guide** (34 car.) |
-| Pré-en-tête | *Ce qu'Actio est, ce qu'Actio n'est pas, la date de votre première édition, et une question à une ligne.* (104 car.) |
-| Appel à l'action unique | **Déclarer son profil** — deux boutons, une seule décision |
+| | **C1 — Accueil et guide** | **C2 — Le cadre canadien** | **C3 — Les ressources** |
+|---|---|---|---|
+| **Objet témoin** | Bienvenue. Votre guide de conformité est prêt. (46) | Aucune commission fédérale des valeurs mobilières (48) | Par où commencer dans les ressources d'Actio (43) |
+| **Variante A/B nº 1** | Votre guide de conformité canadienne est prêt (45) | Pourquoi le Canada n'a pas de gendarme unique (44) | Le registre, l'agenda, les trois parcours (40) |
+| **Variante A/B nº 2** | C'est confirmé — et voici le guide (34) | Un cadre bâti sur des avis, pas des règlements (48) | Ce qu'il faut ouvrir en premier chez Actio (43) |
+| **Pré-en-tête** | *Ce qu'Actio est, ce qu'Actio n'est pas, la date de votre première édition, et une question à une ligne.* (104) | *Quatre régimes se superposent sur une même plateforme : valeurs mobilières, autoréglementation, LBC/FT fédéral, permis québécois.* (128) | *Cinq rubriques, trois paliers de guides, un registre daté et un agenda : chacun résout un problème précis.* (105) |
+| **Appel à l'action unique** | **Déclarer son profil** — deux boutons, une seule décision | **Ouvrir la carte des autorités canadiennes** → `/fr/autorite/` | **S1** « Commencer le parcours Niveau 1 » → `/fr/guides-education/niveau-1-fondamentaux/` · **S2** « Demander l'accès d'essai à *Actio Pro* » → `/fr/actio-pro/` |
+
+#### Courriel 1 — Accueil, positionnement et remise du guide
 
 **Corps du message**
 
@@ -176,20 +180,29 @@ compilation, pas une coquille.
 elle dégraderait la délivrabilité et priverait Actio de la possibilité de corriger après diffusion, ce que
 la politique de correction impose.
 
-| Ch. | Titre | Contenu | Ce qu'il refuse d'affirmer |
-|---|---|---|---|
-| 1 | Qui régule quoi | La carte des autorités — ACVM, AMF, CVMO, OCRI, TMF, CANAFE, Revenu Québec, ARC, Banque du Canada, BSIF, CRTC, CAI, OQLF — chacune avec son objet de compétence et le type de publication à surveiller | Le nombre de membres des ACVM |
-| 2 | Le contrat de cryptoactif | L'Avis 21-327 du personnel des ACVM, publié en janvier 2020 : l'absence de livraison immédiate fait naître une relation contractuelle soumise au droit des valeurs mobilières. Puis *AMF c. Gagnon* (TMF, 22 août 2025) : gérer les ETH d'investisseurs contre 20 % des profits est un contrat d'investissement ; vendre un abonnement à un groupe de signaux n'en est pas un | La référence neutre des décisions ; l'existence d'un appel |
-| 3 | Vérifier une plateforme en quatre minutes | Partir des **deux listes officielles des ACVM** — autorisées, proscrites — les dater, puis lire la décision d'inscription. Quatre statuts à distinguer : engagement préalable, courtier restreint, courtier en placement, membre de l'OCRI | Tout nom repris d'une source secondaire ; toute limite d'achat annuelle |
-| 4 | La garde des actifs | Règles CPPC 4300 et 4342 de l'OCRI — garde, emplacement de titres agréé, séparation quotidienne, obligation de résultat faisant échapper aux créanciers les actifs entièrement payés — puis le cadre de garde publié le 3 février 2026, qui classe les dépositaires par paliers et limite l'autogarde | Tout palier, tout plafond d'actifs, tout seuil de capital |
-| 5 | Le second régime : LBC/FT | LRPCFAT (L.C. 2000, ch. 17) : l'inscription auprès du CANAFE est **déclarative** — ni capital minimum, ni cautionnement, ni agrément prudentiel. Depuis le 1er juin 2021 : déclaration des réceptions de monnaie virtuelle de 10 000 $ et plus, règle de 24 heures, règle d'acheminement, tenue de documents. Le projet de loi C-12, sanctionné le 26 mars 2026 | La périodicité et les frais d'inscription ; le calendrier des décrets ; les numéros d'articles |
-| 6 | Le troisième régime : le permis québécois | Le permis d'entreprise de services monétaires de la *Loi sur les entreprises de services monétaires* (RLRQ c. E-12.000001), obligatoire depuis le 1er avril 2012 et **distinct** de l'inscription en valeurs mobilières | **L'autorité délivrante**, tant qu'elle n'est pas vérifiée sur `revenuquebec.ca` (C-04) ; le libellé des catégories |
-| 7 | La fiscalité en dix décisions | Les cryptoactifs sont des **biens**, non de la monnaie, et chaque disposition est un fait générateur. Les facteurs des par. 9 à 13 du bulletin IT-479R. Le taux d'inclusion demeure **50 %** — hausse annulée le 21 mars 2025. T1135 : seuil de **coût total supérieur à 100 000 $**, et non de juste valeur marchande ; pénalité de 25 $ par jour, minimum 100 $, maximum 2 500 $. TP-21.4.39, exigible depuis l'année d'imposition 2024 même sans opération. Détention directe non admissible en REER, CELI et CELIAPP ; impôt de 50 % de la juste valeur marchande du placement non admissible. Minage : art. 188.2 LTA, crédits de taxe sur les intrants refusés. Effet de paiement virtuel : fourniture exonérée. Jetons non fongibles : fournitures taxables, seuil de petit fournisseur 30 000 $. *Amicarelli c. Le Roi*, 2025 CCI 185 | Toute position de l'ARC sur le jalonnement ; les renvois d'articles non vérifiés ; toute date d'application du Cadre de déclaration des cryptoactifs |
-| 8 | Les six questions ouvertes | Jalonnement, largages et embranchements : la pratique dominante des cabinets et des CPA retient l'inclusion au revenu de la juste valeur marchande à la réception, **et cette pratique n'est pas une position de l'ARC**. Finance décentralisée. Le calendrier du Cadre de déclaration des cryptoactifs (*Crypto-Asset Reporting Framework*, CARF), modifié par le Budget de 2025. Le régime fédéral des cryptomonnaies stables édicté par le projet de loi C-15 : **édicté, non en vigueur**. Le sort des inscriptions de courtier restreint encore actives. L'articulation avec le régime intérimaire de l'Avis 21-333 | Tout : le chapitre entier est écrit au conditionnel documenté |
+| Ch. | Titre | Contenu |
+|---|---|---|
+| 1 | Qui régule quoi | La carte des autorités — ACVM, AMF, CVMO, OCRI, TMF, CANAFE, Revenu Québec, ARC, Banque du Canada, BSIF, CRTC, CAI, OQLF — chacune avec son objet de compétence et le type de publication à surveiller |
+| 2 | Le contrat de cryptoactif | L'Avis 21-327 du personnel des ACVM, publié en janvier 2020 : l'absence de livraison immédiate fait naître une relation contractuelle soumise au droit des valeurs mobilières. Puis *AMF c. Gagnon* (TMF, 22 août 2025) : gérer les ETH d'investisseurs contre 20 % des profits est un contrat d'investissement ; vendre un abonnement à un groupe de signaux n'en est pas un |
+| 3 | Vérifier une plateforme en quatre minutes | Partir des **deux listes officielles des ACVM** — autorisées, proscrites — les dater, puis lire la décision d'inscription. Quatre statuts à distinguer : engagement préalable, courtier restreint, courtier en placement, membre de l'OCRI |
+| 4 | La garde des actifs | Règles CPPC 4300 et 4342 de l'OCRI — garde, emplacement de titres agréé, séparation quotidienne, obligation de résultat faisant échapper aux créanciers les actifs entièrement payés — puis le cadre de garde publié le 3 février 2026, qui classe les dépositaires par paliers et limite l'autogarde |
+| 5 | Le second régime : LBC/FT | LRPCFAT (L.C. 2000, ch. 17) : l'inscription auprès du CANAFE est **déclarative** — ni capital minimum, ni cautionnement, ni agrément prudentiel. Depuis le 1er juin 2021 : déclaration des réceptions de monnaie virtuelle de 10 000 $ et plus, règle de 24 heures, règle d'acheminement, tenue de documents. Le projet de loi C-12, sanctionné le 26 mars 2026 |
+| 6 | Le troisième régime : le permis québécois | Le permis d'entreprise de services monétaires de la *Loi sur les entreprises de services monétaires* (RLRQ c. E-12.000001), obligatoire depuis le 1er avril 2012 et **distinct** de l'inscription en valeurs mobilières |
+| 7 | La fiscalité en dix décisions | Les cryptoactifs sont des **biens**, non de la monnaie, et chaque disposition est un fait générateur. Les facteurs des par. 9 à 13 du bulletin IT-479R. Le taux d'inclusion demeure **50 %** — hausse annulée le 21 mars 2025. T1135 : seuil de **coût total supérieur à 100 000 $**, et non de juste valeur marchande ; pénalité de 25 $ par jour, minimum 100 $, maximum 2 500 $. TP-21.4.39, exigible depuis l'année d'imposition 2024 même sans opération. Détention directe non admissible en REER, CELI et CELIAPP ; impôt de 50 % de la juste valeur marchande du placement non admissible. Minage : art. 188.2 LTA, crédits de taxe sur les intrants refusés. Effet de paiement virtuel : fourniture exonérée. Jetons non fongibles : fournitures taxables, seuil de petit fournisseur 30 000 $. *Amicarelli c. Le Roi*, 2025 CCI 185 |
+| 8 | Les six questions ouvertes | Jalonnement, largages et embranchements : la pratique dominante des cabinets et des CPA retient l'inclusion au revenu de la juste valeur marchande à la réception, **et cette pratique n'est pas une position de l'ARC**. Finance décentralisée. Le calendrier du Cadre de déclaration des cryptoactifs (*Crypto-Asset Reporting Framework*, CARF), modifié par le Budget de 2025. Le régime fédéral des cryptomonnaies stables édicté par le projet de loi C-15 : **édicté, non en vigueur**. Le sort des inscriptions de courtier restreint encore actives. L'articulation avec le régime intérimaire de l'Avis 21-333 |
 
 Trois annexes : **A**, le lexique bilingue français / anglais canadien d'Actio ; **B**, la chronologie
 2020-2026, sans les jours de publication contredits entre fiches ; **C**, le modèle de fiche de
 vérification d'une plateforme, aux six colonnes du registre.
+
+**Ce que le guide n'affirme nulle part**, par application du registre des incertitudes : le nombre de
+membres des ACVM ; la référence neutre des décisions du TMF et l'existence d'un appel dans *Gagnon* ; tout
+nom de plateforme repris d'une source secondaire et toute limite d'achat annuelle ; tout palier, plafond
+d'actifs ou seuil de capital du cadre de garde de l'OCRI ; la périodicité et les frais de l'inscription au
+CANAFE ainsi que le calendrier des décrets de C-12 ; **l'autorité délivrant le permis québécois d'ESM**,
+tant qu'elle n'est pas vérifiée sur `revenuquebec.ca` (C-04) ; toute position de l'ARC sur le jalonnement ;
+toute date d'application du Cadre de déclaration des cryptoactifs. Le chapitre 8 est écrit en entier au
+conditionnel documenté.
 
 **Note de conception.** C1 fait quatre choses. Il **tient la promesse** — le guide, en deuxième position,
 avant tout discours de marque ; il **date l'avenir** en toutes lettres, par la règle B ; il **pose la
@@ -202,15 +215,6 @@ répondre » est exigé par la minimisation de la Loi 25 — une collecte facult
 telle.
 
 #### Courriel 2 — Pourquoi la régulation canadienne est unique au monde
-
-| Champ | Valeur |
-|---|---|
-| Expéditeur affiché | **Actio Dispatch** — `dispatch@actio.ca` ; `Reply-To: redaction@actio.ca` |
-| Objet témoin | **Aucune commission fédérale des valeurs mobilières** (48 car.) |
-| Variante A/B nº 1 | **Pourquoi le Canada n'a pas de gendarme unique** (44 car.) |
-| Variante A/B nº 2 | **Un cadre bâti sur des avis, pas des règlements** (48 car.) |
-| Pré-en-tête | *Quatre régimes se superposent sur une même plateforme : valeurs mobilières, autoréglementation, LBC/FT fédéral, permis québécois.* (128 car.) |
-| Appel à l'action unique | **Ouvrir la carte des autorités canadiennes** → `/fr/autorite/` |
 
 **Corps du message**
 
@@ -300,15 +304,6 @@ charge de la juriste-réviseure.
 
 #### Courriel 3 — Comment naviguer dans les ressources d'Actio
 
-| Champ | Valeur |
-|---|---|
-| Expéditeur affiché | **Actio Dispatch** — `dispatch@actio.ca` ; `Reply-To: redaction@actio.ca` |
-| Objet témoin | **Par où commencer dans les ressources d'Actio** (43 car.) |
-| Variante A/B nº 1 | **Le registre, l'agenda, les trois parcours** (40 car.) |
-| Variante A/B nº 2 | **Ce qu'il faut ouvrir en premier chez Actio** (43 car.) |
-| Pré-en-tête | *Cinq rubriques, trois paliers de guides, un registre daté et un agenda : chacun résout un problème précis.* (105 car.) |
-| Appel à l'action unique | **S1** « Commencer le parcours Niveau 1 » → `/fr/guides-education/niveau-1-fondamentaux/` · **S2** « Demander l'accès d'essai à *Actio Pro* » → `/fr/actio-pro/` |
-
 **Corps du message** — l'ouverture et l'appel à l'action varient selon le profil déclaré ; le reste est
 commun.
 
@@ -380,8 +375,8 @@ que les courriels s'arrêtent ne se désabonne pas pour vérifier qu'ils s'arrê
 Il n'est pas rédigé ici : il est **déjà codé** dans `newsletter/chassis.html` et spécifié au § 2.2.5. Les
 trois courriels le reçoivent à l'identique — rappel du fondement du consentement avec
 `{{date_consentement}}`, `{{ip_consentement}}` et `{{source_consentement}}` ; identification d'`Actio Média
-inc.` et adresse postale écrites en dur ; désabonnement en un clic traité sous 10 jours ouvrables et
-fonctionnel 60 jours ; avertissement d'absence de conseil ; renvoi à la politique de confidentialité. Trois
+inc.` et adresse postale en dur ; désabonnement en un clic traité sous 10 jours ouvrables et fonctionnel
+60 jours ; avertissement d'absence de conseil ; renvoi à la politique de confidentialité. Trois
 différences, normatives.
 
 | Nº | Delta propre à la séquence | Motif |
@@ -430,24 +425,22 @@ touchent le corps de C2 et les chapitres 5 ou 6 du guide.
 ### Ce qui reste à trancher
 
 1. **Le guide n'existe pas.** C1 le livre en deuxième position, et `tools/emails.mjs` refusera de compiler
-   sans `{{lien_guide}}`. Huit chapitres, trois annexes, trente-quatre pages, dont le chapitre 7 exige à lui
-   seul une relecture fiscale complète. **Aucune séquence ne part avant que le guide soit publié et daté.**
-   Qui l'écrit, selon quel calendrier ?
+   sans `{{lien_guide}}`. Huit chapitres, trois annexes, dont le chapitre 7 exige à lui seul une relecture
+   fiscale complète. **Aucune séquence ne part avant que le guide soit publié et daté.** Qui l'écrit, selon
+   quel calendrier ?
 2. **Le régime de passeport.** Absent de la base factuelle, il est pourtant le mécanisme qui explique
    comment des autorités provinciales produisent un marché unique. Sans lui, C2 décrit une fragmentation
-   sans dire comment elle est surmontée : c'est **la seule lacune de fond du courriel 2**, et la priorité
-   de vérification. Le nombre de membres des ACVM est à vérifier dans le même mouvement.
-3. **La langue de la séquence.** La question de la Charte de la langue française pour une infolettre
-   bilingue diffusée au Québec n'est pas instruite (U-58). Règle provisoire : la séquence anglaise est
-   traduite intégralement et publiée **en même temps** que la française, jamais avant ; un abonné inscrit
-   depuis `/en/` reçoit la séquence anglaise, sans choix intermédiaire.
+   sans dire comment elle est surmontée : c'est **la seule lacune de fond du courriel 2**. Le nombre de
+   membres des ACVM est à vérifier dans le même mouvement.
+3. **La langue de la séquence.** La Charte de la langue française appliquée à une infolettre bilingue
+   diffusée au Québec n'est pas instruite (U-58). Règle provisoire : la séquence anglaise est traduite
+   intégralement et publiée **en même temps** que la française, jamais avant.
 4. **`manifeste.json` et les quatre jetons nouveaux.** `{{lien_guide}}`, `{{lien_carte_autorites}}`,
    `{{lien_parcours}}` et `{{date_premiere_edition}}` n'existent ni dans `chassis.html` ni au § 2.2.5, et
-   `newsletter/manifeste.json` est absent du dépôt. Trois tickets d'intégration, dans cet ordre.
+   `newsletter/manifeste.json` est absent du dépôt. Trois tickets, dans cet ordre.
 5. **La variante par défaut de C3.** Si la déclaration de profil se stabilise sous 12 %, la variante par
-   défaut devient le cas général. Maintenir trois versions d'un courriel lu par une minorité, ou n'en garder
-   qu'une ?
+   défaut devient le cas général : maintenir trois versions d'un courriel lu par une minorité, ou n'en
+   garder qu'une ?
 6. **La quarantaine de 24 heures contre la date de première édition.** Un abonné confirmé un mardi à 5 h 29
    attend huit jours son premier *Dispatch*. L'abaisser à 12 heures réduirait l'attente, au prix d'un risque
-   de collision C1 / édition pour qui confirme en soirée. Arbitrage à rendre par la diffusion, sur
-   observation réelle.
+   de collision C1 / édition pour qui confirme en soirée. Arbitrage de la diffusion, sur observation réelle.

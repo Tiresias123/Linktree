@@ -286,6 +286,16 @@
   font-size: var(--t-petit); line-height: 1.55;
   max-width: var(--mesure-lecture);
 }
+/* Une CORRECTION n'est pas une mise à jour. La mise à jour ajoute ; la
+   correction dit ce qui était faux et le reste visible. La politique de
+   correction d'un média juridique impose la seconde formulation, et le
+   traitement visuel doit les distinguer sans ambiguïté. */
+.maj--correction {
+  background: var(--statut-alerte-pale);
+  border-color: color-mix(in srgb, var(--statut-alerte) 32%, transparent);
+}
+.maj--correction .maj__etiq { color: var(--statut-alerte); }
+
 .maj__etiq {
   font-family: var(--police-donnee); font-size: var(--t-micro);
   font-weight: var(--graisse-grasse); letter-spacing: .06em; text-transform: uppercase;

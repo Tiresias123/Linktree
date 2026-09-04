@@ -89,6 +89,8 @@ cd actio && npm install          # playwright-core seulement ; Chromium est pré
 npm run captures                 # 30 rendus (5 écrans × 2 thèmes × 3 largeurs) + invariants
 npm run verifier                 # liens, accessibilité, contraste sur le DOM rendu
 npm run emails                   # assemblage des courriels + contrôle des mentions LCAP
+npm run docs                     # références des livrables au code : chemins, classes, jetons
+npm run tout                     # les trois, dans l’ordre
 ```
 
 Chaque outil sort en erreur plutôt qu’en avertissement, et nomme le fautif :
@@ -102,8 +104,15 @@ Chaque outil sort en erreur plutôt qu’en avertissement, et nomme le fautif :
   rendu, fonds translucides composés et opacité héritée comprises&nbsp;: c’est
   le seul contrôle qui attrape une régression de jeton.
 - **`emails.mjs`** refuse d’assembler un courriel auquel manque une mention
-  rendue obligatoire par la Loi canadienne anti-pourriel, ou qui dépasse le
-  seuil de troncature de Gmail.
+  rendue obligatoire par la Loi canadienne anti-pourriel, qui dépasse le seuil
+  de troncature de Gmail, qui répète un attribut sur une même balise (un client
+  de messagerie en perd un en silence), ou qui emploie une couleur absente de
+  `tokens.css` — un courriel ne pouvant pas lire une variable CSS, c’est le seul
+  moyen de le rattacher au système de design.
+- **`docs.mjs`** échoue si un livrable cite un chemin de fichier, une classe CSS
+  ou un jeton qui n’existe pas. Les trois livrables ne décrivent pas une
+  intention&nbsp;: ils spécifient des fichiers. Une classe citée mais inexistante
+  est une instruction que personne ne pourra exécuter.
 
 Ces trois outils ont trouvé des défauts réels que la relecture visuelle avait
 laissés passer&nbsp;: une navigation sans comportement mobile, six composants

@@ -7,7 +7,9 @@
   "scripts": {
     "captures": "node tools/captures.mjs",
     "verifier": "node tools/verifier.mjs",
-    "emails": "node tools/emails.mjs"
+    "emails": "node tools/emails.mjs",
+    "docs": "node tools/docs.mjs",
+    "tout": "npm run docs && npm run emails && npm run verifier"
   },
   "devDependencies": {
     "playwright-core": "^1.56.0"

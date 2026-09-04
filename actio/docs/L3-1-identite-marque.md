@@ -331,8 +331,7 @@ l'infolettre réglementaire ».
 `--actio-turquoise-fonce`, conservée en clair après que le jeton eut été assombri à `#096B61` pour
 atteindre 4,5:1 sur son propre fond pâle. C'est la dérive à laquelle un courriel est structurellement
 exposé : il ne peut pas lire une variable CSS, ses couleurs sont donc écrites en clair, et rien ne les
-rattache plus au système. **Arbitrage retenu : aligner, et non promouvoir.** Un jeton
-`--actio-turquoise-courriel` aurait institué deux turquoises de marque, ce que la règle du § 1.2
+rattache plus au système. **Arbitrage retenu : aligner, et non promouvoir.** Un jeton distinct pour le courriel aurait institué deux turquoises de marque, ce que la règle du § 1.2
 interdit. Les courriels sont passés à `#096B61` (6,4:1 sur `#FFFFFF`).
 Le lien est désormais tenu par un contrôle et non par la vigilance : `tools/emails.mjs` extrait
 toutes les couleurs de chaque courriel assemblé et refuse la production si l'une d'elles n'existe pas

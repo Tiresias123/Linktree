@@ -119,6 +119,27 @@ p { margin: 0 0 var(--e-4); }
 .badge--info         { color: var(--statut-info);         background: var(--statut-info-pale);         border-color: color-mix(in srgb, var(--statut-info) 30%, transparent); }
 .badge--neutre       { color: var(--statut-neutre);       background: var(--statut-neutre-pale);       border-color: color-mix(in srgb, var(--statut-neutre) 30%, transparent); }
 
+/* Étiquette éditoriale — NEUTRE, et c'est tout son objet.
+   Sans elle, un rédacteur qui veut signaler « Analyse », « Dossier » ou
+   « Guide · Niveau 1 » n'a sous la main que le badge statutaire et le détourne :
+   la couleur cesse alors de porter un statut réglementaire opposable, et la
+   charte des badges devient déclarative. L'étiquette n'a donc ni couleur de
+   statut, ni pastille, ni casse haute — elle ne peut pas être confondue. */
+.etiquette {
+  display: inline-flex; align-items: center; gap: var(--e-2);
+  font-family: var(--police-donnee);
+  font-size: var(--t-micro);
+  font-weight: var(--graisse-moyenne);
+  letter-spacing: .03em;
+  padding: 3px var(--e-2);
+  border-radius: var(--rayon-1);
+  border: var(--trait) dashed var(--bordure-forte);
+  color: var(--texte-secondaire);
+  background: transparent;
+  white-space: nowrap; line-height: 1.5;
+}
+.etiquette--demo { border-style: solid; border-color: var(--demo-fond); color: var(--demo-fond); }
+
 /* Pastille de juridiction — forme distincte des badges de statut. */
 .juridiction {
   display: inline-flex; align-items: center; gap: 5px;

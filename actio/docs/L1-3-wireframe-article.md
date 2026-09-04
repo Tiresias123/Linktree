@@ -1,6 +1,6 @@
 ## 3. Gabarit « Article d'analyse / Décryptage réglementaire »
 
-Format principal d'Actio : celui qui est cité, imprimé et transmis à un client. Cette section spécifie le gabarit tel qu'il est codé dans `prototype/article.html` et `prototype/assets/article.css` ; aucune valeur n'y figure qui ne provienne de `prototype/assets/tokens.css`.
+Format principal d'Actio : celui qui est cité, imprimé et transmis à un client. Cette section spécifie le gabarit tel qu'il est codé dans `prototype/fr/article.html` et `prototype/assets/article.css` ; aucune valeur n'y figure qui ne provienne de `prototype/assets/tokens.css`.
 
 Deux mesures gouvernent la page : le conteneur d'article est réduit à `1160px` (`[data-page="article"] .contenant`), contre `--grille-max: 1320px` ailleurs ; la colonne de lecture vaut `--mesure-lecture: 760px` (identique à `--grille-max-etroit`), soit environ 72 signes par ligne à `--t-base` (17 px) et `--lh-texte: 1.68`. Tout bloc de texte suivi — `.prose`, `.retenir`, `.maj` — partage cette mesure.
 
