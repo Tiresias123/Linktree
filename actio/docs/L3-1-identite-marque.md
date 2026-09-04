@@ -56,7 +56,7 @@ artistique des cabinets canadiens. Ces lignes sont des écarts revendiqués, pas
 ### 1.2 Palette — le parti pris « Encre et Vélin »
 
 Le fichier l'énonce en tête : « Un média juridique se lit comme un document, pas comme un tableau de
-bord. » Trois conséquences.
+bord. »
 
 **Le vélin chaud `--fond-page: #FAF8F4` plutôt que `#FFFFFF`.** Le blanc d'écran est un fond
 d'application : il signale une console, un tableau de bord. Le vélin signale un document qu'on lit
@@ -148,8 +148,8 @@ s'éclaircissent en mode sombre et deviennent, de ce fait, incapables de porter 
 | `--actio-turquoise` `#35D6C4` | 1,82:1 |
 
 Aucun de ces jetons ne peut servir d'aplat plein. C'est une règle, pas une préférence : elle a été
-établie après que six composants du prototype eurent échoué pour cette exacte raison. Corollaire :
-un jeu d'aplats distinct, réglé pour porter du blanc dans les deux thèmes.
+établie après que six composants du prototype eurent échoué pour cette exacte raison. D'où un jeu
+d'aplats distinct, réglé pour porter du blanc dans les deux thèmes.
 
 | Aplats autorisés sous texte blanc | Valeur | Rapport |
 |---|---|---|
@@ -170,15 +170,15 @@ un jeu d'aplats distinct, réglé pour porter du blanc dans les deux thèmes.
 **Texte de statut sur son fond pâle :** employer le jeton plein correspondant — tous ≥ 4,5:1 une
 fois la transparence composée sur la surface porteuse.
 
-Le niveau visé est **WCAG 2.1 AA, adopté volontairement comme norme éditoriale**. Actio n'invoque
-aucune obligation légale à ce titre : la *Loi canadienne sur l'accessibilité* vise les entités sous
-réglementation fédérale, la CAN/ASC-EN 301 549:2024 est une norme volontaire, et la LAPHO ontarienne
-impose WCAG 2.0 AA au-delà de 50 employés (Règl. Ont. 191/11, art. 14).
+Niveau visé : **WCAG 2.1 AA, adopté volontairement comme norme éditoriale**, sans invoquer
+d'obligation légale — la *Loi canadienne sur l'accessibilité* vise les entités sous réglementation
+fédérale, la CAN/ASC-EN 301 549:2024 est volontaire, et la LAPHO ontarienne impose WCAG 2.0 AA
+au-delà de 50 employés (Règl. Ont. 191/11, art. 14).
 
 ### 1.3 Stack typographique
 
-Trois familles, pas quatre. Le précédent vérifié : le *Financial Times* sert deux familles à deux
-graisses chacune et fait naître sa hiérarchie du corps et de l'interlignage.
+Trois familles, pas quatre : le *Financial Times* en sert deux, à deux graisses chacune, et fait
+naître sa hiérarchie du corps et de l'interlignage.
 
 | Rôle | Famille et pile de repli complète | Licence | Graisses employées | Motif |
 |---|---|---|---|---|
@@ -291,23 +291,19 @@ marketing.
 
 | Point | Règle | Implantation |
 |---|---|---|
-| Colonnes obligatoires | **Juridiction** et **date d'arrêté** en tête, avant toute donnée comparée | Portées par `caption` ou par les deux premières colonnes |
-| Chiffres | Alignés à droite, `--police-donnee`, `font-variant-numeric: tabular-nums`, `white-space: nowrap` | `td[data-num]` |
-| En-têtes | `thead th` en `--t-micro`, capitales, `--fond-surface-2`, filet inférieur `--trait-fort` en `--bordure-forte`, `position: sticky; top: 0` | Le tableau reste lisible en défilement long |
-| Séparation | `--bordure-douce` entre lignes ; aucune bordure sur la dernière ligne ; **jamais de zébrage** | `tbody tr:last-child td { border-bottom: 0 }` |
-| Légende | `caption` en haut, capitales, `--texte-tertiaire`, sur `--fond-surface-2` | `caption-side: top` |
-| Mobile | Largeur minimale 560 px, défilement horizontal **dans** le conteneur, jamais dans la page | `.tableau { overflow-x: auto }` |
+| Colonnes obligatoires | **Juridiction** et **date d'arrêté** avant toute donnée comparée | `caption` ou deux premières colonnes |
+| Chiffres | Alignés à droite, `--police-donnee`, `tabular-nums`, `white-space: nowrap` | `td[data-num]` |
+| En-têtes | `--t-micro`, capitales, fond `--fond-surface-2`, filet `--trait-fort` en `--bordure-forte`, `position: sticky; top: 0` | `thead th` |
+| Séparation | `--bordure-douce` entre lignes ; rien sous la dernière ; **jamais de zébrage** | `tbody tr:last-child td` |
+| Légende | En haut, capitales, `--texte-tertiaire` sur `--fond-surface-2` | `caption-side: top` |
+| Mobile | Largeur minimale 560 px ; défilement **dans** le conteneur, jamais dans la page | `.tableau { overflow-x: auto }` |
 
 **Légende obligatoire.** Aucun schéma ni tableau ne se publie sans les trois mentions de
-`.schema__pied`, dans cet ordre, en `--police-donnee` à `--t-micro` :
-
-1. la **source** — « Source : reconstitution Actio d'après les avis du personnel des ACVM et le
-   cadre de l'OCRI » ;
-2. la **date d'arrêté** — « Arrêté au 4 septembre 2026 » ;
-3. la **réserve** — « Schéma pédagogique — ne constitue pas un avis juridique ».
-
-La troisième mention n'est pas décorative : elle est reprise à l'identique dans l'infolettre. Un
-schéma sans elle ne franchit pas la relecture.
+`.schema__pied`, dans cet ordre, en `--police-donnee` à `--t-micro` : la **source** (« Source :
+reconstitution Actio d'après les avis du personnel des ACVM et le cadre de l'OCRI »), la **date
+d'arrêté** (« Arrêté au 4 septembre 2026 ») et la **réserve** (« Schéma pédagogique — ne constitue
+pas un avis juridique »). La troisième est reprise à l'identique dans l'infolettre ; un schéma qui
+ne la porte pas ne franchit pas la relecture.
 
 ### 1.5 Logotype et déclinaisons
 
@@ -331,11 +327,16 @@ l'infolettre réglementaire ».
 | Pied de courriel | 20 px | Même traitement, sans signature |
 | Corps minimal absolu | **16 px** | En deçà, le point se confond avec l'empattement du « o » |
 
-**Écart à résoudre.** L'infolettre emploie `#0B7F74` pour le point, valeur **absente de
-`tokens.css`**, retenue pour tenir le contraste sur `#FFFFFF` là où aucune substitution thématique
-n'est possible. Deux issues : promouvoir `#0B7F74` en jeton `--actio-turquoise-courriel`, ou aligner
-le courriel sur `--actio-turquoise-fonce #096B61` après mesure. En l'état, la valeur du courriel
-n'est couverte par aucune règle du fichier.
+**Écart résolu.** L'infolettre employait `#0B7F74` pour le point — l'ancienne valeur de
+`--actio-turquoise-fonce`, conservée en clair après que le jeton eut été assombri à `#096B61` pour
+atteindre 4,5:1 sur son propre fond pâle. C'est la dérive à laquelle un courriel est structurellement
+exposé : il ne peut pas lire une variable CSS, ses couleurs sont donc écrites en clair, et rien ne les
+rattache plus au système. **Arbitrage retenu : aligner, et non promouvoir.** Un jeton
+`--actio-turquoise-courriel` aurait institué deux turquoises de marque, ce que la règle du § 1.2
+interdit. Les courriels sont passés à `#096B61` (6,4:1 sur `#FFFFFF`).
+Le lien est désormais tenu par un contrôle et non par la vigilance : `tools/emails.mjs` extrait
+toutes les couleurs de chaque courriel assemblé et refuse la production si l'une d'elles n'existe pas
+dans `tokens.css`.
 
 **Zone de protection.** Marge libre égale à la **hauteur de capitale du « A »** sur les quatre côtés,
 soit 0,7 × le corps (17 px pour un corps de 24 px). Aucun élément — filet, badge, bordure, sélecteur
@@ -364,19 +365,16 @@ disparaît.
 
 **Ce qui reste à trancher.**
 
-1. Le millésime de la SIL OFL applicable aux trois familles n'est pas vérifié ; la charte ne peut
-   pas être gelée avant lecture des fichiers de licence livrés avec chaque fonte.
-2. Les chiffres tabulaires ne sont vérifiés que pour Newsreader et Inter. Si Source Serif 4 ne les
-   sert pas, il faut soit basculer le titrage sur Newsreader, soit interdire les chiffres en
-   titrage.
-3. Le point du logotype en courriel (`#0B7F74`) doit être promu en jeton ou aligné sur
-   `--actio-turquoise-fonce`.
-4. L'auto-hébergement des polices n'est pas fait : quatre pages appellent encore
-   `fonts.googleapis.com`. Tant que ce n'est pas corrigé, aucune EFVP ne peut conclure.
-5. La qualification de l'adresse IP d'un lecteur comme renseignement personnel au sens de P-39.1
-   reste à vérifier auprès du texte et des orientations de la CAI.
-6. `.logo__baseline` existe dans la feuille de style sans être employé : décider de son emploi
-   canonique (portail, avatar, en-tête de partage) ou le retirer.
-7. Aucun jeu de couleurs pour graphiques de données n'existe encore dans `tokens.css` ; les jetons
-   de statut et de juridiction ne peuvent pas servir de palette catégorielle sans détruire leur
-   valeur de signal.
+1. Millésime de la SIL OFL des trois familles non vérifié : la charte ne peut être gelée avant
+   lecture des fichiers de licence livrés avec chaque fonte.
+2. Chiffres tabulaires vérifiés pour Newsreader et Inter seulement. Si Source Serif 4 ne les sert
+   pas : basculer le titrage sur Newsreader, ou interdire les chiffres en titrage.
+3. ~~Le point du logotype en courriel~~ — **tranché** : aligné sur `--actio-turquoise-fonce`
+   `#096B61`, et verrouillé par le contrôle de conformité des couleurs de `tools/emails.mjs`.
+4. L'auto-hébergement des polices n'est pas fait — quatre pages appellent encore
+   `fonts.googleapis.com`. Aucune EFVP ne peut conclure d'ici là.
+5. Qualification de l'adresse IP d'un lecteur au sens de P-39.1 : à vérifier auprès du texte et des
+   orientations de la CAI.
+6. `.logo__baseline` existe sans être employé : lui donner un emploi canonique ou le retirer.
+7. Aucun jeu de couleurs pour graphiques n'existe dans `tokens.css` ; les jetons de statut et de
+   juridiction ne peuvent pas servir de palette catégorielle sans détruire leur valeur de signal.

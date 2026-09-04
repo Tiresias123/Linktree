@@ -41,6 +41,7 @@ function versRGB(css) {
 }
 
 const echecs = [];
+const preProduction = new Map();
 const note = (page, famille, message) => echecs.push({ page, famille, message });
 
 const navigateur = await chromium.launch({
@@ -77,6 +78,25 @@ for (const fichier of PAGES) {
         const chemin = resolve(dirname(join(PROTO, fichier)), cible);
         if (!existsSync(chemin)) note(etiquette, 'liens', `lien interne cassé : ${cible} (« ${l.texte} »)`);
       }
+
+      // --- Ressources tierces : recensées, non comptées en échec -----------
+      // Un prototype peut charger ses polices depuis un service tiers ; un
+      // média établi au Québec ne le peut pas. Charger une police depuis un
+      // tiers transmet l'adresse IP du lecteur à ce tiers : c'est une
+      // communication de renseignement personnel au sens de la Loi 25, et
+      // aucune évaluation des facteurs relatifs à la vie privée ne peut
+      // conclure tant qu'elle subsiste. On ne fait donc pas échouer la suite,
+      // mais on refuse de laisser le point sortir du champ de vision.
+      const tiers = await p.evaluate(() =>
+        [...document.querySelectorAll('link[href], script[src], img[src], iframe[src]')]
+          .map((e) => e.getAttribute('href') || e.getAttribute('src'))
+          .filter((u) => u && /^https?:\/\//.test(u))
+          .map((u) => new URL(u).host)
+      );
+      tiers.forEach((h) => {
+        if (!preProduction.has(h)) preProduction.set(h, new Set());
+        preProduction.get(h).add(fichier);
+      });
 
       // Ancres internes : toute cible #id doit exister.
       const ancresMortes = await p.evaluate(() =>
@@ -297,8 +317,18 @@ for (const fichier of PAGES) {
 
 await navigateur.close();
 
+if (preProduction.size) {
+  console.log('\n── À LEVER AVANT LA MISE EN PRODUCTION (sans échec de la suite)');
+  for (const [hote, pages] of preProduction) {
+    console.log(`   ressource tierce : ${hote}`);
+    console.log(`     ${pages.size} page(s) — ${[...pages].join(', ')}`);
+  }
+  console.log('   Une ressource chargée depuis un tiers lui transmet l’adresse IP du lecteur.');
+  console.log('   Auto-héberger avant toute évaluation des facteurs relatifs à la vie privée (Loi 25).');
+}
+
 if (!echecs.length) {
-  console.log('\nAucun défaut. Liens, accessibilité et contrastes conformes sur les trois pages.');
+  console.log(`\nAucun défaut. Liens, accessibilité, intégrité éditoriale et contrastes conformes sur ${PAGES.length} pages.`);
   process.exit(0);
 }
 

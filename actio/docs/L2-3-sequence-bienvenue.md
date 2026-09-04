@@ -17,15 +17,14 @@ obligation : il fabrique la preuve de celle qui existe.
 
 | Le formulaire seul produit | Le clic de confirmation ajoute |
 |---|---|
-| Une case cochée, un horodatage, une adresse IP, un libellé — tous saisis par un navigateur, sans preuve que le titulaire de l'adresse était présent | La preuve que **le titulaire de la boîte** a agi : le jeton n'est réclamable que depuis la boîte visée |
-| Aucune défense contre l'inscription d'un tiers — faute de frappe, inscription malveillante, adresse générique de cabinet | Une adresse saisie par un tiers n'est jamais confirmée : elle expire et disparaît |
+| Une case cochée, un horodatage, une adresse IP, un libellé — tous saisis par un navigateur, sans preuve que le titulaire de l'adresse était présent | La preuve que **le titulaire de la boîte** a agi : le jeton n'est réclamable que depuis la boîte visée. Une adresse saisie par un tiers, par faute de frappe ou par malveillance, n'est jamais confirmée |
 | Une seule manifestation, alors que la Loi 25 exige un consentement « manifeste, libre et éclairé » | Une seconde manifestation, distincte et horodatée, sur un support que l'abonné contrôle |
 | Une politique écrite | Un **contrôle technique** — l'art. 33 LCAP n'admet la diligence raisonnable que si le programme est documenté et **actif au moment de la violation** (Bulletin d'information de Conformité et Enquêtes CRTC 2014-326) |
 
 **Prix payé, assumé.** Une part des inscriptions ne sera jamais confirmée. Le § 1.6 refuse déjà la taille
 brute de la liste comme indicateur, parce qu'elle valorise des inscriptions dont le consentement n'est pas
-prouvable. **Seuil interne** : sous **55 %** de confirmations après 500 dépôts de formulaire, on réécrit
-le courriel de confirmation et la page `/fr/infolettre/confirmation/` avant toute autre optimisation.
+prouvable. **Seuil interne** : sous **55 %** de confirmations après 500 dépôts de formulaire, on réécrit le
+courriel de confirmation et la page `/fr/infolettre/confirmation/` avant toute autre optimisation.
 `[À VÉRIFIER — la base ne fournit aucun repère de marché ; 55 % est un seuil de déclenchement interne.]`
 
 **Le courriel de confirmation.** Il n'est pas le courriel 1 : il ne livre rien et ne promeut rien.
@@ -33,18 +32,18 @@ Expéditeur `Actio Dispatch <dispatch@actio.ca>`, identique aux trois courriels 
 seule réputation d'expéditeur. Objet : « Confirmez votre inscription à Actio Dispatch » (44 car.).
 Pré-en-tête : « Un seul clic, valable sept jours. Sans lui, votre adresse est supprimée et vous ne recevez
 rien. » (98 car.). Corps : le libellé **intégral** du consentement affiché dans `.infolettre__consentement`,
-reproduit à l'identique ; la date, l'heure, l'adresse IP et l'URL de dépôt ; un bouton unique
-« Confirmer mon inscription », jeton à usage unique **valable 7 jours** ; un lien « Je n'ai rien demandé —
-supprimer définitivement cette adresse » ; l'identification d'`Actio Média inc.` et son adresse postale ;
-l'avertissement d'absence de conseil. Aucun lien de rubrique, aucune mention d'*Actio Pro*, pas le guide.
+reproduit à l'identique ; la date, l'heure, l'adresse IP et l'URL de dépôt ; un bouton unique « Confirmer
+mon inscription », jeton à usage unique **valable 7 jours** ; un lien « Je n'ai rien demandé — supprimer
+définitivement cette adresse » ; l'identification d'`Actio Média inc.`, son adresse postale et
+l'avertissement d'absence de conseil. Aucun lien de rubrique, pas le guide.
 
 **Arbitrage sur la qualification.** Un message adressé à qui vient d'en faire la demande n'a pas de
 finalité promotionnelle, mais la fiche 06 pose que « traiter tout envoi comme un MEC est la seule position
-défendable ». Position retenue : le message porte **l'identification, l'adresse postale et un mécanisme
-d'exclusion fonctionnel** — donc satisfait aux exigences de forme s'il devait être requalifié — sans porter
-aucun contenu commercial. **Une seule relance, à +48 h**, ne contenant que le lien. **Purge à J+7** : la
-fiche en attente est détruite, non archivée ; la Loi 25 impose la minimisation. Ce n'est pas une liste de
-suppression : l'adresse peut être redéposée.
+défendable ». Position retenue : il porte **l'identification, l'adresse postale et un mécanisme d'exclusion
+fonctionnel** — donc satisfait aux exigences de forme s'il devait être requalifié — sans aucun contenu
+commercial. **Une seule relance, à +48 h**, ne contenant que le lien. **Purge à J+7** : la fiche en attente
+est détruite, non archivée, la Loi 25 imposant la minimisation ; ce n'est pas une liste de suppression, et
+l'adresse peut être redéposée.
 
 #### 3.1.2 Le calendrier des trois courriels
 
@@ -58,10 +57,9 @@ Le point de départ est le **clic de confirmation**, jamais le dépôt du formul
 
 **Pourquoi J+0, J+2, J+5.** Trois contraintes se croisent. (i) *La fenêtre de reconnaissance* : passé une
 semaine, le troisième courriel devient une sollicitation non demandée — ce que la LCAP ne sanctionne pas,
-mais que la plainte pour pourriel sanctionne. (ii) *La périodicité de l'édition* : à rythme hebdomadaire,
-une séquence de douze jours croiserait deux éditions et rendrait indémêlable en mesure ce qui relève de
-chacune. (iii) *La densité de C2* : placé à J+1, il serait ouvert dans la même session que C1 et lu en
-diagonale ; deux jours pleins sont le minimum pour qu'il soit ouvert en propre.
+mais que la plainte pour pourriel sanctionne. (ii) *La périodicité de l'édition* : une séquence de douze
+jours croiserait deux éditions et rendrait indémêlable, en mesure, ce qui relève de chacune. (iii) *La
+densité de C2* : placé à J+1, il serait ouvert dans la même session que C1 et lu en diagonale.
 
 **Pourquoi 11 h 00 et non 6 h 30.** Le créneau de 6 h 30 HE est une promesse affichée —
 `.infolettre__preuve` porte « Mardi · 6 h 30 » et « Heure de l'Est ». Un courriel de séquence à cette heure
@@ -70,8 +68,8 @@ usurperait la signature de l'édition. Onze heures est le second creux de la bo�
 **Jours interdits pour C2 et C3.** Un envoi dû un **mardi** (jour d'édition), un **samedi** ou un
 **dimanche** glisse au jour ouvrable autorisé suivant, même heure. C1 y échappe : il livre ce que la
 personne vient de réclamer, et le retenir romprait l'attente créée par le clic.
-`[À VÉRIFIER — la base ne recense aucun jour férié fédéral ni québécois ; la table `jours_interdits` est
-alimentée et revue chaque décembre par la diffusion.]`
+`[À VÉRIFIER — la base ne recense aucun jour férié ; la table `jours_interdits` est revue chaque décembre
+par la diffusion.]`
 
 | Confirmation | C1 | C2 (J+2) | C3 (J+5) | 1re édition |
 |---|---|---|---|---|
@@ -97,9 +95,9 @@ interdit, c'est deux courriels le même jour (§ 3.1.4).
 | S-8 | Réinscription d'une adresse en liste de suppression | **Non déclenchée** ; message unique vers `/fr/infolettre/preferences/` | Réactivation manuelle seulement |
 
 S-8 est une décision de conformité : réenclencher une séquence sur une adresse antérieurement désabonnée
-écraserait un retrait de consentement par un nouveau formulaire, sans traçabilité de l'intervalle. La
-réactivation est instruite par la personne responsable de la protection des renseignements personnels,
-désignée **et publiée** comme la Loi 25 l'impose.
+écraserait un retrait de consentement par un nouveau formulaire. La réactivation est instruite par la
+personne responsable de la protection des renseignements personnels, désignée **et publiée** comme la
+Loi 25 l'impose.
 
 #### 3.1.4 Articulation avec l'édition hebdomadaire
 
@@ -114,12 +112,11 @@ produit mécaniquement la promesse de C1 — la première édition reçue est **
 24 heures après la confirmation**. C'est cette date, calculée à l'envoi, qui est écrite en toutes lettres
 dans C1 ; elle n'est jamais approximée par « la semaine prochaine ».
 
-**Conséquence d'intégration.** Les trois courriels passent par la même chaîne que l'édition —
-`chassis.html`, un fragment dans `newsletter/contenus/`, une entrée de manifeste — avec
-`bandeau_cours: false`, qui retire le bloc `<!--DEBUT:COURS-->` … `<!--FIN:COURS-->`. Clés :
-`bienvenue-01`, `bienvenue-02`, `bienvenue-03`. Le fichier `newsletter/manifeste.json` que lit
-`tools/emails.mjs` **n'existe pas encore dans le dépôt** : premier ticket. Le tableau
-`MENTIONS_OBLIGATOIRES` de `tools/emails.mjs` reçoit une septième entrée, propre à `bienvenue-01` :
+**Conséquence d'intégration.** Les trois courriels passent par la chaîne de l'édition — `chassis.html`, un
+fragment dans `newsletter/contenus/`, une entrée de manifeste — avec `bandeau_cours: false`, qui retire le
+bloc `<!--DEBUT:COURS-->` … `<!--FIN:COURS-->`. Clés : `bienvenue-01`, `bienvenue-02`, `bienvenue-03`. Le
+fichier `newsletter/manifeste.json` que lit `tools/emails.mjs` **n'existe pas encore dans le dépôt** :
+premier ticket. Le tableau `MENTIONS_OBLIGATOIRES` reçoit une septième entrée, propre à `bienvenue-01` :
 `{{lien_guide}}` — un courriel d'accueil qui ne livre pas le guide qu'il annonce doit être un échec de
 compilation, pas une coquille.
 
@@ -181,28 +178,28 @@ la politique de correction impose.
 
 | Ch. | Titre | Contenu | Ce qu'il refuse d'affirmer |
 |---|---|---|---|
-| 1 | Qui régule quoi | La carte des autorités — ACVM, AMF, CVMO, OCRI, TMF, CANAFE, Revenu Québec, ARC, Banque du Canada, BSIF, CRTC, CAI, OQLF — avec, pour chacune, son objet de compétence et le type de publication à surveiller | Le nombre de membres des ACVM |
-| 2 | Le contrat de cryptoactif | L'Avis 21-327 du personnel des ACVM, publié en janvier 2020 : l'absence de livraison immédiate fait naître une relation contractuelle soumise au droit des valeurs mobilières. Puis *AMF c. Gagnon* (TMF, 22 août 2025) : gérer les ETH d'investisseurs sur Uniswap contre 20 % des profits est un contrat d'investissement ; vendre un abonnement à un groupe de signaux n'en est pas un | La référence neutre des décisions ; l'existence d'un appel |
+| 1 | Qui régule quoi | La carte des autorités — ACVM, AMF, CVMO, OCRI, TMF, CANAFE, Revenu Québec, ARC, Banque du Canada, BSIF, CRTC, CAI, OQLF — chacune avec son objet de compétence et le type de publication à surveiller | Le nombre de membres des ACVM |
+| 2 | Le contrat de cryptoactif | L'Avis 21-327 du personnel des ACVM, publié en janvier 2020 : l'absence de livraison immédiate fait naître une relation contractuelle soumise au droit des valeurs mobilières. Puis *AMF c. Gagnon* (TMF, 22 août 2025) : gérer les ETH d'investisseurs contre 20 % des profits est un contrat d'investissement ; vendre un abonnement à un groupe de signaux n'en est pas un | La référence neutre des décisions ; l'existence d'un appel |
 | 3 | Vérifier une plateforme en quatre minutes | Partir des **deux listes officielles des ACVM** — autorisées, proscrites — les dater, puis lire la décision d'inscription. Quatre statuts à distinguer : engagement préalable, courtier restreint, courtier en placement, membre de l'OCRI | Tout nom repris d'une source secondaire ; toute limite d'achat annuelle |
-| 4 | La garde des actifs | Règles CPPC 4300 et 4342 de l'OCRI : garde, emplacement de titres agréé, séparation quotidienne, obligation de résultat faisant échapper aux créanciers les actifs entièrement payés. Le cadre de garde publié par l'OCRI le 3 février 2026, qui classe les dépositaires par paliers et limite l'autogarde | Tout palier, tout plafond d'actifs, tout seuil de capital |
-| 5 | Le second régime : LBC/FT | LRPCFAT (L.C. 2000, ch. 17). L'inscription auprès du CANAFE est **déclarative** : ni capital minimum, ni cautionnement, ni agrément prudentiel. Depuis le 1er juin 2021 : déclaration des réceptions de monnaie virtuelle de 10 000 $ et plus, règle de 24 heures, règle d'acheminement, tenue de documents. Le projet de loi C-12, sanctionné le 26 mars 2026 | La périodicité et les frais d'inscription ; le calendrier des décrets ; les numéros d'articles |
-| 6 | Le troisième régime : le permis québécois | Le permis d'entreprise de services monétaires de la *Loi sur les entreprises de services monétaires* (RLRQ c. E-12.000001), obligatoire depuis le 1er avril 2012, **distinct** de l'inscription en valeurs mobilières, avec des catégories liées aux cryptoactifs | **L'autorité délivrante**, tant qu'elle n'est pas vérifiée sur `revenuquebec.ca` (C-04) ; le libellé des catégories |
-| 7 | La fiscalité en dix décisions | Les cryptoactifs sont des **biens**, non de la monnaie ; chaque disposition est un fait générateur. Les facteurs des par. 9 à 13 du bulletin IT-479R. Le taux d'inclusion demeure **50 %**, la hausse ayant été annulée le 21 mars 2025. T1135 : seuil de **coût total supérieur à 100 000 $**, et non de juste valeur marchande ; pénalité de 25 $ par jour, minimum 100 $, maximum 2 500 $. TP-21.4.39, exigible depuis l'année d'imposition 2024 même sans opération. Détention directe non admissible en REER, CELI et CELIAPP ; impôt de 50 % de la juste valeur marchande du placement non admissible. Minage : art. 188.2 LTA, crédits de taxe sur les intrants refusés. Effet de paiement virtuel : fourniture exonérée. Jetons non fongibles : fournitures taxables, seuil de petit fournisseur 30 000 $. *Amicarelli c. Le Roi*, 2025 CCI 185 | Toute position de l'ARC sur le jalonnement ; les renvois d'articles non vérifiés ; toute date d'application du Cadre de déclaration des cryptoactifs |
-| 8 | Les six questions ouvertes | Jalonnement, largages, embranchements : la pratique dominante des cabinets et des CPA retient l'inclusion au revenu de la juste valeur marchande à la réception, **et cette pratique n'est pas une position de l'ARC**. Finance décentralisée. Le calendrier du Cadre de déclaration des cryptoactifs (*Crypto-Asset Reporting Framework*, CARF), modifié par le Budget de 2025. Le régime fédéral des cryptomonnaies stables édicté par le projet de loi C-15 : **édicté, non en vigueur**. Le sort des inscriptions de courtier restreint encore actives. L'articulation avec le régime intérimaire de l'Avis 21-333 | Tout : le chapitre entier est écrit au conditionnel documenté |
+| 4 | La garde des actifs | Règles CPPC 4300 et 4342 de l'OCRI — garde, emplacement de titres agréé, séparation quotidienne, obligation de résultat faisant échapper aux créanciers les actifs entièrement payés — puis le cadre de garde publié le 3 février 2026, qui classe les dépositaires par paliers et limite l'autogarde | Tout palier, tout plafond d'actifs, tout seuil de capital |
+| 5 | Le second régime : LBC/FT | LRPCFAT (L.C. 2000, ch. 17) : l'inscription auprès du CANAFE est **déclarative** — ni capital minimum, ni cautionnement, ni agrément prudentiel. Depuis le 1er juin 2021 : déclaration des réceptions de monnaie virtuelle de 10 000 $ et plus, règle de 24 heures, règle d'acheminement, tenue de documents. Le projet de loi C-12, sanctionné le 26 mars 2026 | La périodicité et les frais d'inscription ; le calendrier des décrets ; les numéros d'articles |
+| 6 | Le troisième régime : le permis québécois | Le permis d'entreprise de services monétaires de la *Loi sur les entreprises de services monétaires* (RLRQ c. E-12.000001), obligatoire depuis le 1er avril 2012 et **distinct** de l'inscription en valeurs mobilières | **L'autorité délivrante**, tant qu'elle n'est pas vérifiée sur `revenuquebec.ca` (C-04) ; le libellé des catégories |
+| 7 | La fiscalité en dix décisions | Les cryptoactifs sont des **biens**, non de la monnaie, et chaque disposition est un fait générateur. Les facteurs des par. 9 à 13 du bulletin IT-479R. Le taux d'inclusion demeure **50 %** — hausse annulée le 21 mars 2025. T1135 : seuil de **coût total supérieur à 100 000 $**, et non de juste valeur marchande ; pénalité de 25 $ par jour, minimum 100 $, maximum 2 500 $. TP-21.4.39, exigible depuis l'année d'imposition 2024 même sans opération. Détention directe non admissible en REER, CELI et CELIAPP ; impôt de 50 % de la juste valeur marchande du placement non admissible. Minage : art. 188.2 LTA, crédits de taxe sur les intrants refusés. Effet de paiement virtuel : fourniture exonérée. Jetons non fongibles : fournitures taxables, seuil de petit fournisseur 30 000 $. *Amicarelli c. Le Roi*, 2025 CCI 185 | Toute position de l'ARC sur le jalonnement ; les renvois d'articles non vérifiés ; toute date d'application du Cadre de déclaration des cryptoactifs |
+| 8 | Les six questions ouvertes | Jalonnement, largages et embranchements : la pratique dominante des cabinets et des CPA retient l'inclusion au revenu de la juste valeur marchande à la réception, **et cette pratique n'est pas une position de l'ARC**. Finance décentralisée. Le calendrier du Cadre de déclaration des cryptoactifs (*Crypto-Asset Reporting Framework*, CARF), modifié par le Budget de 2025. Le régime fédéral des cryptomonnaies stables édicté par le projet de loi C-15 : **édicté, non en vigueur**. Le sort des inscriptions de courtier restreint encore actives. L'articulation avec le régime intérimaire de l'Avis 21-333 | Tout : le chapitre entier est écrit au conditionnel documenté |
 
 Trois annexes : **A**, le lexique bilingue français / anglais canadien d'Actio ; **B**, la chronologie
-2020-2026, de l'Avis 21-327 au cadre de garde du 3 février 2026, sans les jours de publication contredits
-entre fiches ; **C**, le modèle de fiche de vérification d'une plateforme, aux six colonnes du registre.
+2020-2026, sans les jours de publication contredits entre fiches ; **C**, le modèle de fiche de
+vérification d'une plateforme, aux six colonnes du registre.
 
-**Note de conception.** C1 fait quatre choses et refuse d'en faire une cinquième. Il **tient la promesse**
-— le guide, en deuxième position, avant tout discours de marque ; il **date l'avenir**, en toutes lettres,
-par la règle B ; il **pose la limite juridique** avant qu'un lecteur ne prête à Actio une qualité qu'elle
-n'a pas, le paragraphe « Ce qu'Actio n'est pas » reprenant le périmètre du pied de page ; il **demande une
-seule chose**. La remise du guide n'est pas comptée comme appel à l'action : c'est une livraison attendue,
-placée avant la demande précisément pour que la demande vienne après un service rendu. Les deux boutons
-forment **une** décision à deux issues, alignée sur le champ facultatif « Vous lisez Actio… » du § 1.4 ;
-la phrase « Vous pouvez ne pas répondre » est exigée par la minimisation de la Loi 25 — une collecte
-facultative doit être présentée comme telle.
+**Note de conception.** C1 fait quatre choses. Il **tient la promesse** — le guide, en deuxième position,
+avant tout discours de marque ; il **date l'avenir** en toutes lettres, par la règle B ; il **pose la
+limite juridique** avant qu'un lecteur ne prête à Actio une qualité qu'elle n'a pas, le paragraphe « Ce
+qu'Actio n'est pas » reprenant le périmètre du pied de page ; il **demande une seule chose**. La remise du
+guide n'est pas comptée comme appel à l'action : c'est une livraison attendue, placée avant la demande
+précisément pour que la demande vienne après un service rendu. Les deux boutons forment **une** décision à
+deux issues, alignée sur le champ facultatif « Vous lisez Actio… » du § 1.4 ; « Vous pouvez ne pas
+répondre » est exigé par la minimisation de la Loi 25 — une collecte facultative doit être présentée comme
+telle.
 
 #### Courriel 2 — Pourquoi la régulation canadienne est unique au monde
 
@@ -286,21 +283,20 @@ facultative doit être présentée comme telle.
 >
 > *Je préfère ne recevoir que l'édition du mardi : [arrêter ce dernier courriel].*
 
-**Note de conception.** C2 est le seul courriel de la séquence qui ne demande rien. Son rôle est de
-**justifier la promesse** : qui admet que le cadre canadien est irréductible aux cadres américain et
-européen admet du même coup qu'un média canadien spécialisé lui est nécessaire. La structure est
-délibérément une **superposition** de cinq couches numérotées, parce que c'est la forme du problème réel.
-La double sortie « investisseur / plateforme » sert de test comportemental : le lien cliqué renseigne le
-segment lorsque le profil n'a pas été déclaré en C1.
+**Note de conception.** C2 est le seul courriel qui ne demande rien. Son rôle est de **justifier la
+promesse** : qui admet que le cadre canadien est irréductible aux cadres américain et européen admet du
+même coup qu'un média canadien spécialisé lui est nécessaire. La structure est délibérément une
+**superposition** de cinq couches numérotées, parce que c'est la forme du problème réel. La double sortie
+« investisseur / plateforme » sert de test comportemental : le lien cliqué renseigne le segment lorsque le
+profil n'a pas été déclaré en C1.
 
 **Trois précautions incorporées au texte.** (i) Le nombre de membres des ACVM n'est **pas** écrit.
 `[À VÉRIFIER — ne jamais écrire « treize autorités » avant vérification.]` (ii) Le **régime de passeport
-est totalement absent de la base factuelle** : aucune phrase ne le décrit ni ne le nomme.
-`[À VÉRIFIER — s'il est repris plus tard, il exige la lecture du texte qui l'institue ; en son absence, ne
-sont décrits que les instruments documentés : règlements et normes canadiennes, avis du personnel,
-communiqués conjoints, décisions d'inscription provinciales.]` (iii) L'autorité délivrant le permis
-québécois d'ESM **n'est pas nommée** : contradiction C-04, dont le point 2 du § 2.2.6 fait un contrôle
-bloquant à la charge de la juriste-réviseure.
+est absent de la base factuelle** : aucune phrase ne le décrit ni ne le nomme ; ne sont décrits que les
+instruments documentés — règlements et normes canadiennes, avis du personnel, communiqués conjoints,
+décisions d'inscription provinciales. `[À VÉRIFIER]` (iii) L'autorité délivrant le permis québécois d'ESM
+**n'est pas nommée** : contradiction C-04, dont le point 2 du § 2.2.6 fait un contrôle bloquant à la
+charge de la juriste-réviseure.
 
 #### Courriel 3 — Comment naviguer dans les ressources d'Actio
 
@@ -374,11 +370,10 @@ commun.
 
 **Note de conception.** Le danger de C3 est le catalogue : une liste de fonctionnalités qu'on parcourt sans
 rien ouvrir. La parade est formelle — **chaque ressource est introduite par la question du lecteur, entre
-guillemets, avant d'être nommée** ; il reconnaît sa question avant de reconnaître un produit. Deuxième
-parade : la phrase qui **décourage** l'abonnement à *Actio Pro* pour qui n'en a pas l'usage — elle protège
-l'indicateur de plaintes et vaut mieux qu'un essai résilié au premier mois. Troisième décision : la
-dernière ligne **annonce la fin de la séquence** ; un abonné qui sait que les courriels s'arrêtent ne se
-désabonne pas pour vérifier qu'ils s'arrêteront.
+guillemets, avant d'être nommée**. Deuxième parade : la phrase qui **décourage** l'abonnement à *Actio Pro*
+pour qui n'en a pas l'usage ; elle protège l'indicateur de plaintes et vaut mieux qu'un essai résilié au
+premier mois. Troisième décision : la dernière ligne **annonce la fin de la séquence** — un abonné qui sait
+que les courriels s'arrêtent ne se désabonne pas pour vérifier qu'ils s'arrêteront.
 
 #### Le pied de page de conformité, commun aux trois courriels
 
@@ -404,13 +399,13 @@ Les indicateurs de la séquence sont distincts de ceux du § 1.6 : elle se mesur
 |---|---|---|---|
 | Taux de confirmation | Clics de confirmation ÷ dépôts de formulaire | 65 % | **< 55 %** → réécriture du courriel de confirmation et de `/fr/infolettre/confirmation/` |
 | Remise du guide | Ouvertures de `{{lien_guide}}` ÷ C1 délivrés | 45 % | **< 30 %** → le bouton remonte au-dessus du premier paragraphe |
-| Déclaration de profil | Clics sur l'un des deux boutons ÷ C1 délivrés | 22 % | **< 12 %** → appel à l'action reformulé ; **> 40 %** → le champ est réintroduit dans le formulaire du site |
+| Déclaration de profil | Clics sur l'un des deux boutons ÷ C1 délivrés | 22 % | **< 12 %** → appel à l'action reformulé ; **> 40 %** → le champ revient dans le formulaire du site |
 | Clic unique de C2 | Abonnés ayant cliqué ≥ 1 lien ÷ C2 délivrés | 14 % | **< 8 %** → C2 est scindé ou raccourci ; c'est le plus long des trois |
-| Clic unique de C3 | Idem | 11 % | **< 6 %** → l'ouverture variable est supprimée au profit d'une version unique |
+| Clic unique de C3 | Idem | 11 % | **< 6 %** → l'ouverture variable cède la place à une version unique |
 | Sortie S-5 | Clics « arrêter ces courriels » ÷ entrées en séquence | ≤ 4 % | **> 8 %** → séquence ramenée à deux courriels, C3 fondu dans C1 |
 | Désabonnement en séquence | Désabonnements ÷ entrées en séquence | ≤ 1,2 % | **> 2 %** → arrêt et instruction du dossier par la juriste-réviseure |
 | Plainte pour pourriel | Plaintes ÷ courriels de séquence délivrés | < 0,08 % | **> 0,15 %** → suspension immédiate, contrôle de la source des inscriptions |
-| Survie à la 6e édition | Abonnés encore actifs six éditions après la fin de séquence ÷ sortis de séquence | 82 % | **< 70 %** → c'est **C1** qu'on réécrit, pas l'édition |
+| Survie à la 6e édition | Abonnés actifs six éditions après la fin de séquence ÷ sortis de séquence | 82 % | **< 70 %** → c'est **C1** qu'on réécrit, pas l'édition |
 
 Le dernier indicateur est le seul qui juge la séquence pour ce qu'elle est : d'excellents clics suivis d'un
 décrochage à la sixième édition signifient qu'elle a menti sur le produit.
@@ -419,14 +414,13 @@ décrochage à la sixième édition signifient qu'elle a menti sur le produit.
 
 | Paramètre | Règle |
 |---|---|
-| Ce qu'on teste | **Un seul élément à la fois**, dans cet ordre : (1) objet de C1 ; (2) position du bouton du guide dans C1 ; (3) formulation de l'appel à l'action de C1 ; (4) objet de C2. Le pied de page, les mentions obligatoires et l'expéditeur affiché **ne sont jamais testés** : invariants de conformité et de réputation d'expéditeur |
-| Ce qui arbitre | Le **clic**, jamais l'ouverture — un test d'objet arbitré à l'ouverture sélectionne le sensationnalisme, ce que le § 1.6 refuse. Pour C1, l'arbitre est le taux de déclaration de profil ; pour C2, le clic unique |
-| Échantillon | **1 000 abonnés confirmés par bras**, soit 2 000 par test. La règle des 2 000 par bras du § 1.6 vise l'édition, dont le volume est acquis d'un coup ; ici l'échantillon s'accumule inscription par inscription. **Contrepartie assumée** : un écart inférieur à **3 points de pourcentage** n'est pas concluant et ne doit jamais être présenté comme une victoire `[À VÉRIFIER — aucune donnée de puissance statistique dans la base ; règles internes]` |
-| Durée | **21 jours minimum, 60 jours maximum.** Vingt et un jours couvrent trois cycles hebdomadaires et lissent l'effet du jour d'inscription ; au-delà de soixante, l'actualité réglementaire a changé et les bras ne sont plus comparables |
+| Ce qu'on teste | **Un seul élément à la fois** : (1) objet de C1 ; (2) position du bouton du guide ; (3) formulation de l'appel à l'action de C1 ; (4) objet de C2. Le pied de page, les mentions obligatoires et l'expéditeur affiché **ne sont jamais testés** — invariants de conformité et de réputation |
+| Ce qui arbitre | Le **clic**, jamais l'ouverture : un test d'objet arbitré à l'ouverture sélectionne le sensationnalisme, ce que le § 1.6 refuse. Pour C1, l'arbitre est le taux de déclaration de profil ; pour C2, le clic unique |
+| Échantillon | **1 000 abonnés confirmés par bras**, soit 2 000 par test. Les 2 000 par bras du § 1.6 visent l'édition, dont le volume est acquis d'un coup ; ici l'échantillon s'accumule inscription par inscription. **Contrepartie assumée** : sous **3 points de pourcentage**, l'écart n'est pas concluant `[À VÉRIFIER — aucune donnée de puissance statistique dans la base ; règles internes]` |
+| Durée | **21 jours minimum, 60 jours maximum** : trois cycles hebdomadaires lissent l'effet du jour d'inscription, et au-delà de soixante jours l'actualité réglementaire a changé — les bras ne sont plus comparables |
 | Répartition | Aléatoire à la confirmation, **stable pour toute la séquence** : un abonné ne change pas de bras entre C1 et C3 |
 | Arrêt anticipé | Interdit sur résultat favorable ; **obligatoire** si un bras dépasse 0,15 % de plaintes ou 2 % de désabonnement |
-| Consignation | Un enregistrement par test dans `docs/annexes/` : hypothèse, date d'ouverture, effectifs, résultat, décision. Un test non consigné n'a pas eu lieu |
-| Rôles | **R** définit l'hypothèse · **J** valide la conformité des deux bras **avant** ouverture · **I** implante la répartition · **D** surveille plaintes et rebonds quotidiennement |
+| Consignation et rôles | Un enregistrement par test dans `docs/annexes/` — hypothèse, date, effectifs, résultat, décision ; un test non consigné n'a pas eu lieu. **R** définit l'hypothèse · **J** valide la conformité des deux bras **avant** ouverture · **I** implante la répartition · **D** surveille plaintes et rebonds chaque jour |
 
 **Cadence de révision.** Revue complète tous les **six mois**, et immédiate à la survenance de l'un des
 trois événements suivants : entrée en vigueur par décret d'un volet du projet de loi C-12 ; entrée en

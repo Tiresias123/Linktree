@@ -19,6 +19,16 @@ const NL = resolve(ICI, '..', 'newsletter');
 const DIST = join(NL, 'dist');
 
 const chassis = readFileSync(join(NL, 'chassis.html'), 'utf8');
+
+// Un courriel ne peut pas lire une variable CSS : ses couleurs sont
+// nécessairement écrites en clair. Rien ne garantit alors qu'elles suivent le
+// système de design — c'est ainsi que l'infolettre a conservé l'ancienne valeur
+// du turquoise après que le jeton eut changé. On rétablit le lien par un
+// contrôle : toute couleur d'un courriel doit exister dans tokens.css.
+const JETONS = new Set(
+  (readFileSync(resolve(ICI, '..', 'prototype', 'assets', 'tokens.css'), 'utf8')
+    .match(/#[0-9A-Fa-f]{6}\b/g) || []).map((h) => h.toUpperCase())
+);
 const manifeste = JSON.parse(readFileSync(join(NL, 'manifeste.json'), 'utf8'));
 
 mkdirSync(DIST, { recursive: true });
@@ -72,6 +82,13 @@ for (const envoi of manifeste.envois) {
   if (dupliques.length) {
     console.error(`  ÉCHEC ${envoi.cle} — attribut répété sur ${dupliques.length} balise(s) :`);
     dupliques.slice(0, 3).forEach((b) => console.error(`         ${b}…`));
+    echecs++;
+  }
+
+  const horsSysteme = [...new Set((sortie.match(/#[0-9A-Fa-f]{6}\b/g) || [])
+    .map((h) => h.toUpperCase()))].filter((h) => !JETONS.has(h));
+  if (horsSysteme.length) {
+    console.error(`  ÉCHEC ${envoi.cle} — couleur(s) absente(s) de tokens.css : ${horsSysteme.join(', ')}`);
     echecs++;
   }
 
