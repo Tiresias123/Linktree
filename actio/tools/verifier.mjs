@@ -23,7 +23,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 const ICI = dirname(fileURLToPath(import.meta.url));
 const PROTO = resolve(ICI, '..', 'prototype');
 const CHROME = process.env.ACTIO_CHROME ?? '/opt/pw-browsers/chromium-1194/chrome-linux/chrome';
-const PAGES = ['index.html', 'fr/index.html', 'fr/article.html', 'fr/registre.html', 'en/index.html'];
+const PAGES = ['index.html', 'fr/index.html', 'fr/article.html', 'fr/registre.html', 'en/index.html', 'composants/index.html'];
 
 /* --- Calcul du rapport de contraste WCAG ------------------------------- */
 function canal(v) { v /= 255; return v <= 0.04045 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }

@@ -1,0 +1,49 @@
+<!-- Composant 1 — Badge de statut réglementaire
+     Un badge = un statut opposable, jamais décoratif. Cinq statuts fermés :
+     alerte · consultation · conforme · info · neutre. La couleur est un jeton
+     de TEXTE (variante 700 en clair, 400 en sombre) posé sur son fond pâle ;
+     la pastille reprend currentColor. Le libellé est toujours écrit : la
+     couleur ne porte jamais seule l'information. -->
+<ul class="flex flex-wrap items-center gap-3 list-none m-0 p-0" aria-label="Exemples de badges de statut réglementaire">
+
+  <!-- alerte : mise en garde, ordonnance, sanction -->
+  <li><span class="inline-flex items-center gap-2 font-texte text-micro font-bold tracking-etiq uppercase leading-normal whitespace-nowrap px-2 py-[3px] rounded-1 border text-alerte bg-alerte-pale border-alerte/30">
+    <span class="size-1.5 rounded-plein bg-current shrink-0" aria-hidden="true"></span>
+    <span class="sr-only">Statut réglementaire :</span>Mise en garde AMF
+  </span></li>
+
+  <!-- consultation : projet, consultation publique, texte non en vigueur -->
+  <li><span class="inline-flex items-center gap-2 font-texte text-micro font-bold tracking-etiq uppercase leading-normal whitespace-nowrap px-2 py-[3px] rounded-1 border text-consultation bg-consultation-pale border-consultation/30">
+    <span class="size-1.5 rounded-plein bg-current shrink-0" aria-hidden="true"></span>
+    <span class="sr-only">Statut réglementaire :</span>En consultation publique
+  </span></li>
+
+  <!-- conforme : inscrite, en vigueur -->
+  <li><span class="inline-flex items-center gap-2 font-texte text-micro font-bold tracking-etiq uppercase leading-normal whitespace-nowrap px-2 py-[3px] rounded-1 border text-conforme bg-conforme-pale border-conforme/30">
+    <span class="size-1.5 rounded-plein bg-current shrink-0" aria-hidden="true"></span>
+    <span class="sr-only">Statut réglementaire :</span>Inscrite · en vigueur
+  </span></li>
+
+  <!-- info : avis du personnel, position administrative -->
+  <li><span class="inline-flex items-center gap-2 font-texte text-micro font-bold tracking-etiq uppercase leading-normal whitespace-nowrap px-2 py-[3px] rounded-1 border text-info bg-info-pale border-info/30">
+    <span class="size-1.5 rounded-plein bg-current shrink-0" aria-hidden="true"></span>
+    <span class="sr-only">Statut réglementaire :</span>Nouvel avis du personnel ACVM
+  </span></li>
+
+  <!-- neutre : archivé, abrogé, remplacé -->
+  <li><span class="inline-flex items-center gap-2 font-texte text-micro font-bold tracking-etiq uppercase leading-normal whitespace-nowrap px-2 py-[3px] rounded-1 border text-neutre bg-neutre-pale border-neutre/30">
+    <span class="size-1.5 rounded-plein bg-current shrink-0" aria-hidden="true"></span>
+    <span class="sr-only">Statut réglementaire :</span>Archivé
+  </span></li>
+
+  <!-- Variante datée avec renvoi à la source : le badge ne se publie jamais
+       sans la date de sa lecture au registre et le lien vers la fiche. -->
+  <li class="inline-flex items-center gap-2">
+    <span class="inline-flex items-center gap-2 font-texte text-micro font-bold tracking-etiq uppercase leading-normal whitespace-nowrap px-2 py-[3px] rounded-1 border text-conforme bg-conforme-pale border-conforme/30">
+      <span class="size-1.5 rounded-plein bg-current shrink-0" aria-hidden="true"></span>
+      <span class="sr-only">Statut réglementaire :</span>Inscrite
+    </span>
+    <span class="font-donnee text-micro text-texte-3 tabular-nums">lu le <time datetime="2026-09-04">4 sept. 2026</time></span>
+    <a href="../fr/registre.html" class="font-donnee text-micro text-lien underline underline-offset-2">registre ↗</a>
+  </li>
+</ul>

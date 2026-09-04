@@ -10,10 +10,14 @@
     "emails": "node tools/emails.mjs",
     "verifier": "node tools/verifier.mjs",
     "captures": "node tools/captures.mjs",
-    "tout": "npm run structure && npm run docs && npm run emails && npm run verifier",
-    "artefact": "node tools/artefact.mjs"
+    "tout": "npm run structure && npm run docs && npm run emails && npm run composants && npm run verifier",
+    "artefact": "node tools/artefact.mjs",
+    "tailwind": "tailwindcss -i prototype/composants/composants.tw.css -o prototype/composants/composants.css --minify",
+    "composants": "node tools/composants.mjs"
   },
   "devDependencies": {
-    "playwright-core": "^1.56.0"
+    "@tailwindcss/cli": "^4.3.3",
+    "playwright-core": "^1.56.0",
+    "tailwindcss": "^4.3.3"
   }
 }

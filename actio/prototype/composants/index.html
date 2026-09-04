@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Composants Tailwind — Actio</title>
+<meta name="description" content="Galerie des trois composants HTML/Tailwind du design system Actio : badge de statut réglementaire, encadré En bref, carte comparative de plateforme. Rendu et source, issus des mêmes fragments.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#F8FAFC">
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="composants.css">
+<script>
+(function(){try{var t=localStorage.getItem('actio.theme');
+if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+</head>
+<body class="min-h-dvh bg-page text-texte font-texte text-base leading-relaxed">
+
+<header class="border-b border-bordure bg-surface">
+  <div class="mx-auto max-w-[1100px] px-4 sm:px-6 py-4 flex flex-wrap items-center gap-4">
+    <a href="../fr/index.html" class="inline-flex items-baseline gap-0.5 font-titre font-bold text-[1.5rem] tracking-[-.03em] text-texte no-underline" aria-label="Actio, accueil">
+      <span>Actio</span><span class="inline-block w-[3px] h-[.62em] bg-bleu translate-y-[1px]" aria-hidden="true"></span>
+    </a>
+    <span class="font-donnee text-micro uppercase tracking-etiq text-texte-3">Design system · composants Tailwind</span>
+    <nav class="ml-auto flex flex-wrap items-center gap-4 font-texte text-petit" aria-label="Composants">
+      <a href="#badge-statut" class="text-texte-2 hover:text-texte">Badge de statut</a>
+      <a href="#encadre-en-bref" class="text-texte-2 hover:text-texte">En bref</a>
+      <a href="#carte-plateforme" class="text-texte-2 hover:text-texte">Carte plateforme</a>
+      <button type="button" data-theme-toggle class="inline-flex items-center gap-2 px-3 py-1.5 rounded-2 border border-bordure-forte text-petit font-semibold text-texte-2 hover:text-texte hover:border-navy" aria-pressed="false">
+        <span aria-hidden="true">◐</span> Thème
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main class="mx-auto max-w-[1100px] px-4 sm:px-6 py-10 grid gap-14">
+
+  <section class="grid gap-3 max-w-[760px]">
+    <h1 class="m-0 font-titre font-bold text-h2 leading-tight tracking-titre">Trois composants, un seul jeu de jetons</h1>
+    <p class="m-0 text-texte-2">
+      Chaque composant est un fragment HTML autonome écrit en classes Tailwind. Tailwind ne possède ici
+      <strong class="text-texte">aucune couleur propre</strong>&nbsp;: sa palette par défaut est effacée et chaque utilitaire
+      renvoie, par <code class="font-donnee text-petit">@theme inline</code>, à un jeton de
+      <code class="font-donnee text-petit">tokens.css</code>. Le mode sombre, les variantes 700/400 et les rapports de
+      contraste calculés dans le fichier de jetons s'appliquent donc sans que le composant les connaisse.
+      La feuille <code class="font-donnee text-petit">composants.css</code> est compilée localement (<code class="font-donnee text-petit">npm run tailwind</code>)&nbsp;:
+      aucun CDN, aucune ressource tierce.
+    </p>
+    <p class="m-0 font-donnee text-micro text-consultation">
+      Prototype&nbsp;: les données de la carte comparative sont illustratives et signalées comme telles. Aucune ne doit être publiée avant relevé daté et lecture du registre.
+    </p>
+  </section>
+
+  <!-- ================================================================ -->
+  <section id="badge-statut" class="grid gap-6 scroll-mt-6" aria-labelledby="titre-badge">
+    <div class="grid gap-2 max-w-[760px]">
+      <p class="m-0 font-donnee text-micro uppercase tracking-etiq text-texte-3">Composant 1</p>
+      <h2 id="titre-badge" class="m-0 font-titre font-bold text-h3 leading-tight tracking-titre">Badge de statut réglementaire</h2>
+      <p class="m-0 text-texte-2 text-petit">
+        Un badge = un statut opposable, jamais décoratif. Cinq statuts fermés — alerte, consultation, conforme, info, neutre.
+        La couleur est un jeton de <em>texte</em> (variante 700 en clair, 400 en sombre) posé sur son fond pâle&nbsp;; la
+        pastille reprend <code class="font-donnee">currentColor</code>. Le libellé est toujours écrit&nbsp;: la couleur ne porte
+        jamais seule l'information. La variante datée est la seule publiable pour un statut d'inscription.
+      </p>
+    </div>
+    <div class="p-6 bg-surface border border-bordure rounded-3">
+<!--RENDU:badge-statut-->
+<!-- Composant 1 — Badge de statut réglementaire
+     Un badge = un statut opposable, jamais décoratif. Cinq statuts fermés :
+     alerte · consultation · conforme · info · neutre. La couleur est un jeton
+     de TEXTE (variante 700 en clair, 400 en sombre) posé sur son fond pâle ;
+     la pastille reprend currentColor. Le libellé est toujours écrit : la
+     couleur ne porte jamais seule l'information. -->
+<ul class="flex flex-wrap items-center gap-3 list-none m-0 p-0" aria-label="Exemples de badges de statut réglementaire">
+
+  <!-- alerte : mise en garde, ordonnance, sanction -->
+  <li><span class="inline-flex items-center gap-2 font-texte text-micro font-bold tracking-etiq uppercase leading-normal whitespace-nowrap px-2 py-[3px] rounded-1 border text-alerte bg-alerte-pale border-alerte/30">
+    <span class="size-1.5 rounded-plein bg-current shrink-0" aria-hidden="true"></span>
+    <span class="sr-only">Statut réglementaire :</span>Mise en garde AMF
+  </span></li>
+
+  <!-- consultation : projet, consultation publique, texte non en vigueur -->
+  <li><span class="inline-flex items-center gap-2 font-texte text-micro font-bold tracking-etiq uppercase leading-normal whitespace-nowrap px-2 py-[3px] rounded-1 border text-consultation bg-consultation-pale border-consultation/30">
+    <span class="size-1.5 rounded-plein bg-current shrink-0" aria-hidden="true"></span>
+    <span class="sr-only">Statut réglementaire :</span>En consultation publique
+  </span></li>
+
+  <!-- conforme : inscrite, en vigueur -->
+  <li><span class="inline-flex items-center gap-2 font-texte text-micro font-bold tracking-etiq uppercase leading-normal whitespace-nowrap px-2 py-[3px] rounded-1 border text-conforme bg-conforme-pale border-conforme/30">
+    <span class="size-1.5 rounded-plein bg-current shrink-0" aria-hidden="true"></span>
+    <span class="sr-only">Statut réglementaire :</span>Inscrite · en vigueur
+  </span></li>
+
+  <!-- info : avis du personnel, position administrative -->
+  <li><span class="inline-flex items-center gap-2 font-texte text-micro font-bold tracking-etiq uppercase leading-normal whitespace-nowrap px-2 py-[3px] rounded-1 border text-info bg-info-pale border-info/30">
+    <span class="size-1.5 rounded-plein bg-current shrink-0" aria-hidden="true"></span>
+    <span class="sr-only">Statut réglementaire :</span>Nouvel avis du personnel ACVM
+  </span></li>
+
+  <!-- neutre : archivé, abrogé, remplacé -->
+  <li><span class="inline-flex items-center gap-2 font-texte text-micro font-bold tracking-etiq uppercase leading-normal whitespace-nowrap px-2 py-[3px] rounded-1 border text-neutre bg-neutre-pale border-neutre/30">
+    <span class="size-1.5 rounded-plein bg-current shrink-0" aria-hidden="true"></span>
+    <span class="sr-only">Statut réglementaire :</span>Archivé
+  </span></li>
+
+  <!-- Variante datée avec renvoi à la source : le badge ne se publie jamais
+       sans la date de sa lecture au registre et le lien vers la fiche. -->
+  <li class="inline-flex items-center gap-2">
+    <span class="inline-flex items-center gap-2 font-texte text-micro font-bold tracking-etiq uppercase leading-normal whitespace-nowrap px-2 py-[3px] rounded-1 border text-conforme bg-conforme-pale border-conforme/30">
+      <span class="size-1.5 rounded-plein bg-current shrink-0" aria-hidden="true"></span>
+      <span class="sr-only">Statut réglementaire :</span>Inscrite
+    </span>
+    <span class="font-donnee text-micro text-texte-3 tabular-nums">lu le <time datetime="2026-09-04">4 sept. 2026</time></span>
+    <a href="../fr/registre.html" class="font-donnee text-micro text-lien underline underline-offset-2">registre ↗</a>
+  </li>
+</ul>
+<!--FIN-RENDU:badge-statut-->
+    </div>
+    <details class="group rounded-3 border border-bordure bg-surface-2 open:bg-surface-2">
+      <summary class="cursor-pointer list-none px-5 py-3 font-texte text-petit font-semibold text-texte-2 flex items-center gap-2">
+        <span class="inline-block transition-transform group-open:rotate-90" aria-hidden="true">▸</span> Source HTML — <code class="font-donnee font-normal">badge-statut.html</code>
+      </summary>
+      <pre class="m-0 px-5 pb-5 overflow-x-auto font-donnee text-[12px] leading-relaxed text-texte-2"><code><!--SOURCE:badge-statut-->&lt;!-- Composant 1 — Badge de statut réglementaire
+     Un badge = un statut opposable, jamais décoratif. Cinq statuts fermés :
+     alerte · consultation · conforme · info · neutre. La couleur est un jeton
+     de TEXTE (variante 700 en clair, 400 en sombre) posé sur son fond pâle ;
+     la pastille reprend currentColor. Le libellé est toujours écrit : la
+     couleur ne porte jamais seule l'information. --&gt;
+&lt;ul class=&quot;flex flex-wrap items-center gap-3 list-none m-0 p-0&quot; aria-label=&quot;Exemples de badges de statut réglementaire&quot;&gt;
+
+  &lt;!-- alerte : mise en garde, ordonnance, sanction --&gt;
+  &lt;li&gt;&lt;span class=&quot;inline-flex items-center gap-2 font-texte text-micro font-bold tracking-etiq uppercase leading-normal whitespace-nowrap px-2 py-[3px] rounded-1 border text-alerte bg-alerte-pale border-alerte/30&quot;&gt;
+    &lt;span class=&quot;size-1.5 rounded-plein bg-current shrink-0&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;sr-only&quot;&gt;Statut réglementaire :&lt;/span&gt;Mise en garde AMF
+  &lt;/span&gt;&lt;/li&gt;
+
+  &lt;!-- consultation : projet, consultation publique, texte non en vigueur --&gt;
+  &lt;li&gt;&lt;span class=&quot;inline-flex items-center gap-2 font-texte text-micro font-bold tracking-etiq uppercase leading-normal whitespace-nowrap px-2 py-[3px] rounded-1 border text-consultation bg-consultation-pale border-consultation/30&quot;&gt;
+    &lt;span class=&quot;size-1.5 rounded-plein bg-current shrink-0&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;sr-only&quot;&gt;Statut réglementaire :&lt;/span&gt;En consultation publique
+  &lt;/span&gt;&lt;/li&gt;
+
+  &lt;!-- conforme : inscrite, en vigueur --&gt;
+  &lt;li&gt;&lt;span class=&quot;inline-flex items-center gap-2 font-texte text-micro font-bold tracking-etiq uppercase leading-normal whitespace-nowrap px-2 py-[3px] rounded-1 border text-conforme bg-conforme-pale border-conforme/30&quot;&gt;
+    &lt;span class=&quot;size-1.5 rounded-plein bg-current shrink-0&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;sr-only&quot;&gt;Statut réglementaire :&lt;/span&gt;Inscrite · en vigueur
+  &lt;/span&gt;&lt;/li&gt;
+
+  &lt;!-- info : avis du personnel, position administrative --&gt;
+  &lt;li&gt;&lt;span class=&quot;inline-flex items-center gap-2 font-texte text-micro font-bold tracking-etiq uppercase leading-normal whitespace-nowrap px-2 py-[3px] rounded-1 border text-info bg-info-pale border-info/30&quot;&gt;
+    &lt;span class=&quot;size-1.5 rounded-plein bg-current shrink-0&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;sr-only&quot;&gt;Statut réglementaire :&lt;/span&gt;Nouvel avis du personnel ACVM
+  &lt;/span&gt;&lt;/li&gt;
+
+  &lt;!-- neutre : archivé, abrogé, remplacé --&gt;
+  &lt;li&gt;&lt;span class=&quot;inline-flex items-center gap-2 font-texte text-micro font-bold tracking-etiq uppercase leading-normal whitespace-nowrap px-2 py-[3px] rounded-1 border text-neutre bg-neutre-pale border-neutre/30&quot;&gt;
+    &lt;span class=&quot;size-1.5 rounded-plein bg-current shrink-0&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+    &lt;span class=&quot;sr-only&quot;&gt;Statut réglementaire :&lt;/span&gt;Archivé
+  &lt;/span&gt;&lt;/li&gt;
+
+  &lt;!-- Variante datée avec renvoi à la source : le badge ne se publie jamais
+       sans la date de sa lecture au registre et le lien vers la fiche. --&gt;
+  &lt;li class=&quot;inline-flex items-center gap-2&quot;&gt;
+    &lt;span class=&quot;inline-flex items-center gap-2 font-texte text-micro font-bold tracking-etiq uppercase leading-normal whitespace-nowrap px-2 py-[3px] rounded-1 border text-conforme bg-conforme-pale border-conforme/30&quot;&gt;
+      &lt;span class=&quot;size-1.5 rounded-plein bg-current shrink-0&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+      &lt;span class=&quot;sr-only&quot;&gt;Statut réglementaire :&lt;/span&gt;Inscrite
+    &lt;/span&gt;
+    &lt;span class=&quot;font-donnee text-micro text-texte-3 tabular-nums&quot;&gt;lu le &lt;time datetime=&quot;2026-09-04&quot;&gt;4 sept. 2026&lt;/time&gt;&lt;/span&gt;
+    &lt;a href=&quot;../fr/registre.html&quot; class=&quot;font-donnee text-micro text-lien underline underline-offset-2&quot;&gt;registre ↗&lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;<!--FIN-SOURCE:badge-statut--></code></pre>
+    </details>
+  </section>
+
+  <!-- ================================================================ -->
+  <section id="encadre-en-bref" class="grid gap-6 scroll-mt-6" aria-labelledby="titre-en-bref">
+    <div class="grid gap-2 max-w-[760px]">
+      <p class="m-0 font-donnee text-micro uppercase tracking-etiq text-texte-3">Composant 2</p>
+      <h2 id="titre-en-bref" class="m-0 font-titre font-bold text-h3 leading-tight tracking-titre">Encadré «&nbsp;En bref&nbsp;» / Points clés</h2>
+      <p class="m-0 text-texte-2 text-petit">
+        Fond bleu glacier, filet gauche de 5&nbsp;px en bleu foncé, trois à quatre puces en losange, temps de lecture à droite.
+        Placé sous le chapô, avant le sommaire, borné à la mesure de lecture (760&nbsp;px). Chaque puce commence par une
+        phrase en gras qui tient seule&nbsp;: un lecteur qui ne lit que les gras a la thèse.
+      </p>
+    </div>
+    <div class="p-6 bg-surface border border-bordure rounded-3">
+<!--RENDU:encadre-en-bref-->
+<!-- Composant 2 — Encadré « En bref » / Points clés
+     Fond bleu glacier (--marque-bleu-pale), filet gauche de 5 px en bleu
+     foncé, trois à quatre puces en losange. Placé sous le chapô, avant le
+     sommaire ; largeur bornée à la mesure de lecture (760 px). -->
+<aside class="bg-bleu-pale border border-bleu-fonce/30 border-l-[5px] border-l-bleu-fonce rounded-r-3 p-6 my-8 max-w-[760px]" aria-labelledby="en-bref-titre-composant">
+  <p id="en-bref-titre-composant" class="flex items-center gap-2 m-0 mb-4 font-texte text-micro font-bold tracking-etiq uppercase text-bleu-fonce">
+    <svg class="size-4 shrink-0" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5l1.8 4.2 4.5.4-3.4 3 1 4.4L8 11.2l-3.9 2.3 1-4.4-3.4-3 4.5-.4z" fill="currentColor"/></svg>
+    En bref
+    <span class="ml-auto font-donnee font-medium tracking-normal normal-case text-texte-3">30 secondes</span>
+  </p>
+  <ul class="grid gap-3 m-0 p-0 list-none">
+    <li class="grid grid-cols-[18px_1fr] gap-3 text-petit leading-relaxed text-texte-2">
+      <span class="mt-[7px] size-2 rounded-[2px] bg-bleu-fonce rotate-45" aria-hidden="true"></span>
+      <span><strong class="text-texte">Deux régimes sur un même jeton.</strong> La loi fédérale sur les cryptomonnaies stables est adoptée mais non en vigueur&nbsp;; l’Avis 21-333 des ACVM, lui, s’applique aujourd’hui à toute plateforme inscrite.</span>
+    </li>
+    <li class="grid grid-cols-[18px_1fr] gap-3 text-petit leading-relaxed text-texte-2">
+      <span class="mt-[7px] size-2 rounded-[2px] bg-bleu-fonce rotate-45" aria-hidden="true"></span>
+      <span><strong class="text-texte">C’est la plateforme qui décide, pas vous.</strong> Un jeton n’est disponible que s’il figure dans les conditions d’inscription de votre plateforme, province par province.</span>
+    </li>
+    <li class="grid grid-cols-[18px_1fr] gap-3 text-petit leading-relaxed text-texte-2">
+      <span class="mt-[7px] size-2 rounded-[2px] bg-bleu-fonce rotate-45" aria-hidden="true"></span>
+      <span><strong class="text-texte">Québec et Ontario ne divergent pas — encore.</strong> L’AMF et la CVMO appliquent le même avis harmonisé&nbsp;; la divergence viendra des décisions d’inscription individuelles.</span>
+    </li>
+    <li class="grid grid-cols-[18px_1fr] gap-3 text-petit leading-relaxed text-texte-2">
+      <span class="mt-[7px] size-2 rounded-[2px] bg-bleu-fonce rotate-45" aria-hidden="true"></span>
+      <span><strong class="text-texte">Aucune règle de conflit identifiée.</strong> Au 4 septembre 2026, la rédaction n’a repéré aucun texte qui organise la primauté d’un régime sur l’autre.</span>
+    </li>
+  </ul>
+</aside>
+<!--FIN-RENDU:encadre-en-bref-->
+    </div>
+    <details class="group rounded-3 border border-bordure bg-surface-2">
+      <summary class="cursor-pointer list-none px-5 py-3 font-texte text-petit font-semibold text-texte-2 flex items-center gap-2">
+        <span class="inline-block transition-transform group-open:rotate-90" aria-hidden="true">▸</span> Source HTML — <code class="font-donnee font-normal">encadre-en-bref.html</code>
+      </summary>
+      <pre class="m-0 px-5 pb-5 overflow-x-auto font-donnee text-[12px] leading-relaxed text-texte-2"><code><!--SOURCE:encadre-en-bref-->&lt;!-- Composant 2 — Encadré « En bref » / Points clés
+     Fond bleu glacier (--marque-bleu-pale), filet gauche de 5 px en bleu
+     foncé, trois à quatre puces en losange. Placé sous le chapô, avant le
+     sommaire ; largeur bornée à la mesure de lecture (760 px). --&gt;
+&lt;aside class=&quot;bg-bleu-pale border border-bleu-fonce/30 border-l-[5px] border-l-bleu-fonce rounded-r-3 p-6 my-8 max-w-[760px]&quot; aria-labelledby=&quot;en-bref-titre-composant&quot;&gt;
+  &lt;p id=&quot;en-bref-titre-composant&quot; class=&quot;flex items-center gap-2 m-0 mb-4 font-texte text-micro font-bold tracking-etiq uppercase text-bleu-fonce&quot;&gt;
+    &lt;svg class=&quot;size-4 shrink-0&quot; viewBox=&quot;0 0 16 16&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M8 1.5l1.8 4.2 4.5.4-3.4 3 1 4.4L8 11.2l-3.9 2.3 1-4.4-3.4-3 4.5-.4z&quot; fill=&quot;currentColor&quot;/&gt;&lt;/svg&gt;
+    En bref
+    &lt;span class=&quot;ml-auto font-donnee font-medium tracking-normal normal-case text-texte-3&quot;&gt;30 secondes&lt;/span&gt;
+  &lt;/p&gt;
+  &lt;ul class=&quot;grid gap-3 m-0 p-0 list-none&quot;&gt;
+    &lt;li class=&quot;grid grid-cols-[18px_1fr] gap-3 text-petit leading-relaxed text-texte-2&quot;&gt;
+      &lt;span class=&quot;mt-[7px] size-2 rounded-[2px] bg-bleu-fonce rotate-45&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+      &lt;span&gt;&lt;strong class=&quot;text-texte&quot;&gt;Deux régimes sur un même jeton.&lt;/strong&gt; La loi fédérale sur les cryptomonnaies stables est adoptée mais non en vigueur&amp;nbsp;; l’Avis 21-333 des ACVM, lui, s’applique aujourd’hui à toute plateforme inscrite.&lt;/span&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;grid grid-cols-[18px_1fr] gap-3 text-petit leading-relaxed text-texte-2&quot;&gt;
+      &lt;span class=&quot;mt-[7px] size-2 rounded-[2px] bg-bleu-fonce rotate-45&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+      &lt;span&gt;&lt;strong class=&quot;text-texte&quot;&gt;C’est la plateforme qui décide, pas vous.&lt;/strong&gt; Un jeton n’est disponible que s’il figure dans les conditions d’inscription de votre plateforme, province par province.&lt;/span&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;grid grid-cols-[18px_1fr] gap-3 text-petit leading-relaxed text-texte-2&quot;&gt;
+      &lt;span class=&quot;mt-[7px] size-2 rounded-[2px] bg-bleu-fonce rotate-45&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+      &lt;span&gt;&lt;strong class=&quot;text-texte&quot;&gt;Québec et Ontario ne divergent pas — encore.&lt;/strong&gt; L’AMF et la CVMO appliquent le même avis harmonisé&amp;nbsp;; la divergence viendra des décisions d’inscription individuelles.&lt;/span&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;grid grid-cols-[18px_1fr] gap-3 text-petit leading-relaxed text-texte-2&quot;&gt;
+      &lt;span class=&quot;mt-[7px] size-2 rounded-[2px] bg-bleu-fonce rotate-45&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+      &lt;span&gt;&lt;strong class=&quot;text-texte&quot;&gt;Aucune règle de conflit identifiée.&lt;/strong&gt; Au 4 septembre 2026, la rédaction n’a repéré aucun texte qui organise la primauté d’un régime sur l’autre.&lt;/span&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/aside&gt;<!--FIN-SOURCE:encadre-en-bref--></code></pre>
+    </details>
+  </section>
+
+  <!-- ================================================================ -->
+  <section id="carte-plateforme" class="grid gap-6 scroll-mt-6" aria-labelledby="titre-carte">
+    <div class="grid gap-2 max-w-[760px]">
+      <p class="m-0 font-donnee text-micro uppercase tracking-etiq text-texte-3">Composant 3</p>
+      <h2 id="titre-carte" class="m-0 font-titre font-bold text-h3 leading-tight tracking-titre">Carte comparative de plateforme</h2>
+      <p class="m-0 text-texte-2 text-petit">
+        Note globale sur 5 avec sa pondération, statut d'inscription lu au registre et daté, trois données relevées, avantages
+        et inconvénients en étiquettes, divulgation d'affiliation <em>dans</em> la carte, deux appels à l'action. Une carte
+        n'existe que pour une plateforme inscrite auprès d'au moins un membre des ACVM. Le lien d'affiliation porte
+        <code class="font-donnee">rel="sponsored"</code> et n'influe jamais sur le score.
+      </p>
+    </div>
+    <div class="p-6 bg-surface-2 border border-bordure rounded-3 grid gap-6 sm:grid-cols-2 items-start">
+<!--RENDU:carte-plateforme-->
+<!-- Composant 3 — Carte comparative de plateforme
+     Note globale /5, statut d'inscription lu au registre et daté, trois
+     données relevées (marquées « illustratif » tant qu'aucun relevé daté
+     n'existe), avantages et inconvénients en étiquettes, divulgation
+     d'affiliation DANS la carte, deux appels à l'action. Une carte ne se
+     publie que pour une plateforme inscrite auprès d'au moins un membre des
+     ACVM ; sinon elle n'existe pas. -->
+<article class="grid gap-5 max-w-[420px] p-6 bg-surface border border-bordure rounded-3 shadow-1 font-texte text-texte" aria-labelledby="carte-ws-titre">
+
+  <!-- En-tête : identité + statut -->
+  <header class="flex items-start gap-3">
+    <span class="grid place-items-center size-11 shrink-0 rounded-2 bg-navy text-encre-texte font-titre font-bold text-lead" aria-hidden="true">W</span>
+    <div class="min-w-0 flex-1">
+      <h3 id="carte-ws-titre" class="m-0 font-titre font-bold text-h5 leading-tight tracking-titre">Wealthsimple Crypto</h3>
+      <p class="m-0 mt-0.5 font-donnee text-micro text-texte-3">Toronto · courtier en placement · membre de l’OCRI</p>
+    </div>
+    <span class="inline-flex items-center gap-2 font-texte text-micro font-bold tracking-etiq uppercase leading-normal whitespace-nowrap px-2 py-[3px] rounded-1 border text-conforme bg-conforme-pale border-conforme/30">
+      <span class="size-1.5 rounded-plein bg-current shrink-0" aria-hidden="true"></span>
+      <span class="sr-only">Statut réglementaire :</span>Inscrite
+    </span>
+  </header>
+
+  <!-- Note globale -->
+  <div class="flex items-end justify-between gap-4 pb-4 border-b border-bordure">
+    <div>
+      <p class="m-0 font-texte text-micro font-bold tracking-etiq uppercase text-texte-3 whitespace-nowrap">Score Actio</p>
+      <p class="m-0 mt-1 flex items-baseline gap-1 font-donnee tabular-nums whitespace-nowrap">
+        <span class="font-titre font-bold text-h2 leading-none text-texte">4,4</span>
+        <span class="text-petit text-texte-3">/ 5</span>
+      </p>
+    </div>
+    <div class="text-right">
+      <span class="inline-flex gap-px text-ambre" role="img" aria-label="4,4 étoiles sur 5">
+        <svg class="size-4" viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 14.9l-5.3 2.8 1.1-5.9L1.5 7.7l5.9-.8z"/></svg>
+        <svg class="size-4" viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 14.9l-5.3 2.8 1.1-5.9L1.5 7.7l5.9-.8z"/></svg>
+        <svg class="size-4" viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 14.9l-5.3 2.8 1.1-5.9L1.5 7.7l5.9-.8z"/></svg>
+        <svg class="size-4" viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 14.9l-5.3 2.8 1.1-5.9L1.5 7.7l5.9-.8z"/></svg>
+        <svg class="size-4 text-bordure-forte" viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 14.9l-5.3 2.8 1.1-5.9L1.5 7.7l5.9-.8z"/></svg>
+      </span>
+      <p class="m-0 mt-1 font-donnee text-micro text-texte-3">garde 40 % · frais 30 % · service 20 % · conformité 10 %</p>
+    </div>
+  </div>
+
+  <!-- Données relevées -->
+  <dl class="grid grid-cols-3 gap-3 m-0">
+    <div class="grid gap-1">
+      <dt class="font-texte text-micro font-bold tracking-etiq uppercase text-texte-3">Écart (BTC)</dt>
+      <dd class="m-0 font-donnee tabular-nums text-petit font-semibold text-texte">≈ 1,5 %</dd>
+      <dd class="m-0 font-donnee text-micro text-consultation">illustratif</dd>
+    </div>
+    <div class="grid gap-1">
+      <dt class="font-texte text-micro font-bold tracking-etiq uppercase text-texte-3">Retrait Interac</dt>
+      <dd class="m-0 font-donnee tabular-nums text-petit font-semibold text-texte">1 – 3 j ouvr.</dd>
+      <dd class="m-0 font-donnee text-micro text-consultation">illustratif</dd>
+    </div>
+    <div class="grid gap-1">
+      <dt class="font-texte text-micro font-bold tracking-etiq uppercase text-texte-3">Garde</dt>
+      <dd class="m-0 font-donnee text-petit font-semibold text-texte">Dépositaire tiers</dd>
+      <dd class="m-0 font-donnee text-micro text-texte-3">déclaré</dd>
+    </div>
+  </dl>
+
+  <!-- Avantages / inconvénients -->
+  <div class="grid gap-2">
+    <ul class="flex flex-wrap gap-2 m-0 p-0 list-none" aria-label="Avantages">
+      <li class="font-texte text-micro font-semibold px-2 py-[3px] rounded-1 text-conforme bg-conforme-pale">+ Membre de l’OCRI</li>
+      <li class="font-texte text-micro font-semibold px-2 py-[3px] rounded-1 text-conforme bg-conforme-pale">+ Compte enregistré (CELI, REER) via FNB</li>
+      <li class="font-texte text-micro font-semibold px-2 py-[3px] rounded-1 text-conforme bg-conforme-pale">+ Interface en français</li>
+    </ul>
+    <ul class="flex flex-wrap gap-2 m-0 p-0 list-none" aria-label="Inconvénients">
+      <li class="font-texte text-micro font-semibold px-2 py-[3px] rounded-1 text-alerte bg-alerte-pale">− Pas de retrait vers un portefeuille externe pour tous les actifs</li>
+      <li class="font-texte text-micro font-semibold px-2 py-[3px] rounded-1 text-alerte bg-alerte-pale">− Écart plus large qu’un carnet d’ordres</li>
+    </ul>
+  </div>
+
+  <!-- Statut daté + divulgation -->
+  <p class="m-0 font-donnee text-micro text-texte-3 leading-relaxed">
+    Statut lu à la recherche nationale d’inscription des ACVM le <time datetime="2026-09-04">4 sept. 2026</time>
+    · <a href="../fr/registre.html" class="text-lien underline underline-offset-2">fiche au registre ↗</a>.
+    Une inscription vaut pour une province&nbsp;: vérifiez la vôtre.
+    <strong class="text-texte-2 font-medium">Divulgation&nbsp;:</strong> Actio peut percevoir une commission si vous ouvrez un compte depuis le second bouton. Le score n’en tient pas compte.
+  </p>
+
+  <!-- Appels à l'action -->
+  <div class="flex flex-wrap gap-2">
+    <a href="../fr/article.html" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-2 font-texte text-petit font-semibold bg-fill-primaire text-fill-primaire-texte hover:bg-fill-primaire-survol transition-colors">Fiche complète</a>
+    <a href="#" rel="sponsored noopener" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-2 font-texte text-petit font-semibold border border-bordure-forte text-texte-2 hover:border-navy hover:text-texte transition-colors">Ouvrir un compte ↗ <span class="sr-only">(lien d’affiliation)</span></a>
+  </div>
+</article>
+<!--FIN-RENDU:carte-plateforme-->
+      <div class="grid gap-3 text-petit text-texte-2 max-w-[420px]">
+        <p class="m-0 font-texte text-micro font-bold tracking-etiq uppercase text-texte-3">Anatomie</p>
+        <ol class="m-0 pl-5 grid gap-2">
+          <li><strong class="text-texte">En-tête</strong> — initiale sur navy, nom en Newsreader, catégorie d'inscription en JetBrains Mono, badge de statut (composant 1).</li>
+          <li><strong class="text-texte">Score</strong> — chiffre en Newsreader, cinq étoiles ambre (la vide en bordure forte), pondération écrite&nbsp;: 40&nbsp;/ 30&nbsp;/ 20&nbsp;/ 10.</li>
+          <li><strong class="text-texte">Données</strong> — trois colonnes, chiffres tabulaires, mention «&nbsp;illustratif&nbsp;» en ambre tant qu'aucun relevé daté n'existe.</li>
+          <li><strong class="text-texte">Avantages / inconvénients</strong> — étiquettes vertes et rouges sur fond pâle, signe «&nbsp;+&nbsp;» ou «&nbsp;−&nbsp;» écrit, jamais la couleur seule.</li>
+          <li><strong class="text-texte">Statut daté et divulgation</strong> — date de lecture, lien vers la fiche officielle, rappel «&nbsp;une inscription vaut pour une province&nbsp;», divulgation d'affiliation.</li>
+          <li><strong class="text-texte">Actions</strong> — primaire (fiche complète, aplat bleu), secondaire (ouvrir un compte, bordure, <code class="font-donnee">rel="sponsored"</code>).</li>
+        </ol>
+      </div>
+    </div>
+    <details class="group rounded-3 border border-bordure bg-surface-2">
+      <summary class="cursor-pointer list-none px-5 py-3 font-texte text-petit font-semibold text-texte-2 flex items-center gap-2">
+        <span class="inline-block transition-transform group-open:rotate-90" aria-hidden="true">▸</span> Source HTML — <code class="font-donnee font-normal">carte-plateforme.html</code>
+      </summary>
+      <pre class="m-0 px-5 pb-5 overflow-x-auto font-donnee text-[12px] leading-relaxed text-texte-2"><code><!--SOURCE:carte-plateforme-->&lt;!-- Composant 3 — Carte comparative de plateforme
+     Note globale /5, statut d'inscription lu au registre et daté, trois
+     données relevées (marquées « illustratif » tant qu'aucun relevé daté
+     n'existe), avantages et inconvénients en étiquettes, divulgation
+     d'affiliation DANS la carte, deux appels à l'action. Une carte ne se
+     publie que pour une plateforme inscrite auprès d'au moins un membre des
+     ACVM ; sinon elle n'existe pas. --&gt;
+&lt;article class=&quot;grid gap-5 max-w-[420px] p-6 bg-surface border border-bordure rounded-3 shadow-1 font-texte text-texte&quot; aria-labelledby=&quot;carte-ws-titre&quot;&gt;
+
+  &lt;!-- En-tête : identité + statut --&gt;
+  &lt;header class=&quot;flex items-start gap-3&quot;&gt;
+    &lt;span class=&quot;grid place-items-center size-11 shrink-0 rounded-2 bg-navy text-encre-texte font-titre font-bold text-lead&quot; aria-hidden=&quot;true&quot;&gt;W&lt;/span&gt;
+    &lt;div class=&quot;min-w-0 flex-1&quot;&gt;
+      &lt;h3 id=&quot;carte-ws-titre&quot; class=&quot;m-0 font-titre font-bold text-h5 leading-tight tracking-titre&quot;&gt;Wealthsimple Crypto&lt;/h3&gt;
+      &lt;p class=&quot;m-0 mt-0.5 font-donnee text-micro text-texte-3&quot;&gt;Toronto · courtier en placement · membre de l’OCRI&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;span class=&quot;inline-flex items-center gap-2 font-texte text-micro font-bold tracking-etiq uppercase leading-normal whitespace-nowrap px-2 py-[3px] rounded-1 border text-conforme bg-conforme-pale border-conforme/30&quot;&gt;
+      &lt;span class=&quot;size-1.5 rounded-plein bg-current shrink-0&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
+      &lt;span class=&quot;sr-only&quot;&gt;Statut réglementaire :&lt;/span&gt;Inscrite
+    &lt;/span&gt;
+  &lt;/header&gt;
+
+  &lt;!-- Note globale --&gt;
+  &lt;div class=&quot;flex items-end justify-between gap-4 pb-4 border-b border-bordure&quot;&gt;
+    &lt;div&gt;
+      &lt;p class=&quot;m-0 font-texte text-micro font-bold tracking-etiq uppercase text-texte-3 whitespace-nowrap&quot;&gt;Score Actio&lt;/p&gt;
+      &lt;p class=&quot;m-0 mt-1 flex items-baseline gap-1 font-donnee tabular-nums whitespace-nowrap&quot;&gt;
+        &lt;span class=&quot;font-titre font-bold text-h2 leading-none text-texte&quot;&gt;4,4&lt;/span&gt;
+        &lt;span class=&quot;text-petit text-texte-3&quot;&gt;/ 5&lt;/span&gt;
+      &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;text-right&quot;&gt;
+      &lt;span class=&quot;inline-flex gap-px text-ambre&quot; role=&quot;img&quot; aria-label=&quot;4,4 étoiles sur 5&quot;&gt;
+        &lt;svg class=&quot;size-4&quot; viewBox=&quot;0 0 20 20&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill=&quot;currentColor&quot; d=&quot;M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 14.9l-5.3 2.8 1.1-5.9L1.5 7.7l5.9-.8z&quot;/&gt;&lt;/svg&gt;
+        &lt;svg class=&quot;size-4&quot; viewBox=&quot;0 0 20 20&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill=&quot;currentColor&quot; d=&quot;M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 14.9l-5.3 2.8 1.1-5.9L1.5 7.7l5.9-.8z&quot;/&gt;&lt;/svg&gt;
+        &lt;svg class=&quot;size-4&quot; viewBox=&quot;0 0 20 20&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill=&quot;currentColor&quot; d=&quot;M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 14.9l-5.3 2.8 1.1-5.9L1.5 7.7l5.9-.8z&quot;/&gt;&lt;/svg&gt;
+        &lt;svg class=&quot;size-4&quot; viewBox=&quot;0 0 20 20&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill=&quot;currentColor&quot; d=&quot;M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 14.9l-5.3 2.8 1.1-5.9L1.5 7.7l5.9-.8z&quot;/&gt;&lt;/svg&gt;
+        &lt;svg class=&quot;size-4 text-bordure-forte&quot; viewBox=&quot;0 0 20 20&quot; aria-hidden=&quot;true&quot;&gt;&lt;path fill=&quot;currentColor&quot; d=&quot;M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 14.9l-5.3 2.8 1.1-5.9L1.5 7.7l5.9-.8z&quot;/&gt;&lt;/svg&gt;
+      &lt;/span&gt;
+      &lt;p class=&quot;m-0 mt-1 font-donnee text-micro text-texte-3&quot;&gt;garde 40 % · frais 30 % · service 20 % · conformité 10 %&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Données relevées --&gt;
+  &lt;dl class=&quot;grid grid-cols-3 gap-3 m-0&quot;&gt;
+    &lt;div class=&quot;grid gap-1&quot;&gt;
+      &lt;dt class=&quot;font-texte text-micro font-bold tracking-etiq uppercase text-texte-3&quot;&gt;Écart (BTC)&lt;/dt&gt;
+      &lt;dd class=&quot;m-0 font-donnee tabular-nums text-petit font-semibold text-texte&quot;&gt;≈ 1,5 %&lt;/dd&gt;
+      &lt;dd class=&quot;m-0 font-donnee text-micro text-consultation&quot;&gt;illustratif&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;grid gap-1&quot;&gt;
+      &lt;dt class=&quot;font-texte text-micro font-bold tracking-etiq uppercase text-texte-3&quot;&gt;Retrait Interac&lt;/dt&gt;
+      &lt;dd class=&quot;m-0 font-donnee tabular-nums text-petit font-semibold text-texte&quot;&gt;1 – 3 j ouvr.&lt;/dd&gt;
+      &lt;dd class=&quot;m-0 font-donnee text-micro text-consultation&quot;&gt;illustratif&lt;/dd&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;grid gap-1&quot;&gt;
+      &lt;dt class=&quot;font-texte text-micro font-bold tracking-etiq uppercase text-texte-3&quot;&gt;Garde&lt;/dt&gt;
+      &lt;dd class=&quot;m-0 font-donnee text-petit font-semibold text-texte&quot;&gt;Dépositaire tiers&lt;/dd&gt;
+      &lt;dd class=&quot;m-0 font-donnee text-micro text-texte-3&quot;&gt;déclaré&lt;/dd&gt;
+    &lt;/div&gt;
+  &lt;/dl&gt;
+
+  &lt;!-- Avantages / inconvénients --&gt;
+  &lt;div class=&quot;grid gap-2&quot;&gt;
+    &lt;ul class=&quot;flex flex-wrap gap-2 m-0 p-0 list-none&quot; aria-label=&quot;Avantages&quot;&gt;
+      &lt;li class=&quot;font-texte text-micro font-semibold px-2 py-[3px] rounded-1 text-conforme bg-conforme-pale&quot;&gt;+ Membre de l’OCRI&lt;/li&gt;
+      &lt;li class=&quot;font-texte text-micro font-semibold px-2 py-[3px] rounded-1 text-conforme bg-conforme-pale&quot;&gt;+ Compte enregistré (CELI, REER) via FNB&lt;/li&gt;
+      &lt;li class=&quot;font-texte text-micro font-semibold px-2 py-[3px] rounded-1 text-conforme bg-conforme-pale&quot;&gt;+ Interface en français&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ul class=&quot;flex flex-wrap gap-2 m-0 p-0 list-none&quot; aria-label=&quot;Inconvénients&quot;&gt;
+      &lt;li class=&quot;font-texte text-micro font-semibold px-2 py-[3px] rounded-1 text-alerte bg-alerte-pale&quot;&gt;− Pas de retrait vers un portefeuille externe pour tous les actifs&lt;/li&gt;
+      &lt;li class=&quot;font-texte text-micro font-semibold px-2 py-[3px] rounded-1 text-alerte bg-alerte-pale&quot;&gt;− Écart plus large qu’un carnet d’ordres&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Statut daté + divulgation --&gt;
+  &lt;p class=&quot;m-0 font-donnee text-micro text-texte-3 leading-relaxed&quot;&gt;
+    Statut lu à la recherche nationale d’inscription des ACVM le &lt;time datetime=&quot;2026-09-04&quot;&gt;4 sept. 2026&lt;/time&gt;
+    · &lt;a href=&quot;../fr/registre.html&quot; class=&quot;text-lien underline underline-offset-2&quot;&gt;fiche au registre ↗&lt;/a&gt;.
+    Une inscription vaut pour une province&amp;nbsp;: vérifiez la vôtre.
+    &lt;strong class=&quot;text-texte-2 font-medium&quot;&gt;Divulgation&amp;nbsp;:&lt;/strong&gt; Actio peut percevoir une commission si vous ouvrez un compte depuis le second bouton. Le score n’en tient pas compte.
+  &lt;/p&gt;
+
+  &lt;!-- Appels à l'action --&gt;
+  &lt;div class=&quot;flex flex-wrap gap-2&quot;&gt;
+    &lt;a href=&quot;../fr/article.html&quot; class=&quot;inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-2 font-texte text-petit font-semibold bg-fill-primaire text-fill-primaire-texte hover:bg-fill-primaire-survol transition-colors&quot;&gt;Fiche complète&lt;/a&gt;
+    &lt;a href=&quot;#&quot; rel=&quot;sponsored noopener&quot; class=&quot;inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-2 font-texte text-petit font-semibold border border-bordure-forte text-texte-2 hover:border-navy hover:text-texte transition-colors&quot;&gt;Ouvrir un compte ↗ &lt;span class=&quot;sr-only&quot;&gt;(lien d’affiliation)&lt;/span&gt;&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/article&gt;<!--FIN-SOURCE:carte-plateforme--></code></pre>
+    </details>
+  </section>
+
+</main>
+
+<footer class="border-t border-bordure bg-surface">
+  <div class="mx-auto max-w-[1100px] px-4 sm:px-6 py-6 flex flex-wrap gap-4 items-center font-donnee text-micro text-texte-3">
+    <span>Actio — design system v2 · jetons&nbsp;: <code>prototype/assets/tokens.css</code> · source Tailwind&nbsp;: <code>composants.tw.css</code></span>
+    <a href="../fr/index.html" class="ml-auto text-lien underline underline-offset-2">Retour au prototype</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var b = document.querySelector('[data-theme-toggle]');
+  if (!b) return;
+  function courant() {
+    var t = document.documentElement.getAttribute('data-theme');
+    if (t) return t;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  function maj() { b.setAttribute('aria-pressed', courant() === 'dark' ? 'true' : 'false'); }
+  b.addEventListener('click', function () {
+    var suivant = courant() === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', suivant);
+    try { localStorage.setItem('actio.theme', suivant); } catch (e) {}
+    maj();
+  });
+  maj();
+})();
+</script>
+</body>
+</html>
