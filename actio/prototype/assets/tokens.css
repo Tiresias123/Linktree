@@ -62,7 +62,7 @@
   --encre-baisse:  #FF6B7F;
   --encre-stable:  #8FA0B2;
   --encre-ambre:   #E8A93C;
-  --encre-accent-texte: #06231F;   /* sur --encre-accent : 8,8:1 */
+  --encre-accent-texte: #06231F;   /* sur --encre-accent : 9,1:1 */
   --statut-alerte-fixe: #C8102E;   /* alerte sur bande d’encre — blanc dessus : 5,9:1 */
 
   /* Dégradés d’illustration — invariants. Un dégradé qui porte du texte blanc

@@ -112,9 +112,10 @@ elle n'est jamais approximée par « la semaine prochaine ».
 
 **Conséquence d'intégration.** Les trois courriels passent par la chaîne de l'édition — `chassis.html`, un
 fragment dans `newsletter/contenus/`, une entrée de manifeste — avec `bandeau_cours: false`, qui retire le
-bloc `<!--DEBUT:COURS-->` … `<!--FIN:COURS-->`. Clés : `bienvenue-01`, `bienvenue-02`, `bienvenue-03`. Le
-fichier `newsletter/manifeste.json` que lit `tools/emails.mjs` **n'existe pas encore dans le dépôt** :
-premier ticket. `MENTIONS_OBLIGATOIRES` reçoit une septième entrée, propre à `bienvenue-01` :
+bloc `<!--DEBUT:COURS-->` … `<!--FIN:COURS-->`. Clés : `bienvenue-1`, `bienvenue-2`, `bienvenue-3`. Le
+fichier `newsletter/manifeste.json` que lit `tools/emails.mjs` **existe** et décrit les quatre envois
+(voir le point 4 de « Ce qui reste à trancher »). `MENTIONS_OBLIGATOIRES` doit encore recevoir une
+septième entrée, propre à `bienvenue-1` :
 `{{lien_guide}}` — un courriel d'accueil qui ne livre pas le guide qu'il annonce doit être un échec de
 compilation, pas une coquille.
 

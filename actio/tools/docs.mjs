@@ -63,6 +63,9 @@ for (const d of docs) {
       .map((m) => m.replace(/`/g, ''))
   );
   for (const c of chemins) {
+    // Une URL externe n'est pas un chemin de dépôt : le premier segment d'un
+    // chemin relatif est un nom de répertoire, jamais un nom d'hôte pointé.
+    if (/^[\w-]+(?:\.[\w-]+)+$/.test(c.split('/')[0])) continue;
     const candidats = [
       resolve(RACINE, c),
       resolve(RACINE, c.replace(/^actio\//, '')),

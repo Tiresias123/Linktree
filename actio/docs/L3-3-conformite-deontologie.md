@@ -1,6 +1,6 @@
 ## 3. Cadre de conformité et déontologie média
 
-Document opposable interne, arrêté au **4 septembre 2026**. Les règles de procédure qu'il pose — délais, rôles, contrôles — sont exécutoires dès l'adoption. Les **fondements juridiques** qu'il invoque proviennent des fiches `01` à `09`, constituées sans accès aux sites des autorités : ils doivent être rouverts sur source primaire avant toute opposition à un tiers. Ce qui ne l'a pas été porte **[À VÉRIFIER]**. Le document lie la rédaction, la direction des revenus et tout prestataire publiant sous la marque : site (`prototype/index.html`, `prototype/fr/`, `prototype/en/`), infolettre (`newsletter/actio-dispatch-001.html`), comptes sociaux.
+Document opposable interne, arrêté au **4 septembre 2026**. Les règles de procédure — délais, rôles, contrôles — sont exécutoires dès l'adoption. Les **fondements juridiques** invoqués proviennent des fiches `01` à `09`, constituées sans accès aux sites des autorités : ils doivent être rouverts sur source primaire avant toute opposition à un tiers, et ce qui ne l'a pas été porte **[À VÉRIFIER]**. Le document lie la rédaction, la direction des revenus et tout prestataire publiant sous la marque : site, infolettre (`newsletter/actio-dispatch-001.html`), comptes sociaux.
 
 ---
 
@@ -10,29 +10,25 @@ Document opposable interne, arrêté au **4 septembre 2026**. Les règles de pro
 
 L'absence d'inscription d'Actio, déclarée dans `.avertissement` du pied de `prototype/fr/index.html`, protège tant qu'Actio reste un média et expose dès qu'elle devient un canal de commercialisation.
 
-Point de rupture : l'**Avis conjoint 21-330 ACVM/OCRCVM sur la publicité, le marketing et les médias sociaux** retient que le marketing diffusé par un tiers **pour le compte** d'une plateforme engage celle-ci [À VÉRIFIER — millésime non arrêté, contradiction `C-03` ; l'avis n'a pas été ouvert]. La conséquence est asymétrique : le contenu rémunéré d'Actio devient un manquement **de la plateforme**. Actio ne subit pas la sanction, elle la cause — et un partenaire qui l'apprend ne renouvelle pas.
+Point de rupture : l'**Avis conjoint 21-330 ACVM/OCRCVM sur la publicité, le marketing et les médias sociaux** retient que le marketing diffusé par un tiers **pour le compte** d'une plateforme engage celle-ci [À VÉRIFIER — millésime non arrêté, contradiction `C-03` ; l'avis n'a pas été ouvert]. La conséquence est asymétrique : le contenu rémunéré d'Actio devient un manquement **de la plateforme**. Actio ne subit pas la sanction, elle la cause — et un partenaire qui l'apprend ne renouvelle pas. Deuxième axe, applicable à Actio directement : la *Loi sur la concurrence* sanctionne les indications fausses ou trompeuses et impose la divulgation du **lien matériel** — affiliation, commandite, avantage reçu [À VÉRIFIER — numéro d'article]. Troisième axe : la fiche 08 relève qu'un comparatif affilié mettant en avant une plateforme, **même inscrite**, peut être analysé comme du matériel de marketing diffusé pour son compte. Le comparatif est donc traité ici comme un format publicitaire.
 
-Deuxième axe, applicable à Actio directement : la *Loi sur la concurrence* sanctionne les indications fausses ou trompeuses et impose la divulgation du **lien matériel** — affiliation, commandite, avantage reçu [À VÉRIFIER — numéro d'article]. Troisième axe : la fiche 08 relève qu'un comparatif affilié mettant en avant une plateforme, **même inscrite**, peut être analysé comme du matériel de marketing diffusé pour son compte. Le comparatif est donc traité ici comme un format publicitaire.
-
-#### 3.1.2 Liste fermée
+#### 3.1.2 Liste fermée des formats
 
 | Contrepartie | Statut | Motif |
 |---|---|---|
 | Bandeau et pavé facturés à l'impression, sans ciblage comportemental | **Accepté** | Aucune recommandation, aucun lien matériel par lecteur |
-| Commandite de rubrique ou d'édition de l'infolettre, sans droit de regard | **Accepté** | Le commanditaire achète une adjacence, pas un contenu |
-| Contenu commandité identifié, rédigé par l'annonceur, non signé par la rédaction | **Accepté sous § 3.2.2** | Le lecteur doit pouvoir l'écarter en un coup d'œil |
+| Commandite de rubrique ou d'édition, sans droit de regard | **Accepté** | Achat d'une adjacence, pas d'un contenu |
+| Contenu commandité identifié, non signé par la rédaction | **Accepté sous § 3.2.2** | Doit pouvoir être écarté en un coup d'œil |
 | Événement ou formation coproduits avec un cabinet ou un ordre professionnel ; offre d'emploi ; avis institutionnel | **Accepté** | Aucune recommandation d'actif ni de plateforme |
-| **Lien d'affiliation vers une plateforme de négociation de cryptoactifs** | **Refusé, sans exception** | Rémunération indexée sur l'ouverture de compte : Actio est payée à l'acte de placement du lecteur |
-| Affiliation vers un portefeuille, un service de jalonnement, un prêt adossé à des cryptoactifs ; rémunération d'un émetteur ou promoteur de jeton | **Refusé** | Le communiqué des ACVM du 22 octobre 2025 rappelle que ces prêts relèvent de l'inscription et du prospectus ; risque de placement illégal |
-| Codes de parrainage, primes de bienvenue, concours de type ludique | **Refusé** | Expressément visés par l'Avis conjoint 21-330 [À VÉRIFIER] |
+| **Lien d'affiliation vers une plateforme de négociation de cryptoactifs** | **Refusé, sans exception** | Rémunération indexée sur l'ouverture de compte : Actio serait payée à l'acte de placement du lecteur |
+| Affiliation vers un portefeuille, un service de jalonnement ou un prêt adossé à des cryptoactifs ; rémunération d'un émetteur ou promoteur de jeton | **Refusé** | Le communiqué des ACVM du 22 octobre 2025 rappelle que ces prêts relèvent de l'inscription et du prospectus ; risque de placement illégal |
+| Codes de parrainage, primes de bienvenue, concours de type ludique | **Refusé** | Visés par l'Avis conjoint 21-330 [À VÉRIFIER] |
 | Partenariat avec une plateforme **non inscrite** dans la province du lecteur ; publicité programmatique par réseau tiers non filtré | **Refusé** | § 3.1.3 ; un annonceur servi par un réseau n'est ni visible ni certifiable |
 | Création imitant le gabarit d'analyse (`.retenir`, `.boite--risque`, `.sources__liste`) | **Refusé** | Ces composants signalent une analyse indépendante |
 
 #### 3.1.3 La règle de l'inscription préalable
 
-**Règle.** Aucun partenariat, aucune affiliation, aucune mention promotionnelle — payée ou échangée — avec une plateforme non inscrite auprès de l'autorité de **chaque province où l'annonce est servie**. Le critère n'est pas « inscrite au Canada » : un lecteur montréalais relève de l'AMF, un lecteur torontois de la CVMO.
-
-**Preuve.** Seules les **listes publiques des plateformes autorisées et proscrites des ACVM** font foi ; aucun nom repris d'une source secondaire ne vaut vérification (`U-07`), et le nombre d'inscrits évolue (`U-09`). Le contrôle porte sur **l'entité juridique inscrite**, non sur la marque : une même marque peut couvrir une entité inscrite et une entité étrangère qui ne l'est pas.
+**Règle.** Aucun partenariat, aucune affiliation, aucune mention promotionnelle — payée ou échangée — avec une plateforme non inscrite auprès de l'autorité de **chaque province où l'annonce est servie**. Le critère n'est pas « inscrite au Canada » : un lecteur montréalais relève de l'AMF, un lecteur torontois de la CVMO. Seules les **listes publiques des plateformes autorisées et proscrites des ACVM** font foi ; aucun nom repris d'une source secondaire ne vaut vérification (`U-07`) et le nombre d'inscrits évolue (`U-09`). Le contrôle porte sur **l'entité juridique inscrite**, non sur la marque : une même marque peut couvrir une entité inscrite et une entité étrangère qui ne l'est pas.
 
 | Contrôle | Responsable | Support | Fréquence |
 |---|---|---|---|
@@ -42,23 +38,23 @@ Deuxième axe, applicable à Actio directement : la *Loi sur la concurrence* san
 | Événementiel | Réviseur juridique | Mises en garde de l'AMF, décisions du TMF, ordonnances du Tribunal des marchés financiers (Ontario), avis de pénalité administrative pécuniaire du CANAFE | **Sous 24 h** après toute publication visant le partenaire |
 | Journal | Chef de pupitre | `docs/annexes/registre-verifications-partenaires.csv` : date, registre, statut, initiales | À chaque contrôle |
 
-**Perte d'inscription en cours de contrat** — le scénario doit être tranché à l'avance, faute de quoi il se tranche par la négociation commerciale.
+**Perte d'inscription en cours de contrat** — à trancher d'avance, faute de quoi cela se tranche par la négociation commerciale.
 
 | Événement | Délai | Acte |
 |---|---|---|
 | Radiation, suspension, expiration ou retrait de l'inscription ; inscription à une liste de plateformes proscrites | **2 h ouvrées** | Dépublication de toutes les créations, désactivation des liens, retrait du gabarit d'infolettre, sans préavis |
-| Ordonnance de blocage, ordonnance d'interdiction d'opérations sur valeurs, mise en garde nominative, avis de PAP du CANAFE, révocation d'inscription d'ESM | **24 h** | Suspension conservatoire ; réexamen sous 5 jours ouvrables |
+| Ordonnance de blocage ou d'interdiction d'opérations sur valeurs, mise en garde nominative, avis de PAP du CANAFE, révocation d'inscription d'ESM | **24 h** | Suspension conservatoire, réexamen sous 5 jours ouvrables |
 | Annonce d'enquête sans acte d'autorité | — | Décision de la rédactrice en chef sous 5 jours ouvrables |
 
-Les sommes de la période non servie sont **remboursées au prorata**, jamais compensées par une prolongation — prolonger revient à négocier la durée d'exposition d'un partenaire déchu. **L'archive publiée ne se dépublie pas** : les articles citant l'ancien partenaire restent en ligne, seules les créations disparaissent. Un média qui retire ses articles avec ses bandeaux avoue que les deux relevaient du même contrat.
+Sommes de la période non servie **remboursées au prorata**, jamais compensées par une prolongation : prolonger revient à négocier la durée d'exposition d'un partenaire déchu. **L'archive publiée ne se dépublie pas** — les articles citant l'ancien partenaire restent en ligne, seules les créations disparaissent. Un média qui retire ses articles avec ses bandeaux avoue que les deux relevaient du même contrat.
 
 #### 3.1.4 Format de divulgation
 
-**Où.** Dans le corps du contenu, **au-dessus du premier paragraphe** et immédiatement **au-dessus de chaque lien rémunéré**. Jamais dans une page de mentions, jamais dans `.pied__legal`, jamais sous un bouton. Motif : le standard retenu par la fiche 08 est une divulgation **claire, proéminente et spécifique par lien**. Un bandeau généralisé en pied ne divulgue rien au lecteur arrivé par un moteur de recherche sur l'ancre du lien — c'est-à-dire précisément au lecteur qui clique. Une divulgation doit être lue **avant** la décision qu'elle éclaire.
+**Où.** Dans le corps du contenu, **au-dessus du premier paragraphe** et immédiatement **au-dessus de chaque lien rémunéré** ; jamais dans une page de mentions ni dans `.pied__legal`. Le standard retenu par la fiche 08 est une divulgation **claire, proéminente et spécifique par lien** : un bandeau généralisé en pied ne divulgue rien au lecteur arrivé par un moteur de recherche sur l'ancre du lien, c'est-à-dire précisément à celui qui clique. Une divulgation se lit **avant** la décision qu'elle éclaire.
 
-**En quels termes.** Formule imposée : « **Contenu commandité par [entité, n° d'inscription], payé par cet annonceur. Ce contenu n'a pas été rédigé par la rédaction d'Actio.** » Pour un lien : « **Lien rémunéré. Actio perçoit une commission si vous ouvrez un compte à partir de ce lien.** » Sont interdits « en partenariat avec », « présenté par », « avec le soutien de » : ces formules décrivent une relation sans nommer un paiement.
+**En quels termes.** « **Contenu commandité par [entité, n° d'inscription], payé par cet annonceur. Ce contenu n'a pas été rédigé par la rédaction d'Actio.** » Pour un lien : « **Lien rémunéré. Actio perçoit une commission si vous ouvrez un compte à partir de ce lien.** » Interdits : « en partenariat avec », « présenté par », « avec le soutien de » — ces formules décrivent une relation sans nommer un paiement.
 
-**En quelle typographie.** Patron de `.avertissement` (`assets/actio.css`, l. 639) transposé sur les jetons de consultation, pour ne pas mobiliser le rouge d'alerte sur un fait qui n'est pas un danger : fond `--statut-consultation-pale` (`#FBF0E0`), bordure et filet gauche `--statut-consultation` (`#965800`) en `var(--trait-editorial)` (3 px), `--rayon-2`, `padding: var(--e-5) var(--e-6)`. Étiquette calquée sur `.avertissement__titre` : `--police-texte`, `--t-micro` (11 px), `--graisse-grasse` (700), capitales, `letter-spacing: var(--interlettre-etiq)` (0,085 em). Corps en `--t-petit` (13 px) — **jamais plus petit que le texte qu'il qualifie**. La classe `.commandite` **existe désormais** dans `actio.css`, écrite exactement sur ces valeurs. Le badge `.badge--consultation`, lui, existe et se pose dans `.article__etiquettes`. En infolettre, valeurs littérales `#FBF0E0` et `#965800` en styles en ligne, comme tout `newsletter/actio-dispatch-001.html`.
+**En quelle typographie.** Patron de `.avertissement` (`assets/actio.css`, l. 663) transposé sur les jetons de consultation, pour ne pas mobiliser le rouge d'alerte sur un fait qui n'est pas un danger : fond `--statut-consultation-pale` (`#FBF0E0`), bordure et filet gauche `--statut-consultation` (`#965800`) en `var(--trait-editorial)` (3 px), `--rayon-2`, `padding: var(--e-5) var(--e-6)`. Étiquette calquée sur `.avertissement__titre` : `--police-texte`, `--t-micro` (11 px), `--graisse-grasse` (700), capitales, `letter-spacing: var(--interlettre-etiq)` (0,085 em). Corps en `--t-petit` (13 px) — **jamais plus petit que le texte qu'il qualifie**. La classe `.commandite` **existe** dans `actio.css` (l. 698-723), avec `.commandite__titre`, `.commandite p` et `.commandite__inscription` ; elle n'est employée dans aucune page du prototype. `.badge--consultation` existe et se pose dans `.article__etiquettes`. En infolettre, valeurs littérales `#FBF0E0` et `#965800` en styles en ligne.
 
 #### 3.1.5 Clause type de contrat
 
@@ -72,7 +68,7 @@ Les sommes de la période non servie sont **remboursées au prorata**, jamais co
 >
 > **[ ].4** Le Contrat ne confère aucun droit de regard, de relecture, d'approbation, de suggestion ni d'information préalable sur le contenu rédactionnel de l'Éditeur, sa programmation ou le choix de ses sujets ; toute stipulation contraire est réputée non écrite. Aucune clause ne subordonne le paiement, le renouvellement ou le volume à la teneur d'un contenu rédactionnel.
 >
-> **[ ].5** Toute Création porte la mention de divulgation dans la forme, la position et la typographie fixées par la charte de l'Éditeur, que l'Annonceur reconnaît avoir reçue et qu'il ne peut ni déplacer, ni réduire, ni reformuler.
+> **[ ].5** Toute Création porte la mention de divulgation dans la forme, la position et la typographie fixées par la charte de l'Éditeur, que l'Annonceur ne peut ni déplacer, ni réduire, ni reformuler.
 >
 > **[ ].6** Les Créations ne comportent aucune recommandation d'achat, de vente ou de détention d'un cryptoactif ou d'un instrument financier, aucun rendement prospectif chiffré, aucune prime, aucun code de parrainage, aucun concours, aucune mention de gain passé présentée comme reproductible.
 >
@@ -107,7 +103,7 @@ Trois interdits structurels : la direction des revenus n'a **aucun** accès en �
 | 5 | Non-confusion de format | Chef de pupitre | J‑3 | Divulgation en tête, `.badge--consultation` posé, gabarit d'analyse non employé |
 | 6 | Droit de regard d'adjacence | Rédactrice en chef | J‑2 | § 3.2.3 |
 | 7 | Publication | Intégrateur | J | Rendu contrôlé à 1440, 1080, 900, 640 et 360 px, modes clair et sombre |
-| 8 | Archivage | Chef de pupitre | J+1 | PDF du rendu + contrat + preuves d'inscription, conservés **7 ans** [À VÉRIFIER — prescription applicable] |
+| 8 | Archivage | Chef de pupitre | J+1 | PDF du rendu, contrat et preuves d'inscription, conservés **7 ans** [À VÉRIFIER — prescription applicable] |
 
 L'annonceur ne relit jamais le contenu rédactionnel voisin ; la rédaction ne relit jamais le contenu commandité au fond — elle ne contrôle que sa distinguabilité et son adjacence.
 
@@ -120,8 +116,8 @@ Veto **d'adjacence et de publication**, exerçable sans motivation économique e
 | T+ | Acte | Responsable |
 |---|---|---|
 | 0 à 2 h | Retrait de toutes les créations, désactivation des liens (§ 3.1.3) | Intégrateur, sur ordre du réviseur juridique |
-| 2 h | Notification écrite à l'annonceur, avec renvoi à l'article [ ].3 | Directeur des revenus |
-| 4 h | **Décision de couverture, prise par la rédactrice en chef seule** ; le directeur des revenus n'est ni consulté ni informé avant publication | Rédactrice en chef |
+| 2 h | Notification écrite à l'annonceur, renvoi à l'article [ ].3 | Directeur des revenus |
+| 4 h | **Décision de couverture prise par la rédactrice en chef seule** ; le directeur des revenus n'est ni consulté ni informé avant publication | Rédactrice en chef |
 | 24 h | Publication, le cas échéant, avec mention en tête : « [Annonceur] a été client publicitaire d'Actio du [date] au [date]. Ce contenu a été produit sans son intervention. » | Chef de pupitre |
 | 24 h | Inscription au journal public des partenariats, ligne définitive | Chef de pupitre |
 | 48 h | Remboursement au prorata engagé | Directeur des revenus |
@@ -130,11 +126,9 @@ Deux règles écrites pour être citées le jour venu : **un annonceur sanctionn
 
 #### 3.2.5 Déclaration d'intérêts et détention personnelle
 
-Sept rubriques, à l'état positif comme négatif, sur le patron du `.bio__declaration` déjà publié dans `prototype/fr/article.html` : (1) détention directe ou indirecte de cryptoactifs, y compris via un fonds négocié en bourse, un régime enregistré ou un portefeuille auto-gardé ; (2) positions dérivées, prêts adossés à des cryptoactifs, jalonnement, participation à une organisation autonome décentralisée ; (3) rémunérations, honoraires, défraiements et invitations reçus d'une entité citée ou de son groupe sur 24 mois ; (4) mandats, sièges d'administrateur, fonctions consultatives ; (5) liens familiaux proches avec un dirigeant, un inscrit ou un employé d'une autorité ou d'un cabinet cité ; (6) enseignement et conférences rémunérés dans le secteur ; (7) tout financement externe d'un travail journalistique, bourse comprise.
+Sept rubriques, à l'état positif comme négatif, sur le patron du `.bio__declaration` publié dans `prototype/fr/article.html` : (1) détention directe ou indirecte de cryptoactifs, y compris via un fonds négocié en bourse, un régime enregistré ou un portefeuille auto-gardé ; (2) positions dérivées, prêts adossés à des cryptoactifs, jalonnement, participation à une organisation autonome décentralisée ; (3) rémunérations, honoraires, défraiements et invitations reçus d'une entité citée ou de son groupe sur 24 mois ; (4) mandats, sièges d'administrateur, fonctions consultatives ; (5) liens familiaux proches avec un dirigeant, un inscrit ou un employé d'une autorité ou d'un cabinet cité ; (6) enseignement et conférences rémunérés dans le secteur ; (7) tout financement externe d'un travail journalistique, bourse comprise.
 
-**Fréquence.** Dépôt à l'embauche ; mise à jour **annuelle au 31 janvier** ; mise à jour **événementielle sous 5 jours ouvrables** ; confirmation à chaque article touchant une entité déclarée. Registre tenu par la rédactrice en chef adjointe, détail non public, **résumé publié** dans `.bio__declaration`.
-
-**Récusation**, sans possibilité de passer outre : position détenue dans un actif ou une entité au cœur du sujet ; somme perçue d'une partie citée dans les 24 mois ; lien familial proche avec une partie ; qualité de client, d'employé ou de conseil d'une partie dans les 24 mois. Le doute impose la récusation.
+**Fréquence.** Dépôt à l'embauche ; mise à jour **annuelle au 31 janvier** ; mise à jour **événementielle sous 5 jours ouvrables** ; confirmation à chaque article touchant une entité déclarée. Registre tenu par la rédactrice en chef adjointe, détail non public, **résumé publié** dans `.bio__declaration`. **Récusation** sans possibilité de passer outre : position détenue dans un actif ou une entité au cœur du sujet ; somme perçue d'une partie citée dans les 24 mois ; lien familial proche avec une partie ; qualité de client, d'employé ou de conseil d'une partie dans les 24 mois. Le doute impose la récusation.
 
 **Détention personnelle — arbitrage tranché** : ni interdiction totale, ni simple déclaration, mais **déclaration + interdiction ciblée + période de blocage**.
 
@@ -159,11 +153,9 @@ Le français fait foi ; l'anglais est une traduction de service, non publiable s
 
 *Risque couvert :* exercice illégal d'activité de conseil ou de courtage ; réclamation d'un lecteur ayant subi une perte ; imputation à Actio d'une qualité d'inscrit qu'elle n'a pas.
 
-Le texte français est **déjà en production** dans `.avertissement` de `prototype/fr/index.html` — absence de conseil et d'inscription ; état du droit daté ; volatilité et plateformes non inscrites. Il est réputé arrêté et n'est modifiable qu'à l'initiative du réviseur juridique. Version anglaise à publier dans `prototype/en/index.html` :
+Le texte français est **déjà en production** dans `.avertissement` de `prototype/fr/index.html` — absence de conseil et d'inscription, état du droit daté, volatilité et plateformes non inscrites. Il est réputé arrêté et n'est modifiable qu'à l'initiative du réviseur juridique. Version anglaise à publier dans `prototype/en/index.html` :
 
-> **Risk warning — no advice.** Actio does not provide investment, legal or tax advice. Actio is not registered in any capacity with the Canadian Securities Administrators, the Autorité des marchés financiers, the Ontario Securities Commission or the Canadian Investment Regulatory Organization, and carries on no dealing, advising or portfolio management activity.
-> Our content is journalistic and educational. It describes the state of the law as at a stated date; the law changes, and an analysis that was accurate when published may cease to be. No content takes account of your personal circumstances, investment objectives or risk tolerance. Consult a registered professional or a lawyer before making any decision.
-> Crypto assets are volatile. You may lose the entire amount invested. A platform that is not registered with the securities regulator of your province affords you none of the protections provided by securities legislation, including on insolvency. Always verify a platform's registration in your provincial regulator's register before depositing funds.
+> **Risk warning — no advice.** Actio does not provide investment, legal or tax advice. Actio is not registered in any capacity with the Canadian Securities Administrators, the Autorité des marchés financiers, the Ontario Securities Commission or the Canadian Investment Regulatory Organization, and carries on no dealing, advising or portfolio management activity. Our content is journalistic and educational: it describes the state of the law as at a stated date, the law changes, and an analysis that was accurate when published may cease to be. No content takes account of your personal circumstances, investment objectives or risk tolerance. Crypto assets are volatile and you may lose the entire amount invested. A platform that is not registered with the securities regulator of your province affords you none of the protections provided by securities legislation, including on insolvency. Always verify a platform's registration in your provincial regulator's register before depositing funds, and consult a registered professional or a lawyer before making any decision.
 
 #### 3.3.2 Article d'analyse réglementaire
 
@@ -237,11 +229,11 @@ Exposition : sanctions administratives pécuniaires — **jamais « amendes »**
 | **EFVP avant toute communication hors Québec** | Bloquante : aucun prestataire d'envoi, d'analyse ou d'hébergement hors Québec activé sans évaluation écrite versée au dossier | Avant contractualisation |
 | Minimisation | Un seul champ obligatoire à l'inscription ; le `select` de fonction reste facultatif, « je préfère ne pas répondre » présélectionnée | Permanent |
 
-Deux pièges repris comme règles internes : **il n'existe aucun délai de 72 heures dans la Loi 25** — contamination du Règlement général sur la protection des données ; l'expression « RGPD canadien » est proscrite. Les plafonds de sanction ne sont pas publiables (`C-11`), ni la date d'entrée en vigueur du volet des sanctions (`C-12`). L'articulation LPRPDE / Loi 25 restant à vérifier (`U-56`), Actio applique **la règle la plus exigeante des deux** — position de conformité, non analyse juridique.
+Deux pièges repris comme règles internes : **il n'existe aucun délai de 72 heures dans la Loi 25** — contamination du Règlement général sur la protection des données ; « RGPD canadien » est proscrit. Les plafonds de sanction ne sont pas publiables (`C-11`), ni la date d'entrée en vigueur du volet des sanctions (`C-12`). L'articulation LPRPDE / Loi 25 restant à vérifier (`U-56`), Actio applique **la règle la plus exigeante des deux** — position de conformité, non analyse juridique.
 
 #### 3.4.3 Charte de la langue française
 
-L'article 52 vise les publications commerciales, sites web et réseaux sociaux compris : la version française doit être d'une qualité et d'une accessibilité **au moins égales**. L'article 55, en vigueur dans sa version modifiée depuis le 1er juin 2023, impose que le contrat d'adhésion soit remis d'abord en français.
+L'article 52 vise les publications commerciales, sites web et réseaux sociaux compris : la version française doit être d'une qualité et d'une accessibilité **au moins égales**. L'article 55, dans sa version en vigueur depuis le 1er juin 2023, impose que le contrat d'adhésion soit remis d'abord en français.
 
 Conséquences exécutables. (i) Le bilinguisme est **une paire d'URL à parité** — `prototype/fr/article.html` et son jumeau `/en/` —, jamais une traduction publiée plus tard. (ii) Règle opératoire de la fiche 06 : *le risque n'est pas d'écrire en anglais, mais de publier en anglais avant, plus vite ou mieux qu'en français*. (iii) Version anglaise non prête : absence assumée, `hreflang="fr-CA"` seul et `/en/…` en 404, jamais une page anglaise orpheline. (iv) Conditions d'utilisation et offre d'abonnement, contrats d'adhésion, établies en français d'abord. (v) L'infolettre bilingue diffusée au Québec est **non instruite** (`U-58`) : à trancher **avant** le premier envoi. Les montants des amendes pénales de la Charte ne sont pas publiables (`U-23`).
 
@@ -260,8 +252,8 @@ Actio vise **WCAG 2.1 AA volontairement, comme norme éditoriale**, sans invoque
 
 | Objet | Régime |
 |---|---|
-| Citation courte d'un avis, d'une décision ou d'un règlement, avec source, date et lien | **Permis**, sous `blockquote` + `<cite>` précisant citation textuelle ou reformulation |
-| Reproduction **intégrale** d'un avis, d'un bulletin ou d'une décision | **Interdit** : la Licence du gouvernement ouvert – Canada n'a été vérifiée ni dans sa version, ni dans sa date, ni dans ses clauses d'attribution (`U-76`) |
+| Citation courte d'un avis, d'une décision ou d'un règlement, avec source, date et lien | **Permise**, sous `blockquote` + `<cite>` précisant citation textuelle ou reformulation |
+| Reproduction **intégrale** d'un avis, d'un bulletin ou d'une décision | **Interdite** : la Licence du gouvernement ouvert – Canada n'a été vérifiée ni dans sa version, ni dans sa date, ni dans ses clauses d'attribution (`U-76`) |
 | Moissonnage des sites de l'ACVM, de l'AMF, de la CVMO et de l'OCRI | **Interdit par défaut** : conditions d'utilisation et `robots.txt` non vérifiés ; la licéité n'est **pas établie** |
 | Traduction française d'un document publié en anglais seulement par la CVMO | **Permise**, identifiée comme traduction de service d'Actio ; interdit de la présenter comme officielle (`U-14`) |
 | Logo, emblème ou sceau d'une autorité | **Interdit par défaut**, y compris à titre d'illustration : apparence d'affiliation ou d'endossement [À VÉRIFIER] |
@@ -274,7 +266,7 @@ Actio vise **WCAG 2.1 AA volontairement, comme norme éditoriale**, sans invoque
 
 #### 3.5.1 Quatre niveaux, quatre délais
 
-Le prototype impose déjà le véhicule d'affichage : `.maj` et `.maj__etiq`, fond `--statut-consultation-pale` (`#FBF0E0`), texte `--statut-consultation` (`#965800`), **entre `.article__entete` et `.retenir`, jamais ailleurs**.
+Véhicule d'affichage imposé par le prototype : `.maj` et `.maj__etiq`, fond `--statut-consultation-pale` (`#FBF0E0`), texte `--statut-consultation` (`#965800`), **entre `.article__entete` et `.retenir`, jamais ailleurs**.
 
 | Niveau | Définition | Délai après confirmation | Affichage | Autres effets |
 |---|---|---|---|---|
@@ -283,7 +275,7 @@ Le prototype impose déjà le véhicule d'affichage : `.maj` et `.maj__etiq`, fo
 | **3 — Erreur substantielle** | Une affirmation était fausse | **24 h** | `.maj` étiquette « Correction » énonçant **ce qu'affirmait la version précédente**, ce qui est désormais écrit, l'origine de l'erreur | Journal public + avis aux abonnés si diffusé en infolettre |
 | **4 — Rectification** | Le sens de l'analyse change ou une conclusion est retirée | **24 h**, décision de la rédactrice en chef | `.maj` + `.badge--alerte` dans `.article__etiquettes` | Journal public + avis aux abonnés + note en tête de tout article citant celui-ci |
 
-La variante `.maj--correction` **existe désormais** dans `article.css`, sur `--statut-alerte-pale` / `--statut-alerte` comme prescrit ici et au Livrable 1, § 3.3. **Un bandeau de correction n'est jamais retiré** ; un bandeau de mise à jour peut être replié après **90 jours** dans une page d'historique des versions. Motif : l'article est cité avec sa date ; une correction silencieuse rend l'archive inexploitable pour celui qui s'y est fié.
+La variante `.maj--correction` **existe** dans `article.css` (l. 293-297), sur `--statut-alerte-pale` / `--statut-alerte` ; elle n'est posée sur aucune page. Reste à trancher : l'employer, ou l'écarter au profit du seul changement d'étiquette. **Un bandeau de correction n'est jamais retiré** ; un bandeau de mise à jour peut être replié après **90 jours** dans une page d'historique des versions. Motif : l'article est cité avec sa date, et une correction silencieuse rend l'archive inexploitable pour celui qui s'y est fié.
 
 #### 3.5.2 Journal public des corrections
 
@@ -318,10 +310,10 @@ Trois règles écrites avant d'en avoir besoin. **Une mise en demeure n'est pas 
 ### Ce qui reste à trancher
 
 1. **L'affiliation, définitivement ou par défaut.** Le § 3.1.2 la refuse, y compris vers une plateforme inscrite. Si la position doit rester ouverte, sa forme se décide maintenant — plafond en pourcentage du chiffre d'affaires publicitaire, ou interdiction au contrat. Un refus non écrit ne survit pas au premier trimestre déficitaire.
-2. ~~**La classe `.commandite`**~~ — **tranché : composant dédié.** Écrit sur les jetons de consultation. Réemployer `.avertissement` aurait mobilisé le rouge d'alerte pour une divulgation qui n'est pas un danger, et épuisé la seule couleur qu'Actio réserve aux mises en garde et aux sanctions.
+2. **La classe `.commandite`.** Écrite dans `actio.css` sur les jetons de consultation, mais employée nulle part : la brancher sur un gabarit de contenu commandité, ou l'abandonner au profit d'un réemploi de `.avertissement` — au risque, alors, de traiter une divulgation comme un danger.
 3. **La conservation des dossiers de partenariat.** Sept ans retenus par prudence comptable ; la prescription applicable en valeurs mobilières et en concurrence n'a pas été vérifiée.
-4. **Le responsable de la protection des renseignements personnels.** La Loi 25 impose de le désigner **et de le publier**. Le nom doit être arrêté avant le premier envoi ; à défaut, la fonction échoit à la personne ayant la plus haute autorité — un choix par défaut, pas une décision.
-5. **L'infolettre bilingue au Québec** (`U-58`). Envoi unique bilingue, ou deux listes et deux envois avec le français en premier : l'arbitrage a des conséquences directes sur la segmentation.
+4. **Le responsable de la protection des renseignements personnels.** La Loi 25 impose de le désigner **et de le publier** : le nom doit être arrêté avant le premier envoi, sans quoi la fonction échoit par défaut à la personne ayant la plus haute autorité.
+5. **L'infolettre bilingue au Québec** (`U-58`). Envoi unique bilingue, ou deux listes et deux envois avec le français en premier : l'arbitrage pèse directement sur la segmentation.
 6. **La police d'assurance responsabilité civile professionnelle et médias.** Le § 3.5.4 en dépend ; sans elle, aucune procédure de mise en demeure n'est exécutable.
 7. **La révision juridique des versions anglaises.** Publier une limitation de responsabilité non révisée par un juriste de common law crée l'exposition qu'elle prétend fermer.
 8. **La date de réouverture des sources.** Fixer celle à laquelle l'Avis conjoint 21-330, la *Loi sur la concurrence*, la LCAP, la Loi 25 et la Charte auront été lus sur source primaire. Jusque-là, cette politique lie la rédaction, mais ne s'oppose à aucun tiers.

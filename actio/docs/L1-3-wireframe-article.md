@@ -30,7 +30,7 @@ Deux mesures gouvernent la page : le conteneur d'article est réduit à `1160px`
 
 **Chapeau.** `--t-lead` (18 → 21 px), `line-height: 1.55`, `--texte-secondaire`, `max-width: 62ch`, graisse 400. Cible : **400 à 550 signes, deux ou trois phrases** — la règle, puis sa conséquence.
 
-**Signature.** `.article__signature` (flex, `gap: var(--e-4)`, `--t-petit`). `.article__portrait` 40 × 40 px, `--rayon-plein`, dégradé `--actio-bleu-palais` → `--actio-turquoise-fonce`, initiales `aria-hidden="true"`. **Défaut à corriger** : ce dégradé porte du blanc alors qu'en mode sombre `--actio-turquoise-fonce` vaut `#3FD8C7` ; basculer sur `--fill-primaire` / `--fill-primaire-texte`, jeu introduit dans `tokens.css` § 2 bis pour les aplats sous texte blanc. Même correction sur `.bio__portrait` (72 px).
+**Signature.** `.article__signature` (flex, `gap: var(--e-4)`, `--t-petit`). `.article__portrait` 40 × 40 px, `--rayon-plein`, dégradé `--degrade-2` → `--degrade-3`, initiales `aria-hidden="true"`. **Corrigé depuis** : le dégradé n'est plus bâti sur `--actio-bleu-palais` / `--actio-turquoise-fonce` mais sur `--degrade-2` → `--degrade-3` (`article.css` l. 41-45), invariants par thème et réglés pour porter du blanc (11,1:1 et 6,4:1). Même traitement sur `.bio__portrait` (72 px, l. 263-267). Reste une valeur brute : le `color: #fff` des deux règles, à passer en `var(--fill-primaire-texte)`.
 
 **Dates.** `.article__dates`, `--police-donnee`, `--t-micro`, deux lignes à 2 px d'écart. La seconde n'apparaît qu'après une mise à jour éditoriale, jamais après un redéploiement technique. Doubler les deux en `<time datetime>` : absent du prototype.
 
@@ -46,7 +46,7 @@ Deux mesures gouvernent la page : le conteneur d'article est réduit à `1160px`
 | **Correction** — une affirmation était fausse | « Correction » | date, **ce qu'affirmait la version précédente**, ce qui est désormais écrit, l'origine de l'erreur | idem + registre public des corrections |
 | **Rectification** — le sens de l'analyse change | « Rectification » | idem + portée du changement | idem + `.badge--alerte` dans `.article__etiquettes` + avis aux abonnés |
 
-La variante rouge n'existe pas : `article.css` ne définit que `.maj`. **Ajout à faire** : `.maj--correction` reprenant `--statut-alerte-pale` et `--statut-alerte`, sur le modèle de `.avertissement`.
+La variante rouge **existe** : `article.css` l. 293-297 définit `.maj--correction` sur `--statut-alerte-pale` et `--statut-alerte`, sur le modèle de `.avertissement`. Elle n'est employée dans aucune page du prototype ; son opportunité reste à trancher (voir « Ce qui reste à trancher », point 1).
 
 **Pourquoi dire ce qui était faux.** Un lectorat de juristes ne lit pas pour s'informer mais pour agir : rédiger un avis, conseiller un inscrit, arbitrer un dossier. Celui qui s'est fié à la version antérieure n'a pas besoin d'apprendre que l'article est désormais exact — il le présume — mais **de savoir si ce sur quoi il s'est appuyé était faux**. Une correction silencieuse rend l'archive inexploitable : l'article est cité avec sa date, et plus rien ne dit quel texte portait cette date. Le prototype donne la formulation de référence : « La précédente version indiquait que la décision était définitive ; l'état de la contestation n'a pas pu être vérifié et la formulation a été corrigée en conséquence. » Elle nomme l'affirmation retirée et la raison du retrait.
 
@@ -56,7 +56,7 @@ Délais : correction publiée **sous 24 heures** après confirmation de l'erreur
 
 `<aside class="retenir" aria-labelledby="retenir-titre">` : fond `--actio-bleu-palais-pale` (`#E7EFF7`), filet gauche `5px solid var(--actio-bleu-palais)`, `border-radius: 0 var(--rayon-3) var(--rayon-3) 0`, `padding: var(--e-6)`, `margin-block: var(--e-8)`, `max-width: var(--mesure-lecture)`. Le titre est un `<p class="retenir__titre">`, non un `<h*>` : il ne doit pas polluer le plan du document, d'où `aria-labelledby`. Liste `<ol>` en grille `28px 1fr`, `gap: var(--e-4)`, numérotée par compteur CSS dans une pastille ronde de 24 px.
 
-**Défaut à corriger** : `.retenir__liste li::before` pose `background: var(--actio-bleu-palais); color: #fff`. En mode sombre le jeton devient `#4E9BE0` et le blanc y tombe à environ 3,0:1, sous le seuil AA. Basculer sur `--fill-primaire` / `--fill-primaire-texte` ; même vérification sur `.evitement` dans `actio.css`.
+**Corrigé depuis** : `.retenir__liste li::before` (`article.css` l. 70-74) pose `background: var(--fill-primaire); color: var(--fill-primaire-texte)` — 11,1:1 en clair, 7,1:1 en sombre. Même vérification à faire sur `.evitement` dans `actio.css`.
 
 **Pourquoi exactement trois.** Trois est le nombre qu'un lecteur restitue sans relire, et surtout celui qui **force l'arbitrage** : à quatre, on cesse de hiérarchiser et la fiche redevient un résumé. Trois impose l'architecture du raisonnement juridique : (1) la règle ou le critère dégagé ; (2) ce que la décision ne dit **pas**, donc la limite de sa portée ; (3) le régime résiduel qui s'applique hors du champ examiné.
 

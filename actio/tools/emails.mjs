@@ -88,6 +88,26 @@ for (const envoi of manifeste.envois) {
     echecs++;
   }
 
+  // Le pré-en-tête est la seconde accroche dans la boîte de réception. Trop
+  // court, le client aspire le début du corps ; trop long, il est tronqué sans
+  // qu'on sache où. Bornes harmonisées : 90 à 130 signes.
+  const preentete = envoi.preentete || '';
+  if (preentete.length < 90 || preentete.length > 130) {
+    console.error(`  ÉCHEC ${envoi.cle} — pré-en-tête de ${preentete.length} caractères ` +
+      `(bornes : 90 à 130).`);
+    echecs++;
+  }
+  // Redite = le pré-en-tête contient l'objet entier, ou en reprend l'attaque.
+  // Partager le sujet n'est pas une redite : un objet qui porte la conséquence
+  // et un pré-en-tête qui porte le mécanisme nomment forcément la même chose.
+  const norm = (t) => t.toLowerCase().replace(/[’']/g, "'").replace(/\s+/g, ' ').trim();
+  if (preentete && objet &&
+      (norm(preentete).includes(norm(objet)) ||
+       norm(preentete).slice(0, 28) === norm(objet).slice(0, 28))) {
+    console.error(`  ÉCHEC ${envoi.cle} — le pré-en-tête reprend l'objet au lieu de le compléter.`);
+    echecs++;
+  }
+
   // --- Champs de fusion : liste fermée -----------------------------------
   const declares = new Set(manifeste.jetons_de_fusion?.admis || []);
   const employes = [...new Set([...sortie.matchAll(/\{\{([a-z_]+)\}\}/g)].map((x) => x[1]))];

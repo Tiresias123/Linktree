@@ -1,7 +1,7 @@
 ## 2. L'édition type — *Actio Dispatch* nº 001 et spécification de son gabarit
 
-Deux fichiers font foi : `newsletter/actio-dispatch-001.html` (l'édition nº 001, 33 383 octets) et
-`newsletter/chassis.html` (le gabarit vide, 11 492 octets, corps remplacé par `{{CONTENU}}`, bandeau
+Deux fichiers font foi : `newsletter/actio-dispatch-001.html` (l'édition nº 001, 33 650 octets) et
+`newsletter/chassis.html` (le gabarit vide, 11 476 octets, corps remplacé par `{{CONTENU}}`, bandeau
 de cours délimité par `<!--DEBUT:COURS-->` / `<!--FIN:COURS-->`). `newsletter/contenus/` reçoit les
 fragments de corps ; `newsletter/dist/` reçoit le fichier assemblé et envoyé.
 
@@ -245,7 +245,8 @@ Paddings latéraux de **32 px**, ramenés à **20 px** sous 620 px par `.marge` 
 
 **Filet gauche de 3 px = juridiction** (`tokens.css` § 3) : Ottawa `#0F3D68` (`--jur-federal`),
 Québec `#16688A` (`--jur-quebec`), Ontario `#6B4FA8` (`--jur-ontario`), International `#8A6D3B`
-(`--jur-intl`). Le point de « Actio**.** » emploie `#0B7F74` (`--jur-multi`).
+(`--jur-intl`). Le point de « Actio**.** » emploie `#096B61`
+(`--actio-turquoise-fonce` — valeur identique à `--jur-multi`).
 
 **Niveau d'impact** — trois valeurs, alignées à droite, Arial 10 px gras capitales, interlettre 1 px :
 
@@ -284,7 +285,7 @@ cellule. Un `<v:roundrect>` ne servirait qu'à imposer des coins arrondis — ce
 exigence.
 
 **Troncature Gmail.** Gmail coupe au-delà d'environ **102 Ko**, à l'octet, et affiche « Message
-tronqué ». L'édition nº 001 pèse **33 383 octets, soit 32,6 Ko — 32 % du seuil**, ce qui autorise
+tronqué ». L'édition nº 001 pèse **33 650 octets, soit 32,9 Ko — 33 % du seuil**, ce qui autorise
 environ le triple du corps actuel. Règle d'exploitation : **plafond interne de 80 Ko** sur le fichier
 de `dist/`, mesuré par `wc -c` avant envoi. `[À VÉRIFIER — constante d'ingénierie du courriel ; la
 base factuelle ne documente aucune donnée de délivrabilité (fiche 09).]`

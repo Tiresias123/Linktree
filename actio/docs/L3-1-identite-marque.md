@@ -323,7 +323,7 @@ l'infolettre réglementaire ».
 | En-tête de site | `1.5rem` (24 px) | `.logo` dans `.entete__barre`, lien `aria-label="Actio, accueil"` |
 | Pied de page | `1.5rem` (24 px) | `.logo` + `margin-bottom: 12px` |
 | Portail de langue | `2.75rem` (44 px) | `.portail__logo`, centré, sans signature |
-| En-tête de courriel | 30 px | Georgia 700, `letter-spacing:-0.8px`, point `#0B7F74` |
+| En-tête de courriel | 30 px | Georgia 700, `letter-spacing:-0.8px`, point `#096B61` |
 | Pied de courriel | 20 px | Même traitement, sans signature |
 | Corps minimal absolu | **16 px** | En deçà, le point se confond avec l'empattement du « o » |
 
