@@ -1,0 +1,14 @@
+{
+  "name": "actio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Actio — média d'analyse du cadre réglementaire des cryptoactifs au Canada. Prototype et livrables de lancement.",
+  "scripts": {
+    "captures": "node tools/captures.mjs",
+    "verifier": "node tools/verifier.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.56.0"
+  }
+}

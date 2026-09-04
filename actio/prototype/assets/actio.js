@@ -42,7 +42,10 @@
     }
   }
 
-  appliquerTheme(lire(STOCKAGE.theme) || 'auto');
+  // Le choix stocké prime ; à défaut, on respecte un data-theme déjà posé dans le HTML
+  // (rendu côté serveur ou script anti-scintillement), et seulement ensuite « auto ».
+  appliquerTheme(lire(STOCKAGE.theme) ||
+                 document.documentElement.getAttribute('data-theme') || 'auto');
 
   document.addEventListener('click', function (e) {
     var b = e.target.closest('[data-action="theme"]');
@@ -81,7 +84,8 @@
     if (alt) alt.setAttribute('hreflang', langue === 'en' ? 'fr-CA' : 'en-CA');
   }
 
-  appliquerLangue(lire(STOCKAGE.langue) || 'fr');
+  appliquerLangue(lire(STOCKAGE.langue) ||
+                  (document.documentElement.lang.indexOf('en') === 0 ? 'en' : 'fr'));
 
   document.addEventListener('click', function (e) {
     var b = e.target.closest('[data-action="langue"]');
@@ -123,6 +127,34 @@
     if (e.target.closest('[data-menu-declencheur]') || e.target.closest('.megamenu')) return;
     fermerMenus();
   });
+
+  /* ======================================================================
+     3 bis. En-tête repliable sous 1100 px
+     Le même balisage sert aux deux dispositions ; seul un attribut bascule.
+     ====================================================================== */
+  document.querySelectorAll('[data-menu-mobile]').forEach(function (b) {
+    var entete = b.closest('.entete');
+    b.addEventListener('click', function () {
+      var ouvert = b.getAttribute('aria-expanded') === 'true';
+      b.setAttribute('aria-expanded', String(!ouvert));
+      if (entete) entete.setAttribute('data-ouvert', String(!ouvert));
+      if (ouvert) fermerMenus();
+    });
+  });
+
+  // Repasser en disposition large referme le panneau, sinon il reste ouvert
+  // et masqué, ce qui piège le focus au clavier.
+  var large = window.matchMedia('(min-width: 1101px)');
+  var surChangement = function (e) {
+    if (!e.matches) return;
+    document.querySelectorAll('[data-menu-mobile]').forEach(function (b) {
+      b.setAttribute('aria-expanded', 'false');
+      var entete = b.closest('.entete');
+      if (entete) entete.setAttribute('data-ouvert', 'false');
+    });
+  };
+  if (large.addEventListener) large.addEventListener('change', surChangement);
+  else if (large.addListener) large.addListener(surChangement);
 
   /* ======================================================================
      4. Sommaire collant : surlignage de la section courante + progression

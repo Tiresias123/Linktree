@@ -4,6 +4,13 @@
    Colonne de lecture 760 px, sommaire collant, boîtes de synthèse juridique.
    ========================================================================== */
 
+/* ---------- 0. Mesure de lecture ---------------------------------------
+   La page d'article se lit ; elle ne se balaye pas. Le conteneur est donc
+   plus étroit que celui de l'accueil, et tout bloc de texte suivi partage la
+   même mesure que la prose (~760 px ≈ 72 caractères) pour rester aligné.   */
+[data-page="article"] .contenant { max-width: 1160px; }
+:root { --mesure-lecture: 760px; }
+
 /* ---------- 1. Fil d'Ariane -------------------------------------------- */
 .ariane {
   padding-block: var(--e-5) var(--e-3);
@@ -50,6 +57,7 @@
   border-radius: 0 var(--rayon-3) var(--rayon-3) 0;
   padding: var(--e-6);
   margin-block: var(--e-8);
+  max-width: var(--mesure-lecture);
 }
 .retenir__titre {
   font-family: var(--police-texte); font-size: var(--t-micro);
@@ -102,8 +110,9 @@
   line-height: 1.4; position: relative;
 }
 .sommaire a::before {
-  content: counter(som) "."; position: absolute; left: var(--e-3);
-  font-family: var(--police-donnee); font-size: var(--t-micro); color: var(--texte-tertiaire);
+  content: counter(som) "."; position: absolute; left: var(--e-3); top: var(--e-2);
+  font-family: var(--police-donnee); font-size: var(--t-micro); line-height: 1.4;
+  color: var(--texte-tertiaire); font-variant-numeric: tabular-nums;
 }
 .sommaire a:hover { color: var(--texte-primaire); }
 .sommaire a[aria-current="true"] {
@@ -119,7 +128,7 @@
 .sommaire__barre i { display: block; height: 100%; width: 0; background: var(--actio-turquoise-fonce); transition: width var(--mvt-rapide); }
 
 /* ---------- 5. Prose ---------------------------------------------------- */
-.prose { max-width: 72ch; font-size: var(--t-base); line-height: var(--lh-texte); }
+.prose { max-width: var(--mesure-lecture); font-size: var(--t-base); line-height: var(--lh-texte); }
 .prose > * + * { margin-top: var(--e-5); }
 .prose h2 {
   font-size: var(--t-h3); margin-top: var(--e-12); padding-top: var(--e-4);
@@ -275,6 +284,7 @@
   border: var(--trait) solid color-mix(in srgb, var(--statut-consultation) 32%, transparent);
   border-radius: var(--rayon-2);
   font-size: var(--t-petit); line-height: 1.55;
+  max-width: var(--mesure-lecture);
 }
 .maj__etiq {
   font-family: var(--police-donnee); font-size: var(--t-micro);
