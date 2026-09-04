@@ -1,0 +1,297 @@
+/* ==========================================================================
+   ACTIO — Gabarit « Article d'analyse / Décryptage réglementaire »
+   Dépend de tokens.css et actio.css.
+   Colonne de lecture 760 px, sommaire collant, boîtes de synthèse juridique.
+   ========================================================================== */
+
+/* ---------- 1. Fil d'Ariane -------------------------------------------- */
+.ariane {
+  padding-block: var(--e-5) var(--e-3);
+  font-size: var(--t-micro); color: var(--texte-tertiaire);
+  font-family: var(--police-donnee);
+}
+.ariane ol { list-style: none; display: flex; flex-wrap: wrap; gap: var(--e-2); margin: 0; padding: 0; }
+.ariane li + li::before { content: "/"; margin-right: var(--e-2); color: var(--bordure-forte); }
+.ariane a { color: var(--texte-secondaire); text-decoration: none; }
+.ariane a:hover { color: var(--texte-lien); text-decoration: underline; }
+.ariane [aria-current="page"] { color: var(--texte-tertiaire); }
+
+/* ---------- 2. Bloc-titre ---------------------------------------------- */
+.article__entete { padding-bottom: var(--e-8); border-bottom: var(--trait) solid var(--bordure); }
+.article__etiquettes { display: flex; gap: var(--e-3); flex-wrap: wrap; align-items: center; margin-bottom: var(--e-5); }
+.article__titre { font-size: var(--t-h1); max-width: 20ch; }
+@media (min-width: 900px) { .article__titre { max-width: 24ch; } }
+.article__chapeau {
+  font-size: var(--t-lead); line-height: 1.55; color: var(--texte-secondaire);
+  margin: var(--e-5) 0 0; max-width: 62ch;
+  font-weight: var(--graisse-normale);
+}
+.article__signature {
+  display: flex; align-items: center; gap: var(--e-4); flex-wrap: wrap;
+  margin-top: var(--e-6); font-size: var(--t-petit); color: var(--texte-tertiaire);
+}
+.article__auteur { display: flex; align-items: center; gap: var(--e-3); }
+.article__portrait {
+  width: 40px; height: 40px; border-radius: var(--rayon-plein); flex: none;
+  background: linear-gradient(135deg, var(--actio-bleu-palais), var(--actio-turquoise-fonce));
+  display: grid; place-items: center; color: #fff;
+  font-family: var(--police-titre); font-weight: var(--graisse-grasse); font-size: .85rem;
+}
+.article__auteur strong { display: block; color: var(--texte-primaire); font-weight: var(--graisse-demi); font-size: var(--t-petit); }
+.article__auteur span { font-size: var(--t-micro); }
+.article__dates { font-family: var(--police-donnee); font-size: var(--t-micro); display: grid; gap: 2px; }
+.article__outils { margin-left: auto; display: flex; gap: var(--e-2); }
+
+/* ---------- 3. Fiche « À retenir » (Key Takeaways) ---------------------- */
+.retenir {
+  background: var(--actio-bleu-palais-pale);
+  border: var(--trait) solid color-mix(in srgb, var(--actio-bleu-palais) 28%, transparent);
+  border-left: 5px solid var(--actio-bleu-palais);
+  border-radius: 0 var(--rayon-3) var(--rayon-3) 0;
+  padding: var(--e-6);
+  margin-block: var(--e-8);
+}
+.retenir__titre {
+  font-family: var(--police-texte); font-size: var(--t-micro);
+  font-weight: var(--graisse-grasse); letter-spacing: var(--interlettre-etiq);
+  text-transform: uppercase; color: var(--actio-bleu-palais);
+  margin-bottom: var(--e-4); display: flex; align-items: center; gap: var(--e-2);
+}
+.retenir__liste { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--e-4); counter-reset: retenir; }
+.retenir__liste li { display: grid; grid-template-columns: 28px 1fr; gap: var(--e-3); align-items: start; counter-increment: retenir; }
+.retenir__liste li::before {
+  content: counter(retenir);
+  font-family: var(--police-donnee); font-size: var(--t-micro); font-weight: var(--graisse-grasse);
+  width: 24px; height: 24px; border-radius: var(--rayon-plein);
+  background: var(--actio-bleu-palais); color: #fff;
+  display: grid; place-items: center;
+}
+.retenir__liste strong { color: var(--texte-primaire); }
+.retenir__liste p { margin: 0; font-size: var(--t-petit); line-height: 1.6; color: var(--texte-secondaire); }
+
+/* ---------- 4. Mise en page à deux colonnes + sommaire collant ---------- */
+.article__corps {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: var(--e-12);
+  align-items: start;
+  padding-block: var(--e-8) var(--e-16);
+}
+@media (max-width: 1080px) {
+  .article__corps { grid-template-columns: minmax(0, 1fr); gap: var(--e-8); }
+  .sommaire { position: static !important; max-height: none !important; order: -1; }
+}
+.sommaire {
+  position: sticky; top: 96px;
+  max-height: calc(100vh - 128px); overflow-y: auto;
+  border-left: var(--trait) solid var(--bordure);
+  padding-left: var(--e-5);
+  font-size: var(--t-petit);
+}
+.sommaire__titre {
+  font-family: var(--police-texte); font-size: var(--t-micro);
+  font-weight: var(--graisse-grasse); letter-spacing: var(--interlettre-etiq);
+  text-transform: uppercase; color: var(--texte-tertiaire); margin-bottom: var(--e-3);
+}
+.sommaire ol { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--e-1); counter-reset: som; }
+.sommaire li { counter-increment: som; }
+.sommaire a {
+  display: block; padding: var(--e-2) 0 var(--e-2) var(--e-5);
+  color: var(--texte-secondaire); text-decoration: none;
+  border-left: var(--trait-fort) solid transparent; margin-left: calc(var(--e-5) * -1 - var(--trait-fort));
+  line-height: 1.4; position: relative;
+}
+.sommaire a::before {
+  content: counter(som) "."; position: absolute; left: var(--e-3);
+  font-family: var(--police-donnee); font-size: var(--t-micro); color: var(--texte-tertiaire);
+}
+.sommaire a:hover { color: var(--texte-primaire); }
+.sommaire a[aria-current="true"] {
+  color: var(--actio-bleu-palais); font-weight: var(--graisse-demi);
+  border-left-color: var(--actio-bleu-palais);
+}
+.sommaire__progression {
+  margin-top: var(--e-5); padding-top: var(--e-4);
+  border-top: var(--trait) solid var(--bordure-douce);
+  font-family: var(--police-donnee); font-size: var(--t-micro); color: var(--texte-tertiaire);
+}
+.sommaire__barre { height: 3px; border-radius: 2px; background: var(--bordure); margin-top: var(--e-2); overflow: hidden; }
+.sommaire__barre i { display: block; height: 100%; width: 0; background: var(--actio-turquoise-fonce); transition: width var(--mvt-rapide); }
+
+/* ---------- 5. Prose ---------------------------------------------------- */
+.prose { max-width: 72ch; font-size: var(--t-base); line-height: var(--lh-texte); }
+.prose > * + * { margin-top: var(--e-5); }
+.prose h2 {
+  font-size: var(--t-h3); margin-top: var(--e-12); padding-top: var(--e-4);
+  border-top: var(--trait) solid var(--bordure); scroll-margin-top: 96px;
+}
+.prose h3 { font-size: var(--t-h4); margin-top: var(--e-8); scroll-margin-top: 96px; }
+.prose h4 { font-size: var(--t-h5); margin-top: var(--e-6); font-family: var(--police-texte); font-weight: var(--graisse-grasse); }
+.prose p { margin-bottom: 0; }
+.prose a { font-weight: var(--graisse-moyenne); }
+.prose ul, .prose ol { padding-left: var(--e-6); display: grid; gap: var(--e-2); }
+.prose li::marker { color: var(--actio-bleu-palais); font-weight: var(--graisse-grasse); }
+.prose blockquote {
+  margin: var(--e-8) 0; padding: var(--e-2) 0 var(--e-2) var(--e-6);
+  border-left: var(--trait-editorial) solid var(--actio-turquoise-fonce);
+  font-family: var(--police-titre); font-size: var(--t-h5); line-height: 1.45;
+  color: var(--texte-primaire); font-style: italic;
+}
+.prose blockquote cite {
+  display: block; margin-top: var(--e-3);
+  font-family: var(--police-texte); font-size: var(--t-petit);
+  font-style: normal; color: var(--texte-tertiaire);
+}
+.prose figure { margin: var(--e-8) 0; }
+.prose figcaption { font-size: var(--t-micro); color: var(--texte-tertiaire); margin-top: var(--e-3); line-height: 1.5; }
+.prose abbr[title] { text-decoration: underline dotted; cursor: help; text-underline-offset: 3px; }
+
+/* Renvoi de note en exposant */
+.renvoi {
+  font-family: var(--police-donnee); font-size: .7em; vertical-align: super;
+  line-height: 0; padding: 0 2px; text-decoration: none;
+  color: var(--actio-bleu-palais); font-weight: var(--graisse-grasse);
+}
+.renvoi:hover { text-decoration: underline; }
+
+/* ---------- 6. Boîtes de synthèse juridique ----------------------------- *
+ * Trois variantes normées, jamais mélangées :
+ *   .boite--texte    → textes de loi applicables
+ *   .boite--impact   → impact concret pour l'investisseur / l'assujetti
+ *   .boite--risque   → risque de non-conformité et sanction encourue        */
+.boite {
+  margin-block: var(--e-8);
+  border: var(--trait) solid var(--bordure);
+  border-radius: var(--rayon-3);
+  background: var(--fond-surface);
+  overflow: hidden;
+}
+.boite__entete {
+  display: flex; align-items: center; gap: var(--e-3);
+  padding: var(--e-3) var(--e-5);
+  font-family: var(--police-texte); font-size: var(--t-micro);
+  font-weight: var(--graisse-grasse); letter-spacing: var(--interlettre-etiq);
+  text-transform: uppercase;
+  border-bottom: var(--trait) solid var(--bordure);
+}
+.boite__corps { padding: var(--e-5); font-size: var(--t-petit); line-height: 1.62; }
+.boite__corps > * + * { margin-top: var(--e-3); }
+.boite__corps p:last-child { margin-bottom: 0; }
+.boite__ref {
+  display: block; font-family: var(--police-donnee); font-size: var(--t-micro);
+  color: var(--texte-tertiaire); margin-top: var(--e-4);
+  padding-top: var(--e-3); border-top: var(--trait) solid var(--bordure-douce);
+}
+
+.boite--texte  { border-color: color-mix(in srgb, var(--actio-bleu-palais) 35%, transparent); }
+.boite--texte  .boite__entete { background: var(--actio-bleu-palais-pale); color: var(--actio-bleu-palais); border-bottom-color: color-mix(in srgb, var(--actio-bleu-palais) 25%, transparent); }
+.boite--impact { border-color: color-mix(in srgb, var(--actio-turquoise-fonce) 40%, transparent); }
+.boite--impact .boite__entete { background: var(--actio-turquoise-pale); color: var(--actio-turquoise-fonce); border-bottom-color: color-mix(in srgb, var(--actio-turquoise-fonce) 25%, transparent); }
+.boite--risque { border-color: color-mix(in srgb, var(--statut-alerte) 40%, transparent); }
+.boite--risque .boite__entete { background: var(--statut-alerte-pale); color: var(--statut-alerte); border-bottom-color: color-mix(in srgb, var(--statut-alerte) 25%, transparent); }
+
+/* Tableau comparatif normé */
+.tableau { margin-block: var(--e-8); overflow-x: auto; border: var(--trait) solid var(--bordure); border-radius: var(--rayon-2); }
+.tableau table { width: 100%; border-collapse: collapse; font-size: var(--t-petit); line-height: var(--lh-dense); min-width: 560px; }
+.tableau caption {
+  caption-side: top; text-align: left; padding: var(--e-4) var(--e-5);
+  font-family: var(--police-texte); font-size: var(--t-micro);
+  font-weight: var(--graisse-grasse); letter-spacing: var(--interlettre-etiq);
+  text-transform: uppercase; color: var(--texte-tertiaire);
+  background: var(--fond-surface-2); border-bottom: var(--trait) solid var(--bordure);
+}
+.tableau th, .tableau td { padding: var(--e-3) var(--e-4); text-align: left; vertical-align: top; border-bottom: var(--trait) solid var(--bordure-douce); }
+.tableau thead th {
+  background: var(--fond-surface-2); font-weight: var(--graisse-grasse);
+  font-size: var(--t-micro); letter-spacing: .04em; text-transform: uppercase;
+  color: var(--texte-secondaire); border-bottom: var(--trait-fort) solid var(--bordure-forte);
+  position: sticky; top: 0;
+}
+.tableau tbody tr:last-child td { border-bottom: 0; }
+.tableau tbody tr:hover { background: var(--fond-surface-2); }
+.tableau td[data-num] { font-family: var(--police-donnee); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.tableau th[scope="row"] { font-weight: var(--graisse-demi); color: var(--texte-primaire); }
+
+/* ---------- 7. Sources primaires ---------------------------------------- */
+.sources {
+  margin-block: var(--e-12) var(--e-8);
+  padding: var(--e-6);
+  background: var(--fond-surface-2);
+  border: var(--trait) solid var(--bordure);
+  border-radius: var(--rayon-3);
+}
+.sources__titre {
+  font-family: var(--police-texte); font-size: var(--t-micro);
+  font-weight: var(--graisse-grasse); letter-spacing: var(--interlettre-etiq);
+  text-transform: uppercase; color: var(--texte-tertiaire); margin-bottom: var(--e-4);
+}
+.sources__liste { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--e-4); counter-reset: src; }
+.sources__liste li { counter-increment: src; display: grid; grid-template-columns: 26px 1fr; gap: var(--e-3); font-size: var(--t-petit); line-height: 1.55; }
+.sources__liste li::before {
+  content: "[" counter(src) "]";
+  font-family: var(--police-donnee); font-size: var(--t-micro);
+  color: var(--actio-bleu-palais); font-weight: var(--graisse-grasse);
+}
+.sources__liste a { word-break: break-word; }
+.sources__type {
+  display: inline-block; font-family: var(--police-donnee); font-size: var(--t-micro);
+  color: var(--texte-tertiaire); border: var(--trait) solid var(--bordure-forte);
+  border-radius: var(--rayon-1); padding: 0 5px; margin-left: var(--e-2);
+  text-transform: uppercase; letter-spacing: .04em;
+}
+
+/* ---------- 8. Bio d'expert --------------------------------------------- */
+.bio {
+  display: grid; grid-template-columns: 72px 1fr; gap: var(--e-5);
+  margin-block: var(--e-8);
+  padding: var(--e-6);
+  border: var(--trait) solid var(--bordure);
+  border-left: var(--trait-editorial) solid var(--actio-bleu-palais);
+  border-radius: 0 var(--rayon-3) var(--rayon-3) 0;
+  background: var(--fond-surface);
+}
+@media (max-width: 560px) { .bio { grid-template-columns: 1fr; } }
+.bio__portrait {
+  width: 72px; height: 72px; border-radius: var(--rayon-plein);
+  background: linear-gradient(135deg, var(--actio-bleu-palais), var(--actio-turquoise-fonce));
+  display: grid; place-items: center; color: #fff;
+  font-family: var(--police-titre); font-weight: var(--graisse-grasse); font-size: 1.4rem;
+}
+.bio__nom { font-size: var(--t-h5); margin-bottom: 2px; }
+.bio__fonction { font-size: var(--t-petit); color: var(--actio-bleu-palais); font-weight: var(--graisse-demi); margin-bottom: var(--e-3); }
+.bio__texte { font-size: var(--t-petit); color: var(--texte-secondaire); line-height: 1.6; margin: 0; }
+.bio__liens { display: flex; gap: var(--e-4); margin-top: var(--e-4); font-size: var(--t-micro); font-family: var(--police-donnee); }
+.bio__declaration {
+  margin-top: var(--e-4); padding-top: var(--e-3);
+  border-top: var(--trait) solid var(--bordure-douce);
+  font-size: var(--t-micro); color: var(--texte-tertiaire); line-height: 1.55;
+}
+
+/* ---------- 9. Bandeau de mise à jour / correction ---------------------- */
+.maj {
+  display: flex; gap: var(--e-3); align-items: flex-start;
+  padding: var(--e-4) var(--e-5); margin-block: var(--e-6);
+  background: var(--statut-consultation-pale);
+  border: var(--trait) solid color-mix(in srgb, var(--statut-consultation) 32%, transparent);
+  border-radius: var(--rayon-2);
+  font-size: var(--t-petit); line-height: 1.55;
+}
+.maj__etiq {
+  font-family: var(--police-donnee); font-size: var(--t-micro);
+  font-weight: var(--graisse-grasse); letter-spacing: .06em; text-transform: uppercase;
+  color: var(--statut-consultation); white-space: nowrap; padding-top: 2px;
+}
+
+/* ---------- 10. Pied d'article : suite de lecture ----------------------- */
+.suite { border-top: var(--trait-fort) solid var(--texte-primaire); padding-top: var(--e-6); margin-top: var(--e-12); }
+.suite__titre { font-size: var(--t-h4); margin-bottom: var(--e-6); }
+
+/* ---------- 11. Impression ---------------------------------------------- */
+@media print {
+  .entete, .cotations, .sommaire, .infolettre, .demo, .article__outils, .suite { display: none !important; }
+  body { background: #fff; color: #000; font-size: 11pt; }
+  .article__corps { grid-template-columns: 1fr; }
+  .prose { max-width: none; }
+  .boite, .retenir, .sources, .tableau { break-inside: avoid; border-color: #999; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8pt; color: #555; word-break: break-all; }
+}

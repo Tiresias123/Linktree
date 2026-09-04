@@ -1,0 +1,256 @@
+/* ==========================================================================
+   ACTIO — Système de jetons de design (design tokens)
+   Source de vérité unique : site, newsletter, exports, gabarits éditoriaux.
+   Toute couleur, graisse ou espacement employé ailleurs doit provenir d'ici.
+   --------------------------------------------------------------------------
+   Principe : « Encre et Vélin ».
+   Un média juridique se lit comme un document, pas comme un tableau de bord.
+   Le fond clair est un vélin chaud (et non un blanc écran), l'encre est un
+   bleu de palais profond. La couleur ne sert jamais à décorer : elle est
+   porteuse d'un statut réglementaire, et d'un seul.
+   ========================================================================== */
+
+:root {
+  /* ---------- 1. Couleurs de marque ------------------------------------ */
+  --actio-bleu-palais:        #0F3D68;  /* Primaire institutionnelle        */
+  --actio-bleu-palais-fonce:  #0A2B4B;
+  --actio-bleu-palais-clair:  #1B5A96;
+  --actio-bleu-palais-pale:   #E7EFF7;
+
+  --actio-turquoise:          #12B5A6;  /* Secondaire tech / Web3 / données */
+  --actio-turquoise-fonce:    #0B7F74;
+  --actio-turquoise-pale:     #E2F6F3;
+
+  /* ---------- 2. Couleurs de statut réglementaire ---------------------- *
+   * Usage strictement normé. Voir la charte des badges (Livrable 1, §4).  */
+  --statut-alerte:            #C8102E;  /* Mise en garde, sanction, radiation */
+  --statut-alerte-pale:       #FBE9EC;
+  --statut-consultation:      #965800;  /* Consultation publique, projet     */
+  --statut-consultation-pale: #FBF0E0;
+  --statut-conforme:          #0E7C5A;  /* Inscrit, autorisé, en vigueur     */
+  --statut-conforme-pale:     #E3F4EE;
+  --statut-info:              #0F3D68;  /* Avis, bulletin, information       */
+  --statut-info-pale:         #E7EFF7;
+  --statut-neutre:            #5B6B7C;  /* Archivé, abrogé, sans objet       */
+  --statut-neutre-pale:       #EDF0F3;
+
+  /* ---------- 3. Juridictions (codage cartographique) ------------------ */
+  --jur-federal:   #0F3D68;   /* Canada / Ottawa      */
+  --jur-quebec:    #16688A;   /* Québec / AMF         */
+  --jur-ontario:   #6B4FA8;   /* Ontario / CVMO       */
+  --jur-multi:     #0B7F74;   /* Harmonisé ACVM       */
+  --jur-intl:      #8A6D3B;   /* International        */
+
+  /* ---------- 4. Surfaces — mode clair (défaut) ------------------------ */
+  --fond-page:      #FAF8F4;  /* Vélin  */
+  --fond-surface:   #FFFFFF;
+  --fond-surface-2: #F3F0EA;  /* Encarts, colonne latérale */
+  --fond-surface-3: #E9E5DC;
+  --fond-inverse:   #0B1420;
+
+  --texte-primaire:   #0E1A2B;
+  --texte-secondaire: #45566A;
+  --texte-tertiaire:  #5A6B7E;
+  --texte-inverse:    #F7F5F1;
+  --texte-lien:       var(--actio-bleu-palais);
+
+  --bordure:        #DCD7CC;
+  --bordure-forte:  #C3BCAD;
+  --bordure-douce:  #EBE7DE;
+
+  --ombre-1: 0 1px 2px rgba(14, 26, 43, .06), 0 1px 3px rgba(14, 26, 43, .04);
+  --ombre-2: 0 2px 6px rgba(14, 26, 43, .07), 0 8px 24px rgba(14, 26, 43, .06);
+  --ombre-3: 0 12px 40px rgba(14, 26, 43, .14);
+
+  /* ---------- 5. Typographie ------------------------------------------- *
+   * Toutes les familles sont sous licence SIL OFL (libres, auto-hébergeables,
+   * jeu latin étendu complet : accents français, œ, guillemets « », espaces
+   * fines insécables).                                                     */
+  --police-titre:   "Source Serif 4", "Source Serif Pro", "Iowan Old Style",
+                    Georgia, "Times New Roman", serif;
+  --police-texte:   "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+                    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --police-donnee:  "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas,
+                    "Liberation Mono", monospace;
+
+  /* Échelle typographique — ratio 1,200 (seconde majeure), base 17 px.
+     Fluide entre 360 px et 1440 px de largeur de fenêtre.               */
+  --t-micro:  0.6875rem;                                    /* 11 px  étiquettes */
+  --t-petit:  0.8125rem;                                    /* 13 px  méta       */
+  --t-base:   1.0625rem;                                    /* 17 px  corps      */
+  --t-lead:   clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem); /* chapeau           */
+  --t-h6:     1.0625rem;
+  --t-h5:     clamp(1.125rem, 1.08rem + 0.22vw, 1.25rem);
+  --t-h4:     clamp(1.3125rem, 1.22rem + 0.42vw, 1.5rem);
+  --t-h3:     clamp(1.5rem,  1.36rem + 0.6vw,  1.8125rem);
+  --t-h2:     clamp(1.75rem, 1.52rem + 1.0vw,  2.375rem);
+  --t-h1:     clamp(2.125rem,1.62rem + 2.2vw,  3.375rem);
+  --t-display:clamp(2.5rem, 1.7rem + 3.4vw,   4.25rem);
+
+  --lh-serre:  1.15;   /* titres         */
+  --lh-moyen:  1.35;   /* sous-titres    */
+  --lh-texte:  1.68;   /* corps d article */
+  --lh-dense:  1.45;   /* tableaux       */
+
+  --graisse-normale:  400;
+  --graisse-moyenne:  500;
+  --graisse-demi:     600;
+  --graisse-grasse:   700;
+
+  --interlettre-titre:  -0.018em;
+  --interlettre-etiq:    0.085em;  /* petites capitales des badges */
+
+  /* ---------- 6. Espacement — échelle 4 px ----------------------------- */
+  --e-0: 0;      --e-1: 4px;   --e-2: 8px;   --e-3: 12px;  --e-4: 16px;
+  --e-5: 20px;   --e-6: 24px;  --e-8: 32px;  --e-10: 40px; --e-12: 48px;
+  --e-14: 56px;  --e-16: 64px; --e-20: 80px; --e-24: 96px; --e-32: 128px;
+
+  /* ---------- 7. Grille 12 colonnes ------------------------------------ */
+  --grille-colonnes: 12;
+  --grille-gouttiere: 24px;
+  --grille-gouttiere-mobile: 16px;
+  --grille-max: 1320px;        /* conteneur maximal            */
+  --grille-max-etroit: 760px;  /* colonne de lecture d article */
+  --grille-marge: clamp(16px, 4vw, 48px);
+
+  /* ---------- 8. Rayons, traits, mouvement ----------------------------- */
+  --rayon-0: 0;      --rayon-1: 3px;  --rayon-2: 6px;
+  --rayon-3: 10px;   --rayon-4: 16px; --rayon-plein: 999px;
+  --trait: 1px;
+  --trait-fort: 2px;
+  --trait-editorial: 3px;    /* filet de rubrique */
+
+  --mvt-rapide: 120ms cubic-bezier(.2,.6,.35,1);
+  --mvt-moyen:  220ms cubic-bezier(.2,.6,.35,1);
+  --mvt-lent:   420ms cubic-bezier(.2,.6,.35,1);
+
+  /* ---------- 9. Plans (z-index) --------------------------------------- */
+  --z-fond: 0;      --z-contenu: 1;  --z-collant: 100;
+  --z-entete: 200;  --z-menu: 300;   --z-modale: 400;  --z-notif: 500;
+
+  /* ---------- 10. Cotations (bandeau de marché) ------------------------ */
+  --cours-hausse:  #0E7C5A;
+  --cours-baisse:  #C8102E;
+  --cours-stable:  #6E7F92;
+
+  color-scheme: light;
+}
+
+/* ==========================================================================
+   Mode sombre — « Encre de nuit »
+   Les jetons de statut sont éclaircis pour tenir le contraste AA sur fond
+   sombre ; les teintes pâles deviennent des fonds translucides.
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fond-page:      #0B1420;
+    --fond-surface:   #111E2E;
+    --fond-surface-2: #16263A;
+    --fond-surface-3: #1D3145;
+    --fond-inverse:   #FAF8F4;
+
+    --texte-primaire:   #EEF2F7;
+    --texte-secondaire: #A9B8C9;
+    --texte-tertiaire:  #7C8DA1;
+    --texte-inverse:    #0E1A2B;
+    --texte-lien:       #7FB6EA;
+
+    --bordure:       #24374C;
+    --bordure-forte: #354C66;
+    --bordure-douce: #1A2A3C;
+
+    --actio-bleu-palais:       #4E9BE0;
+    --actio-bleu-palais-clair: #7FB6EA;
+    --actio-bleu-palais-pale:  rgba(78,155,224,.14);
+    --actio-turquoise:         #35D6C4;
+    --actio-turquoise-pale:    rgba(53,214,196,.14);
+
+    --statut-alerte:            #FF6B7F;
+    --statut-alerte-pale:       rgba(255,107,127,.14);
+    --statut-consultation:      #E8A93C;
+    --statut-consultation-pale: rgba(232,169,60,.14);
+    --statut-conforme:          #3FCB96;
+    --statut-conforme-pale:     rgba(63,203,150,.14);
+    --statut-info:              #7FB6EA;
+    --statut-info-pale:         rgba(127,182,234,.14);
+    --statut-neutre:            #8FA0B2;
+    --statut-neutre-pale:       rgba(143,160,178,.12);
+
+    --jur-federal: #7FB6EA;  --jur-quebec: #59C3E8;  --jur-ontario: #A991E8;
+    --jur-multi:   #35D6C4;  --jur-intl:   #D4B172;
+
+    --cours-hausse: #3FCB96;
+    --cours-baisse: #FF6B7F;
+    --cours-stable: #8FA0B2;
+
+    --ombre-1: 0 1px 2px rgba(0,0,0,.4);
+    --ombre-2: 0 2px 8px rgba(0,0,0,.45), 0 12px 32px rgba(0,0,0,.35);
+    --ombre-3: 0 16px 48px rgba(0,0,0,.55);
+
+    color-scheme: dark;
+  }
+}
+
+/* Choix explicite de l utilisateur — doit primer dans les deux sens. */
+:root[data-theme="dark"] {
+  --fond-page:      #0B1420;
+  --fond-surface:   #111E2E;
+  --fond-surface-2: #16263A;
+  --fond-surface-3: #1D3145;
+  --fond-inverse:   #FAF8F4;
+
+  --texte-primaire:   #EEF2F7;
+  --texte-secondaire: #A9B8C9;
+  --texte-tertiaire:  #7C8DA1;
+  --texte-inverse:    #0E1A2B;
+  --texte-lien:       #7FB6EA;
+
+  --bordure:       #24374C;
+  --bordure-forte: #354C66;
+  --bordure-douce: #1A2A3C;
+
+  --actio-bleu-palais:       #4E9BE0;
+  --actio-bleu-palais-clair: #7FB6EA;
+  --actio-bleu-palais-pale:  rgba(78,155,224,.14);
+  --actio-turquoise:         #35D6C4;
+  --actio-turquoise-pale:    rgba(53,214,196,.14);
+
+  --statut-alerte:            #FF6B7F;
+  --statut-alerte-pale:       rgba(255,107,127,.14);
+  --statut-consultation:      #E8A93C;
+  --statut-consultation-pale: rgba(232,169,60,.14);
+  --statut-conforme:          #3FCB96;
+  --statut-conforme-pale:     rgba(63,203,150,.14);
+  --statut-info:              #7FB6EA;
+  --statut-info-pale:         rgba(127,182,234,.14);
+  --statut-neutre:            #8FA0B2;
+  --statut-neutre-pale:       rgba(143,160,178,.12);
+
+  --jur-federal: #7FB6EA;  --jur-quebec: #59C3E8;  --jur-ontario: #A991E8;
+  --jur-multi:   #35D6C4;  --jur-intl:   #D4B172;
+
+  --cours-hausse: #3FCB96;
+  --cours-baisse: #FF6B7F;
+  --cours-stable: #8FA0B2;
+
+  --ombre-1: 0 1px 2px rgba(0,0,0,.4);
+  --ombre-2: 0 2px 8px rgba(0,0,0,.45), 0 12px 32px rgba(0,0,0,.35);
+  --ombre-3: 0 16px 48px rgba(0,0,0,.55);
+
+  color-scheme: dark;
+}
+
+/* ==========================================================================
+   Règle d'accessibilité opposable (WCAG 2.1 AA — vérifiée par calcul)
+   --------------------------------------------------------------------------
+   Aplat plein + texte BLANC  : autorisé sur bleu-palais (11,1), bleu-palais-
+     foncé (14,4), alerte (5,9), consultation (5,7), conforme (5,2),
+     turquoise-foncé (4,9), neutre (5,5).
+   Aplat plein + texte ENCRE  : OBLIGATOIRE sur --actio-turquoise (6,8 en encre,
+     2,6 en blanc → le blanc y est INTERDIT).
+   Textes de statut sur fond pâle : employer le jeton plein correspondant
+     (ex. --statut-alerte sur --statut-alerte-pale) — tous ≥ 4,5:1.
+   Aucun jeton de texte n'est autorisé sous 4,5:1 sur --fond-surface-2.
+   ========================================================================== */
+
+:root[data-theme="light"] { color-scheme: light; }

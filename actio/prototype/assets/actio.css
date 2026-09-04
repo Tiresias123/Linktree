@@ -1,0 +1,600 @@
+/* ==========================================================================
+   ACTIO — Feuille de style de composants
+   Dépend de tokens.css. Aucune valeur brute (couleur, taille) n'est admise
+   ici : tout passe par un jeton. Grille 12 colonnes, gouttière 24 px.
+   ========================================================================== */
+
+/* ---------- 0. Réinitialisation et base ------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important; scroll-behavior: auto !important;
+  }
+}
+body {
+  margin: 0;
+  background: var(--fond-page);
+  color: var(--texte-primaire);
+  font-family: var(--police-texte);
+  font-size: var(--t-base);
+  line-height: var(--lh-texte);
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+img, svg, video { max-width: 100%; height: auto; display: block; }
+a { color: var(--texte-lien); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { text-decoration-thickness: 2px; }
+button, input, select, textarea { font: inherit; color: inherit; }
+h1,h2,h3,h4,h5,h6 {
+  font-family: var(--police-titre);
+  font-weight: var(--graisse-grasse);
+  line-height: var(--lh-serre);
+  letter-spacing: var(--interlettre-titre);
+  margin: 0;
+  text-wrap: balance;
+}
+p { margin: 0 0 var(--e-4); }
+:focus-visible {
+  outline: 3px solid var(--actio-turquoise);
+  outline-offset: 2px;
+  border-radius: var(--rayon-1);
+}
+[hidden] { display: none !important; }
+
+/* Accès clavier : lien d'évitement */
+.evitement {
+  position: absolute; left: -9999px; top: 0; z-index: var(--z-notif);
+  background: var(--actio-bleu-palais); color: #fff;
+  padding: var(--e-3) var(--e-5); border-radius: 0 0 var(--rayon-2) 0;
+  font-weight: var(--graisse-demi);
+}
+.evitement:focus { left: 0; }
+
+.vh { /* visuellement masqué, lu par les lecteurs d'écran */
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ---------- 1. Grille 12 colonnes ------------------------------------- */
+.contenant {
+  width: 100%; max-width: var(--grille-max);
+  margin-inline: auto; padding-inline: var(--grille-marge);
+}
+.contenant--etroit { max-width: calc(var(--grille-max-etroit) + 2 * var(--grille-marge)); }
+.grille {
+  display: grid;
+  grid-template-columns: repeat(var(--grille-colonnes), minmax(0, 1fr));
+  gap: var(--grille-gouttiere);
+}
+@media (max-width: 900px) { .grille { gap: var(--grille-gouttiere-mobile); } }
+.col-12 { grid-column: span 12; }
+.col-8  { grid-column: span 8;  }
+.col-7  { grid-column: span 7;  }
+.col-6  { grid-column: span 6;  }
+.col-5  { grid-column: span 5;  }
+.col-4  { grid-column: span 4;  }
+.col-3  { grid-column: span 3;  }
+@media (max-width: 1024px) {
+  .col-8, .col-7, .col-6, .col-5 { grid-column: span 12; }
+  .col-4 { grid-column: span 6; }
+  .col-3 { grid-column: span 6; }
+}
+@media (max-width: 640px) {
+  .col-4, .col-3 { grid-column: span 12; }
+}
+
+/* ---------- 2. Étiquettes de statut réglementaire --------------------- *
+ * Une étiquette = un statut opposable. Jamais décorative.                */
+.badge {
+  display: inline-flex; align-items: center; gap: var(--e-2);
+  font-family: var(--police-texte);
+  font-size: var(--t-micro);
+  font-weight: var(--graisse-grasse);
+  letter-spacing: var(--interlettre-etiq);
+  text-transform: uppercase;
+  padding: 3px var(--e-2);
+  border-radius: var(--rayon-1);
+  border: var(--trait) solid transparent;
+  white-space: nowrap;
+  line-height: 1.5;
+}
+.badge::before {
+  content: ""; width: 6px; height: 6px; border-radius: var(--rayon-plein);
+  background: currentColor; flex: none;
+}
+.badge--alerte       { color: var(--statut-alerte);       background: var(--statut-alerte-pale);       border-color: color-mix(in srgb, var(--statut-alerte) 30%, transparent); }
+.badge--consultation { color: var(--statut-consultation); background: var(--statut-consultation-pale); border-color: color-mix(in srgb, var(--statut-consultation) 30%, transparent); }
+.badge--conforme     { color: var(--statut-conforme);     background: var(--statut-conforme-pale);     border-color: color-mix(in srgb, var(--statut-conforme) 30%, transparent); }
+.badge--info         { color: var(--statut-info);         background: var(--statut-info-pale);         border-color: color-mix(in srgb, var(--statut-info) 30%, transparent); }
+.badge--neutre       { color: var(--statut-neutre);       background: var(--statut-neutre-pale);       border-color: color-mix(in srgb, var(--statut-neutre) 30%, transparent); }
+
+/* Pastille de juridiction — forme distincte des badges de statut. */
+.juridiction {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--police-donnee);
+  font-size: var(--t-micro);
+  font-weight: var(--graisse-moyenne);
+  letter-spacing: .04em;
+  padding: 2px var(--e-2);
+  border-radius: var(--rayon-plein);
+  border: var(--trait) solid var(--bordure-forte);
+  color: var(--texte-secondaire);
+  background: transparent;
+}
+.juridiction::before {
+  content: ""; width: 8px; height: 8px; border-radius: 2px; flex: none;
+  background: var(--jur-federal); transform: rotate(45deg);
+}
+.juridiction--federal::before { background: var(--jur-federal); }
+.juridiction--quebec::before  { background: var(--jur-quebec);  }
+.juridiction--ontario::before { background: var(--jur-ontario); }
+.juridiction--multi::before   { background: var(--jur-multi);   }
+.juridiction--intl::before    { background: var(--jur-intl);    }
+
+/* ---------- 3. Rubrique (filet éditorial) ----------------------------- */
+.rubrique {
+  display: inline-block;
+  font-size: var(--t-micro);
+  font-weight: var(--graisse-grasse);
+  letter-spacing: var(--interlettre-etiq);
+  text-transform: uppercase;
+  color: var(--actio-bleu-palais);
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: var(--trait-editorial) solid var(--actio-bleu-palais);
+}
+.rubrique--marches   { color: var(--actio-turquoise-fonce); border-color: var(--actio-turquoise-fonce); }
+.rubrique--fiscalite { color: var(--statut-consultation);   border-color: var(--statut-consultation); }
+.rubrique--guides    { color: var(--jur-ontario);           border-color: var(--jur-ontario); }
+.rubrique--pro       { color: var(--texte-primaire);        border-color: var(--texte-primaire); }
+
+/* ---------- 4. Titre de section ---------------------------------------- */
+.section { padding-block: var(--e-16); }
+.section + .section { padding-top: 0; }
+.section__entete {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: var(--e-6); flex-wrap: wrap;
+  padding-bottom: var(--e-4);
+  margin-bottom: var(--e-8);
+  border-bottom: var(--trait-fort) solid var(--texte-primaire);
+}
+.section__titre { font-size: var(--t-h2); }
+.section__sur   {
+  display: block; font-family: var(--police-texte);
+  font-size: var(--t-micro); font-weight: var(--graisse-grasse);
+  letter-spacing: var(--interlettre-etiq); text-transform: uppercase;
+  color: var(--texte-tertiaire); margin-bottom: var(--e-2);
+}
+.section__lien {
+  font-size: var(--t-petit); font-weight: var(--graisse-demi);
+  text-decoration: none; white-space: nowrap;
+}
+.section__lien::after { content: " →"; }
+.section__lien:hover { text-decoration: underline; }
+
+/* ---------- 5. Cartes d'article ---------------------------------------- */
+.carte {
+  display: flex; flex-direction: column; gap: var(--e-3);
+  background: var(--fond-surface);
+  border: var(--trait) solid var(--bordure);
+  border-radius: var(--rayon-2);
+  padding: var(--e-5);
+  transition: border-color var(--mvt-moyen), box-shadow var(--mvt-moyen), transform var(--mvt-moyen);
+  height: 100%;
+}
+.carte:hover, .carte:focus-within {
+  border-color: var(--bordure-forte);
+  box-shadow: var(--ombre-2);
+  transform: translateY(-2px);
+}
+.carte__meta {
+  display: flex; align-items: center; gap: var(--e-2); flex-wrap: wrap;
+}
+.carte__titre { font-size: var(--t-h5); }
+.carte__titre a { color: inherit; text-decoration: none; }
+.carte__titre a::after { content: ""; position: absolute; inset: 0; } /* zone cliquable */
+.carte { position: relative; }
+.carte__titre a:hover { color: var(--texte-lien); }
+.carte__resume {
+  font-size: var(--t-petit); color: var(--texte-secondaire);
+  line-height: var(--lh-moyen); margin: 0;
+}
+.carte__pied {
+  margin-top: auto; padding-top: var(--e-3);
+  border-top: var(--trait) solid var(--bordure-douce);
+  display: flex; align-items: center; gap: var(--e-3); flex-wrap: wrap;
+  font-size: var(--t-micro); color: var(--texte-tertiaire);
+  font-family: var(--police-donnee);
+}
+.carte__pied span + span::before { content: "·"; margin-right: var(--e-3); color: var(--bordure-forte); }
+
+/* Résumé exécutif encarté dans une carte de régulation */
+.carte__synthese {
+  background: var(--fond-surface-2);
+  border-left: var(--trait-editorial) solid var(--actio-bleu-palais);
+  padding: var(--e-3) var(--e-4);
+  border-radius: 0 var(--rayon-1) var(--rayon-1) 0;
+  font-size: var(--t-petit); line-height: var(--lh-dense);
+  color: var(--texte-secondaire);
+}
+.carte__synthese strong { color: var(--texte-primaire); }
+
+/* ---------- 6. Bandeau de cotations (sub-header) ------------------------ */
+.cotations {
+  background: var(--fond-inverse);
+  color: var(--texte-inverse);
+  border-bottom: var(--trait) solid var(--bordure);
+  font-family: var(--police-donnee);
+  font-size: var(--t-petit);
+  overflow: hidden;
+}
+.cotations__piste {
+  display: flex; align-items: center; gap: var(--e-6);
+  padding-block: var(--e-2);
+  overflow-x: auto; scrollbar-width: none;
+}
+.cotations__piste::-webkit-scrollbar { display: none; }
+.cours { display: inline-flex; align-items: baseline; gap: var(--e-2); white-space: nowrap; }
+.cours__sym { font-weight: var(--graisse-grasse); letter-spacing: .04em; }
+.cours__val { font-variant-numeric: tabular-nums; }
+.cours__var { font-size: var(--t-micro); font-variant-numeric: tabular-nums; }
+.cours__var--hausse { color: var(--cours-hausse); }
+.cours__var--hausse::before { content: "▲ "; }
+.cours__var--baisse { color: var(--cours-baisse); }
+.cours__var--baisse::before { content: "▼ "; }
+.cours__var--stable { color: var(--cours-stable); }
+.cours__var--stable::before { content: "→ "; }
+
+/* Indicateur de conformité de plateforme — spécificité Actio */
+.conformite {
+  display: inline-flex; align-items: center; gap: var(--e-2);
+  margin-left: auto; padding-left: var(--e-6);
+  border-left: var(--trait) solid color-mix(in srgb, var(--texte-inverse) 25%, transparent);
+  white-space: nowrap; font-size: var(--t-micro);
+  letter-spacing: .04em; text-transform: uppercase;
+  color: var(--texte-inverse); text-decoration: none;
+}
+.conformite__pastille {
+  width: 8px; height: 8px; border-radius: var(--rayon-plein);
+  background: var(--statut-conforme); flex: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--statut-conforme) 25%, transparent);
+}
+.conformite:hover { text-decoration: underline; }
+
+/* ---------- 7. En-tête principal ---------------------------------------- */
+.entete {
+  position: sticky; top: 0; z-index: var(--z-entete);
+  background: color-mix(in srgb, var(--fond-page) 92%, transparent);
+  backdrop-filter: saturate(160%) blur(12px);
+  border-bottom: var(--trait) solid var(--bordure);
+}
+.entete__barre {
+  display: flex; align-items: center; gap: var(--e-6);
+  min-height: 64px;
+}
+.logo {
+  display: inline-flex; align-items: baseline; gap: 2px;
+  font-family: var(--police-titre);
+  font-size: 1.5rem; font-weight: var(--graisse-grasse);
+  letter-spacing: -.03em; color: var(--texte-primaire);
+  text-decoration: none; flex: none;
+}
+.logo__point { color: var(--actio-turquoise-fonce); }
+.logo__baseline {
+  display: block; font-family: var(--police-texte);
+  font-size: var(--t-micro); font-weight: var(--graisse-moyenne);
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--texte-tertiaire); margin-top: -4px;
+}
+.nav { display: flex; align-items: center; gap: var(--e-1); margin-left: var(--e-4); }
+.nav__lien {
+  position: relative;
+  display: inline-flex; align-items: center; gap: var(--e-1);
+  padding: var(--e-2) var(--e-3);
+  font-size: var(--t-petit); font-weight: var(--graisse-demi);
+  color: var(--texte-primaire); text-decoration: none;
+  border-radius: var(--rayon-2); white-space: nowrap;
+}
+.nav__lien:hover, .nav__lien[aria-expanded="true"] { background: var(--fond-surface-2); }
+.nav__lien[aria-current="page"] { color: var(--actio-bleu-palais); }
+.nav__lien[aria-current="page"]::after {
+  content: ""; position: absolute; left: var(--e-3); right: var(--e-3); bottom: 2px;
+  height: var(--trait-fort); background: var(--actio-bleu-palais); border-radius: 2px;
+}
+.nav__chevron { width: 10px; height: 10px; transition: transform var(--mvt-rapide); }
+.nav__lien[aria-expanded="true"] .nav__chevron { transform: rotate(180deg); }
+.entete__actions { display: flex; align-items: center; gap: var(--e-2); margin-left: auto; }
+
+/* Mega-menu */
+.megamenu {
+  position: absolute; left: 0; right: 0; top: 100%;
+  background: var(--fond-surface);
+  border-bottom: var(--trait) solid var(--bordure);
+  box-shadow: var(--ombre-3);
+  z-index: var(--z-menu);
+}
+.megamenu__grille { padding-block: var(--e-8); }
+.megamenu__colonne h3 {
+  font-family: var(--police-texte); font-size: var(--t-micro);
+  letter-spacing: var(--interlettre-etiq); text-transform: uppercase;
+  color: var(--texte-tertiaire); margin-bottom: var(--e-3);
+}
+.megamenu__liste { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--e-2); }
+.megamenu__liste a {
+  display: block; font-size: var(--t-petit); text-decoration: none;
+  color: var(--texte-primaire); padding: var(--e-1) 0;
+}
+.megamenu__liste a:hover { color: var(--texte-lien); text-decoration: underline; }
+.megamenu__vedette {
+  background: var(--fond-surface-2); border-radius: var(--rayon-2);
+  padding: var(--e-5); border: var(--trait) solid var(--bordure-douce);
+}
+
+/* ---------- 8. Boutons -------------------------------------------------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--e-2);
+  padding: var(--e-3) var(--e-5);
+  font-size: var(--t-petit); font-weight: var(--graisse-demi);
+  border-radius: var(--rayon-2); border: var(--trait) solid transparent;
+  cursor: pointer; text-decoration: none; white-space: nowrap;
+  transition: background var(--mvt-rapide), border-color var(--mvt-rapide), color var(--mvt-rapide);
+}
+.btn--primaire   { background: var(--actio-bleu-palais); color: #fff; }
+.btn--primaire:hover { background: var(--actio-bleu-palais-fonce); }
+.btn--secondaire { background: transparent; color: var(--texte-primaire); border-color: var(--bordure-forte); }
+.btn--secondaire:hover { background: var(--fond-surface-2); border-color: var(--texte-tertiaire); }
+.btn--discret    { background: transparent; color: var(--texte-secondaire); padding-inline: var(--e-3); }
+.btn--discret:hover { background: var(--fond-surface-2); color: var(--texte-primaire); }
+.btn--pro {
+  background: var(--texte-primaire); color: var(--fond-page);
+  border-color: var(--texte-primaire);
+}
+.btn--pro:hover { background: var(--actio-bleu-palais); border-color: var(--actio-bleu-palais); color: #fff; }
+
+/* Sélecteur de langue et de thème */
+.selecteur {
+  display: inline-flex; border: var(--trait) solid var(--bordure-forte);
+  border-radius: var(--rayon-2); overflow: hidden;
+}
+.selecteur button {
+  background: transparent; border: 0; cursor: pointer;
+  padding: 6px var(--e-3); font-size: var(--t-micro);
+  font-weight: var(--graisse-demi); letter-spacing: .06em; text-transform: uppercase;
+  color: var(--texte-secondaire);
+}
+.selecteur button[aria-pressed="true"] { background: var(--texte-primaire); color: var(--fond-page); }
+.selecteur button:not([aria-pressed="true"]):hover { background: var(--fond-surface-2); }
+
+/* ---------- 9. Hero / À la une ------------------------------------------ */
+.une { padding-block: var(--e-10) var(--e-12); }
+.une__principal {
+  display: flex; flex-direction: column; gap: var(--e-4);
+  padding-right: var(--e-8);
+  border-right: var(--trait) solid var(--bordure);
+}
+@media (max-width: 1024px) {
+  .une__principal { padding-right: 0; border-right: 0; border-bottom: var(--trait) solid var(--bordure); padding-bottom: var(--e-8); }
+}
+.une__titre { font-size: var(--t-h1); }
+.une__titre a { color: inherit; text-decoration: none; }
+.une__titre a:hover { color: var(--actio-bleu-palais); }
+.une__chapeau {
+  font-size: var(--t-lead); line-height: var(--lh-moyen);
+  color: var(--texte-secondaire); margin: 0;
+}
+.une__visuel {
+  aspect-ratio: 16 / 9; border-radius: var(--rayon-3);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--actio-bleu-palais) 92%, #000) 0%, var(--actio-bleu-palais) 45%, var(--actio-turquoise-fonce) 100%);
+  border: var(--trait) solid var(--bordure);
+  display: grid; place-items: center; overflow: hidden; position: relative;
+}
+.une__signature {
+  display: flex; align-items: center; gap: var(--e-3); flex-wrap: wrap;
+  font-size: var(--t-petit); color: var(--texte-tertiaire);
+  padding-top: var(--e-3); border-top: var(--trait) solid var(--bordure-douce);
+}
+.une__signature strong { color: var(--texte-primaire); font-weight: var(--graisse-demi); }
+.une__signature time, .une__signature .lecture { font-family: var(--police-donnee); font-size: var(--t-micro); }
+
+.breves { display: grid; gap: var(--e-5); align-content: start; }
+.breves__titre {
+  font-family: var(--police-texte); font-size: var(--t-micro);
+  font-weight: var(--graisse-grasse); letter-spacing: var(--interlettre-etiq);
+  text-transform: uppercase; color: var(--texte-tertiaire);
+  padding-bottom: var(--e-2); border-bottom: var(--trait-fort) solid var(--texte-primaire);
+}
+.breve { display: grid; gap: var(--e-2); padding-bottom: var(--e-5); border-bottom: var(--trait) solid var(--bordure-douce); position: relative; }
+.breve:last-of-type { border-bottom: 0; padding-bottom: 0; }
+.breve__titre { font-size: var(--t-h6); font-family: var(--police-titre); line-height: var(--lh-moyen); font-weight: var(--graisse-grasse); }
+.breve__titre a { color: inherit; text-decoration: none; }
+.breve__titre a::after { content: ""; position: absolute; inset: 0; }
+.breve__titre a:hover { color: var(--texte-lien); }
+.breve__meta { display: flex; align-items: center; gap: var(--e-2); flex-wrap: wrap; font-size: var(--t-micro); color: var(--texte-tertiaire); font-family: var(--police-donnee); }
+
+/* ---------- 10. Bloc de visualisation de données ------------------------ */
+.schema {
+  background: var(--fond-surface);
+  border: var(--trait) solid var(--bordure);
+  border-radius: var(--rayon-3);
+  overflow: hidden;
+}
+.schema__entete {
+  padding: var(--e-5) var(--e-6);
+  border-bottom: var(--trait) solid var(--bordure);
+  background: var(--fond-surface-2);
+  display: flex; justify-content: space-between; align-items: flex-start; gap: var(--e-4); flex-wrap: wrap;
+}
+.schema__titre { font-size: var(--t-h4); }
+.schema__sous { font-size: var(--t-petit); color: var(--texte-secondaire); margin: var(--e-2) 0 0; max-width: 62ch; }
+.schema__corps { padding: var(--e-6); overflow-x: auto; }
+.schema__pied {
+  padding: var(--e-3) var(--e-6); border-top: var(--trait) solid var(--bordure-douce);
+  font-size: var(--t-micro); color: var(--texte-tertiaire); font-family: var(--police-donnee);
+  display: flex; gap: var(--e-4); flex-wrap: wrap;
+}
+
+/* Étapes d'un cheminement de conformité */
+.flux { display: flex; gap: var(--e-3); min-width: 720px; }
+.flux__etape {
+  flex: 1; display: grid; gap: var(--e-2); align-content: start;
+  padding: var(--e-4); border-radius: var(--rayon-2);
+  background: var(--fond-surface-2); border: var(--trait) solid var(--bordure-douce);
+  position: relative;
+}
+.flux__etape::after {
+  content: "→"; position: absolute; right: calc(var(--e-3) * -1 - 5px); top: 50%;
+  transform: translateY(-50%); color: var(--bordure-forte); font-size: 1.1rem;
+}
+.flux__etape:last-child::after { content: none; }
+.flux__num {
+  font-family: var(--police-donnee); font-size: var(--t-micro);
+  font-weight: var(--graisse-grasse); color: var(--actio-bleu-palais);
+  letter-spacing: .08em;
+}
+.flux__nom { font-family: var(--police-titre); font-size: var(--t-h6); font-weight: var(--graisse-grasse); line-height: var(--lh-moyen); }
+.flux__detail { font-size: var(--t-micro); color: var(--texte-secondaire); line-height: var(--lh-dense); }
+.flux__etape--actuel { border-color: var(--actio-turquoise); background: var(--actio-turquoise-pale); }
+.flux__etape--futur { opacity: .72; }
+
+/* ---------- 11. Paliers pédagogiques ------------------------------------ */
+.palier {
+  display: grid; gap: var(--e-4);
+  background: var(--fond-surface);
+  border: var(--trait) solid var(--bordure);
+  border-top: var(--trait-editorial) solid var(--jur-ontario);
+  border-radius: var(--rayon-2);
+  padding: var(--e-6); height: 100%;
+}
+.palier--n1 { border-top-color: var(--statut-conforme); }
+.palier--n2 { border-top-color: var(--actio-bleu-palais); }
+.palier--n3 { border-top-color: var(--jur-ontario); }
+.palier__niveau {
+  display: flex; align-items: center; gap: var(--e-2);
+  font-family: var(--police-donnee); font-size: var(--t-micro);
+  letter-spacing: .08em; text-transform: uppercase; color: var(--texte-tertiaire);
+}
+.palier__jauge { display: inline-flex; gap: 3px; }
+.palier__jauge i { width: 16px; height: 4px; border-radius: 2px; background: var(--bordure-forte); }
+.palier--n1 .palier__jauge i:nth-child(-n+1) { background: var(--statut-conforme); }
+.palier--n2 .palier__jauge i:nth-child(-n+2) { background: var(--actio-bleu-palais); }
+.palier--n3 .palier__jauge i:nth-child(-n+3) { background: var(--jur-ontario); }
+.palier__titre { font-size: var(--t-h5); }
+.palier__desc { font-size: var(--t-petit); color: var(--texte-secondaire); line-height: var(--lh-moyen); margin: 0; }
+.palier__liste { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--e-2); }
+.palier__liste li { position: relative; padding-left: var(--e-5); font-size: var(--t-petit); }
+.palier__liste li::before {
+  content: ""; position: absolute; left: 0; top: .62em;
+  width: 10px; height: 2px; background: var(--bordure-forte);
+}
+.palier__liste a { color: var(--texte-primaire); text-decoration: none; }
+.palier__liste a:hover { color: var(--texte-lien); text-decoration: underline; }
+.palier__pied { margin-top: auto; font-size: var(--t-micro); color: var(--texte-tertiaire); font-family: var(--police-donnee); }
+
+/* ---------- 12. Bloc infolettre ------------------------------------------ */
+.infolettre {
+  background: var(--fond-inverse); color: var(--texte-inverse);
+  border-radius: var(--rayon-4); overflow: hidden; position: relative;
+}
+.infolettre::before {
+  content: ""; position: absolute; inset: 0;
+  background:
+    radial-gradient(60% 120% at 88% 8%, color-mix(in srgb, var(--actio-turquoise) 26%, transparent) 0%, transparent 60%),
+    radial-gradient(50% 100% at 4% 96%, color-mix(in srgb, var(--actio-bleu-palais-clair) 24%, transparent) 0%, transparent 60%);
+  pointer-events: none;
+}
+.infolettre__inner { position: relative; padding: var(--e-12) var(--e-10); }
+@media (max-width: 640px) { .infolettre__inner { padding: var(--e-8) var(--e-5); } }
+.infolettre__sur {
+  font-size: var(--t-micro); font-weight: var(--graisse-grasse);
+  letter-spacing: var(--interlettre-etiq); text-transform: uppercase;
+  color: var(--actio-turquoise); margin-bottom: var(--e-3);
+}
+.infolettre__titre { font-size: var(--t-h2); max-width: 22ch; }
+.infolettre__promesse { font-size: var(--t-lead); line-height: var(--lh-moyen); opacity: .88; max-width: 56ch; margin: var(--e-4) 0 var(--e-6); }
+.infolettre__preuves { display: flex; gap: var(--e-6); flex-wrap: wrap; margin-bottom: var(--e-6); padding-block: var(--e-4); border-block: var(--trait) solid color-mix(in srgb, var(--texte-inverse) 18%, transparent); }
+.infolettre__preuve { display: grid; gap: 2px; }
+.infolettre__chiffre { font-family: var(--police-donnee); font-size: var(--t-h4); font-weight: var(--graisse-grasse); }
+.infolettre__label { font-size: var(--t-micro); letter-spacing: .06em; text-transform: uppercase; opacity: .72; }
+.infolettre__form { display: flex; gap: var(--e-3); flex-wrap: wrap; max-width: 620px; }
+.champ {
+  flex: 1 1 260px; min-width: 0;
+  padding: var(--e-4) var(--e-4);
+  border-radius: var(--rayon-2);
+  border: var(--trait) solid color-mix(in srgb, var(--texte-inverse) 30%, transparent);
+  background: color-mix(in srgb, var(--texte-inverse) 8%, transparent);
+  color: var(--texte-inverse); font-size: var(--t-base);
+}
+.champ::placeholder { color: color-mix(in srgb, var(--texte-inverse) 55%, transparent); }
+.champ:focus { border-color: var(--actio-turquoise); background: color-mix(in srgb, var(--texte-inverse) 12%, transparent); }
+.infolettre .btn--primaire { background: var(--actio-turquoise); color: #06231F; border-color: var(--actio-turquoise); padding-inline: var(--e-8); font-weight: var(--graisse-grasse); }
+.infolettre .btn--primaire:hover { background: #fff; color: var(--fond-inverse); border-color: #fff; }
+.infolettre__consentement {
+  display: flex; gap: var(--e-3); align-items: flex-start;
+  margin-top: var(--e-5); max-width: 640px;
+  font-size: var(--t-micro); line-height: 1.6; opacity: .78;
+}
+.infolettre__consentement a { color: var(--actio-turquoise); }
+.infolettre__reassurance {
+  display: flex; gap: var(--e-5); flex-wrap: wrap; margin-top: var(--e-5);
+  font-size: var(--t-micro); opacity: .78;
+}
+.infolettre__reassurance span::before { content: "✓ "; color: var(--actio-turquoise); font-weight: 700; }
+
+/* ---------- 13. Pied de page institutionnel ------------------------------ */
+.pied {
+  margin-top: var(--e-20);
+  background: var(--fond-surface-2);
+  border-top: var(--trait-fort) solid var(--texte-primaire);
+}
+.pied__principal { padding-block: var(--e-12) var(--e-10); }
+.pied__colonne h3 {
+  font-family: var(--police-texte); font-size: var(--t-micro);
+  font-weight: var(--graisse-grasse); letter-spacing: var(--interlettre-etiq);
+  text-transform: uppercase; color: var(--texte-tertiaire); margin-bottom: var(--e-4);
+}
+.pied__liste { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--e-2); }
+.pied__liste a { font-size: var(--t-petit); color: var(--texte-secondaire); text-decoration: none; }
+.pied__liste a:hover { color: var(--texte-primaire); text-decoration: underline; }
+.pied__liste a[rel~="external"]::after { content: " ↗"; font-size: .85em; color: var(--texte-tertiaire); }
+
+.avertissement {
+  border: var(--trait) solid var(--statut-alerte);
+  border-left: var(--trait-editorial) solid var(--statut-alerte);
+  background: var(--statut-alerte-pale);
+  border-radius: var(--rayon-2);
+  padding: var(--e-5) var(--e-6);
+  margin-block: var(--e-8);
+}
+.avertissement__titre {
+  font-family: var(--police-texte); font-size: var(--t-micro);
+  font-weight: var(--graisse-grasse); letter-spacing: var(--interlettre-etiq);
+  text-transform: uppercase; color: var(--statut-alerte); margin-bottom: var(--e-3);
+  display: flex; align-items: center; gap: var(--e-2);
+}
+.avertissement p { font-size: var(--t-petit); line-height: 1.62; color: var(--texte-secondaire); margin-bottom: var(--e-3); }
+.avertissement p:last-child { margin-bottom: 0; }
+
+.pied__legal {
+  border-top: var(--trait) solid var(--bordure);
+  padding-block: var(--e-6);
+  display: flex; justify-content: space-between; gap: var(--e-6); flex-wrap: wrap;
+  font-size: var(--t-micro); color: var(--texte-tertiaire);
+}
+.pied__legal nav { display: flex; gap: var(--e-4); flex-wrap: wrap; }
+.pied__legal a { color: var(--texte-tertiaire); text-decoration: none; }
+.pied__legal a:hover { color: var(--texte-primaire); text-decoration: underline; }
+
+/* ---------- 14. Bandeau « contenu de démonstration » --------------------- */
+.demo {
+  background: var(--statut-consultation);
+  color: #fff; text-align: center;
+  padding: var(--e-2) var(--e-4);
+  font-size: var(--t-micro); letter-spacing: .03em;
+}
+.demo a { color: #fff; }
+.demo strong { letter-spacing: var(--interlettre-etiq); text-transform: uppercase; }
