@@ -145,6 +145,40 @@ avec son état. **Les contenus du prototype et de l’infolettre sont des maquet
 
 ---
 
+## Ce qui reste à décider — et qui ne relève pas de la conception
+
+Les livrables tranchent tout ce qui pouvait l'être sur pièces. Trois questions
+ne le pouvaient pas : ce sont des engagements, pas des valeurs. Elles sont
+signalées dans les documents concernés par un encadré ⚠, et recensées dans
+[`docs/annexes/rapport-de-coherence.md`](docs/annexes/rapport-de-coherence.md)
+avec trente autres points d'arbitrage.
+
+**1. Cadence : 52 éditions par an, ou 44&nbsp;?** La stratégie de mailing pose
+une cadence hebdomadaire et le courriel d'accueil la promet à l'abonné&nbsp;; le
+modèle économique compte 44 éditions. Huit semaines d'écart, qui portent le coût
+direct, l'inventaire de parrainage et le seuil de rentabilité. Retenir 44 oblige
+à réécrire la promesse faite à l'inscription, faute de quoi elle devient
+trompeuse. *C'est la décision la plus structurante du lot.*
+
+**2. Le guide de conformité n'existe pas.** Le premier courriel d'accueil le
+remet en deuxième position, avant tout discours de marque. Son sommaire est
+écrit, chapitre par chapitre&nbsp;; son chapitre fiscal exige à lui seul une
+relecture sur source primaire. **Aucune séquence ne part avant que le guide soit
+publié et daté.**
+
+**3. La date de réouverture des sources.** La base factuelle a été constituée
+alors que l'accès aux sites des régulateurs était bloqué. Tant que l'Avis
+conjoint 21-330, la Charte de la langue française, la LCAP et la Loi 25 n'ont pas
+été lus à la source, la politique de conformité lie la rédaction mais ne
+s'oppose à aucun tiers.
+
+Une quatrième, purement technique&nbsp;: **l'auto-hébergement des polices**. Cinq
+pages appellent encore un service tiers, ce que `npm run verifier` rappelle à
+chaque exécution. Aucune évaluation des facteurs relatifs à la vie privée ne peut
+conclure d'ici là.
+
+---
+
 ## Avertissement
 
 Actio est un média. Actio ne fournit ni conseil en placement, ni conseil

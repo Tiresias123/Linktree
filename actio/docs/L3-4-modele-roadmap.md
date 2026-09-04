@@ -173,6 +173,8 @@ publication, aux frais d'Actio.
 
 ### 4.2 Hypothèses économiques
 
+
+> ⚠ **CONTRADICTION NON TRANCHÉE.** Les hypothèses ci-dessous comptent **44 éditions par an**. Le § 1.2 du livrable 2 pose une cadence hebdomadaire — **52** — et le courriel d'accueil la promet à l'abonné. Huit semaines d'écart, qui portent le coût direct, l'inventaire de parrainage et le seuil de rentabilité. Tant que la cadence n'est pas arrêtée, **le seuil de rentabilité calculé ici est faux dans un sens ou dans l'autre**. Voir le § 1.2 du livrable 2 pour les trois issues.
 Chaque hypothèse porte un nom, une valeur et une origine. Aucune n'est sourcée
 sur une donnée de marché canadienne : la base factuelle n'en contient pas.
 

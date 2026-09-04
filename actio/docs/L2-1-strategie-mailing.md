@@ -18,6 +18,8 @@
 
 ### 1.2 Fréquence et horaire d'envoi
 
+> ⚠ **CONTRADICTION NON TRANCHÉE — à lire avant ce paragraphe.** La cadence posée ici est hebdomadaire, soit **52 éditions par an**, et le courriel d'accueil C1 la promet en ces termes à l'abonné. Mais le § 2.2 du livrable 3 et l'hypothèse H6 du § 4.2 — coût direct de production, inventaire de parrainage, seuil de rentabilité — comptent **44 éditions par an**. Huit semaines d'écart. Trois issues, et une seule à retenir : (a) tenir 52 et corriger le modèle économique ; (b) retenir 44, annoncer les relâches sur la page d'inscription et **réécrire la promesse de C1**, qui devient sinon trompeuse ; (c) tenir 52 avec une édition allégée pendant les relâches. Le § 2.2.7 du livrable 2 relève par ailleurs que dix-huit contrôles bloquants par envoi, dont cinq à la charge du juriste-réviseur, rendent 52 exigeant sans ce poste pourvu. **Aucun outil ne peut trancher cela : c'est un engagement, pas une valeur.**
+
 **Décision : une édition par semaine, le mardi, bouclée à 6 h 30 HE** — ce qu'affichent `.infolettre__preuve` (« Mardi · 6 h 30 » / « Heure de l'Est ») et la barre de service du gabarit (« ÉDITION Nº 001 · MARDI 8 SEPTEMBRE 2026 »).
 
 | Publication | Rythme documenté (base §7) | Effet sur le choix du mardi |
