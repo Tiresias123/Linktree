@@ -134,6 +134,35 @@ for (const fichier of PAGES) {
       if (a11y.navSansNom) note(etiquette, 'a11y', `${a11y.navSansNom} élément(s) <nav> sans nom accessible`);
     }
 
+    /* ---------- B bis. Intégrité éditoriale du gabarit d'article ----------
+       Le Livrable 1 pose que le sommaire est engendré depuis les h2 porteurs
+       d'un identifiant, et qu'un h2 argumentatif sans identifiant est un défaut
+       de saisie. Un sommaire incomplet trompe le lecteur sur la structure de
+       l'analyse : c'est un défaut éditorial, pas cosmétique.                */
+    if (theme === 'light') {
+      const som = await p.evaluate(() => {
+        const s = document.querySelector('[data-sommaire]');
+        if (!s) return null;
+        const titres = [...document.querySelectorAll('.prose h2')].map((h) => ({
+          id: h.id || null, texte: (h.textContent || '').trim().slice(0, 50),
+        }));
+        const entrees = [...s.querySelectorAll('a[href^="#"]')].map((a) => a.getAttribute('href').slice(1));
+        return { titres, entrees };
+      });
+      if (som) {
+        som.titres.filter((t) => !t.id).forEach((t) =>
+          note(etiquette, 'editorial', `titre de section sans identifiant, absent du sommaire : « ${t.texte} »`));
+        const ids = som.titres.map((t) => t.id).filter(Boolean);
+        ids.filter((id) => !som.entrees.includes(id)).forEach((id) =>
+          note(etiquette, 'editorial', `section « ${id} » absente du sommaire`));
+        som.entrees.filter((e) => !ids.includes(e)).forEach((e) =>
+          note(etiquette, 'editorial', `entrée de sommaire « ${e} » sans section correspondante`));
+        if (ids.length && som.entrees.join('|') !== ids.filter((i) => som.entrees.includes(i)).join('|')) {
+          note(etiquette, 'editorial', 'ordre du sommaire différent de l’ordre des sections');
+        }
+      }
+    }
+
     /* ---------- C. Contraste sur le DOM rendu ---------- */
     const contrastes = await p.evaluate(() => {
       const lire = (c) => {
@@ -211,6 +240,41 @@ for (const fichier of PAGES) {
           extrait: t.slice(0, 40),
         });
       }
+      // Les pseudo-éléments portent du contenu visible (numéros, glyphes,
+      // compteurs) que le parcours du DOM ne voit pas : c'est ainsi qu'une
+      // pastille numérotée blanche sur aplat de marque avait échappé au
+      // contrôle. On les mesure séparément.
+      const vusPseudo = new Set();
+      for (const el of document.querySelectorAll('body *')) {
+        for (const pseudo of ['::before', '::after']) {
+          const st = getComputedStyle(el, pseudo);
+          const contenu = st.content;
+          if (!contenu || contenu === 'none' || contenu === 'normal') continue;
+          // Un pseudo purement décoratif (pastille, filet) ne porte pas de texte.
+          const texte = contenu.replace(/^["']|["']$/g, '');
+          const porteTexte = /counter\(|attr\(/.test(contenu) || /[\p{L}\p{N}]/u.test(texte);
+          if (!porteTexte) continue;
+          const fondPropre = lire(st.backgroundColor);
+          let fond;
+          if (fondPropre && fondPropre.a >= 1) {
+            fond = `rgb(${fondPropre.r}, ${fondPropre.v}, ${fondPropre.b})`;
+          } else {
+            fond = fondEffectif(el);
+          }
+          if (fond === null) continue;
+          const cle = `${st.color}|${fond}|${st.fontSize}|${st.fontWeight}|p`;
+          if (vusPseudo.has(cle)) continue;
+          vusPseudo.add(cle);
+          sortie.push({
+            couleur: st.color, fond,
+            px: parseFloat(st.fontSize), graisse: +st.fontWeight,
+            selecteur: el.tagName.toLowerCase() +
+              (typeof el.className === 'string' && el.className ? '.' + el.className.trim().split(/\s+/)[0] : '') + pseudo,
+            extrait: texte.slice(0, 30),
+          });
+        }
+      }
+
       return sortie;
     });
 
@@ -239,7 +303,7 @@ if (!echecs.length) {
 }
 
 console.error(`\n${echecs.length} défaut(s) :\n`);
-for (const f of ['liens', 'a11y', 'contraste']) {
+for (const f of ['liens', 'a11y', 'editorial', 'contraste']) {
   const lot = echecs.filter((e) => e.famille === f);
   if (!lot.length) continue;
   console.error(`  ── ${f.toUpperCase()} (${lot.length})`);

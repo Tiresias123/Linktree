@@ -59,9 +59,75 @@
         "motif": "Édition régulière du mardi. La double signature n’est exigée que pour une « Alerte Actio » hors cycle."
       },
       "reference": "actio-dispatch-001.html"
+    },
+    {
+      "cle": "bienvenue-1",
+      "type": "sequence-bienvenue",
+      "contenu": "bienvenue-1.html",
+      "jour": "J+0",
+      "objet": "Bienvenue. Votre guide de conformité est prêt.",
+      "objet_variante_b": "Votre guide de conformité canadienne est prêt",
+      "titre": "Actio — Bienvenue. Votre guide de conformité est prêt.",
+      "preentete": "Ce qu’Actio est, ce qu’Actio n’est pas, la date de votre première édition, et une question à une ligne.",
+      "surtitre": "SÉQUENCE D’ACCUEIL &nbsp;·&nbsp; COURRIEL 1 SUR 3",
+      "meta_droite": "2 min de lecture<br>\n          1 seule demande",
+      "bandeau_cours": false,
+      "segments": [
+        "nouvel-abonne"
+      ],
+      "autorisation": {
+        "requise": false,
+        "motif": "Séquence automatisée, contenu figé et relu une fois."
+      }
+    },
+    {
+      "cle": "bienvenue-2",
+      "type": "sequence-bienvenue",
+      "contenu": "bienvenue-2.html",
+      "jour": "J+2",
+      "objet": "Aucune commission fédérale des valeurs mobilières",
+      "objet_variante_b": "Pourquoi le cadre canadien ne ressemble à aucun autre",
+      "titre": "Actio — Pourquoi la régulation canadienne est unique au monde",
+      "preentete": "Cinq couches de droit, treize autorités, et un cadre bâti sur des avis plutôt que sur des règlements.",
+      "surtitre": "SÉQUENCE D’ACCUEIL &nbsp;·&nbsp; COURRIEL 2 SUR 3",
+      "meta_droite": "6 min de lecture<br>\n          5 régimes superposés",
+      "bandeau_cours": false,
+      "segments": [
+        "nouvel-abonne"
+      ],
+      "autorisation": {
+        "requise": false,
+        "motif": "Séquence automatisée, contenu figé et relu une fois."
+      }
+    },
+    {
+      "cle": "bienvenue-3",
+      "type": "sequence-bienvenue",
+      "contenu": "bienvenue-3.html",
+      "jour": "J+5",
+      "objet": "Par où commencer dans les ressources d’Actio",
+      "objet_variante_b": "Le registre, l’agenda, les trois parcours",
+      "titre": "Actio — Par où commencer dans les ressources d’Actio",
+      "preentete": "Cinq rubriques, trois paliers de guides, un registre daté et un agenda : chacun résout un problème précis.",
+      "surtitre": "SÉQUENCE D’ACCUEIL &nbsp;·&nbsp; COURRIEL 3 SUR 3",
+      "meta_droite": "4 min de lecture<br>\n          dernier de la séquence",
+      "bandeau_cours": false,
+      "segments": [
+        "nouvel-abonne"
+      ],
+      "autorisation": {
+        "requise": false,
+        "motif": "Séquence automatisée, contenu figé et relu une fois."
+      }
     }
   ],
-  "_a_venir": [
-    "bienvenue-1, bienvenue-2 et bienvenue-3 : la séquence d’accueil, rédigée au Livrable 2, section 3."
-  ]
+  "sequence_bienvenue": {
+    "declenchement": "confirmation du double consentement",
+    "sortie": [
+      "désabonnement",
+      "arrêt de séquence demandé",
+      "fin des trois envois"
+    ],
+    "regle_de_collision": "Aucun envoi de séquence le mardi : si J+2 ou J+5 tombe un mardi, l’envoi glisse au mercredi. Un abonné ne reçoit jamais deux courriels le même jour."
+  }
 }

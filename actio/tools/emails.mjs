@@ -63,6 +63,18 @@ for (const envoi of manifeste.envois) {
     echecs++;
   }
 
+  // Un attribut répété sur une même balise est ignoré sans erreur par les
+  // clients de messagerie : le style perdu ne se voit qu'au rendu final.
+  const dupliques = [...sortie.matchAll(/<(\w+)\b([^>]*)>/g)]
+    .filter(([, , attrs]) => ['style', 'class', 'width', 'align', 'href']
+      .some((a) => (attrs.match(new RegExp(`\\s${a}=`, 'g')) || []).length > 1))
+    .map(([balise]) => balise.slice(0, 90));
+  if (dupliques.length) {
+    console.error(`  ÉCHEC ${envoi.cle} — attribut répété sur ${dupliques.length} balise(s) :`);
+    dupliques.slice(0, 3).forEach((b) => console.error(`         ${b}…`));
+    echecs++;
+  }
+
   const restants = sortie.match(/\{\{[A-Z_]+\}\}/g);
   if (restants) {
     console.error(`  ÉCHEC ${envoi.cle} — emplacements non remplis : ${[...new Set(restants)].join(', ')}`);

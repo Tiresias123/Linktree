@@ -71,7 +71,7 @@
   content: counter(retenir);
   font-family: var(--police-donnee); font-size: var(--t-micro); font-weight: var(--graisse-grasse);
   width: 24px; height: 24px; border-radius: var(--rayon-plein);
-  background: var(--actio-bleu-palais); color: #fff;
+  background: var(--fill-primaire); color: var(--fill-primaire-texte);
   display: grid; place-items: center;
 }
 .retenir__liste strong { color: var(--texte-primaire); }
