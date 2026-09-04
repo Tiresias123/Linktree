@@ -24,6 +24,7 @@ const CHROME = process.env.ACTIO_CHROME
 const PAGES = [
   { nom: 'accueil', fichier: 'index.html' },
   { nom: 'article', fichier: 'article.html' },
+  { nom: 'registre', fichier: 'registre.html' },
 ];
 const LARGEURS = [
   { nom: 'bureau', w: 1440, h: 900 },

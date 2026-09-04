@@ -18,7 +18,7 @@
   --actio-bleu-palais-pale:   #E7EFF7;
 
   --actio-turquoise:          #12B5A6;  /* Secondaire tech / Web3 / données */
-  --actio-turquoise-fonce:    #0B7F74;
+  --actio-turquoise-fonce:    #096B61;
   --actio-turquoise-pale:     #E2F6F3;
 
   /* ---------- 2. Couleurs de statut réglementaire ---------------------- *
@@ -34,6 +34,34 @@
   --statut-neutre:            #5B6B7C;  /* Archivé, abrogé, sans objet       */
   --statut-neutre-pale:       #EDF0F3;
 
+  /* ---------- 2 bis. Aplats pleins ------------------------------------- *
+   * Les couleurs de marque ci-dessus sont des jetons de TEXTE : elles
+   * s'éclaircissent en mode sombre pour rester lisibles sur fond foncé. Elles
+   * ne peuvent donc pas servir d'aplat sous du texte blanc — le contraste
+   * s'effondre. D'où ce jeu distinct, réglé pour porter du blanc dans les
+   * deux thèmes.                                                            */
+  --fill-primaire:        #0F3D68;   /* blanc dessus : 11,1:1 */
+  --fill-primaire-survol: #0A2B4B;
+  --fill-primaire-texte:  #FFFFFF;
+
+  /* ---------- 2 ter. Bandes d'encre — INVARIANTES par thème ------------- *
+   * Un bandeau de cotations ou un bloc d'abonnement reste sombre en mode
+   * clair comme en mode sombre. Les couleurs qu'il porte (hausse, baisse,
+   * accent) sont réglées pour un fond foncé et ne survivraient pas à une
+   * inversion : c'est précisément le défaut qu'un jeton « inverse » produit. */
+  --encre-fond:    #0E1A2B;
+  --encre-texte:   #F4F7FA;
+  --encre-texte-2: #A9B8C9;
+  --encre-accent:  #35D6C4;
+  --encre-hausse:  #3FCB96;
+  --encre-baisse:  #FF6B7F;
+  --encre-stable:  #8FA0B2;
+  --encre-ambre:   #E8A93C;
+
+  /* Bandeau de probité du prototype — ambre invariant, blanc dessus 6,3:1.  */
+  --demo-fond:  #8A5300;
+  --demo-texte: #FFFFFF;
+
   /* ---------- 3. Juridictions (codage cartographique) ------------------ */
   --jur-federal:   #0F3D68;   /* Canada / Ottawa      */
   --jur-quebec:    #16688A;   /* Québec / AMF         */
@@ -46,12 +74,10 @@
   --fond-surface:   #FFFFFF;
   --fond-surface-2: #F3F0EA;  /* Encarts, colonne latérale */
   --fond-surface-3: #E9E5DC;
-  --fond-inverse:   #0B1420;
 
   --texte-primaire:   #0E1A2B;
   --texte-secondaire: #45566A;
   --texte-tertiaire:  #5A6B7E;
-  --texte-inverse:    #F7F5F1;
   --texte-lien:       var(--actio-bleu-palais);
 
   --bordure:        #DCD7CC;
@@ -128,10 +154,6 @@
   --z-fond: 0;      --z-contenu: 1;  --z-collant: 100;
   --z-entete: 200;  --z-menu: 300;   --z-modale: 400;  --z-notif: 500;
 
-  /* ---------- 10. Cotations (bandeau de marché) ------------------------ */
-  --cours-hausse:  #0E7C5A;
-  --cours-baisse:  #C8102E;
-  --cours-stable:  #6E7F92;
 
   color-scheme: light;
 }
@@ -147,12 +169,10 @@
     --fond-surface:   #111E2E;
     --fond-surface-2: #16263A;
     --fond-surface-3: #1D3145;
-    --fond-inverse:   #FAF8F4;
 
     --texte-primaire:   #EEF2F7;
     --texte-secondaire: #A9B8C9;
     --texte-tertiaire:  #7C8DA1;
-    --texte-inverse:    #0E1A2B;
     --texte-lien:       #7FB6EA;
 
     --bordure:       #24374C;
@@ -164,6 +184,10 @@
     --actio-bleu-palais-pale:  rgba(78,155,224,.14);
     --actio-turquoise:         #35D6C4;
     --actio-turquoise-pale:    rgba(53,214,196,.14);
+    --actio-turquoise-fonce:   #3FD8C7;
+    --fill-primaire:           #1B5A96;
+    --fill-primaire-survol:    #155087;
+    --encre-fond:              #16263A;
 
     --statut-alerte:            #FF6B7F;
     --statut-alerte-pale:       rgba(255,107,127,.14);
@@ -179,9 +203,6 @@
     --jur-federal: #7FB6EA;  --jur-quebec: #59C3E8;  --jur-ontario: #A991E8;
     --jur-multi:   #35D6C4;  --jur-intl:   #D4B172;
 
-    --cours-hausse: #3FCB96;
-    --cours-baisse: #FF6B7F;
-    --cours-stable: #8FA0B2;
 
     --ombre-1: 0 1px 2px rgba(0,0,0,.4);
     --ombre-2: 0 2px 8px rgba(0,0,0,.45), 0 12px 32px rgba(0,0,0,.35);
@@ -197,12 +218,10 @@
   --fond-surface:   #111E2E;
   --fond-surface-2: #16263A;
   --fond-surface-3: #1D3145;
-  --fond-inverse:   #FAF8F4;
 
   --texte-primaire:   #EEF2F7;
   --texte-secondaire: #A9B8C9;
   --texte-tertiaire:  #7C8DA1;
-  --texte-inverse:    #0E1A2B;
   --texte-lien:       #7FB6EA;
 
   --bordure:       #24374C;
@@ -214,6 +233,10 @@
   --actio-bleu-palais-pale:  rgba(78,155,224,.14);
   --actio-turquoise:         #35D6C4;
   --actio-turquoise-pale:    rgba(53,214,196,.14);
+  --actio-turquoise-fonce:   #3FD8C7;
+  --fill-primaire:       #1B5A96;
+  --fill-primaire-survol:  #155087;
+  --encre-fond:        #16263A;
 
   --statut-alerte:            #FF6B7F;
   --statut-alerte-pale:       rgba(255,107,127,.14);
@@ -229,9 +252,6 @@
   --jur-federal: #7FB6EA;  --jur-quebec: #59C3E8;  --jur-ontario: #A991E8;
   --jur-multi:   #35D6C4;  --jur-intl:   #D4B172;
 
-  --cours-hausse: #3FCB96;
-  --cours-baisse: #FF6B7F;
-  --cours-stable: #8FA0B2;
 
   --ombre-1: 0 1px 2px rgba(0,0,0,.4);
   --ombre-2: 0 2px 8px rgba(0,0,0,.45), 0 12px 32px rgba(0,0,0,.35);

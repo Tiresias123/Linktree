@@ -1,0 +1,128 @@
+/* ==========================================================================
+   ACTIO — Registre des plateformes
+   Dépend de tokens.css et actio.css.
+
+   Parti pris fondamental : Actio ne tient PAS un registre concurrent de ceux
+   des autorités. Elle en propose une vue unifiée, horodatée et traçable. Toute
+   ligne renvoie à la fiche officielle ; aucune donnée n'est saisie à la main.
+   L'interface doit donc rendre la PROVENANCE aussi visible que la donnée.
+   ========================================================================== */
+
+/* ---------- 1. Bandeau de provenance ------------------------------------ */
+.provenance {
+  display: grid; gap: var(--e-4);
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: var(--e-5) var(--e-6);
+  margin-block: var(--e-6);
+  background: var(--fond-surface-2);
+  border: var(--trait) solid var(--bordure);
+  border-left: var(--trait-editorial) solid var(--actio-turquoise-fonce);
+  border-radius: 0 var(--rayon-2) var(--rayon-2) 0;
+}
+@media (max-width: 760px) { .provenance { grid-template-columns: 1fr; } }
+.provenance__titre {
+  font-family: var(--police-texte); font-size: var(--t-micro);
+  font-weight: var(--graisse-grasse); letter-spacing: var(--interlettre-etiq);
+  text-transform: uppercase; color: var(--actio-turquoise-fonce);
+  margin-bottom: var(--e-2);
+}
+.provenance p { font-size: var(--t-petit); color: var(--texte-secondaire); margin: 0; line-height: 1.6; max-width: 78ch; }
+.provenance__horodatage {
+  font-family: var(--police-donnee); font-size: var(--t-micro);
+  color: var(--texte-tertiaire); text-align: right; white-space: nowrap; line-height: 1.7;
+}
+@media (max-width: 760px) { .provenance__horodatage { text-align: left; } }
+
+/* ---------- 2. Barre de filtres ----------------------------------------- */
+.filtres {
+  display: flex; gap: var(--e-4); flex-wrap: wrap; align-items: flex-end;
+  padding: var(--e-5) var(--e-6);
+  background: var(--fond-surface);
+  border: var(--trait) solid var(--bordure);
+  border-radius: var(--rayon-3);
+  margin-bottom: var(--e-6);
+}
+.filtre { display: grid; gap: var(--e-2); min-width: 168px; flex: 1 1 168px; }
+.filtre > label {
+  font-family: var(--police-texte); font-size: var(--t-micro);
+  font-weight: var(--graisse-grasse); letter-spacing: var(--interlettre-etiq);
+  text-transform: uppercase; color: var(--texte-tertiaire);
+}
+.filtre select, .filtre input {
+  width: 100%; padding: var(--e-3) var(--e-4);
+  font-size: var(--t-petit);
+  background: var(--fond-page); color: var(--texte-primaire);
+  border: var(--trait) solid var(--bordure-forte);
+  border-radius: var(--rayon-2);
+}
+.filtre select:focus, .filtre input:focus { border-color: var(--actio-bleu-palais); }
+.filtres__actions { display: flex; gap: var(--e-2); flex: 0 0 auto; }
+.filtres__compte {
+  flex-basis: 100%; padding-top: var(--e-3);
+  border-top: var(--trait) solid var(--bordure-douce);
+  font-family: var(--police-donnee); font-size: var(--t-micro); color: var(--texte-tertiaire);
+}
+
+/* ---------- 3. Tableau du registre --------------------------------------- */
+.registre { border: var(--trait) solid var(--bordure); border-radius: var(--rayon-3); overflow: hidden; background: var(--fond-surface); }
+.registre__defilement { overflow-x: auto; }
+.registre table { width: 100%; border-collapse: collapse; font-size: var(--t-petit); min-width: 940px; }
+.registre thead th {
+  position: sticky; top: 0; z-index: 1;
+  background: var(--fond-surface-2); text-align: left;
+  padding: var(--e-3) var(--e-4);
+  font-size: var(--t-micro); font-weight: var(--graisse-grasse);
+  letter-spacing: .04em; text-transform: uppercase; color: var(--texte-secondaire);
+  border-bottom: var(--trait-fort) solid var(--bordure-forte);
+  white-space: nowrap;
+}
+.registre tbody td, .registre tbody th {
+  padding: var(--e-4); vertical-align: top; text-align: left;
+  border-bottom: var(--trait) solid var(--bordure-douce);
+  line-height: var(--lh-dense);
+}
+.registre tbody tr:last-child td, .registre tbody tr:last-child th { border-bottom: 0; }
+.registre tbody tr:hover { background: var(--fond-surface-2); }
+.registre th[scope="row"] { font-weight: var(--graisse-demi); color: var(--texte-primaire); }
+.registre__nom { display: grid; gap: 2px; }
+.registre__legal {
+  font-family: var(--police-donnee); font-size: var(--t-micro);
+  color: var(--texte-tertiaire); font-weight: var(--graisse-normale);
+}
+.registre__fiche {
+  font-family: var(--police-donnee); font-size: var(--t-micro);
+  white-space: nowrap;
+}
+.registre__fiche::after { content: " ↗"; }
+
+/* ---------- 4. État vide — soigné, car c'est l'état par défaut ----------- */
+.vide {
+  display: grid; gap: var(--e-5); justify-items: center; text-align: center;
+  padding: var(--e-16) var(--e-6);
+}
+.vide__glyphe {
+  width: 56px; height: 56px; border-radius: var(--rayon-3);
+  display: grid; place-items: center;
+  background: var(--fond-surface-2);
+  border: var(--trait) dashed var(--bordure-forte);
+  color: var(--texte-tertiaire); font-size: 1.5rem;
+}
+.vide__titre { font-size: var(--t-h4); }
+.vide__texte { font-size: var(--t-petit); color: var(--texte-secondaire); max-width: 58ch; line-height: 1.65; margin: 0; }
+.vide__liens { display: flex; gap: var(--e-3); flex-wrap: wrap; justify-content: center; }
+
+/* ---------- 5. Légende des statuts --------------------------------------- */
+.legende {
+  display: grid; gap: var(--e-4);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-block: var(--e-8);
+}
+.legende__item {
+  display: grid; gap: var(--e-2); align-content: start;
+  padding: var(--e-4) var(--e-5);
+  background: var(--fond-surface);
+  border: var(--trait) solid var(--bordure);
+  border-radius: var(--rayon-2);
+}
+.legende__item p { font-size: var(--t-micro); color: var(--texte-secondaire); margin: 0; line-height: 1.6; }

@@ -6,7 +6,8 @@
   "description": "Actio — média d'analyse du cadre réglementaire des cryptoactifs au Canada. Prototype et livrables de lancement.",
   "scripts": {
     "captures": "node tools/captures.mjs",
-    "verifier": "node tools/verifier.mjs"
+    "verifier": "node tools/verifier.mjs",
+    "emails": "node tools/emails.mjs"
   },
   "devDependencies": {
     "playwright-core": "^1.56.0"

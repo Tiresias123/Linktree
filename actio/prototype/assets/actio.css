@@ -48,7 +48,7 @@ p { margin: 0 0 var(--e-4); }
 /* Accès clavier : lien d'évitement */
 .evitement {
   position: absolute; left: -9999px; top: 0; z-index: var(--z-notif);
-  background: var(--actio-bleu-palais); color: #fff;
+  background: var(--fill-primaire); color: var(--fill-primaire-texte);
   padding: var(--e-3) var(--e-5); border-radius: 0 0 var(--rayon-2) 0;
   font-weight: var(--graisse-demi);
 }
@@ -225,8 +225,8 @@ p { margin: 0 0 var(--e-4); }
 
 /* ---------- 6. Bandeau de cotations (sub-header) ------------------------ */
 .cotations {
-  background: var(--fond-inverse);
-  color: var(--texte-inverse);
+  background: var(--encre-fond);
+  color: var(--encre-texte);
   border-bottom: var(--trait) solid var(--bordure);
   font-family: var(--police-donnee);
   font-size: var(--t-petit);
@@ -242,26 +242,26 @@ p { margin: 0 0 var(--e-4); }
 .cours__sym { font-weight: var(--graisse-grasse); letter-spacing: .04em; }
 .cours__val { font-variant-numeric: tabular-nums; }
 .cours__var { font-size: var(--t-micro); font-variant-numeric: tabular-nums; }
-.cours__var--hausse { color: var(--cours-hausse); }
+.cours__var--hausse { color: var(--encre-hausse); }
 .cours__var--hausse::before { content: "▲ "; }
-.cours__var--baisse { color: var(--cours-baisse); }
+.cours__var--baisse { color: var(--encre-baisse); }
 .cours__var--baisse::before { content: "▼ "; }
-.cours__var--stable { color: var(--cours-stable); }
+.cours__var--stable { color: var(--encre-stable); }
 .cours__var--stable::before { content: "→ "; }
 
 /* Indicateur de conformité de plateforme — spécificité Actio */
 .conformite {
   display: inline-flex; align-items: center; gap: var(--e-2);
   margin-left: auto; padding-left: var(--e-6);
-  border-left: var(--trait) solid color-mix(in srgb, var(--texte-inverse) 25%, transparent);
+  border-left: var(--trait) solid color-mix(in srgb, var(--encre-texte) 25%, transparent);
   white-space: nowrap; font-size: var(--t-micro);
   letter-spacing: .04em; text-transform: uppercase;
-  color: var(--texte-inverse); text-decoration: none;
+  color: var(--encre-texte); text-decoration: none;
 }
 .conformite__pastille {
   width: 8px; height: 8px; border-radius: var(--rayon-plein);
-  background: var(--statut-conforme); flex: none;
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--statut-conforme) 25%, transparent);
+  background: var(--encre-hausse); flex: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--encre-hausse) 25%, transparent);
 }
 .conformite:hover { text-decoration: underline; }
 
@@ -402,8 +402,8 @@ p { margin: 0 0 var(--e-4); }
   cursor: pointer; text-decoration: none; white-space: nowrap;
   transition: background var(--mvt-rapide), border-color var(--mvt-rapide), color var(--mvt-rapide);
 }
-.btn--primaire   { background: var(--actio-bleu-palais); color: #fff; }
-.btn--primaire:hover { background: var(--actio-bleu-palais-fonce); }
+.btn--primaire   { background: var(--fill-primaire); color: var(--fill-primaire-texte); }
+.btn--primaire:hover { background: var(--fill-primaire-survol); }
 .btn--secondaire { background: transparent; color: var(--texte-primaire); border-color: var(--bordure-forte); }
 .btn--secondaire:hover { background: var(--fond-surface-2); border-color: var(--texte-tertiaire); }
 .btn--discret    { background: transparent; color: var(--texte-secondaire); padding-inline: var(--e-3); }
@@ -412,7 +412,7 @@ p { margin: 0 0 var(--e-4); }
   background: var(--texte-primaire); color: var(--fond-page);
   border-color: var(--texte-primaire);
 }
-.btn--pro:hover { background: var(--actio-bleu-palais); border-color: var(--actio-bleu-palais); color: #fff; }
+.btn--pro:hover { background: var(--fill-primaire); border-color: var(--fill-primaire); color: var(--fill-primaire-texte); }
 
 /* Sélecteur de langue et de thème */
 .selecteur {
@@ -518,6 +518,7 @@ p { margin: 0 0 var(--e-4); }
 .flux__nom { font-family: var(--police-titre); font-size: var(--t-h6); font-weight: var(--graisse-grasse); line-height: var(--lh-moyen); }
 .flux__detail { font-size: var(--t-micro); color: var(--texte-secondaire); line-height: var(--lh-dense); }
 .flux__etape--actuel { border-color: var(--actio-turquoise); background: var(--actio-turquoise-pale); }
+.flux__etape--actuel .flux__num { color: var(--actio-turquoise-fonce); }
 .flux__etape--futur { opacity: .72; }
 
 /* ---------- 11. Paliers pédagogiques ------------------------------------ */
@@ -556,7 +557,7 @@ p { margin: 0 0 var(--e-4); }
 
 /* ---------- 12. Bloc infolettre ------------------------------------------ */
 .infolettre {
-  background: var(--fond-inverse); color: var(--texte-inverse);
+  background: var(--encre-fond); color: var(--encre-texte);
   border-radius: var(--rayon-4); overflow: hidden; position: relative;
 }
 .infolettre::before {
@@ -571,38 +572,38 @@ p { margin: 0 0 var(--e-4); }
 .infolettre__sur {
   font-size: var(--t-micro); font-weight: var(--graisse-grasse);
   letter-spacing: var(--interlettre-etiq); text-transform: uppercase;
-  color: var(--actio-turquoise); margin-bottom: var(--e-3);
+  color: var(--encre-accent); margin-bottom: var(--e-3);
 }
 .infolettre__titre { font-size: var(--t-h2); max-width: 22ch; }
-.infolettre__promesse { font-size: var(--t-lead); line-height: var(--lh-moyen); opacity: .88; max-width: 56ch; margin: var(--e-4) 0 var(--e-6); }
-.infolettre__preuves { display: flex; gap: var(--e-6); flex-wrap: wrap; margin-bottom: var(--e-6); padding-block: var(--e-4); border-block: var(--trait) solid color-mix(in srgb, var(--texte-inverse) 18%, transparent); }
+.infolettre__promesse { font-size: var(--t-lead); line-height: var(--lh-moyen); color: var(--encre-texte-2); max-width: 56ch; margin: var(--e-4) 0 var(--e-6); }
+.infolettre__preuves { display: flex; gap: var(--e-6); flex-wrap: wrap; margin-bottom: var(--e-6); padding-block: var(--e-4); border-block: var(--trait) solid color-mix(in srgb, var(--encre-texte) 18%, transparent); }
 .infolettre__preuve { display: grid; gap: 2px; }
 .infolettre__chiffre { font-family: var(--police-donnee); font-size: var(--t-h4); font-weight: var(--graisse-grasse); }
-.infolettre__label { font-size: var(--t-micro); letter-spacing: .06em; text-transform: uppercase; opacity: .72; }
+.infolettre__label { font-size: var(--t-micro); letter-spacing: .06em; text-transform: uppercase; color: var(--encre-texte-2); }
 .infolettre__form { display: flex; gap: var(--e-3); flex-wrap: wrap; max-width: 620px; }
 .champ {
   flex: 1 1 260px; min-width: 0;
   padding: var(--e-4) var(--e-4);
   border-radius: var(--rayon-2);
-  border: var(--trait) solid color-mix(in srgb, var(--texte-inverse) 30%, transparent);
-  background: color-mix(in srgb, var(--texte-inverse) 8%, transparent);
-  color: var(--texte-inverse); font-size: var(--t-base);
+  border: var(--trait) solid color-mix(in srgb, var(--encre-texte) 45%, transparent);
+  background: color-mix(in srgb, var(--encre-texte) 8%, transparent);
+  color: var(--encre-texte); font-size: var(--t-base);
 }
-.champ::placeholder { color: color-mix(in srgb, var(--texte-inverse) 55%, transparent); }
-.champ:focus { border-color: var(--actio-turquoise); background: color-mix(in srgb, var(--texte-inverse) 12%, transparent); }
-.infolettre .btn--primaire { background: var(--actio-turquoise); color: #06231F; border-color: var(--actio-turquoise); padding-inline: var(--e-8); font-weight: var(--graisse-grasse); }
-.infolettre .btn--primaire:hover { background: #fff; color: var(--fond-inverse); border-color: #fff; }
+.champ::placeholder { color: color-mix(in srgb, var(--encre-texte) 68%, transparent); }
+.champ:focus { border-color: var(--encre-accent); background: color-mix(in srgb, var(--encre-texte) 12%, transparent); }
+.infolettre .btn--primaire { background: var(--encre-accent); color: #06231F; border-color: var(--encre-accent); padding-inline: var(--e-8); font-weight: var(--graisse-grasse); }
+.infolettre .btn--primaire:hover { background: #fff; color: var(--encre-fond); border-color: #fff; }
 .infolettre__consentement {
   display: flex; gap: var(--e-3); align-items: flex-start;
   margin-top: var(--e-5); max-width: 640px;
-  font-size: var(--t-micro); line-height: 1.6; opacity: .78;
+  font-size: var(--t-micro); line-height: 1.6; color: var(--encre-texte-2);
 }
-.infolettre__consentement a { color: var(--actio-turquoise); }
+.infolettre__consentement a { color: var(--encre-accent); }
 .infolettre__reassurance {
   display: flex; gap: var(--e-5); flex-wrap: wrap; margin-top: var(--e-5);
-  font-size: var(--t-micro); opacity: .78;
+  font-size: var(--t-micro); color: var(--encre-texte-2);
 }
-.infolettre__reassurance span::before { content: "✓ "; color: var(--actio-turquoise); font-weight: 700; }
+.infolettre__reassurance span::before { content: "✓ "; color: var(--encre-accent); font-weight: 700; }
 
 /* ---------- 13. Pied de page institutionnel ------------------------------ */
 .pied {
@@ -650,10 +651,100 @@ p { margin: 0 0 var(--e-4); }
 
 /* ---------- 14. Bandeau « contenu de démonstration » --------------------- */
 .demo {
-  background: var(--statut-consultation);
-  color: #fff; text-align: center;
+  background: var(--demo-fond);
+  color: var(--demo-texte); text-align: center;
   padding: var(--e-2) var(--e-4);
   font-size: var(--t-micro); letter-spacing: .03em;
 }
 .demo a { color: #fff; }
 .demo strong { letter-spacing: var(--interlettre-etiq); text-transform: uppercase; }
+
+/* ==========================================================================
+   15. Dépêches — rubrique Marchés & Macro
+   Format volontairement dense : une dépêche n'est pas une analyse, elle ne
+   mérite pas une carte. La lecture se fait en balayage vertical.
+   ========================================================================== */
+.depeches { list-style: none; margin: 0; padding: 0; }
+.depeche {
+  display: grid; grid-template-columns: 76px 1fr auto; gap: var(--e-4);
+  align-items: baseline;
+  padding: var(--e-4) 0;
+  border-bottom: var(--trait) solid var(--bordure-douce);
+  position: relative;
+}
+.depeche:first-child { border-top: var(--trait) solid var(--bordure); }
+.depeche:hover { background: var(--fond-surface-2); }
+@media (max-width: 640px) {
+  .depeche { grid-template-columns: 1fr; gap: var(--e-2); }
+}
+.depeche__heure {
+  font-family: var(--police-donnee); font-size: var(--t-micro);
+  color: var(--texte-tertiaire); white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.depeche__titre { font-family: var(--police-titre); font-size: var(--t-h6); font-weight: var(--graisse-grasse); line-height: var(--lh-moyen); margin: 0; }
+.depeche__titre a { color: inherit; text-decoration: none; }
+.depeche__titre a::after { content: ""; position: absolute; inset: 0; }
+.depeche__titre a:hover { color: var(--texte-lien); }
+.depeche__resume { font-size: var(--t-petit); color: var(--texte-secondaire); margin: var(--e-2) 0 0; line-height: var(--lh-dense); }
+.depeche__cote { display: flex; gap: var(--e-2); align-items: center; white-space: nowrap; }
+
+/* ==========================================================================
+   16. Échéancier — rubrique Fiscalité canadienne
+   Une date d'échéance est une information actionnable : elle a droit à un
+   traitement distinct de celui d'un article.
+   ========================================================================== */
+.echeancier {
+  background: var(--fond-surface); border: var(--trait) solid var(--bordure);
+  border-top: var(--trait-editorial) solid var(--statut-consultation);
+  border-radius: var(--rayon-2); padding: var(--e-6); height: 100%;
+}
+.echeancier__titre {
+  font-family: var(--police-texte); font-size: var(--t-micro);
+  font-weight: var(--graisse-grasse); letter-spacing: var(--interlettre-etiq);
+  text-transform: uppercase; color: var(--statut-consultation); margin-bottom: var(--e-5);
+}
+.echeancier__liste { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--e-5); }
+.echeancier__liste li { display: grid; grid-template-columns: 58px 1fr; gap: var(--e-4); }
+.echeancier__date {
+  font-family: var(--police-donnee); font-size: var(--t-micro);
+  font-weight: var(--graisse-grasse); color: var(--texte-primaire);
+  line-height: 1.3; text-align: right;
+}
+.echeancier__date span { display: block; font-weight: var(--graisse-normale); color: var(--texte-tertiaire); }
+.echeancier__objet { font-size: var(--t-petit); line-height: var(--lh-dense); }
+.echeancier__objet strong { display: block; color: var(--texte-primaire); }
+.echeancier__objet span { color: var(--texte-secondaire); }
+.echeancier__pied {
+  margin-top: var(--e-6); padding-top: var(--e-4);
+  border-top: var(--trait) solid var(--bordure-douce);
+  font-size: var(--t-micro); color: var(--texte-tertiaire); font-family: var(--police-donnee);
+}
+
+/* ==========================================================================
+   17. Bloc Actio Pro
+   ========================================================================== */
+.pro {
+  display: grid; grid-template-columns: 1.15fr 1fr; gap: var(--e-12);
+  padding: var(--e-12);
+  background: var(--fond-surface);
+  border: var(--trait-fort) solid var(--texte-primaire);
+  border-radius: var(--rayon-3);
+}
+@media (max-width: 900px) { .pro { grid-template-columns: 1fr; gap: var(--e-8); padding: var(--e-6); } }
+.pro__sur {
+  font-family: var(--police-texte); font-size: var(--t-micro);
+  font-weight: var(--graisse-grasse); letter-spacing: var(--interlettre-etiq);
+  text-transform: uppercase; color: var(--texte-tertiaire); margin-bottom: var(--e-3);
+}
+.pro__titre { font-size: var(--t-h2); max-width: 18ch; }
+.pro__texte { font-size: var(--t-lead); line-height: var(--lh-moyen); color: var(--texte-secondaire); margin: var(--e-4) 0 var(--e-6); max-width: 46ch; }
+.pro__liste { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--e-4); }
+.pro__liste li { display: grid; grid-template-columns: 22px 1fr; gap: var(--e-3); font-size: var(--t-petit); line-height: var(--lh-dense); }
+.pro__liste li::before {
+  content: "→"; font-family: var(--police-donnee); color: var(--actio-turquoise-fonce);
+  font-weight: var(--graisse-grasse);
+}
+.pro__liste strong { color: var(--texte-primaire); }
+.pro__liste span { color: var(--texte-secondaire); }
+.pro__mention { margin-top: var(--e-6); font-size: var(--t-micro); color: var(--texte-tertiaire); line-height: 1.6; }
