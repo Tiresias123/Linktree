@@ -1,29 +1,26 @@
 ## 4. Modèle économique et feuille de route
 
-Cette section chiffre. Les montants sont en dollars canadiens, hors taxes, et les
-prix s'entendent facturation annuelle — la mention codée dans
-`prototype/fr/index.html` (`.pro__mention` : « Abonnement institutionnel.
-Facturation annuelle, sièges multiples, accès par domaine. Aucun contenu
-commandité dans l'offre Pro. ») est une contrainte, non une intention : toute
-formule mensuelle exigerait de modifier cette page d'abord.
+Montants en dollars canadiens, hors taxes, facturation annuelle : la mention
+codée dans `prototype/fr/index.html` (`.pro__mention`) impose « facturation
+annuelle, sièges multiples, accès par domaine » et interdit tout contenu
+commandité dans Pro — c'est une contrainte, et une formule mensuelle exigerait
+de modifier cette page d'abord.
 
-Aucun chiffre de marché ne provient de la base factuelle : celle-ci ne contient
-aucune donnée d'audience canadienne, et signale expressément qu'**aucun média
-canadien n'a été analysé** (`U-72`) et que les seuls chiffres d'audience
-disponibles — ceux de Cryptoast — sont auto-déclarés et non audités (`U-70`).
-Les hypothèses du §4.2 sont donc des **postulats de gestion**, marqués comme
-tels, et non des estimations sourcées. Elles sont écrites pour être réfutées par
-les six premiers mois d'exploitation.
+Aucun chiffre de marché ne provient de la base factuelle : elle ne contient
+aucune donnée d'audience canadienne, signale qu'**aucun média canadien n'a été
+analysé** (`U-72`) et que les seuls chiffres comparables sont auto-déclarés et
+non audités (`U-70`). Les hypothèses du §4.2 sont des **postulats de gestion**,
+écrits pour être réfutés par les six premiers mois d'exploitation.
 
 ### 4.1 Paliers de monétisation
 
 Trois paliers, dont un seul est payant à l'ouverture de la phase 3.
 
-| Palier | Contenu | Prix | Cible | Contrainte de conformité dominante |
-|---|---|---|---|---|
-| **Gratuit** | La totalité de `prototype/fr/index.html`, `prototype/fr/article.html`, `prototype/fr/registre.html`, `prototype/en/index.html`, les guides de niveaux 1 et 2, l'édition hebdomadaire *Actio Dispatch* et ses archives | 0 $ | Investisseurs informés, presse, universitaires, prospects de Pro | LCAP : consentement exprès non précoché (`.infolettre__consentement`), preuve du consentement conservée, désabonnement traité sous 10 jours ouvrables |
-| **Actio Pro** | Notes de recherche, suivi de dossiers, agenda, registre enrichi, alertes, guides de niveau 3 (`.palier--n3`, déjà marqué « Actio Pro » dans `.palier__pied`) | 1 490 $ à 24 000 $ / an | Directions de la conformité, cabinets, administrateurs | Aucun parrainage dans le périmètre Pro ; l'accès par domaine crée un fichier d'abonnés professionnels soumis à la Loi 25 |
-| **Research** (niveau entreprise de Pro) | Pro + interface de programmation, séance dédiée, exports | 24 000 $ + / an | Plateformes inscrites, banques, gestionnaires, associations professionnelles | Un client inscrit auprès des ACVM qui achète Research ne doit obtenir aucune antériorité éditoriale : mur d'accès aux publications à l'heure de mise en ligne, pour tous |
+| Palier | Périmètre | Prix | Contrainte de conformité dominante |
+|---|---|---|---|
+| **Gratuit** | Tout le site — `prototype/fr/index.html`, `prototype/fr/article.html`, `prototype/fr/registre.html`, `prototype/en/index.html` — les guides de niveaux 1 et 2, l'édition hebdomadaire et ses archives | 0 $ | LCAP : consentement exprès non précoché (`.infolettre__consentement`), preuve conservée, désabonnement traité sous 10 jours ouvrables |
+| **Actio Pro** | Notes de recherche, suivi de dossiers, agenda, registre enrichi, alertes, guides de niveau 3 (`.palier--n3`, déjà marqué « Actio Pro » dans `.palier__pied`) | 1 490 $ à 5 900 $ / an | Aucun parrainage dans le périmètre Pro ; l'accès par domaine crée un fichier professionnel soumis à la Loi 25 |
+| **Research** | Pro + interface de programmation, séance dédiée, exports | 24 000 $ + / an | Un client inscrit auprès des ACVM n'obtient aucune antériorité éditoriale : même heure de mise en ligne pour tous |
 
 **Aucun mur de paiement sur l'éditorial gratuit, et aucun compteur d'articles.**
 La raison n'est pas commerciale : un média réglementaire ne vaut que par la
@@ -119,7 +116,7 @@ intitulés.
 |---|---|---|
 | Notes de recherche | **2 par mois**, 3 500 à 6 000 mots, chacune accompagnée de son état de vérification ligne à ligne | Tous |
 | Suivi de dossiers | **12 dossiers ouverts** à l'ouverture de Pro, chacun tenu comme une chronologie d'actes datés | Tous |
-| Agenda des consultations et des échéances | Horizon **12 mois**, exportable en `.ics` et en valeurs séparées par virgules ; version publique limitée à 3 mois dans le bloc `.echeancier` | Tous ; export à partir de Cabinet |
+| Agenda des consultations et des échéances | Horizon **12 mois**, exportable au format iCalendar et en valeurs séparées par virgules ; version publique limitée à 3 mois dans le bloc `.echeancier` | Tous ; export à partir de Cabinet |
 | Registre enrichi | Historique des inscriptions, conditions et dispenses plateforme par plateforme, avec `.provenance__horodatage` sur chaque ligne ; export | Tous ; export à partir de Cabinet |
 | Alertes | Courriel dans les **4 heures ouvrables** suivant la publication d'un acte par une autorité suivie ; « Alerte Actio » hors cycle à toute la liste seulement si l'acte modifie une obligation, avec la double signature exigée par `newsletter/manifeste.json` | Tous |
 | Données structurées | Interface de programmation en lecture seule : taxonomies, échéances, registre — **jamais le texte des actes** (`U-76`) | Research seulement ; option à 3 500 $/an au palier Cabinet |
