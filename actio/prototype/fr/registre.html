@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Registre des plateformes — Actio</title>
+<title>Registre des plateformes inscrites — Actio</title>
 <meta name="description" content="Vue unifiée et horodatée des inscriptions des plateformes de négociation de cryptoactifs auprès des autorités canadiennes. Chaque ligne renvoie à la fiche officielle.">
 <meta name="theme-color" content="#FAF8F4">
 <link rel="alternate" hreflang="fr-CA" href="/fr/">
@@ -11,7 +11,7 @@
 <link rel="alternate" hreflang="x-default" href="/fr/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <script>
 (function(){try{var t=localStorage.getItem('actio.theme');
 if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
@@ -27,23 +27,23 @@ if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)
 
 <div class="demo" role="note">
   <strong>Prototype éditorial</strong> — Le registre est présenté <em>sans données</em>, à dessein :
-  voir la note de provenance ci-dessous.
+  voir la note de provenance ci-dessous et le <a href="../../docs/annexes/registre-de-verification.md">registre de vérification</a>.
 </div>
 
 <header class="entete">
   <div class="contenant">
     <div class="entete__barre">
-      <a class="logo" href="index.html" aria-label="Actio, accueil"><span>Actio<span class="logo__point">.</span></span></a>
+      <a class="logo" href="index.html" aria-label="Actio, accueil"><span>Actio</span><span class="logo__point" aria-hidden="true">|</span></a>
       <button class="burger" type="button" data-menu-mobile aria-expanded="false"
               aria-controls="nav-principale" aria-label="Ouvrir le menu">
         <span class="burger__trait" aria-hidden="true"></span>
       </button>
       <nav class="nav" id="nav-principale" aria-label="Navigation principale">
-        <a class="nav__lien" href="index.html#regulation">Régulation &amp; ACVM</a>
-        <a class="nav__lien" href="index.html#marches">Marchés &amp; Macro</a>
-        <a class="nav__lien" href="index.html#guides">Guides &amp; Éducation</a>
-        <a class="nav__lien" href="index.html#fiscalite">Fiscalité canadienne</a>
-        <a class="nav__lien" href="index.html#pro">Actio Pro</a>
+        <a class="nav__lien" href="index.html#barometre">Actualités &amp; Régulation</a>
+        <a class="nav__lien" href="index.html#academie">Académie</a>
+        <a class="nav__lien" href="index.html#comparateur" aria-current="true">Comparatifs</a>
+        <a class="nav__lien" href="index.html#fiscalite">Fiscalité &amp; Droit</a>
+        <a class="nav__lien" href="index.html#research">Actio Research</a>
       </nav>
       <div class="entete__actions">
         <div class="selecteur" role="group" aria-label="Langue du site">
@@ -67,7 +67,7 @@ if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)
   <nav class="ariane" aria-label="Fil d’Ariane">
     <ol>
       <li><a href="index.html">Accueil</a></li>
-      <li><a href="#">Outils</a></li>
+      <li><a href="index.html#comparateur">Comparatifs &amp; Avis</a></li>
       <li><span aria-current="page">Registre des plateformes</span></li>
     </ol>
   </nav>

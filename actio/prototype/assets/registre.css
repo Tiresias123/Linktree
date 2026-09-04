@@ -17,14 +17,14 @@
   margin-block: var(--e-6);
   background: var(--fond-surface-2);
   border: var(--trait) solid var(--bordure);
-  border-left: var(--trait-editorial) solid var(--actio-turquoise-fonce);
+  border-left: var(--trait-editorial) solid var(--marque-bleu-fonce);
   border-radius: 0 var(--rayon-2) var(--rayon-2) 0;
 }
 @media (max-width: 760px) { .provenance { grid-template-columns: 1fr; } }
 .provenance__titre {
   font-family: var(--police-texte); font-size: var(--t-micro);
   font-weight: var(--graisse-grasse); letter-spacing: var(--interlettre-etiq);
-  text-transform: uppercase; color: var(--actio-turquoise-fonce);
+  text-transform: uppercase; color: var(--marque-bleu-fonce);
   margin-bottom: var(--e-2);
 }
 .provenance p { font-size: var(--t-petit); color: var(--texte-secondaire); margin: 0; line-height: 1.6; max-width: 78ch; }
@@ -56,7 +56,7 @@
   border: var(--trait) solid var(--bordure-forte);
   border-radius: var(--rayon-2);
 }
-.filtre select:focus, .filtre input:focus { border-color: var(--actio-bleu-palais); }
+.filtre select:focus, .filtre input:focus { border-color: var(--marque-bleu-fonce); }
 .filtres__actions { display: flex; gap: var(--e-2); flex: 0 0 auto; }
 .filtres__compte {
   flex-basis: 100%; padding-top: var(--e-3);

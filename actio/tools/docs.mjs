@@ -32,7 +32,7 @@ function parcourir(rep, acc = []) {
 }
 
 const tousFichiers = parcourir(RACINE);
-const docs = tousFichiers.filter((f) => f.includes('/docs/') && extname(f) === '.md');
+const docs = tousFichiers.filter((f) => f.includes('/docs/') && !f.includes('/docs/v1/') && extname(f) === '.md');
 // Les feuilles autonomes, PLUS les blocs <style> en ligne : le portail de
 // langue et le gabarit de courriel définissent leurs classes sur place, faute
 // de pouvoir charger une feuille externe.

@@ -12,7 +12,7 @@
 <link rel="alternate" hreflang="x-default" href="/fr/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <script>
 (function(){try{var t=localStorage.getItem('actio.theme');
 if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
@@ -31,7 +31,7 @@ if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)
   .portail__carte {
     max-width: 620px; width: 100%; text-align: center;
     background: var(--fond-surface); border: var(--trait) solid var(--bordure);
-    border-top: var(--trait-editorial) solid var(--actio-bleu-palais);
+    border-top: var(--trait-editorial) solid var(--marque-bleu-fonce);
     border-radius: var(--rayon-3); padding: var(--e-12) var(--e-8);
   }
   .portail__logo { font-size: 2.75rem; margin-bottom: var(--e-2); justify-content: center; }
@@ -47,7 +47,7 @@ if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)
     text-decoration: none; color: var(--texte-primaire);
     transition: border-color var(--mvt-rapide), background var(--mvt-rapide);
   }
-  .portail__lien:hover { border-color: var(--actio-bleu-palais); background: var(--fond-surface-2); }
+  .portail__lien:hover { border-color: var(--marque-bleu-fonce); background: var(--fond-surface-2); }
   .portail__langue { font-family: var(--police-titre); font-size: var(--t-h4); font-weight: var(--graisse-grasse); }
   .portail__sous { font-size: var(--t-petit); color: var(--texte-secondaire); }
   .portail__note {
@@ -61,7 +61,7 @@ if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)
 <body>
 <main class="portail" id="principal">
   <div class="portail__carte">
-    <h1 class="logo portail__logo"><span>Actio<span class="logo__point">.</span></span></h1>
+    <h1 class="logo portail__logo"><span>Actio</span><span class="logo__point" aria-hidden="true">|</span></h1>
 
     <p class="portail__accroche" lang="fr-CA">
       Le cadre réglementaire, fiscal et prudentiel des cryptoactifs au Canada.

@@ -1,7 +1,10 @@
-## Annexe A — Registre de vérification avant publication
+## Annexe A — Registre de vérification avant publication (v2)
 
-Document opposable à la rédaction, référencé par le bandeau `.demo` de `prototype/fr/index.html`
-(ligne 37). Arrêté au 4 septembre 2026, comme `research/00-base-factuelle-consolidee.md`.
+Document opposable à la rédaction, référencé par le bandeau `.demo` de chaque page du prototype
+(`prototype/fr/index.html`, `prototype/fr/article.html`, `prototype/fr/registre.html`,
+`prototype/en/index.html`). Arrêté au 4 septembre 2026, comme `research/00-base-factuelle-consolidee.md`.
+Il remplace la version v1 conservée dans `docs/v1/annexes/registre-de-verification.md` ; les lignes
+v1 qui subsistent dans le prototype v2 sont reprises ici sous un nouveau numéro, avec renvoi.
 
 ---
 
@@ -16,6 +19,13 @@ d'instruments viennent de résumés de moteur de recherche recoupés entre neuf 
 référence n'a été inventée — chacune se rattache à une ligne de la base — mais aucune n'est
 publiable en l'état. Un seul flux a été confirmé : l'index RSS de la *Gazette du Canada*.
 
+Le prototype v2 ajoute une seconde famille de risques, absente de la v1 : il **nomme des
+plateformes réelles** (Shakepay, Newton, Wealthsimple Crypto) dans un comparateur, avec un statut
+d'inscription, un score et des mesures. Un statut d'inscription faux, ou périmé, engage la
+responsabilité d'Actio autrement qu'une date d'avis erronée : il peut orienter un dépôt d'argent.
+Ces lignes portent donc l'état le plus sévère tant que le registre de l'autorité n'a pas été lu à
+la date de publication.
+
 ---
 
 ### A.2 Le registre
@@ -26,60 +36,63 @@ moins, non lu à la source ; publiable dans la seule formulation prudente du reg
 incertitudes. `NON VÉRIFIÉ — NE PAS PUBLIER` — contredit entre fiches, chiffré sans corroboration,
 produit par la maquette, ou affirmant une absence.
 
-**Rendu.** `VÉRIFIÉ` → `.badge--conforme` (`#0E7C5A` sur `#E3F4EE`). `À VÉRIFIER` →
-`.badge--consultation` (`#965800` sur `#FBF0E0`), doublé du bloc `.boite__ref`. `NON VÉRIFIÉ` →
-`.badge--alerte` (`#C8102E` sur `#FBE9EC`), visible en rédaction seulement.
+**Rendu.** `VÉRIFIÉ` → `.badge--conforme` (`--statut-conforme` sur `--statut-conforme-pale`).
+`À VÉRIFIER` → `.badge--consultation` (`--statut-consultation` sur `--statut-consultation-pale`),
+doublé du bloc `.encadre__ref` dans un article, du marqueur `.baro__verif` dans le Baromètre, de la
+mention `.donnee--nd` sur une donnée chiffrée. `NON VÉRIFIÉ` → `.badge--alerte` (`--statut-alerte`
+sur `--statut-alerte-pale`), visible en rédaction seulement.
 
 **Localisation.** `idx` = `prototype/fr/index.html` · `art` = `prototype/fr/article.html` ·
-`reg` = `prototype/fr/registre.html` · `en` = `prototype/en/index.html` ·
-`nl` = `newsletter/actio-dispatch-001.html`.
+`reg` = `prototype/fr/registre.html` · `en` = `prototype/en/index.html`. Les lignes de
+l'infolettre (`nl`) sont ajoutées à la section A.5 au fur et à mesure du Module 2.
 
 | # | Affirmation | Où | Source | État | Contrôle |
 |---|---|---|---|---|---|
-| V-01 | Décision du TMF du 22 août 2025, part de profits « de l'ordre de 20 % » ; l'abonnement à des signaux n'est pas un contrat d'investissement | art §intro, §1-2 ; idx une ; nl §01 | Base §2 | À VÉRIFIER | Lire la décision sur CanLII ; vérifier que les deux qualifications sont au dispositif ; sinon « une part des profits », sans date |
-| V-02 | Aucune référence neutre n'est donnée ; le sort procédural est dit invérifié | art sources, `.maj`, §4 | U-17, U-18 | VÉRIFIÉ | Conforme. Chercher un appel avant republication |
-| V-03 | Homologation du 28 août 2025 emportant géoblocage de logiciels | art §2.1 | Base §2 (*iGenius*) | À VÉRIFIER | Confirmer date et objet ; ne pas reprendre les 15 000 $ |
-| V-04 | Avis 21-327 daté du 16 janvier 2020, sous son titre français long | art « Textes de loi », sources | C-01 | NON VÉRIFIÉ — NE PAS PUBLIER | Ouvrir le PDF `csa_20200116` ; d'ici là « janvier 2020 », sans titre |
-| V-05 | Avis 21-327 : l'absence de livraison immédiate fait naître un contrat | art §2 ; idx carte 3 ; nl §01 | Base §3.1 | À VÉRIFIER | Lire le PDF ; ne pas durcir en « toute absence de livraison » |
-| V-06 | Avis conjoint 21-330 daté du 23 septembre 2021 | art sources ; idx carte 2 | C-03 | NON VÉRIFIÉ — NE PAS PUBLIER | Ouvrir le PDF ; citer l'avis sans millésime |
-| V-07 | La plateforme inscrite répond des communications faites pour son compte | art §4 ; idx carte 2 ; nl §01 | Base §3.1 | À VÉRIFIER | Isoler le passage fondant le rattachement |
-| V-08 | Depuis le 6 août 2024, courtier en placement et OCRI : seule voie ouverte | idx étape 03 ; en ; reg ; nl schéma | C-05 | À VÉRIFIER | Reprendre la formulation C-05, muette sur les inscriptions actives |
-| V-09 | « Cinq ans après l'Avis 21-327 » contre « six ans » | idx carte 1 ; nl §03 | Incohérence interne | NON VÉRIFIÉ — NE PAS PUBLIER | Trancher après V-04 : janvier 2020 donne six ans |
-| V-10 | Zéro règlement permanent des ACVM propre aux plateformes | nl §03 | U-06 | NON VÉRIFIÉ — NE PAS PUBLIER | Affirmer une absence exige un dépouillement exhaustif, impossible ici |
-| V-11 | Les ACVM consultent sur un régime permanent | idx carte 1 ; en | U-06 | NON VÉRIFIÉ — NE PAS PUBLIER | Aucune consultation identifiée : retirer ou requalifier en question |
-| V-12 | Inscription au titre du Règlement 31-103 ; courtier restreint à plafonds d'achat ; engagement préalable opposable | art tableau ; idx cartes et étapes 01-02 ; reg | Base §3.1 ; U-01 ; Avis 21-332 | À VÉRIFIER | Aucun chiffre : conforme. Jamais de plafond sans lire la décision visée |
-| V-13 | Cadre de garde de l'OCRI : paliers, plafonds, autogarde restreinte | idx fil ; nl radar Ontario | C-13, U-03, U-12 | À VÉRIFIER | Aucun pourcentage ni seuil : conforme. Ne pas citer le numéro 26-0033 |
-| V-14 | Blocage d'accès par ordonnance aux fournisseurs de télécommunication | idx fil | Aucune | NON VÉRIFIÉ — NE PAS PUBLIER | La base ne connaît que blocage de sommes et géoblocage : trois mesures confondues |
-| V-15 | Nomination de XT.com et CoinEx | idx fil | U-07, U-21 | NON VÉRIFIÉ — NE PAS PUBLIER | Aucun nom depuis une source secondaire ; renvoyer aux listes des ACVM |
-| V-16 | Marché canadien étroit : volumes modestes, écarts plus larges | idx fil des marchés | U-09, U-15 | NON VÉRIFIÉ — NE PAS PUBLIER | La comparaison suppose des données que la rédaction n'a pas |
-| V-17 | Le communiqué du 22 octobre 2025 vise aussi jalonnement et rendement | idx carte 3 ; en ; nl §01 | Base §2 : prêts adossés | NON VÉRIFIÉ — NE PAS PUBLIER | L'extension au jalonnement est absente de la base ; lire le communiqué |
-| V-18 | Registre unifié synchronisé depuis 13 autorités, cible 6 h | reg provenance | Aucune ; base §7 pour les URL | NON VÉRIFIÉ — NE PAS PUBLIER | Chiffre non étayé ; U-76 laisse la licéité du moissonnage ouverte |
-| V-19 | Permis d'ESM délivré par Revenu Québec depuis le 13 septembre 2021 ; LESM, RLRQ c. E-12.000001 ; cumul de trois formalités | art tableau, §3, sources ; idx schéma ; en ; nl radar Québec | C-04 ; base §3.2 | NON VÉRIFIÉ — NE PAS PUBLIER | Déjà marqué `[À VÉRIFIER]` : conforme. Lire la page ESM de revenuquebec.ca et le chapitre sur LégisQuébec |
-| V-20 | Le « contrat d'investissement » est à l'article 1 de la LVM et « distingue le Québec des autres provinces » | art « Textes de loi » | U-16 ; aucune pour la comparaison | NON VÉRIFIÉ — NE PAS PUBLIER | Retirer la comparaison, qui suppose neuf autres lois lues ; confirmer l'article, sans alinéa |
-| V-21 | Les PAP du CANAFE « peuvent viser plusieurs milliers d'opérations » | art `.boite--risque` | C-10 | NON VÉRIFIÉ — NE PAS PUBLIER | « Plusieurs milliers » chiffre ce que C-10 interdit |
-| V-22 | Interdictions d'opérations, pénalités du TMF, blocage ; renvoi au registre de l'AMF | art `.boite--risque`, `.boite--impact` | Base §1, §3.1 ; U-21 | À VÉRIFIER | Vérifier libellés et intitulé du registre ; aucun montant : conforme |
-| V-23 | Régime fédéral des cryptomonnaies stables adopté, non en vigueur ; les FSP recoupent les plateformes | idx fil et fil des marchés ; en ; nl radar Ottawa | U-59, C-08, U-64 | À VÉRIFIER | Conforme. Aucun titre de loi ; jamais « doivent désormais » ; aucun décompte de FSP |
-| V-24 | « La Banque du Canada ouvre les consultations sur les règlements » | idx fil, titre | U-60, U-61 | NON VÉRIFIÉ — NE PAS PUBLIER | Aucun projet repéré à la *Gazette*, Partie I : retirer |
-| V-25 | L'Avis 21-333 « continue de régir » l'accès aux cryptoactifs arrimés | idx fil ; nl radar Ottawa | U-65 | NON VÉRIFIÉ — NE PAS PUBLIER | Réécrire en question : un jeton pourrait relever de deux régimes |
-| V-26 | Détention directe fermée au REER et au CELI ; FNB soumis au Règlement 81-102 | idx fil, guides niv. 2 ; en | Folio S3-F10-C1 ; U-40, U-15 | À VÉRIFIER | Lire le folio ; sans liste, sans émetteur, sans date |
-| V-27 | Faisceau d'indices : gain en capital ou revenu d'entreprise ; gain « imposable pour moitié » | idx fiscalité ; nl §04 | IT-479R, **archivé** ; hausse annulée le 21 mars 2025 | À VÉRIFIER | Ne pas donner un bulletin archivé pour un texte en vigueur ; confirmer le taux sur la LIR |
-| V-28 | Jalonnement : « revenu à la réception ou à la disposition ? » | idx guides niv. 2 | U-37 | À VÉRIFIER | Forme interrogative : conforme. Ne jamais prêter la pratique des cabinets à l'ARC |
-| V-29 | Un cryptoactif peut être un bien étranger déterminé (T1135) | idx fiscalité, guides ; en | Base §3.3 ; U-39 | À VÉRIFIER | Seuil de 100 000 $ non cité : conforme ; le situs reste notionnel |
-| V-30 | Le minage entraîne le refus des crédits de taxe sur les intrants | idx fiscalité | Art. 188.2 LTA ; Avis nº 324 | À VÉRIFIER | Aucun numéro cité : conforme. Lire l'avis, version de juin 2025 |
-| V-31 | Échéances du 30 avril, du 15 juin et du 15 mars | idx échéancier | Aucune — absentes de la base | NON VÉRIFIÉ — NE PAS PUBLIER | Vérifier sur canada.ca et revenuquebec.ca : un échéancier faux est le pire |
-| V-32 | « Le calendrier canadien du CDC reste à confirmer » | idx échéancier | C-06 | VÉRIFIÉ | Conforme. Aucune date avant lecture de la partie XXI de la LIR |
-| V-33 | Graphie « crypto-actifs », sigle français, « fenêtre pour régulariser » | idx échéancier ; nl radar International | C-17 ; C-06 | NON VÉRIFIÉ — NE PAS PUBLIER | Écrire « Cadre de déclaration des cryptoactifs (*Crypto-Asset Reporting Framework*, CARF) » |
-| V-34 | Désabonnement sous 10 jours ouvrables, mécanisme valide 60 jours, consentement exprès | idx formulaire ; nl pied | Base §3.5 ; U-46 ; DORS/2012-36 | À VÉRIFIER | Aucun renvoi d'article : conforme (seul l'art. 33 l'est). Vérifier délais et forme |
-| V-35 | Conservation de la date, de l'IP et de la page de consentement | nl pied | LCAP (preuve) contre Loi 25 (minimisation) | NON VÉRIFIÉ — NE PAS PUBLIER | Le portail refuse ailleurs de traiter une IP « sans nécessité » : positions opposées |
-| V-36 | « Données hébergées au Canada » ; « politique de confidentialité (Loi 25 / LPRPDE) » | idx bloc infolettre et pied ; nl pied | U-75 ; U-56 | NON VÉRIFIÉ — NE PAS PUBLIER | Distinguer application, base, diffusion, journaux ; établir le régime applicable avant d'annoncer les deux lois |
-| V-37 | « Accessibilité (WCAG 2.1 AA) » | idx `.pied__legal` | Base §3.6 : cible **volontaire** | NON VÉRIFIÉ — NE PAS PUBLIER | Se lit comme une déclaration de conformité, sans audit : requalifier ou auditer |
-| V-38 | Adresse De La Gauchetière, téléphone 514 555-0142, « Actio Média inc. », domaine `actio.ca` | idx pied ; nl pied | Aucune | NON VÉRIFIÉ — NE PAS PUBLIER | 555-01xx est réservé à la fiction ; la LCAP exige une adresse **valide**. Vérifier au Registraire des entreprises |
-| V-39 | Signature « Marie-Claude Fortin », déclaration d'intérêts, clé publique | art `.bio` ; nl §01 | Aucune — personne de maquette | NON VÉRIFIÉ — NE PAS PUBLIER | Signer une déclaration d'intérêts au nom d'un inexistant : défaut le plus grave |
-| V-40 | Cours BTC 148 720 $, ETH 5 340 $, SOL 268 $, CAD/USD 0,7412 | nl cotations | Valeurs déclarées illustratives | NON VÉRIFIÉ — NE PAS PUBLIER | Le site affiche « — » et « flux non branché » : neutraliser aussi le gabarit |
-| V-41 | « 5 sources primaires » ; « 100 % sources primaires citées » | nl en-tête ; idx bloc infolettre | Contredit par la présente annexe | NON VÉRIFIÉ — NE PAS PUBLIER | Zéro source primaire lue. Ne rétablir qu'une fois l'état majoritairement `VÉRIFIÉ` |
-| V-42 | Actio n'est inscrite à aucun titre ; aucune cession de renseignements ; parution le mardi 6 h 30 HE | idx avertissement, bloc infolettre ; nl pied | Faits internes | VÉRIFIÉ | Réattester à chaque évolution d'Actio Pro ; l'inscrire aux contrats de sous-traitance |
-| V-43 | Le bandeau `.demo` renvoie au présent registre | idx l. 37 ; art l. 30-35 ; en l. 27-32 | Constat de code | VÉRIFIÉ | Lien réparé, l. 37 : le `href` remonte désormais de deux niveaux (`../../`) et non d'un seul, et vise `docs/annexes/registre-de-verification.md` ; `tools/verifier.mjs` ne signale plus de lien interne cassé. Le renvoi reste **absent** de `article.html` et de `en/index.html` : à poser |
-| V-44 | « OCRI » en français, « CIRO » en anglais ; « permis » réservé à l'ESM | Prototype et infolettre | Base §4, règles 2 et 4 | VÉRIFIÉ | Conforme ; l'unique « OCRCVM » est historique. Recontrôler chaque page |
+| V-01 | La loi fédérale sur les cryptomonnaies stables est « adoptée mais pas en vigueur » ; ses règlements ne sont pas pris | idx une, baro 1 ; art chapô, §2, tableau ; en | U-59, C-08, U-61 | À VÉRIFIER | Conforme (aucun titre de loi, aucune date d'entrée en vigueur). Vérifier sur LEGISinfo la sanction et l'absence de décret ; ne jamais écrire « depuis le… » |
+| V-02 | L'Avis 21-333 « continue de dicter » aux plateformes les jetons arrimés qu'elles peuvent offrir | idx une (chapô) ; art §1 | U-65 | À VÉRIFIER | Le titre est interrogatif (conforme) mais le chapô affirme. Reformuler : « s'applique aujourd'hui aux plateformes inscrites » ; ne pas préjuger de l'articulation avec le fédéral (V-31) |
+| V-03 | « Blocage d'accès : l'AMF obtient une nouvelle ordonnance visant une plateforme non inscrite », il y a 18 min | idx chaud 1 ; en | Aucune — brève de maquette | NON VÉRIFIÉ — NE PAS PUBLIER | Aucune ordonnance de septembre 2026 dans la base (U-24). Le bloc « Actualités chaudes » ne se remplit que depuis le flux rédactionnel, jamais depuis le gabarit |
+| V-04 | « CANAFE : nouvelle vague de révocations d'inscriptions d'ESM », il y a 1 h | idx chaud 2 ; en | C-14 (révocations de mars 2026) | NON VÉRIFIÉ — NE PAS PUBLIER | Les révocations de 2026 existent (C-14) mais aucune « nouvelle vague » de septembre. Titre de maquette |
+| V-05 | « FNB de bitcoin cotés à Toronto : les entrées nettes hebdomadaires repassent en positif », il y a 3 h | idx chaud 3 ; en | U-15 | NON VÉRIFIÉ — NE PAS PUBLIER | Aucune donnée de flux dans la base. Un titre de marché sans relevé daté est interdit (voir aussi V-19 et, au Module 2, le Chiffre de la semaine) |
+| V-06 | « Cadre de déclaration des cryptoactifs de l'OCDE : ce que l'échange automatique changera pour l'ARC », hier | idx chaud 4 ; en | C-06, C-17 | À VÉRIFIER | Graphie « cryptoactifs » conforme à C-17. Ne pas donner de date d'application avant lecture de la partie XXI de la LIR (U-35) |
+| V-07 | Baromètre, carte 1, statut « En consultation publique » : règlements d'application à la *Gazette*, Partie I | idx baro 1 | U-61 : aucun projet repéré | NON VÉRIFIÉ — NE PAS PUBLIER | La carte porte « Clôture : à confirmer » et `.baro__verif`, mais le statut affirme qu'une consultation existe. Requalifier « Attendu » (état neutre) tant qu'aucun numéro de la *Gazette*, Partie I n'est lu |
+| V-08 | Baromètre, carte 2 : communiqué des ACVM du 22 octobre 2025 sur les prêts adossés à des cryptoactifs | idx baro 2 | Base §2 | À VÉRIFIER | La v2 ne reprend plus l'extension au jalonnement (v1 V-17, close). Lire le communiqué ; confirmer date et objet |
+| V-09 | Baromètre, carte 3 : cadre de garde de l'OCRI « en vigueur le 3 février 2026 », dépositaires par paliers | idx baro 3 | C-13, U-03, U-12 — aucune date dans la base | NON VÉRIFIÉ — NE PAS PUBLIER | La date du 3 février 2026 n'est corroborée par aucune fiche. Retirer la date ; conserver « paliers de dépositaires » sans seuil ni pourcentage (U-03) ; ne pas citer 26-0033 (U-12) |
+| V-10 | Baromètre, carte 4 : mise en garde de l'AMF du 31 août 2026, ordonnance de blocage | idx baro 4 | Aucune — maquette | NON VÉRIFIÉ — NE PAS PUBLIER | Le nom de la plateforme est déjà « à confirmer ». La carte entière ne se publie que depuis la liste des mises en garde de l'AMF, lue le jour même |
+| V-11 | Cours BTC/ETH/SOL en CAD, variation 24 h, statut du marché | idx `.cotations` ; en | Fait interne : « — », « n. d. », `.etiquette--demo` « flux non branché » | VÉRIFIÉ | Conforme : aucune valeur affichée. La source de cours (fournisseur, horodatage, devise de cotation) est à choisir au Module 4 avant tout branchement |
+| V-12 | Compteur « Plateformes inscrites ACVM : — autorisées à ce jour » ; le chiffre « 12 » du cahier des charges n'est **pas** affiché | idx `.conformite__compte` ; en | U-09 : aucun décompte fiable | VÉRIFIÉ | Décision de rédaction : le compteur reste « — » jusqu'à synchronisation quotidienne avec la recherche nationale d'inscription. Le « 12 » n'entre jamais en dur dans le code |
+| V-13 | Académie, parcours 2 : PBR, IT-479R, T1135, TP-21.4.39 | idx parcours 2, fiscalité | IT-479R **archivé** (v1 V-27) ; U-41 ; base §3.3 | À VÉRIFIER | Écrire « bulletin archivé IT-479R, encore appliqué par les tribunaux » ou renvoyer au folio en vigueur ; ne pas présenter un bulletin archivé comme un texte en vigueur |
+| V-14 | « À jour pour l'année d'imposition 2025 · révisé chaque printemps » ; « 4 guides · 45 min », « 5 guides · 1 h 20 », « 4 guides · 2 h » | idx parcours 1-3 ; en | Aucune : les guides ne sont pas écrits | NON VÉRIFIÉ — NE PAS PUBLIER | Un parcours ne s'affiche qu'avec des guides publiés ; le décompte et la durée se calculent depuis le CMS, jamais en dur |
+| V-15 | Shakepay (Montréal, courtier), Newton (Toronto, courtier), Wealthsimple Crypto (Toronto, courtier en placement) : statut « Inscrite » | idx comparateur ; en | U-07, U-08, U-09 | NON VÉRIFIÉ — NE PAS PUBLIER | Le plus grave après V-30. Le statut, la catégorie d'inscription et la **province** de chaque inscription se lisent sur la recherche nationale d'inscription des ACVM à la date de publication, et le lien `registre ↗` doit viser la fiche exacte. Un statut périmé peut orienter un dépôt |
+| V-16 | Scores 4,2 / 4,0 / 4,4, écarts ≈ 1,8 % / 0,7 % / 1,5 %, délais de retrait Interac | idx comparateur ; en | Aucune — valeurs déclarées illustratives (`.donnee--nd`, `.comparateur__methode`, `.comparateur__arrete` « — ») | NON VÉRIFIÉ — NE PAS PUBLIER | Conforme au stade prototype : chaque valeur porte « illustratif » et le relevé est « — ». Aucune ne se publie avant un relevé daté, à heure fixe, sur un achat de 1 000 $ CA, conservé en capture |
+| V-17 | Méthode : pondération 40 / 30 / 20 / 10, relevé mensuel, seules des plateformes inscrites | idx `.comparateur__methode` | Fait interne | VÉRIFIÉ | Décision de rédaction. Elle doit figurer mot pour mot sur la page « Méthode du comparateur » du pied de page avant la première fiche |
+| V-18 | Divulgation d'affiliation : « jamais depuis ce tableau, toujours divulguée dans le corps de la fiche » | idx `.comparateur__pied` ; en | C-03 (Avis conjoint 21-330) | À VÉRIFIER | Lire l'avis 21-330 : vérifier que la forme de divulgation retenue (dans le corps, avant le lien) satisfait à ce que l'avis attend d'une plateforme quant aux communications faites pour son compte |
+| V-19 | Research : « Rapport T3 2026 — adoption institutionnelle », « Flux des FNB de cryptoactifs (TSX) » | idx research ; en | Aucune — rapports non écrits ; U-15 | NON VÉRIFIÉ — NE PAS PUBLIER | Titres de maquette. Le bloc ne s'affiche qu'avec un rapport publié |
+| V-20 | Fiscalité, carte 2 : « les **huit** facteurs du bulletin IT-479R » | idx fiscalité | Aucune : le nombre de facteurs n'est pas dans la base | NON VÉRIFIÉ — NE PAS PUBLIER | Lire le bulletin ; d'ici là « les facteurs du bulletin IT-479R », sans nombre |
+| V-21 | Fiscalité, carte 3 : TP-21.4.39 « exigible même sans transaction », « l'allègement annoncé » | idx fiscalité | U-41 | À VÉRIFIER | Reprendre la formulation U-41 ; vérifier l'année d'imposition visée par l'allègement sur revenuquebec.ca |
+| V-22 | Actio Dispatch paraît le mardi 7 h HE et le vendredi 12 h HE | idx infolettre ; en | Fait interne, cahier des charges | VÉRIFIÉ | Réattester si le calendrier change ; « HE » et non « EST » (l'heure de l'Est bascule à l'heure avancée) |
+| V-23 | « Désabonnement en un clic, traité sous 10 jours ouvrables » ; consentement exprès LCAP | idx formulaire | Base §3.5 ; U-46 ; DORS/2012-36 | À VÉRIFIER | Aucun renvoi d'article : conforme. Vérifier le délai de 10 jours ouvrables et la validité de 60 jours du mécanisme |
+| V-24 | « Données hébergées au Canada, jamais cédées » | idx infolettre ; en | U-75 ; U-56 ; aucun contrat signé | NON VÉRIFIÉ — NE PAS PUBLIER | Distinguer application, base, diffusion, journaux, et lire les engagements de résidence du fournisseur d'infolettre retenu (Module 4) avant d'afficher la promesse |
+| V-25 | « Rejoint par 15 000 juristes, investisseurs et professionnels de la finance au Canada » | idx `.infolettre__preuve-sociale` ; en | Aucune : aucun abonné | NON VÉRIFIÉ — NE PAS PUBLIER | Preuve sociale fausse à la date de lancement = pratique trompeuse. La ligne se calcule depuis la liste (arrondie au millier inférieur) et disparaît sous 1 000 abonnés |
+| V-26 | Actio Média inc., 1000, rue De La Gauchetière Ouest, bureau 2400, Montréal H3B 4W5 ; `redaction@actio.ca` | idx pied ; art JSON-LD ; en | Aucune | NON VÉRIFIÉ — NE PAS PUBLIER | La LCAP exige une adresse **valide** de l'expéditeur. Constituer la personne morale, obtenir le bail ou le domicile, enregistrer le domaine, avant tout envoi. Le numéro de téléphone fictif de la v1 a été retiré (v1 V-38 close pour cette part) |
+| V-27 | « Actio n'est inscrite à aucun titre… n'exerce aucune activité de courtage, de conseil ou de gestion de portefeuille » | idx `.avertissement` ; en | Fait interne | VÉRIFIÉ | Réattester à chaque évolution d'Actio Pro (phase 4) et de l'affiliation ; un lien d'affiliation n'est pas une activité de courtage, mais l'Avis 21-330 (V-18) borne ce qu'Actio peut dire pour le compte d'une plateforme |
+| V-28 | « Accessibilité (WCAG 2.1 AA) » | idx `.pied__legal` ; en | Base §3.6 : cible volontaire ; `tools/verifier.mjs` (contraste seulement) | NON VÉRIFIÉ — NE PAS PUBLIER | Le vérificateur calcule 70 paires de contraste et l'ordre des titres : ce n'est pas un audit. Intituler « Accessibilité — notre démarche » jusqu'à un audit externe |
+| V-29 | « Confidentialité (Loi 25 / LPRPDE) » | idx `.pied__legal` ; en | U-56 | NON VÉRIFIÉ — NE PAS PUBLIER | Établir le régime applicable (décret de similarité, activité interprovinciale) avant d'annoncer les deux lois côte à côte |
+| V-30 | Signature « Marie-Claude Fortin », Barreau du Québec, LL.M., ex-conformité, déclaration d'intérêts, contact sécurisé | art `.article__signature`, `.bio`, `.bio__qualif`, `.bio__declaration`, JSON-LD ; idx une | Aucune — personne de maquette | NON VÉRIFIÉ — NE PAS PUBLIER | **Défaut le plus grave.** Afficher une appartenance au Barreau du Québec pour une personne inexistante est plus qu'une fiction : c'est une fausse qualification professionnelle. Attribuer à « la rédaction » ou signer sous un nom réel, avec vérification de l'inscription au Tableau de l'Ordre |
+| V-31 | Tableau, en bref : « aucune règle de conflit identifiée par la rédaction au 4 septembre 2026 » | art tableau, §4, en bref ; idx une ; en | U-65 | À VÉRIFIER | Reformulé le 4 septembre 2026 (l'ancienne rédaction affirmait une absence). Le §4 reste analytique : conforme. Dépouiller les avis 21-3xx postérieurs à la sanction |
+| V-32 | Mise en garde : « aucune supervision prudentielle fédérale ; seuls les engagements pris envers les ACVM s'appliquent » | art `.mise-en-garde`, risque 1 | U-59, U-65 | À VÉRIFIER | Reformulé le 4 septembre 2026 : la rédaction initiale (« aucune autorité canadienne ne supervise ») contredisait le §1. Vérifier la nature exacte des engagements de l'Avis 21-333 (réserves, attestation, audit) |
+| V-33 | Mise en garde : « aucune protection de la SADC » | art `.mise-en-garde`, risque 4 | Base : aucune lecture de la *Loi sur la SADC* | À VÉRIFIER | Vérifier la définition de « dépôt » ; la formulation est prudente (un jeton n'est pas un dépôt) et peut rester |
+| V-34 | Avis 21-333 « publié le 5 octobre 2023 », « en vigueur depuis 2023 », conditions (une seule monnaie fiduciaire, engagements de réserve, rachat, divulgation) | art §1, sources 1, `.note-conformite` | U-04 ; base §3.1 ; marqué `[À VÉRIFIER]` | À VÉRIFIER | Conforme : la note de conformité annonce l'état de vérification. Ouvrir le PDF ; confirmer date, titre français et périmètre |
+| V-35 | Loi fédérale « adoptée au printemps 2026 dans un projet de loi de mise en œuvre budgétaire », supervision confiée à la Banque du Canada | art §2, sources 2 | C-09, U-36, U-59, U-62 | À VÉRIFIER | Numéro et titre du projet de loi déjà marqués `[À VÉRIFIER]` dans `.sources` : conforme. Ne pas nommer C-15 ni C-31 avant LEGISinfo (C-15, U-34) |
+| V-36 | Avis 21-327 « 16 janvier 2020 », sous son titre français long | art sources 3, §1 | C-01 | NON VÉRIFIÉ — NE PAS PUBLIER | Reprise de v1 V-04, non close. Ouvrir le PDF `csa_20200116` ; d'ici là « janvier 2020 », sans titre long |
+| V-37 | Titre long du Règlement 31-103 | art `.note-conformite`, sources 4 | Base §3.1 | À VÉRIFIER | Vérifier le titre officiel exact sur le site de l'AMF (version consolidée) |
+| V-38 | « Conditions accordées par l'autorité principale de la plateforme, puis reconnues par les autres » | art §3 | Base §3.1 (régime de passeport, sans citation du Règlement 11-102) | À VÉRIFIER | Aucun numéro cité : conforme. Vérifier que les conditions d'inscription suivent bien le passeport et non une décision par province |
+| V-39 | « Publié le 4 septembre 2026, 6 h 30 HE — Relu par la révision juridique : à faire » | art `.article__dates`, `.maj` | Fait interne | VÉRIFIÉ | Conforme : la mention « à faire » est honnête. Le gabarit refuse la publication tant que la date de relecture est vide (règle à coder au Module 4) |
+| V-40 | Horodatages « Il y a 18 min », « Il y a 1 h », « Hier » | idx chaud ; en | Constat de code : calculés par `actio.js` depuis `datetime` | VÉRIFIÉ | Conforme en code ; mais les `datetime` sont figés au 4 septembre 2026 : la maquette affichera « Il y a N jours » dès le lendemain. Comportement attendu, à documenter dans la démonstration |
+| V-41 | Colonne « Registres officiels » du pied de page : sept liens vers les autorités | idx pied, colonne 2 ; en | Base §7 : URL repérées, non ouvertes (U-66, U-76) | À VÉRIFIER | Le mot « partenaires », qui supposait un accord avec sept autorités, a été retiré le 4 septembre 2026. Ouvrir les sept URL une à une avant mise en ligne |
+| V-42 | Le bandeau `.demo` de chaque page renvoie au présent registre | idx, art, reg, en | Constat de code | VÉRIFIÉ | Posé sur les quatre pages le 4 septembre 2026 (v1 V-43 close). `tools/verifier.mjs` contrôle l'existence du lien |
+| V-43 | « OCRI » en français, « CIRO » en anglais ; « permis » réservé à l'ESM ; « cryptoactif » en un mot | Prototype entier | Base §4, règles 2 et 4 ; C-17 | VÉRIFIÉ | Conforme. Recontrôler chaque page et l'infolettre à chaque livraison |
+| V-44 | Symétrie linguistique : `en/index.html` marque incertain ce que `fr/index.html` marque incertain | en | Règle A.4-4 | À VÉRIFIER | Chaque ligne du présent registre s'applique aux deux langues ; la colonne « Où » le note (`en`). Contrôler que la traduction n'a pas durci une formulation prudente |
+| V-45 | Jeton « Confirmé » (niveau de technicité) et tags de juridiction « Fédéral · Québec · Ontario » sur l'article | art `.niveau--confirme`, `.juridiction` | Fait interne (taxonomies fermées, `docs/M1-architecture-wireframes.md` §1.3) | VÉRIFIÉ | Conforme. Une valeur hors taxonomie fermée bloque la publication (règle CMS, Module 4) |
 
 ---
 
@@ -91,14 +104,16 @@ et tranche les états. La **rédactrice en chef adjointe** tient le registre con
 L'**intégrateur** conserve les captures horodatées. Aucun auteur ne lève ses propres lignes.
 
 **Quatre passes.** (1) *Extraction* — ouvre une ligne toute chaîne correspondant à
-`\b(19|20)\d{2}\b`, `\d[\d\s]*\$`, `21-3\d{2}`, `33-757`, `31-103`, `81-102`, `13-50[23]`, `RLRQ`,
-`L.C.`, `L.R.O.`, `DORS/` ou `C-\d{1,2}` ; un numéro de projet de loi ne s'écrit jamais sans sa
-législature et sa session. (2) *Contrôle sur source primaire* — une seule source fait foi par
-nature d'acte ; un cabinet, un média spécialisé ou un résumé de moteur sont des **signaux**, jamais
-des sources de droit. (3) *Contre-lecture* par une personne étrangère à l'article — la formulation
-publiée doit être celle qu'impose le registre des incertitudes, mot pour mot. (4) *Levée* — URL
-exacte, date de consultation, initiales du valideur ; la ligne correspondante de la section 5 de la
-base est retirée le jour même.
+`\b(19|20)\d{2}\b`, `\d[\d\s]*\$`, `\d+(,\d+)?\s?%`, `21-3\d{2}`, `33-757`, `31-103`, `81-102`,
+`11-102`, `13-50[23]`, `RLRQ`, `L.C.`, `L.R.O.`, `DORS/` ou `C-\d{1,2}` ; un numéro de projet de loi
+ne s'écrit jamais sans sa législature et sa session ; **tout nom de plateforme** ouvre une ligne
+de statut d'inscription. (2) *Contrôle sur source primaire* — une seule source fait foi par nature
+d'acte ; un cabinet, un média spécialisé ou un résumé de moteur sont des **signaux**, jamais des
+sources de droit ; pour un statut d'inscription, la seule source est la recherche nationale
+d'inscription des ACVM, lue et capturée le jour de publication. (3) *Contre-lecture* par une
+personne étrangère à l'article — la formulation publiée doit être celle qu'impose le registre des
+incertitudes, mot pour mot. (4) *Levée* — URL exacte, date de consultation, initiales du
+valideur ; la ligne correspondante de la section 5 de la base est retirée le jour même.
 
 | Nature de l'affirmation | Point d'entrée primaire | Ce qu'on y capture |
 |---|---|---|
@@ -109,10 +124,13 @@ base est retirée le jour même.
 | Loi ou règlement québécois | `legisquebec.gouv.qc.ca` | Chapitre RLRQ, article, alinéa, historique |
 | Décision de tribunal | `canlii.org`, puis site de l'autorité | Référence neutre, dossier, dispositif, appel |
 | Avis du personnel des ACVM | PDF sur `osc.ca`, `lautorite.qc.ca`, `fcnb.ca` | Date, titre français officiel, périmètre |
+| **Statut d'inscription d'une plateforme** | Recherche nationale d'inscription des ACVM ; registre de l'AMF ; registre de la CVMO | Catégorie, provinces, conditions, date de la décision, capture datée |
 | Publication de l'OCRI | `ocri.ca` (FR) et `ciro.ca` (EN) | Numéro et nature exacte de l'instrument |
+| Mise en garde | Liste des mises en garde de l'AMF ; *Investor Warnings* de la CVMO | Nom exact, date, motif |
 | Directive du CANAFE | `fintrac-canafe.canada.ca` | Seuils, obligations, date de mise à jour |
-| Position fiscale | `canada.ca` (ARC) ; `revenuquebec.ca` | Guide, folio, avis TPS/TVH, millésime |
+| Position fiscale | `canada.ca` (ARC) ; `revenuquebec.ca` | Guide, folio, avis TPS/TVH, millésime ; état « archivé » ou non |
 | Prudentiel et paiements | `osfi-bsif.gc.ca` ; `bankofcanada.ca` | Ligne directrice, date d'effet, registre des FSP |
+| Données de marché | Fournisseur de cours retenu ; fiche du FNB sur `tsx.com` et site de l'émetteur | Horodatage, devise, méthode (dernier cours, moyenne), capture |
 | Courriel commercial, vie privée | `crtc.gc.ca` ; `priv.gc.ca` ; `cai.gouv.qc.ca` | Forme, délai, régime de sanction |
 | Terminologie | *Vocabulaire de la cryptomonnaie* de l'OQLF | Équivalent français retenu |
 
@@ -123,21 +141,22 @@ passes que le français, jamais après publication.
 **Une affirmation invérifiable a trois issues, et trois seulement.** (i) **Suppression**, par défaut
 quand elle ne porte pas l'analyse. (ii) **Reformulation prudente** : la colonne « Formulation
 prudente à employer » du registre des incertitudes est reprise mot pour mot, avec le marqueur
-`[À VÉRIFIER]` en `.badge--consultation` et le bloc `.boite__ref` — non une suggestion, mais le
+`[À VÉRIFIER]` en `.badge--consultation` et le bloc `.encadre__ref` — non une suggestion, mais le
 texte publiable. (iii) **Report** jusqu'à réouverture de la source. Publier en signalant
 l'incertitude en note de bas de page reste publier.
 
-**Délais.** Analyse courante : 2 jours ouvrables ; dossier ou guide : 5. Infolettre : contenu gelé
-le **lundi 12 h** pour un envoi le mardi 6 h 30 (HE). Une ligne signalée par une autorité suit le
-délai de 4 heures ouvrées de la politique de correction.
+**Délais.** Analyse courante : 2 jours ouvrables ; dossier ou guide : 5 ; fiche de plateforme :
+5, plus relecture du registre le jour de publication. Infolettre : contenu gelé le **lundi 12 h**
+pour l'envoi du mardi 7 h et le **jeudi 15 h** pour l'envoi du vendredi 12 h (HE). Une ligne
+signalée par une autorité suit le délai de 4 heures ouvrées de la politique de correction.
 
 ---
 
 ### A.4 Règle de publication
 
 1. **Aucun contenu ne quitte la rédaction tant qu'il subsiste une ligne « NON VÉRIFIÉ » qui le
-   concerne.** Le bandeau `.demo` (`--demo-fond` `#8A5300`, `--demo-texte` `#FFFFFF`) est un aveu
-   interne, pas une autorisation : il ne purge aucune ligne.
+   concerne.** Le bandeau `.demo` (`--demo-fond`, `--demo-texte`) est un aveu interne, pas une
+   autorisation : il ne purge aucune ligne.
 2. **Toute ligne « À VÉRIFIER » est soit levée, soit reformulée** dans les termes exacts du registre
    des incertitudes, marqueur visible dans le corps du contenu, jamais en page de mentions.
 3. **Une levée non signée est nulle** : sans URL, date de consultation ni initiales, la ligne reste
@@ -146,7 +165,12 @@ délai de 4 heures ouvrées de la politique de correction.
    incertain, ni l'inverse.
 5. **Régression** : toute modification d'un contenu publié rouvre les lignes qu'elle touche ; une
    correction de niveau 3 ou 4 rouvre l'article entier.
-6. **Portée** : site, infolettre, réseaux sociaux, extraits transmis à un tiers, captures partagées.
+6. **Péremption** : une levée portant sur un statut d'inscription, une mise en garde ou une donnée
+   de marché vaut **le jour de sa capture** ; une levée portant sur un texte de loi vaut jusqu'à la
+   prochaine modification du texte, que la veille (Module 4) signale. Toute autre levée vaut six
+   mois.
+7. **Portée** : site, infolettre, réseaux sociaux, extraits transmis à un tiers, captures partagées,
+   données structurées (JSON-LD) — un `author` fictif dans le JSON-LD est une publication.
 
 | État | Effet | Qui peut le changer |
 |---|---|---|
@@ -154,27 +178,43 @@ délai de 4 heures ouvrées de la politique de correction.
 | `À VÉRIFIER` | Publiable dans la seule formulation prudente, marqueur visible | Réviseur juridique, contresigné par la rédactrice en chef |
 | `NON VÉRIFIÉ — NE PAS PUBLIER` | Bloque tout le contenu concerné | Rédactrice en chef, sur pièce primaire seulement |
 
-**État au 4 septembre 2026 :** sur 44 lignes, 5 sont `VÉRIFIÉ` — et aucune ne porte sur le droit ;
-15 sont `À VÉRIFIER` ; 24 sont `NON VÉRIFIÉ — NE PAS PUBLIER`. Aucune page du prototype, aucune
-section de l'infolettre n'est publiable au sens de la règle 1.
+**État au 4 septembre 2026 :** sur 45 lignes, 10 sont `VÉRIFIÉ` — dont aucune ne porte sur le
+droit ; 17 sont `À VÉRIFIER` ; 18 sont `NON VÉRIFIÉ — NE PAS PUBLIER`. Aucune page du prototype
+n'est publiable au sens de la règle 1. Par rapport à la v1 (44 lignes, 24 bloquantes), la v2 a
+clos six lignes bloquantes (téléphone fictif, « 100 % sources primaires », « cinq ans après »,
+« Banque du Canada ouvre les consultations », extension au jalonnement, lien du bandeau) et en a
+ouvert cinq nouvelles, toutes liées aux contenus que le cahier des charges impose d'afficher :
+plateformes nommées (V-15, V-16), preuve sociale (V-25), parcours chiffrés (V-14), rapports
+(V-19).
+
+---
+
+### A.5 Lignes de l'infolettre
+
+Section ouverte au Module 2 : chaque édition d'Actio Dispatch et chaque courriel de la séquence de
+bienvenue y ajoutent leurs lignes (`nl-042`, `nl-b1`, `nl-b2`, `nl-b3`), sous la même règle A.4.
+Une infolettre envoyée ne se corrige pas : le gel du lundi 12 h et du jeudi 15 h est le dernier
+point où une ligne peut être levée.
 
 ---
 
 ### Ce qui reste à trancher
 
-1. **La signature fictive (V-39).** Tant que Marie-Claude Fortin n'existe pas, le nom, la fonction,
-   la déclaration d'intérêts et la clé publique tombent ensemble : attribuer l'article à la
-   rédaction, ou l'écrire sous une signature réelle.
-2. **L'ordre de réouverture des sources.** Sept lectures débloquent le plus de lignes : Avis 21-327,
-   Avis 21-330, communiqué du 6 août 2024, page ESM de Revenu Québec, décision du TMF du 22 août
-   2025, cadre de garde de l'OCRI, dispositions de forme de la LCAP. Cet ordre, ou d'abord ce qui
-   bloque l'infolettre nº 001 ?
-3. **La contradiction sur l'adresse IP (V-35).** Le portail refuse d'en traiter une pour deviner une
-   langue ; l'infolettre en conserve une comme preuve de consentement. L'une des deux positions doit
-   céder avant le premier envoi.
-4. **La promesse « 100 % sources primaires citées » (V-41).** La maintenir bloque toute publication
-   jusqu'à réouverture complète ; la retirer coûte l'argument de vente.
+1. **La signature fictive (V-30).** Le prototype v2 aggrave la v1 : la fiche auteur affiche une
+   appartenance au Barreau. Deux issues seulement — attribuer à la rédaction, ou recruter la juriste
+   qui signera, avant toute mise en ligne, même « bêta ».
+2. **Le comparateur (V-15, V-16).** Le cahier des charges impose trois plateformes nommées en page
+   d'accueil. Les nommer sans relevé daté ni lecture du registre est le risque juridique le plus
+   direct d'Actio. Option a : lancer le site sans le bloc, l'ajouter au premier relevé (Phase 3 de
+   la feuille de route). Option b : le lancer avec statut lu et capturé, sans score ni écart, ces
+   deux colonnes affichant « relevé en cours ».
+3. **La preuve sociale (V-25).** Retirer la ligne jusqu'à 1 000 abonnés, ou la remplacer par une
+   preuve vraie dès le lancement (« Lu par les directions de la conformité de … », sur autorisation
+   écrite).
+4. **L'ordre de réouverture des sources.** Sept lectures débloquent le plus de lignes : Avis
+   21-333, Avis 21-327, Avis 21-330, recherche nationale d'inscription (trois fiches), texte de la
+   loi fédérale sur les cryptomonnaies stables, cadre de garde de l'OCRI, dispositions de forme de
+   la LCAP.
 5. **La publicité de ce registre.** Il crédibilise auprès d'un lectorat de juristes, et expose les
-   points faibles à qui voudrait contester un article.
-6. **La péremption d'une levée.** Rien n'en fixe la durée. Une vérification faite sur une page de
-   l'ARC « mise à jour en continu » (U-39) vaut-elle six mois plus tard ?
+   points faibles à qui voudrait contester un article. Le bandeau `.demo` y renvoie déjà : la
+   question ne se pose qu'à la mise en ligne.

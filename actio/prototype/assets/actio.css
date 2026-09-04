@@ -39,7 +39,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 p { margin: 0 0 var(--e-4); }
 :focus-visible {
-  outline: 3px solid var(--actio-turquoise);
+  outline: 3px solid var(--marque-bleu);
   outline-offset: 2px;
   border-radius: var(--rayon-1);
 }
@@ -148,7 +148,7 @@ p { margin: 0 0 var(--e-4); }
 /* Posée sur la bande d'encre : ses couleurs viennent du jeu d'encre.
    L'ambre de surface claire (#8A5300) y tombe à 2,8:1 ; l'ambre d'encre
    (#E8A93C) y tient 8,5:1 en clair et 7,4:1 en sombre. */
-.etiquette--demo { border-style: solid; border-color: var(--encre-ambre); color: var(--encre-ambre); }
+.etiquette--demo { border-style: solid; border-color: var(--encre-accent); color: var(--encre-accent); }
 
 /* Pastille de juridiction — forme distincte des badges de statut. */
 .juridiction {
@@ -180,12 +180,12 @@ p { margin: 0 0 var(--e-4); }
   font-weight: var(--graisse-grasse);
   letter-spacing: var(--interlettre-etiq);
   text-transform: uppercase;
-  color: var(--actio-bleu-palais);
+  color: var(--marque-bleu-fonce);
   text-decoration: none;
   padding-bottom: 3px;
-  border-bottom: var(--trait-editorial) solid var(--actio-bleu-palais);
+  border-bottom: var(--trait-editorial) solid var(--marque-bleu-fonce);
 }
-.rubrique--marches   { color: var(--actio-turquoise-fonce); border-color: var(--actio-turquoise-fonce); }
+.rubrique--marches   { color: var(--marque-bleu-fonce); border-color: var(--marque-bleu-fonce); }
 .rubrique--fiscalite { color: var(--statut-consultation);   border-color: var(--statut-consultation); }
 .rubrique--guides    { color: var(--jur-ontario);           border-color: var(--jur-ontario); }
 .rubrique--pro       { color: var(--texte-primaire);        border-color: var(--texte-primaire); }
@@ -253,7 +253,7 @@ p { margin: 0 0 var(--e-4); }
 /* Résumé exécutif encarté dans une carte de régulation */
 .carte__synthese {
   background: var(--fond-surface-2);
-  border-left: var(--trait-editorial) solid var(--actio-bleu-palais);
+  border-left: var(--trait-editorial) solid var(--marque-bleu-fonce);
   padding: var(--e-3) var(--e-4);
   border-radius: 0 var(--rayon-1) var(--rayon-1) 0;
   font-size: var(--t-petit); line-height: var(--lh-dense);
@@ -320,14 +320,23 @@ p { margin: 0 0 var(--e-4); }
   display: flex; align-items: center; gap: clamp(12px, 1.6vw, 24px);
   min-height: 64px;
 }
+/* Logotype : « Actio » en Newsreader 700 — la sérif juridique affirmée —
+   suivi d'un trait vertical bleu électrique, mince, à la hauteur d'x : le
+   trait techno minimaliste du cahier des charges. Il évoque un curseur et
+   une barre de mesure, jamais un point final. Il ne se colore jamais
+   autrement qu'en --marque-bleu. */
 .logo {
-  display: inline-flex; align-items: baseline; gap: 2px;
+  display: inline-flex; align-items: baseline; gap: 5px;
   font-family: var(--police-titre);
-  font-size: 1.5rem; font-weight: var(--graisse-grasse);
-  letter-spacing: -.03em; color: var(--texte-primaire);
-  text-decoration: none; flex: none;
+  font-size: 1.625rem; font-weight: var(--graisse-grasse);
+  letter-spacing: -.02em; color: var(--texte-primaire);
+  text-decoration: none; flex: none; line-height: 1;
 }
-.logo__point { color: var(--actio-turquoise-fonce); }
+.logo__point {
+  display: inline-block; width: 3px; height: .62em; overflow: hidden;
+  background: var(--marque-bleu); border-radius: 1px;
+  transform: translateY(-.02em); color: transparent; text-indent: -999px;
+}
 .logo__baseline {
   display: block; font-family: var(--police-texte);
   font-size: var(--t-micro); font-weight: var(--graisse-moyenne);
@@ -344,11 +353,11 @@ p { margin: 0 0 var(--e-4); }
   border-radius: var(--rayon-2); white-space: nowrap;
 }
 .nav__lien:hover, .nav__lien[aria-expanded="true"] { background: var(--fond-surface-2); }
-.nav__lien[aria-current="page"] { color: var(--actio-bleu-palais); }
+.nav__lien[aria-current="page"] { color: var(--marque-bleu-fonce); }
 .nav__lien[aria-current="page"]::after {
   content: ""; position: absolute; left: clamp(6px, 0.85vw, 12px); right: clamp(6px, 0.85vw, 12px);
   bottom: 2px;
-  height: var(--trait-fort); background: var(--actio-bleu-palais); border-radius: 2px;
+  height: var(--trait-fort); background: var(--marque-bleu-fonce); border-radius: 2px;
 }
 .nav__chevron { width: 10px; height: 10px; transition: transform var(--mvt-rapide); }
 .nav__lien[aria-expanded="true"] .nav__chevron { transform: rotate(180deg); }
@@ -492,7 +501,7 @@ p { margin: 0 0 var(--e-4); }
 }
 .une__titre { font-size: var(--t-h1); }
 .une__titre a { color: inherit; text-decoration: none; }
-.une__titre a:hover { color: var(--actio-bleu-palais); }
+.une__titre a:hover { color: var(--marque-bleu-fonce); }
 .une__chapeau {
   font-size: var(--t-lead); line-height: var(--lh-moyen);
   color: var(--texte-secondaire); margin: 0;
@@ -564,13 +573,13 @@ p { margin: 0 0 var(--e-4); }
 .flux__etape:last-child::after { content: none; }
 .flux__num {
   font-family: var(--police-donnee); font-size: var(--t-micro);
-  font-weight: var(--graisse-grasse); color: var(--actio-bleu-palais);
+  font-weight: var(--graisse-grasse); color: var(--marque-bleu-fonce);
   letter-spacing: .08em;
 }
 .flux__nom { font-family: var(--police-titre); font-size: var(--t-h6); font-weight: var(--graisse-grasse); line-height: var(--lh-moyen); }
 .flux__detail { font-size: var(--t-micro); color: var(--texte-secondaire); line-height: var(--lh-dense); }
-.flux__etape--actuel { border-color: var(--actio-turquoise); background: var(--actio-turquoise-pale); }
-.flux__etape--actuel .flux__num { color: var(--actio-turquoise-fonce); }
+.flux__etape--actuel { border-color: var(--marque-bleu); background: var(--marque-bleu-pale); }
+.flux__etape--actuel .flux__num { color: var(--marque-bleu-fonce); }
 .flux__etape--futur { background: transparent; border-style: dashed; }
 .flux__etape--futur .flux__num { color: var(--texte-tertiaire); }
 
@@ -584,7 +593,7 @@ p { margin: 0 0 var(--e-4); }
   padding: var(--e-6); height: 100%;
 }
 .palier--n1 { border-top-color: var(--statut-conforme); }
-.palier--n2 { border-top-color: var(--actio-bleu-palais); }
+.palier--n2 { border-top-color: var(--marque-bleu-fonce); }
 .palier--n3 { border-top-color: var(--jur-ontario); }
 .palier__niveau {
   display: flex; align-items: center; gap: var(--e-2);
@@ -594,7 +603,7 @@ p { margin: 0 0 var(--e-4); }
 .palier__jauge { display: inline-flex; gap: 3px; }
 .palier__jauge i { width: 16px; height: 4px; border-radius: 2px; background: var(--bordure-forte); }
 .palier--n1 .palier__jauge i:nth-child(-n+1) { background: var(--statut-conforme); }
-.palier--n2 .palier__jauge i:nth-child(-n+2) { background: var(--actio-bleu-palais); }
+.palier--n2 .palier__jauge i:nth-child(-n+2) { background: var(--marque-bleu-fonce); }
 .palier--n3 .palier__jauge i:nth-child(-n+3) { background: var(--jur-ontario); }
 .palier__titre { font-size: var(--t-h5); }
 .palier__desc { font-size: var(--t-petit); color: var(--texte-secondaire); line-height: var(--lh-moyen); margin: 0; }
@@ -616,8 +625,8 @@ p { margin: 0 0 var(--e-4); }
 .infolettre::before {
   content: ""; position: absolute; inset: 0;
   background:
-    radial-gradient(60% 120% at 88% 8%, color-mix(in srgb, var(--actio-turquoise) 26%, transparent) 0%, transparent 60%),
-    radial-gradient(50% 100% at 4% 96%, color-mix(in srgb, var(--actio-bleu-palais-clair) 24%, transparent) 0%, transparent 60%);
+    radial-gradient(60% 120% at 88% 8%, color-mix(in srgb, var(--marque-bleu) 26%, transparent) 0%, transparent 60%),
+    radial-gradient(50% 100% at 4% 96%, color-mix(in srgb, var(--texte-lien) 24%, transparent) 0%, transparent 60%);
   pointer-events: none;
 }
 .infolettre__inner { position: relative; padding: var(--e-12) var(--e-10); }
@@ -840,7 +849,7 @@ p { margin: 0 0 var(--e-4); }
 .pro__liste { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--e-4); }
 .pro__liste li { display: grid; grid-template-columns: 22px 1fr; gap: var(--e-3); font-size: var(--t-petit); line-height: var(--lh-dense); }
 .pro__liste li::before {
-  content: "→"; font-family: var(--police-donnee); color: var(--actio-turquoise-fonce);
+  content: "→"; font-family: var(--police-donnee); color: var(--marque-bleu-fonce);
   font-weight: var(--graisse-grasse);
 }
 .pro__liste strong { color: var(--texte-primaire); }
@@ -866,3 +875,269 @@ p { margin: 0 0 var(--e-4); }
      54 px que sur une bande d'encre, une couleur fixe échouerait quelque part. */
   color: inherit; opacity: 1; white-space: nowrap;
 }
+
+/* ==========================================================================
+   19. Bandeau supérieur v2 — statut du marché et compteur de conformité
+   ========================================================================== */
+.marche {
+  display: inline-flex; align-items: center; gap: var(--e-2);
+  font-family: var(--police-donnee); font-size: var(--t-micro);
+  letter-spacing: .04em; text-transform: uppercase; color: var(--encre-texte-2);
+  white-space: nowrap;
+}
+.marche::before {
+  content: ""; width: 7px; height: 7px; border-radius: var(--rayon-plein);
+  background: var(--encre-hausse); flex: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--encre-hausse) 22%, transparent);
+}
+.marche--ferme::before { background: var(--encre-stable); box-shadow: none; }
+.conformite__compte {
+  font-family: var(--police-donnee); font-weight: var(--graisse-grasse);
+  color: var(--encre-accent); font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================================================
+   20. Recherche universelle — lois, avis, cryptoactifs
+   Un combobox accessible : champ + liste de suggestions groupées. L'index est
+   embarqué dans actio.js pour le prototype ; en production il est servi par
+   l'API de recherche du CMS.
+   ========================================================================== */
+.recherche { position: relative; flex: 1 1 220px; max-width: 420px; }
+.recherche__champ {
+  width: 100%; padding: 9px var(--e-3) 9px 36px;
+  font-size: var(--t-petit); background: var(--fond-surface-2);
+  border: var(--trait) solid var(--bordure); border-radius: var(--rayon-2);
+  color: var(--texte-primaire);
+}
+.recherche__champ::placeholder { color: var(--texte-tertiaire); }
+.recherche__champ:focus { background: var(--fond-surface); border-color: var(--marque-bleu); outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--marque-bleu) 22%, transparent); }
+.recherche__icone {
+  position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+  width: 15px; height: 15px; color: var(--texte-tertiaire); pointer-events: none;
+}
+.recherche__liste {
+  position: absolute; left: 0; right: 0; top: calc(100% + 6px); z-index: var(--z-menu);
+  background: var(--fond-surface); border: var(--trait) solid var(--bordure);
+  border-radius: var(--rayon-3); box-shadow: var(--ombre-3);
+  list-style: none; margin: 0; padding: var(--e-2) 0; max-height: 380px; overflow-y: auto;
+}
+.recherche__groupe {
+  padding: var(--e-3) var(--e-4) var(--e-1);
+  font-family: var(--police-texte); font-size: var(--t-micro); font-weight: var(--graisse-grasse);
+  letter-spacing: var(--interlettre-etiq); text-transform: uppercase; color: var(--texte-tertiaire);
+}
+.recherche__item {
+  display: grid; grid-template-columns: 1fr auto; gap: var(--e-3); align-items: center;
+  padding: var(--e-2) var(--e-4); cursor: pointer; font-size: var(--t-petit);
+}
+.recherche__item[aria-selected="true"], .recherche__item:hover { background: var(--fond-surface-2); }
+.recherche__item strong { color: var(--texte-primaire); font-weight: var(--graisse-demi); }
+.recherche__item span { display: block; color: var(--texte-tertiaire); font-size: var(--t-micro); margin-top: 1px; }
+.recherche__item kbd {
+  font-family: var(--police-donnee); font-size: var(--t-micro); color: var(--texte-tertiaire);
+  border: var(--trait) solid var(--bordure-forte); border-radius: var(--rayon-1); padding: 0 5px;
+}
+.recherche__vide { padding: var(--e-4); font-size: var(--t-petit); color: var(--texte-tertiaire); }
+
+/* ==========================================================================
+   21. Commutateur de juridiction — [Tout Canada | Québec | Ontario | International]
+   Il ne réordonne rien : il masque ce qui ne concerne pas le lecteur. Chaque
+   contenu porte data-jur="federal|quebec|ontario|multi|intl" ; le commutateur
+   pose data-juridiction sur <html> et la feuille fait le reste. « Tout Canada »
+   montre tout — c'est la vue par défaut, et la une doit y compter ses quatre
+   actualités ; « International » montre l'international et l'harmonisé.
+   ========================================================================== */
+.juridictions {
+  border-bottom: var(--trait) solid var(--bordure);
+  background: var(--fond-surface);
+}
+.juridictions__barre {
+  display: flex; align-items: center; gap: var(--e-4); min-height: 46px; flex-wrap: wrap;
+}
+.juridictions__libelle {
+  font-family: var(--police-texte); font-size: var(--t-micro); font-weight: var(--graisse-grasse);
+  letter-spacing: var(--interlettre-etiq); text-transform: uppercase; color: var(--texte-tertiaire);
+  white-space: nowrap;
+}
+.commutateur {
+  display: inline-flex; padding: 3px; gap: 2px;
+  background: var(--fond-surface-2); border: var(--trait) solid var(--bordure);
+  border-radius: var(--rayon-plein);
+}
+.commutateur__option {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 12px; border: 0; border-radius: var(--rayon-plein); cursor: pointer;
+  background: transparent; font-size: var(--t-petit); font-weight: var(--graisse-demi);
+  color: var(--texte-secondaire); white-space: nowrap;
+}
+.commutateur__option::before { content: ""; width: 8px; height: 8px; border-radius: 2px; transform: rotate(45deg); background: var(--jur-multi); }
+.commutateur__option[data-juridiction="quebec"]::before  { background: var(--jur-quebec); }
+.commutateur__option[data-juridiction="ontario"]::before { background: var(--jur-ontario); }
+.commutateur__option[data-juridiction="intl"]::before    { background: var(--jur-intl); }
+.commutateur__option:hover { color: var(--texte-primaire); }
+.commutateur__option[aria-pressed="true"] { background: var(--marque-navy); color: #FFFFFF; }
+.commutateur__option[aria-pressed="true"]::before { background: var(--marque-ambre); }
+.juridictions__note { font-size: var(--t-micro); color: var(--texte-tertiaire); margin-left: auto; }
+@media (max-width: 760px) { .juridictions__note { display: none; } .commutateur { overflow-x: auto; max-width: 100%; } }
+
+/* Le filtrage lui-même. Un contenu sans data-jur n'est jamais masqué. */
+:root[data-juridiction="quebec"]  [data-jur]:not([data-jur~="quebec"]):not([data-jur~="multi"]):not([data-jur~="federal"]) { display: none !important; }
+:root[data-juridiction="ontario"] [data-jur]:not([data-jur~="ontario"]):not([data-jur~="multi"]):not([data-jur~="federal"]) { display: none !important; }
+:root[data-juridiction="intl"]    [data-jur]:not([data-jur~="intl"]):not([data-jur~="multi"]) { display: none !important; }
+
+/* ==========================================================================
+   22. Hero v2 — 8 / 4, quatre actualités chaudes avec vignette et horodatage
+   ========================================================================== */
+.chaud { display: grid; gap: 0; align-content: start; }
+.chaud__titre {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--e-3);
+  font-family: var(--police-texte); font-size: var(--t-micro); font-weight: var(--graisse-grasse);
+  letter-spacing: var(--interlettre-etiq); text-transform: uppercase; color: var(--texte-tertiaire);
+  padding-bottom: var(--e-2); border-bottom: var(--trait-fort) solid var(--texte-primaire);
+}
+.chaud__direct { display: inline-flex; align-items: center; gap: 6px; color: var(--statut-alerte); text-transform: none; letter-spacing: 0; font-family: var(--police-donnee); }
+.chaud__direct::before { content: ""; width: 7px; height: 7px; border-radius: var(--rayon-plein); background: currentColor; animation: pulsation 1.6s ease-in-out infinite; }
+@keyframes pulsation { 0%,100% { opacity: 1 } 50% { opacity: .35 } }
+@media (prefers-reduced-motion: reduce) { .chaud__direct::before { animation: none; } }
+.actu {
+  display: grid; grid-template-columns: 84px 1fr; gap: var(--e-3); align-items: start;
+  padding: var(--e-4) 0; border-bottom: var(--trait) solid var(--bordure-douce); position: relative;
+}
+.actu:last-child { border-bottom: 0; }
+.actu__vignette {
+  width: 84px; aspect-ratio: 4 / 3; border-radius: var(--rayon-2); overflow: hidden;
+  background: var(--fond-surface-2); border: var(--trait) solid var(--bordure);
+  display: grid; place-items: center;
+}
+.actu__vignette svg { width: 100%; height: 100%; }
+.actu__titre { font-family: var(--police-titre); font-size: var(--t-h6); font-weight: var(--graisse-demi); line-height: var(--lh-moyen); }
+.actu__titre a { color: inherit; text-decoration: none; }
+.actu__titre a::after { content: ""; position: absolute; inset: 0; }
+.actu__titre a:hover { color: var(--texte-lien); }
+.actu__meta { display: flex; align-items: center; gap: var(--e-2); flex-wrap: wrap; margin-top: var(--e-1); font-family: var(--police-donnee); font-size: var(--t-micro); color: var(--texte-tertiaire); }
+.actu__meta time { color: var(--marque-ambre-fonce); font-weight: var(--graisse-demi); }
+
+/* ==========================================================================
+   23. Le Baromètre réglementaire — quatre statuts, quatre cartes
+   Une carte par statut de texte. Le statut est porté par la carte entière
+   (filet supérieur épais) et non par un simple badge : c'est l'information
+   première, avant même le titre.
+   ========================================================================== */
+.barometre { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--grille-gouttiere); }
+@media (max-width: 1100px) { .barometre { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px)  { .barometre { grid-template-columns: 1fr; } }
+.baro {
+  display: flex; flex-direction: column; gap: var(--e-3); position: relative;
+  background: var(--fond-surface); border: var(--trait) solid var(--bordure);
+  border-top: 4px solid var(--statut-info); border-radius: var(--rayon-2);
+  padding: var(--e-5); transition: box-shadow var(--mvt-moyen), transform var(--mvt-moyen);
+}
+.baro:hover, .baro:focus-within { box-shadow: var(--ombre-2); transform: translateY(-2px); }
+.baro--consultation { border-top-color: var(--statut-consultation); }
+.baro--avis         { border-top-color: var(--statut-info); }
+.baro--vigueur      { border-top-color: var(--statut-conforme); }
+.baro--garde        { border-top-color: var(--statut-alerte); }
+.baro__statut { display: flex; flex-direction: column; align-items: flex-start; gap: var(--e-2); }
+.baro__date { font-family: var(--police-donnee); font-size: var(--t-micro); color: var(--texte-tertiaire); }
+.baro__titre { font-family: var(--police-titre); font-size: var(--t-h5); font-weight: var(--graisse-demi); line-height: var(--lh-moyen); }
+.baro__titre a { color: inherit; text-decoration: none; }
+.baro__titre a:hover { color: var(--texte-lien); }
+.baro__impact {
+  font-size: var(--t-petit); line-height: var(--lh-dense); color: var(--texte-secondaire);
+  padding: var(--e-3) var(--e-4); background: var(--fond-surface-2); border-radius: var(--rayon-1);
+  border-left: var(--trait-editorial) solid var(--marque-ambre);
+}
+.baro__impact strong { display: block; font-family: var(--police-texte); font-size: var(--t-micro); font-weight: var(--graisse-grasse); letter-spacing: var(--interlettre-etiq); text-transform: uppercase; color: var(--marque-ambre-fonce); margin-bottom: 4px; }
+.baro__source {
+  margin-top: auto; padding-top: var(--e-3); border-top: var(--trait) solid var(--bordure-douce);
+  display: flex; align-items: center; justify-content: space-between; gap: var(--e-3);
+  font-size: var(--t-micro); font-family: var(--police-donnee);
+}
+.baro__source a { color: var(--texte-lien); text-decoration: none; font-weight: var(--graisse-demi); }
+.baro__source a:hover { text-decoration: underline; }
+.baro__source a::after { content: " ↗"; }
+.baro__verif { color: var(--statut-consultation); }
+
+/* ==========================================================================
+   24. L'Académie Actio — trois parcours horizontaux
+   ========================================================================== */
+.parcours-grille { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--grille-gouttiere); }
+@media (max-width: 1100px) { .parcours-grille { grid-template-columns: 1fr; } }
+.parcours {
+  display: grid; grid-template-columns: 96px 1fr; gap: var(--e-5); align-items: start;
+  background: var(--fond-surface); border: var(--trait) solid var(--bordure);
+  border-radius: var(--rayon-3); padding: var(--e-6); position: relative;
+  transition: border-color var(--mvt-moyen), box-shadow var(--mvt-moyen);
+}
+.parcours:hover, .parcours:focus-within { border-color: var(--marque-bleu); box-shadow: var(--ombre-2); }
+@media (max-width: 560px) { .parcours { grid-template-columns: 1fr; } }
+.parcours__glyphe {
+  width: 96px; height: 96px; border-radius: var(--rayon-3);
+  background: var(--marque-bleu-pale); display: grid; place-items: center;
+  color: var(--marque-bleu-fonce);
+}
+.parcours__glyphe svg { width: 52px; height: 52px; }
+.parcours--fiscal .parcours__glyphe { background: var(--marque-ambre-pale); color: var(--marque-ambre-fonce); }
+.parcours--ctp .parcours__glyphe { background: var(--statut-conforme-pale); color: var(--statut-conforme); }
+.parcours__niveau { display: inline-flex; align-items: center; gap: var(--e-2); font-family: var(--police-donnee); font-size: var(--t-micro); letter-spacing: .06em; text-transform: uppercase; color: var(--texte-tertiaire); margin-bottom: var(--e-2); }
+.parcours__titre { font-family: var(--police-titre); font-size: var(--t-h4); font-weight: var(--graisse-demi); line-height: var(--lh-serre); margin-bottom: var(--e-2); }
+.parcours__titre a { color: inherit; text-decoration: none; }
+.parcours__titre a::after { content: ""; position: absolute; inset: 0; }
+.parcours__desc { font-size: var(--t-petit); color: var(--texte-secondaire); line-height: var(--lh-moyen); margin: 0 0 var(--e-3); }
+.parcours__etapes { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; counter-reset: etape; }
+.parcours__etapes li { counter-increment: etape; display: grid; grid-template-columns: 22px 1fr; gap: var(--e-2); font-size: var(--t-petit); color: var(--texte-primaire); align-items: baseline; }
+.parcours__etapes li::before { content: counter(etape); font-family: var(--police-donnee); font-size: var(--t-micro); font-weight: var(--graisse-grasse); width: 20px; height: 20px; border-radius: var(--rayon-plein); background: var(--fond-surface-2); border: var(--trait) solid var(--bordure-forte); display: grid; place-items: center; color: var(--texte-secondaire); }
+.parcours__pied { margin-top: var(--e-4); display: flex; align-items: center; gap: var(--e-3); font-family: var(--police-donnee); font-size: var(--t-micro); color: var(--texte-tertiaire); }
+
+/* ==========================================================================
+   25. Comparateur transparent des plateformes
+   Tableau compact ; la méthodologie et la date d'arrêté sont AU-DESSUS du
+   tableau, pas en note de bas de page. Un chiffre non sourcé ne s'affiche pas.
+   ========================================================================== */
+.comparateur { border: var(--trait) solid var(--bordure); border-radius: var(--rayon-3); background: var(--fond-surface); overflow: hidden; }
+.comparateur__methode {
+  display: grid; grid-template-columns: 1fr auto; gap: var(--e-4); align-items: center;
+  padding: var(--e-4) var(--e-6); background: var(--fond-surface-2); border-bottom: var(--trait) solid var(--bordure);
+  font-size: var(--t-petit); color: var(--texte-secondary, var(--texte-secondaire)); line-height: var(--lh-dense);
+}
+@media (max-width: 760px) { .comparateur__methode { grid-template-columns: 1fr; } }
+.comparateur__arrete { font-family: var(--police-donnee); font-size: var(--t-micro); color: var(--texte-tertiaire); white-space: nowrap; text-align: right; }
+.comparateur__defilement { overflow-x: auto; }
+.comparateur table { width: 100%; border-collapse: collapse; font-size: var(--t-petit); min-width: 820px; }
+.comparateur thead th {
+  text-align: left; padding: var(--e-3) var(--e-4); background: var(--fond-surface);
+  font-size: var(--t-micro); font-weight: var(--graisse-grasse); letter-spacing: .04em; text-transform: uppercase;
+  color: var(--texte-secondaire); border-bottom: var(--trait-fort) solid var(--bordure-forte); white-space: nowrap;
+}
+.comparateur tbody th, .comparateur tbody td { padding: var(--e-4); vertical-align: middle; border-bottom: var(--trait) solid var(--bordure-douce); }
+.comparateur tbody tr:last-child > * { border-bottom: 0; }
+.comparateur tbody tr:hover { background: var(--fond-surface-2); }
+.comparateur th[scope="row"] { text-align: left; }
+.plateforme { display: flex; align-items: center; gap: var(--e-3); }
+.plateforme__logo {
+  width: 40px; height: 40px; border-radius: var(--rayon-2); flex: none;
+  background: var(--marque-navy); color: #FFFFFF; display: grid; place-items: center;
+  font-family: var(--police-titre); font-weight: var(--graisse-grasse); font-size: 1rem;
+}
+.plateforme__nom { font-weight: var(--graisse-demi); color: var(--texte-primaire); display: block; }
+.plateforme__type { font-family: var(--police-donnee); font-size: var(--t-micro); color: var(--texte-tertiaire); }
+.score { display: inline-flex; align-items: center; gap: var(--e-2); font-family: var(--police-donnee); font-variant-numeric: tabular-nums; }
+.score__etoiles { display: inline-flex; gap: 1px; color: var(--marque-ambre); }
+.score__etoiles svg { width: 14px; height: 14px; }
+.score__etoiles svg.vide { color: var(--bordure-forte); }
+.score__note { font-weight: var(--graisse-grasse); color: var(--texte-primaire); }
+.score__sur { color: var(--texte-tertiaire); }
+.donnee { font-family: var(--police-donnee); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.donnee--nd { color: var(--statut-consultation); font-size: var(--t-micro); }
+.comparateur__cta { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: var(--rayon-2); background: var(--fill-primaire); color: var(--fill-primaire-texte); font-size: var(--t-micro); font-weight: var(--graisse-grasse); text-decoration: none; white-space: nowrap; }
+.comparateur__cta:hover { background: var(--fill-primaire-survol); }
+.comparateur__pied { padding: var(--e-3) var(--e-6); border-top: var(--trait) solid var(--bordure-douce); font-size: var(--t-micro); color: var(--texte-tertiaire); line-height: 1.6; }
+
+/* ==========================================================================
+   26. Preuve sociale du bandeau d'abonnement
+   ========================================================================== */
+.infolettre__preuve-sociale { display: flex; align-items: center; gap: var(--e-3); margin-top: var(--e-5); font-size: var(--t-petit); color: var(--encre-texte-2); }
+.infolettre__avatars { display: inline-flex; }
+.infolettre__avatars span { width: 26px; height: 26px; border-radius: var(--rayon-plein); border: 2px solid var(--encre-fond); background: var(--encre-accent); color: var(--encre-accent-texte); font-family: var(--police-donnee); font-size: 10px; font-weight: 700; display: grid; place-items: center; margin-left: -8px; }
+.infolettre__avatars span:first-child { margin-left: 0; }
+.infolettre__preuve-sociale strong { color: var(--encre-texte); }

@@ -3,56 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Actio — Crypto asset regulation in Canada</title>
-<meta name="description" content="Actio analyses the regulatory, tax and prudential framework governing crypto assets in Canada. Coverage of the CSA, AMF, OSC, CIRO, FINTRAC and the CRA, for informed investors and compliance professionals.">
-<meta name="theme-color" content="#FAF8F4">
+<title>Actio — Crypto asset news, regulation and education in Canada</title>
+<meta name="description" content="Actio is Canada’s reference publication for crypto asset news, regulatory analysis, tax and education. CSA, AMF, OSC, CIRO, FINTRAC and the CRA, decoded for investors and compliance professionals.">
+<meta name="theme-color" content="#F8FAFC">
 <link rel="alternate" hreflang="fr-CA" href="/fr/">
 <link rel="alternate" hreflang="en-CA" href="/en/">
 <link rel="alternate" hreflang="x-default" href="/fr/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <script>
 (function(){try{var t=localStorage.getItem('actio.theme');
-if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);
+var j=localStorage.getItem('actio.juridiction');if(j)document.documentElement.setAttribute('data-juridiction',j);}catch(e){}})();
 </script>
 <link rel="stylesheet" href="../assets/tokens.css">
 <link rel="stylesheet" href="../assets/actio.css">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230F3D68'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' font-weight='700' fill='%23FAF8F4' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230F172A'/%3E%3Ctext x='29' y='45' font-family='Georgia,serif' font-size='38' font-weight='700' fill='%23F8FAFC' text-anchor='middle'%3EA%3C/text%3E%3Crect x='46' y='24' width='4' height='20' rx='1' fill='%232563EB'/%3E%3C/svg%3E">
 </head>
 <body>
 
 <a class="evitement" href="#principal">Skip to main content</a>
 
 <div class="demo" role="note">
-  <strong>Editorial prototype</strong> — The items below are <em>demonstration mock-ups</em> written
-  from real regulatory facts as at 4 September 2026. None has been reviewed by counsel or published.
-  Article links marked <span class="langue-alt" lang="fr-CA">(FR)</span> lead to the French version, which is the only
-  one written: Actio never publishes in English ahead of French.
+  <strong>Editorial prototype</strong> — The items below are <em>demonstration mock-ups</em> written from regulatory facts as at 4 September 2026, not read at source. Comparator figures are illustrative and marked as such. Article links marked <span class="langue-alt" lang="fr-CA">(FR)</span> lead to the French version, the only one written: Actio never publishes in English ahead of French. See the <a href="../../docs/annexes/registre-de-verification.md" hreflang="fr-CA">verification register <span class="langue-alt" lang="fr-CA">(FR)</span></a>.
 </div>
 
 <div class="cotations">
   <div class="contenant">
-    <div class="cotations__piste" role="region" aria-label="Key asset prices and regulatory status">
-      <span class="etiquette etiquette--demo" style="margin-right:4px" data-arrete>Demo</span>
-      <span class="cours"><span class="cours__sym">BTC/CAD</span>
-        <span class="cours__val" data-arrete>—</span>
-        <span class="cours__var cours__var--stable"><span class="vh">change: </span>n/a</span></span>
-      <span class="cours"><span class="cours__sym">ETH/CAD</span>
-        <span class="cours__val" data-arrete>—</span>
-        <span class="cours__var cours__var--stable"><span class="vh">change: </span>n/a</span></span>
-      <span class="cours"><span class="cours__sym">SOL/CAD</span>
-        <span class="cours__val" data-arrete>—</span>
-        <span class="cours__var cours__var--stable"><span class="vh">change: </span>n/a</span></span>
-      <span class="cours"><span class="cours__sym">CAD/USD</span>
-        <span class="cours__val" data-arrete>—</span>
-        <span class="cours__var cours__var--stable"><span class="vh">change: </span>n/a</span></span>
-      <span class="cours" style="color:var(--encre-stable)">
-        <span class="cours__sym">Market feed</span><span class="cours__val">not connected</span>
-      </span>
-      <a class="conformite" href="../fr/registre.html" hreflang="fr-CA">
+    <div class="cotations__piste" role="region" aria-label="Live prices and regulatory status">
+      <span class="etiquette etiquette--demo" data-arrete>Demo</span>
+      <span class="cours"><span class="cours__sym">BTC/CAD</span><span class="cours__val" data-arrete>—</span><span class="cours__var cours__var--stable"><span class="vh">24h change: </span>n/a</span></span>
+      <span class="cours"><span class="cours__sym">ETH/CAD</span><span class="cours__val" data-arrete>—</span><span class="cours__var cours__var--stable"><span class="vh">24h change: </span>n/a</span></span>
+      <span class="cours"><span class="cours__sym">SOL/CAD</span><span class="cours__val" data-arrete>—</span><span class="cours__var cours__var--stable"><span class="vh">24h change: </span>n/a</span></span>
+      <span class="marche" title="Crypto asset markets trade continuously. The status reflects feed availability, not a trading session.">Market open 24/7 · feed not connected</span>
+      <a class="conformite" href="../fr/registre.html" hreflang="fr-CA" title="Crypto asset trading platforms registered with a CSA member. Counter fed by register sync — empty in this prototype.">
         <span class="conformite__pastille" aria-hidden="true"></span>
-        <span>Platform register <span class="langue-alt" lang="fr-CA">(FR)</span></span>
+        <span>CSA-registered platforms: <span class="conformite__compte" data-registre-compte>—</span> authorized to date <span class="langue-alt" lang="fr-CA">(FR)</span></span>
       </a>
     </div>
   </div>
@@ -61,26 +48,22 @@ if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)
 <header class="entete">
   <div class="contenant">
     <div class="entete__barre">
-      <a class="logo" href="index.html" aria-label="Actio, home"><span>Actio<span class="logo__point">.</span></span></a>
-
-      <button class="burger" type="button" data-menu-mobile aria-expanded="false"
-              aria-controls="nav-principale" aria-label="Open menu">
-        <span class="burger__trait" aria-hidden="true"></span>
-      </button>
-
+      <a class="logo" href="index.html" aria-label="Actio, home"><span>Actio</span><span class="logo__point" aria-hidden="true">|</span></a>
+      <button class="burger" type="button" data-menu-mobile aria-expanded="false" aria-controls="nav-principale" aria-label="Open menu"><span class="burger__trait" aria-hidden="true"></span></button>
       <nav class="nav" id="nav-principale" aria-label="Main navigation">
-        <button class="nav__lien" type="button" aria-expanded="false" aria-controls="mm-regulation"
-                data-menu-declencheur style="background:none;border:0;cursor:pointer;font:inherit">
-          <span>Regulation &amp; CSA</span>
-          <svg class="nav__chevron" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
-        </button>
-        <a class="nav__lien" href="#marches">Markets &amp; Macro</a>
-        <a class="nav__lien" href="#guides">Guides &amp; Education</a>
-        <a class="nav__lien" href="#fiscalite">Canadian Taxation</a>
-        <a class="nav__lien" href="#pro">Actio Pro</a>
+        <button class="nav__lien" type="button" aria-expanded="false" aria-controls="mm-actualites" data-menu-declencheur style="background:none;border:0;cursor:pointer;font:inherit"><span>News &amp; Regulation</span><svg class="nav__chevron" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <button class="nav__lien" type="button" aria-expanded="false" aria-controls="mm-academie" data-menu-declencheur style="background:none;border:0;cursor:pointer;font:inherit"><span>Academy</span><svg class="nav__chevron" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        <a class="nav__lien" href="#comparateur">Comparisons</a>
+        <a class="nav__lien" href="#fiscalite">Tax &amp; Law</a>
+        <a class="nav__lien" href="#research">Actio Research</a>
       </nav>
-
       <div class="entete__actions">
+        <div class="recherche" data-recherche>
+          <svg class="recherche__icone" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 13l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <label class="vh" for="recherche-globale">Search a notice, an authority, a crypto asset</label>
+          <input class="recherche__champ" id="recherche-globale" type="search" placeholder="Act, notice, crypto asset…" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="recherche-globale-liste" autocomplete="off">
+          <ul class="recherche__liste" id="recherche-globale-liste" role="listbox" hidden></ul>
+        </div>
         <div class="selecteur" role="group" aria-label="Site language">
           <a href="../fr/index.html" hreflang="fr-CA" lang="fr-CA">FR</a>
           <a href="index.html" hreflang="en-CA" lang="en-CA" aria-current="true">EN</a>
@@ -90,754 +73,170 @@ if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t)
           <button type="button" data-action="theme" data-theme="auto" aria-pressed="true" title="Match system">A</button>
           <button type="button" data-action="theme" data-theme="dark" aria-pressed="false" title="Dark mode">☾</button>
         </div>
-        <a class="btn btn--pro" href="#infolettre">Subscribe</a>
+        <a class="btn btn--pro" href="#infolettre">Subscribe to the newsletter</a>
       </div>
     </div>
   </div>
 
-  <div class="megamenu" id="mm-regulation" hidden>
-    <div class="contenant">
-      <div class="grille megamenu__grille">
-        <div class="col-3 megamenu__colonne">
-          <h3>By authority</h3>
-          <ul class="megamenu__liste">
-            <li><a href="#">CSA — staff notices</a></li>
-            <li><a href="#">AMF — Quebec</a></li>
-            <li><a href="#">OSC — Ontario</a></li>
-            <li><a href="#">CIRO — self-regulation</a></li>
-            <li><a href="#">FINTRAC — AML/ATF</a></li>
-            <li><a href="#">Bank of Canada — payments</a></li>
-          </ul>
-        </div>
-        <div class="col-3 megamenu__colonne">
-          <h3>By instrument</h3>
-          <ul class="megamenu__liste">
-            <li><a href="#">Staff notice</a></li>
-            <li><a href="#">Public consultation</a></li>
-            <li><a href="#">Decision and sanction</a></li>
-            <li><a href="#">Investor warning</a></li>
-            <li><a href="#">Rule and amendment</a></li>
-            <li><a href="#">Discretionary exemption</a></li>
-          </ul>
-        </div>
-        <div class="col-3 megamenu__colonne">
-          <h3>By jurisdiction</h3>
-          <ul class="megamenu__liste">
-            <li><a href="#">Federal / Ottawa</a></li>
-            <li><a href="#">Quebec</a></li>
-            <li><a href="#">Ontario</a></li>
-            <li><a href="#">CSA-harmonized</a></li>
-            <li><a href="#">International</a></li>
-          </ul>
-        </div>
-        <div class="col-3 megamenu__vedette">
-          <span class="badge badge--info" style="margin-bottom:12px">Standing file</span>
-          <h3 style="font-family:var(--police-titre);font-size:var(--t-h5);text-transform:none;letter-spacing:normal;color:var(--texte-primaire);margin-bottom:8px">
-            Winding down the restricted dealer regime
-          </h3>
-          <p style="font-size:var(--t-petit);color:var(--texte-secondaire);margin:0">
-            Continuing coverage of platforms migrating to investment dealer registration and CIRO
-            membership, announced by the CSA on 6 August 2024.
-          </p>
-        </div>
-      </div>
-    </div>
+  <div class="megamenu" id="mm-actualites" hidden>
+    <div class="contenant"><div class="grille megamenu__grille">
+      <div class="col-3 megamenu__colonne"><h3>Federal</h3><ul class="megamenu__liste"><li><a href="#">FINTRAC and anti-money laundering</a></li><li><a href="#">Bank of Canada and retail payments</a></li><li><a href="#">Federal stablecoin legislation</a></li><li><a href="#">Canada Gazette — proposed regulations</a></li></ul></div>
+      <div class="col-3 megamenu__colonne"><h3>Provincial</h3><ul class="megamenu__liste"><li><a href="#">AMF — Quebec</a></li><li><a href="#">OSC — Ontario</a></li><li><a href="#">CSA — harmonized notices</a></li><li><a href="#">CIRO — self-regulation</a></li></ul></div>
+      <div class="col-3 megamenu__colonne"><h3>Legal affairs &amp; litigation</h3><ul class="megamenu__liste"><li><a href="#">TMF and OSC decisions</a></li><li><a href="#">Investor warnings and orders</a></li><li><a href="#">Platform insolvencies</a></li><li><a href="#">Class actions</a></li></ul></div>
+      <div class="col-3 megamenu__colonne"><h3>Staking &amp; institutional ETFs</h3><ul class="megamenu__liste"><li><a href="#">Canadian-listed crypto ETFs</a></li><li><a href="#">Staking inside funds</a></li><li><a href="#">Institutional custody</a></li><li><a href="#">Flows and adoption</a></li></ul></div>
+    </div></div>
+  </div>
+  <div class="megamenu" id="mm-academie" hidden>
+    <div class="contenant"><div class="grille megamenu__grille">
+      <div class="col-3 megamenu__colonne"><h3>Beginner</h3><ul class="megamenu__liste"><li><a href="#">Understanding the blockchain</a></li><li><a href="#">First purchase by Interac e-Transfer</a></li><li><a href="#">Choosing a registered platform</a></li><li><a href="#">Securing your account</a></li></ul></div>
+      <div class="col-3 megamenu__colonne"><h3>Intermediate</h3><ul class="megamenu__liste"><li><a href="#">Decentralized finance (DeFi)</a></li><li><a href="#">Self-custody and cold storage</a></li><li><a href="#">Staking: mechanics and risks</a></li><li><a href="#">Reading a registration decision</a></li></ul></div>
+      <div class="col-3 megamenu__colonne"><h3>Advanced</h3><ul class="megamenu__liste"><li><a href="#">Smart contracts</a></li><li><a href="#">Running a validator node</a></li><li><a href="#">AML/ATF compliance for a platform</a></li><li><a href="#">Digital asset custody (CIRO framework)</a></li></ul></div>
+      <div class="col-3 megamenu__vedette"><span class="badge badge--info" style="margin-bottom:12px">Glossary</span><h3 style="font-family:var(--police-titre);font-size:var(--t-h5);text-transform:none;letter-spacing:normal;color:var(--texte-primaire);margin-bottom:8px">The bilingual Actio glossary</h3><p style="font-size:var(--t-petit);color:var(--texte-secondaire);margin:0">Crypto asset, restricted dealer, pre-registration undertaking, value-referenced crypto asset: the regulators’ official terminology, in French and Canadian English.</p></div>
+    </div></div>
   </div>
 </header>
 
+<div class="juridictions"><div class="contenant"><div class="juridictions__barre">
+  <span class="juridictions__libelle">My jurisdiction</span>
+  <div class="commutateur" role="group" aria-label="Filter by jurisdiction">
+    <button type="button" class="commutateur__option" data-action="juridiction" data-juridiction="canada" aria-pressed="true">All Canada</button>
+    <button type="button" class="commutateur__option" data-action="juridiction" data-juridiction="quebec" aria-pressed="false">Quebec (AMF)</button>
+    <button type="button" class="commutateur__option" data-action="juridiction" data-juridiction="ontario" aria-pressed="false">Ontario (OSC)</button>
+    <button type="button" class="commutateur__option" data-action="juridiction" data-juridiction="intl" aria-pressed="false">International</button>
+  </div>
+  <span class="juridictions__note">The filter hides what does not apply in your province. It does not rank, and it recommends nothing.</span>
+</div></div></div>
+
 <main id="principal">
 <div class="contenant">
-
-<h1 class="vh">Actio — Canadian crypto asset law, decoded</h1>
+<h1 class="vh">Actio — crypto asset news, regulation and education in Canada</h1>
 
 <section class="une grille" aria-labelledby="titre-une">
   <h2 id="titre-une" class="vh">Top story</h2>
-
-  <article class="col-7 une__principal">
-    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
-      <a class="rubrique" href="#regulation">Regulation &amp; CSA</a>
-      <span class="badge badge--alerte">Decision</span>
-      <span class="juridiction juridiction--quebec">Quebec · TMF</span>
-    </div>
-
-    <h3 class="une__titre">
-      <a href="../fr/article.html" hreflang="fr-CA">After <i>Gagnon</i>, where does the investment
-      contract stop for Quebec’s finfluencers? <span class="langue-alt" lang="fr-CA">(FR)</span></a>
-    </h3>
-
-    <p class="une__chapeau">
-      On 22 August 2025, Quebec’s Financial Markets Administrative Tribunal held that managing
-      investors’ ether in exchange for 20&nbsp;% of the profits is an investment contract — but that
-      selling a subscription to trading signals is not. That dividing line, narrower than the
-      Autorité des marchés financiers has historically drawn it, redistributes the unregistered
-      trading risk across an entire creator economy.
-    </p>
-
-    <div class="une__visuel" role="img"
-         aria-label="Diagram: the line the tribunal drew between managing other people’s money and selling information.">
-      <svg viewBox="0 0 720 400" style="width:100%;height:100%" aria-hidden="true"
-           fill="none" color="var(--encre-texte)">
-        <defs>
-          <pattern id="q" width="28" height="28" patternUnits="userSpaceOnUse">
-            <path d="M28 0H0v28" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="1"/>
-          </pattern>
-        </defs>
+  <article class="col-8 une__principal" data-jur="multi federal">
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center"><a class="rubrique" href="#barometre">News &amp; Regulation</a><span class="badge badge--consultation">Public consultation</span><span class="juridiction juridiction--multi">CSA · Federal</span></div>
+    <h3 class="une__titre"><a href="../fr/article.html" hreflang="fr-CA">Stablecoins: between CSA Staff Notice 21-333 and the federal Act, who decides what a Quebecer or an Ontarian may buy? <span class="langue-alt" lang="fr-CA">(FR)</span></a></h3>
+    <p class="une__chapeau">The federal stablecoin legislation is enacted but not in force; the CSA’s interim regime, meanwhile, still dictates to platforms which dollar-referenced tokens they may offer. Two regimes, two logics, and one question no published text settles, as far as our newsroom has found: which prevails when they conflict. For investors and compliance teams.</p>
+    <div class="une__visuel" role="img" aria-label="Diagram: two regimes stacked on the same token — the federal prudential regime, enacted but not in force, and the CSA interim regime, in force.">
+      <svg viewBox="0 0 720 400" style="width:100%;height:100%" aria-hidden="true" fill="none">
+        <defs><pattern id="q" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0v28" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1"/></pattern></defs>
         <rect width="720" height="400" fill="url(#q)"/>
-        <line x1="360" y1="40" x2="360" y2="360" stroke="rgba(255,255,255,.55)" stroke-width="2" stroke-dasharray="8 8"/>
-        <text x="176" y="120" fill="var(--encre-texte)" font-family="Georgia,serif" font-size="21" text-anchor="middle">Contribution of funds</text>
-        <text x="176" y="150" fill="var(--encre-texte)" font-family="Georgia,serif" font-size="21" text-anchor="middle">+ managed by a third party</text>
-        <text x="176" y="180" fill="var(--encre-texte)" font-family="Georgia,serif" font-size="21" text-anchor="middle">+ profit sharing</text>
-        <rect x="76" y="216" width="200" height="34" rx="6" fill="var(--statut-alerte-fixe)"/>
-        <text x="176" y="239" fill="#FFFFFF" font-family="Inter,sans-serif" font-size="14" font-weight="700" text-anchor="middle" letter-spacing="1.2">INVESTMENT CONTRACT</text>
-        <text x="544" y="135" fill="var(--encre-texte)" font-family="Georgia,serif" font-size="21" text-anchor="middle">Paid subscription</text>
-        <text x="544" y="165" fill="var(--encre-texte)" font-family="Georgia,serif" font-size="21" text-anchor="middle">to trading signals</text>
-        <rect x="452" y="216" width="184" height="34" rx="6" fill="var(--encre-accent)"/>
-        <text x="544" y="239" fill="var(--encre-accent-texte)" font-family="Inter,sans-serif" font-size="14" font-weight="700" text-anchor="middle" letter-spacing="1.2">OUT OF SCOPE</text>
-        <text x="360" y="330" fill="var(--encre-texte-2)" font-family="IBM Plex Mono,monospace" font-size="12" text-anchor="middle">TMF · 22 August 2025 · the investor’s decision-making autonomy</text>
+        <rect x="60" y="60" width="600" height="120" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.35)" stroke-dasharray="6 6" stroke-width="2"/>
+        <text x="84" y="96" fill="var(--encre-texte)" font-family="Newsreader,Georgia,serif" font-size="22">Federal regime — Bank of Canada</text>
+        <text x="84" y="126" fill="var(--encre-texte-2)" font-family="Plus Jakarta Sans,sans-serif" font-size="15">Act passed · orders and regulations not made</text>
+        <rect x="84" y="140" width="190" height="26" rx="4" fill="var(--fill-alerte)"/>
+        <text x="179" y="158" fill="#FFFFFF" font-family="Plus Jakarta Sans,sans-serif" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="1">ENACTED ≠ IN FORCE</text>
+        <rect x="60" y="220" width="600" height="120" rx="8" fill="rgba(255,255,255,.1)" stroke="var(--encre-accent)" stroke-width="2"/>
+        <text x="84" y="256" fill="var(--encre-texte)" font-family="Newsreader,Georgia,serif" font-size="22">Interim regime — CSA Staff Notice 21-333</text>
+        <text x="84" y="286" fill="var(--encre-texte-2)" font-family="Plus Jakarta Sans,sans-serif" font-size="15">In force · terms imposed platform by platform</text>
+        <rect x="84" y="300" width="110" height="26" rx="4" fill="var(--encre-accent)"/>
+        <text x="139" y="318" fill="var(--encre-accent-texte)" font-family="Plus Jakarta Sans,sans-serif" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="1">IN FORCE</text>
+        <text x="360" y="378" fill="var(--encre-texte-2)" font-family="JetBrains Mono,monospace" font-size="12" text-anchor="middle">one token · two authorities · no published conflict rule</text>
       </svg>
     </div>
-
-    <div class="une__signature">
-      <span><strong>Marie-Claude Fortin</strong>, securities lawyer</span>
-      <span class="juridiction juridiction--quebec">AMF / Quebec</span>
-      <time datetime="2026-09-03">3 September 2026</time>
-      <span class="lecture">11 min</span>
-    </div>
+    <div class="une__signature"><span><strong>Marie-Claude Fortin</strong>, securities lawyer</span><span class="juridiction juridiction--multi">CSA / Federal</span><time datetime="2026-09-04">4 September 2026</time><span class="lecture">9 min</span></div>
   </article>
 
-  <div class="col-5 breves">
-    <h3 class="breves__titre">The regulatory wire</h3>
-
-    <article class="breve">
-      <div class="breve__meta">
-        <span class="badge badge--consultation">Consultation</span>
-        <span class="juridiction juridiction--federal">Federal</span>
-      </div>
-      <h4 class="breve__titre">
-        <a href="../fr/article.html" hreflang="fr-CA">Value-referenced crypto assets: the Bank of
-        Canada opens consultations on regulations under the Act passed in March
-        <span class="langue-alt" lang="fr-CA">(FR)</span></a>
-      </h4>
-      <p class="carte__resume">
-        The federal prudential regime for issuers of fiat-backed crypto assets remains suspended
-        pending its orders in council. At stake: how it will sit alongside CSA Staff Notice 21-333,
-        still in force.
-      </p>
-      <div class="breve__meta"><time datetime="2026-09-04">4 Sept.</time><span>· 4 min</span></div>
-    </article>
-
-    <article class="breve">
-      <div class="breve__meta">
-        <span class="badge badge--info">Notice</span>
-        <span class="juridiction juridiction--multi">Harmonized</span>
-      </div>
-      <h4 class="breve__titre">
-        <a href="../fr/article.html" hreflang="fr-CA">Digital asset custody: what CIRO’s framework
-        changes for mid-sized dealers <span class="langue-alt" lang="fr-CA">(FR)</span></a>
-      </h4>
-      <p class="carte__resume">
-        Tiering acceptable custodians, with declining limits and capital requirements, constrains
-        self-custody. Three business models become hard to sustain.
-      </p>
-      <div class="breve__meta"><time datetime="2026-09-02">2 Sept.</time><span>· 6 min</span></div>
-    </article>
-
-    <article class="breve">
-      <div class="breve__meta">
-        <span class="badge badge--alerte">Warning</span>
-        <span class="juridiction juridiction--quebec">Quebec</span>
-      </div>
-      <h4 class="breve__titre">
-        <a href="../fr/article.html" hreflang="fr-CA">Blocking access to unregistered platforms: a
-        tool gaining ground, and its legal limits <span class="langue-alt" lang="fr-CA">(FR)</span></a>
-      </h4>
-      <p class="carte__resume">
-        After XT.com and CoinEx, orders directed at telecommunications carriers are becoming part of
-        the AMF’s standing toolkit. Proportionality and review remain open questions.
-      </p>
-      <div class="breve__meta"><time datetime="2026-08-31">31 Aug.</time><span>· 5 min</span></div>
-    </article>
+  <div class="col-4 chaud">
+    <h3 class="chaud__titre"><span>Breaking</span><span class="chaud__direct">Live</span></h3>
+    <article class="actu" data-jur="quebec"><div class="actu__vignette" aria-hidden="true"><svg viewBox="0 0 84 63"><rect width="84" height="63" fill="var(--jur-quebec)" opacity=".18"/><path d="M14 44l14-16 12 10 16-20 14 14" stroke="var(--jur-quebec)" stroke-width="3" fill="none"/></svg></div><div><h4 class="actu__titre"><a href="../fr/article.html" hreflang="fr-CA">Access blocking: the AMF obtains a new order against an unregistered platform <span class="langue-alt" lang="fr-CA">(FR)</span></a></h4><div class="actu__meta"><time data-relatif datetime="2026-09-04T13:42:00-04:00">18 min ago</time><span>· Quebec</span></div></div></article>
+    <article class="actu" data-jur="federal"><div class="actu__vignette" aria-hidden="true"><svg viewBox="0 0 84 63"><rect width="84" height="63" fill="var(--jur-federal)" opacity=".18"/><rect x="18" y="18" width="48" height="28" rx="3" stroke="var(--jur-federal)" stroke-width="3" fill="none"/><path d="M18 30h48" stroke="var(--jur-federal)" stroke-width="3"/></svg></div><div><h4 class="actu__titre"><a href="../fr/article.html" hreflang="fr-CA">FINTRAC: new wave of money services business registration revocations <span class="langue-alt" lang="fr-CA">(FR)</span></a></h4><div class="actu__meta"><time data-relatif datetime="2026-09-04T12:55:00-04:00">1 h ago</time><span>· Federal</span></div></div></article>
+    <article class="actu" data-jur="ontario"><div class="actu__vignette" aria-hidden="true"><svg viewBox="0 0 84 63"><rect width="84" height="63" fill="var(--jur-ontario)" opacity=".18"/><circle cx="42" cy="31" r="14" stroke="var(--jur-ontario)" stroke-width="3" fill="none"/><path d="M42 21v10l7 5" stroke="var(--jur-ontario)" stroke-width="3" fill="none"/></svg></div><div><h4 class="actu__titre"><a href="../fr/article.html" hreflang="fr-CA">Toronto-listed bitcoin ETFs: weekly net inflows turn positive again <span class="langue-alt" lang="fr-CA">(FR)</span></a></h4><div class="actu__meta"><time data-relatif datetime="2026-09-04T10:20:00-04:00">3 h ago</time><span>· Ontario · TSX</span></div></div></article>
+    <article class="actu" data-jur="intl"><div class="actu__vignette" aria-hidden="true"><svg viewBox="0 0 84 63"><rect width="84" height="63" fill="var(--jur-intl)" opacity=".18"/><circle cx="42" cy="31" r="15" stroke="var(--jur-intl)" stroke-width="3" fill="none"/><path d="M27 31h30M42 16c-6 8-6 22 0 30M42 16c6 8 6 22 0 30" stroke="var(--jur-intl)" stroke-width="2.5" fill="none"/></svg></div><div><h4 class="actu__titre"><a href="../fr/article.html" hreflang="fr-CA">OECD Crypto-Asset Reporting Framework: what automatic exchange will change for the CRA <span class="langue-alt" lang="fr-CA">(FR)</span></a></h4><div class="actu__meta"><time data-relatif datetime="2026-09-03T17:05:00-04:00">Yesterday</time><span>· International</span></div></div></article>
   </div>
 </section>
 
-<section class="section" id="regulation" aria-labelledby="titre-regulation">
-  <div class="section__entete">
-    <div>
-      <span class="section__sur">Primary sources decoded</span>
-      <h2 class="section__titre" id="titre-regulation">Regulation &amp; institutional analysis</h2>
-    </div>
-    <a class="section__lien" href="#">All analyses</a>
-  </div>
-
-  <div class="grille">
-    <article class="carte col-4">
-      <div class="carte__meta">
-        <span class="badge badge--consultation">Public consultation</span>
-        <span class="juridiction juridiction--multi">CSA</span>
-      </div>
-      <h3 class="carte__titre"><a href="../fr/article.html" hreflang="fr-CA">Crypto asset trading:
-        the CSA consults on the permanent regime meant to replace staff notices
-        <span class="langue-alt" lang="fr-CA">(FR)</span></a></h3>
-      <p class="carte__resume">
-        Five years after Staff Notice 21-327, platform oversight still rests on a stack of notices,
-        terms of registration and discretionary exemptions — with no published rule.
-      </p>
-      <div class="carte__synthese">
-        <strong>Executive summary.</strong> Legal uncertainty has become the industry’s central
-        argument: a staff notice is not a rule, is not subject to the publication process, and sits
-        awkwardly with judicial review. Three options are on the table: a standalone platform rule,
-        an extension of NI 31-103 through a dedicated registration category, or transferring
-        rule-making wholesale to CIRO. The third is the fastest and the least democratic: it hands a
-        self-regulatory organization the power to set substantive prudential requirements.
-      </div>
-      <div class="carte__pied"><span>Analysis</span><span>9 min</span><span>2 Sept. 2026</span></div>
-    </article>
-
-    <article class="carte col-4">
-      <div class="carte__meta">
-        <span class="badge badge--info">Staff notice</span>
-        <span class="juridiction juridiction--multi">CSA · CIRO</span>
-      </div>
-      <h3 class="carte__titre"><a href="../fr/article.html" hreflang="fr-CA">Advertising and
-        influencer marketing: Staff Notice 21-330 wakes up <span class="langue-alt" lang="fr-CA">(FR)</span></a></h3>
-      <p class="carte__resume">
-        Issued in September 2021 and long left dormant, the joint notice on advertising, marketing
-        and social media is becoming an enforcement instrument again.
-      </p>
-      <div class="carte__synthese">
-        <strong>Executive summary.</strong> The notice targets three practices: unsupported
-        performance claims, contests and sign-up bonuses that function as inducements to trade, and
-        undisclosed payments to content creators. The difficulty is attachment: the influencer is
-        not registered, but the platform paying them is — and answers for communications made on its
-        behalf. For a publication the consequence is direct: any payment received from a platform
-        must be disclosed in the body of the content itself, not on a disclosures page.
-      </div>
-      <div class="carte__pied"><span>Analysis</span><span>7 min</span><span>29 Aug. 2026</span></div>
-    </article>
-
-    <article class="carte col-4">
-      <div class="carte__meta">
-        <span class="badge badge--info">Staff notice</span>
-        <span class="juridiction juridiction--multi">CSA</span>
-      </div>
-      <h3 class="carte__titre"><a href="../fr/article.html" hreflang="fr-CA">Crypto-backed lending:
-        why the CSA reminder also reaches passive yield <span class="langue-alt" lang="fr-CA">(FR)</span></a></h3>
-      <p class="carte__resume">
-        The 22 October 2025 release extends the regulators’ reading beyond trading: secured lending,
-        staking and yield products fall within scope.
-      </p>
-      <div class="carte__synthese">
-        <strong>Executive summary.</strong> The reasoning remains that of Staff Notice 21-327: where
-        the client cannot immediately and freely deal with the asset, the relationship takes the form
-        of a contract governed by securities law. Applied to secured lending, that means offering
-        liquidity against pledged crypto assets may require registration, and possibly a prospectus.
-        Three questions stay open: non-custodial staking, decentralized protocols with no
-        identifiable issuer, and the interaction with the federal retail payments regime.
-      </div>
-      <div class="carte__pied"><span>Analysis</span><span>8 min</span><span>26 Aug. 2026</span></div>
-    </article>
+<section class="section" id="barometre" aria-labelledby="titre-barometre">
+  <div class="section__entete"><div><span class="section__sur">Actio exclusive</span><h2 class="section__titre" id="titre-barometre">The Regulatory Barometer</h2></div><a class="section__lien" href="#">All tracked instruments</a></div>
+  <div class="barometre">
+    <article class="baro baro--consultation" data-jur="federal"><div class="baro__statut"><span class="badge badge--consultation">Public consultation</span><span class="baro__date">Closing: to be confirmed</span></div><h3 class="baro__titre"><a href="../fr/article.html" hreflang="fr-CA">Regulations under the federal stablecoin Act <span class="langue-alt" lang="fr-CA">(FR)</span></a></h3><div class="baro__impact"><strong>Investor impact</strong>None today: the Act is passed, not in force. An issuer preparing registration must build on two regimes — the federal one to come and Notice 21-333 in force.</div><div class="baro__source"><a href="https://gazette.gc.ca/" rel="external noopener">Canada Gazette, Part I</a><span class="baro__verif">[to verify]</span></div></article>
+    <article class="baro baro--avis" data-jur="multi"><div class="baro__statut"><span class="badge badge--info">New CSA staff notice</span><span class="baro__date">22 Oct. 2025</span></div><h3 class="baro__titre"><a href="../fr/article.html" hreflang="fr-CA">Crypto-backed lending: reminder of registration and prospectus obligations <span class="langue-alt" lang="fr-CA">(FR)</span></a></h3><div class="baro__impact"><strong>Investor impact</strong>Liquidity offered against pledged crypto assets may be a distribution. Check that the lending platform is registered in your province before depositing an asset.</div><div class="baro__source"><a href="https://www.securities-administrators.ca/" rel="external noopener">CSA news release</a><span class="baro__verif">[to verify]</span></div></article>
+    <article class="baro baro--vigueur" data-jur="multi"><div class="baro__statut"><span class="badge badge--conforme">In force</span><span class="baro__date">3 Feb. 2026</span></div><h3 class="baro__titre"><a href="../fr/article.html" hreflang="fr-CA">CIRO digital asset custody framework: tiered custodians <span class="langue-alt" lang="fr-CA">(FR)</span></a></h3><div class="baro__impact"><strong>Investor impact</strong>Crypto assets you hold with a CIRO member dealer must sit with an acceptable custodian. Ask your platform for its custodian’s name and tier.</div><div class="baro__source"><a href="https://www.ciro.ca/" rel="external noopener">CIRO bulletin</a><span class="baro__verif">[to verify]</span></div></article>
+    <article class="baro baro--garde" data-jur="quebec"><div class="baro__statut"><span class="badge badge--alerte">AMF investor warning</span><span class="baro__date">31 Aug. 2026</span></div><h3 class="baro__titre"><a href="../fr/article.html" hreflang="fr-CA">Unregistered platform targeting Quebec residents — blocking order <span class="langue-alt" lang="fr-CA">(FR)</span></a></h3><div class="baro__impact"><strong>Investor impact</strong>A platform under a warning affords you none of the protections of securities legislation, including on insolvency. Withdraw your assets while you still can.</div><div class="baro__source"><a href="https://lautorite.qc.ca/en/" rel="external noopener">AMF warning</a><span class="baro__verif">[name to confirm]</span></div></article>
   </div>
 </section>
 
-<section class="section" aria-labelledby="titre-schema">
-  <div class="schema">
-    <div class="schema__entete">
-      <div>
-        <h2 class="schema__titre" id="titre-schema">The compliance path for a crypto asset trading
-          platform in Canada</h2>
-        <p class="schema__sous">
-          Since the CSA’s announcement of 6 August 2024, time-limited restricted dealer registration
-          is no longer the destination: it is a step towards investment dealer registration and CIRO
-          membership. A second gate, federal and provincial, runs in parallel for anti-money
-          laundering purposes.
-        </p>
-      </div>
-      <a class="btn btn--secondaire" href="#">Printable version</a>
-    </div>
-
-    <div class="schema__corps">
-      <ol class="flux" style="list-style:none;margin:0;padding:0">
-        <li class="flux__etape">
-          <span class="flux__num">STEP 01</span>
-          <span class="flux__nom">Pre-registration undertaking</span>
-          <span class="flux__detail">Filed with the principal regulator. Operating conditions become
-            immediately enforceable.</span>
-        </li>
-        <li class="flux__etape">
-          <span class="flux__num">STEP 02</span>
-          <span class="flux__nom">Restricted dealer</span>
-          <span class="flux__detail">Transitional registration with terms and exemptions: retail
-            purchase limits, restricted asset lists, custody obligations.</span>
-        </li>
-        <li class="flux__etape flux__etape--actuel">
-          <span class="flux__num">STEP 03 · TURNING POINT</span>
-          <span class="flux__nom">Investment dealer application</span>
-          <span class="flux__detail">Since 6 August 2024 this is the only route open: regulatory
-            capital, governance, designated responsible persons, internal controls.</span>
-        </li>
-        <li class="flux__etape flux__etape--futur">
-          <span class="flux__num">STEP 04</span>
-          <span class="flux__nom">CIRO membership</span>
-          <span class="flux__detail">The organization’s rules apply, including the digital asset
-            custody framework and its tiering of custodians.</span>
-        </li>
-        <li class="flux__etape flux__etape--futur">
-          <span class="flux__num">IN PARALLEL</span>
-          <span class="flux__nom">AML/ATF gate</span>
-          <span class="flux__detail">MSB registration with FINTRAC (federal) and, in Quebec, a money
-            services business licence issued by <strong>Revenu Québec</strong> — not by the AMF.</span>
-        </li>
-      </ol>
-    </div>
-
-    <div class="schema__pied">
-      <span>Source: Actio reconstruction from CSA staff notices and the CIRO framework</span>
-      <span>As at 4 September 2026</span>
-      <span>Explanatory diagram — not legal advice</span>
-      <span style="color:var(--statut-consultation)">[TO VERIFY] authority issuing the Quebec MSB licence</span>
-    </div>
+<section class="section" id="academie" aria-labelledby="titre-academie">
+  <div class="section__entete"><div><span class="section__sur">The Actio Academy</span><h2 class="section__titre" id="titre-academie">Guides &amp; Academy</h2></div><a class="section__lien" href="#">All guides</a></div>
+  <div class="parcours-grille">
+    <article class="parcours parcours--debut"><div class="parcours__glyphe" aria-hidden="true"><svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="14" width="40" height="26" rx="4"/><path d="M6 22h40M14 32h8"/></svg></div><div><div class="parcours__niveau">Beginner · 4 guides · 45 min</div><h3 class="parcours__titre"><a href="#">Getting started in Canada</a></h3><p class="parcours__desc">Interac e-Transfer deposits, choosing a registered platform, account security. Everything that comes before the first purchase.</p><ol class="parcours__etapes"><li>The blockchain in ten minutes</li><li>Checking a platform is registered in my province</li><li>First Interac e-Transfer deposit: timing, limits, fees</li><li>Securing your account: authentication, phishing, withdrawals</li></ol><div class="parcours__pied">Next: Intermediate — self-custody and DeFi</div></div></article>
+    <article class="parcours parcours--fiscal"><div class="parcours__glyphe" aria-hidden="true"><svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 6h18l10 10v30H14z"/><path d="M32 6v10h10M20 28h12M20 36h12M20 20h6"/></svg></div><div><div class="parcours__niveau">Intermediate · 5 guides · 1 h 20</div><h3 class="parcours__titre"><a href="#">Reporting my crypto</a></h3><p class="parcours__desc">CRA and Revenu Québec: adjusted cost base, capital gain or business income, Form T1135, TP-21.4.39.</p><ol class="parcours__etapes"><li>Which transactions are dispositions</li><li>Computing the adjusted cost base (ACB) lot by lot</li><li>Capital gain or business income: the IT-479R factors</li><li>T1135 and specified foreign property</li><li>Quebec: the TP-21.4.39 return</li></ol><div class="parcours__pied">Current for the 2025 tax year · reviewed every spring</div></div></article>
+    <article class="parcours parcours--ctp"><div class="parcours__glyphe" aria-hidden="true"><svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M26 6l18 7v12c0 10-8 17-18 21C16 42 8 35 8 25V13z"/><path d="M18 26l6 6 10-12"/></svg></div><div><div class="parcours__niveau">Advanced · 4 guides · 2 h</div><h3 class="parcours__titre"><a href="#">Understanding CTP regulation</a></h3><p class="parcours__desc">From the crypto contract of Notice 21-327 to CIRO membership: how a platform becomes, and stays, authorized in Canada.</p><ol class="parcours__etapes"><li>The crypto contract: why the platform is regulated, not the token</li><li>Pre-registration undertaking, restricted dealer, investment dealer</li><li>Custody: custodian tiers and the limits of self-custody</li><li>The second gate: FINTRAC and the Quebec MSB licence</li></ol><div class="parcours__pied">Audience: compliance, law firms, directors</div></div></article>
   </div>
 </section>
 
-<section class="section" id="marches" aria-labelledby="titre-marches">
-  <div class="section__entete">
-    <div>
-      <span class="section__sur">Market wire</span>
-      <h2 class="section__titre" id="titre-marches">Markets &amp; macro</h2>
+<section class="section" id="comparateur" aria-labelledby="titre-comparateur">
+  <div class="section__entete"><div><span class="section__sur">Comparisons &amp; reviews</span><h2 class="section__titre" id="titre-comparateur">Transparent comparator of Canadian platforms</h2></div><a class="section__lien" href="#">All platform reviews</a></div>
+  <div class="comparateur">
+    <div class="comparateur__methode">
+      <div><strong style="color:var(--texte-primaire)">Method.</strong> Only platforms registered with at least one CSA member appear. The Actio score /5 weights custody security (40%), fee transparency (30%), service quality (20%) and documented compliance (10%). Spreads are sampled at a fixed time on a CA$1,000 BTC purchase. No affiliate link affects the score; any compensation is disclosed in the review.<br><span style="color:var(--statut-consultation)"><strong>Prototype:</strong> the figures below are <strong>illustrative</strong> and were not sampled. None may be published before a dated sampling.</span></div>
+      <div class="comparateur__arrete">Sampled: —<br>Next sampling: monthly</div>
     </div>
-    <a class="section__lien" href="#">Full wire</a>
-  </div>
-
-  <ol class="depeches">
-    <li class="depeche">
-      <span class="depeche__heure">4 Sept. · 2:05 p.m.</span>
-      <div>
-        <h3 class="depeche__titre"><a href="../fr/article.html" hreflang="fr-CA">Canadian-listed
-          crypto asset ETFs remain the only vehicle eligible for registered plans
-          <span class="langue-alt" lang="fr-CA">(FR)</span></a></h3>
-        <p class="depeche__resume">
-          Direct holdings stay closed to RRSPs and TFSAs; exposure runs through listed funds governed
-          by NI 81-102. The tax consequences are anything but neutral.
-        </p>
-      </div>
-      <span class="depeche__cote"><span class="juridiction juridiction--multi">Canada</span></span>
-    </li>
-    <li class="depeche">
-      <span class="depeche__heure">4 Sept. · 9:40 a.m.</span>
-      <div>
-        <h3 class="depeche__titre"><a href="../fr/article.html" hreflang="fr-CA">The loonie and
-          crypto assets: why CAD/USD matters more than the US-dollar price
-          <span class="langue-alt" lang="fr-CA">(FR)</span></a></h3>
-        <p class="depeche__resume">
-          A Canadian investor thinking in US dollars gets it wrong twice: on real return, and on
-          adjusted cost base at the time of disposition.
-        </p>
-      </div>
-      <span class="depeche__cote"><span class="etiquette">Analysis</span></span>
-    </li>
-    <li class="depeche">
-      <span class="depeche__heure">3 Sept. · 4:20 p.m.</span>
-      <div>
-        <h3 class="depeche__titre"><a href="../fr/article.html" hreflang="fr-CA">Retail payments:
-          registration with the Bank of Canada redraws the map
-          <span class="langue-alt" lang="fr-CA">(FR)</span></a></h3>
-        <p class="depeche__resume">
-          The payment service provider regime partly overlaps platform activity. One firm can answer
-          to three authorities without realizing it.
-        </p>
-      </div>
-      <span class="depeche__cote"><span class="juridiction juridiction--federal">Federal</span></span>
-    </li>
-    <li class="depeche">
-      <span class="depeche__heure">2 Sept. · 11:15 a.m.</span>
-      <div>
-        <h3 class="depeche__titre"><a href="../fr/article.html" hreflang="fr-CA">The Canadian market
-          is thin: what that means for liquidity and execution
-          <span class="langue-alt" lang="fr-CA">(FR)</span></a></h3>
-        <p class="depeche__resume">
-          Few registered platforms, modest volumes, wider spreads than elsewhere. A stocktake without
-          flattery.
-        </p>
-      </div>
-      <span class="depeche__cote"><span class="etiquette">Feature</span></span>
-    </li>
-  </ol>
-</section>
-
-<section class="section" id="guides" aria-labelledby="titre-guides">
-  <div class="section__entete">
-    <div>
-      <span class="section__sur">Learning paths</span>
-      <h2 class="section__titre" id="titre-guides">Guides &amp; education</h2>
+    <div class="comparateur__defilement">
+      <table>
+        <caption class="vh">Comparison of three crypto asset trading platforms registered in Canada</caption>
+        <thead><tr><th scope="col">Platform</th><th scope="col">Actio score</th><th scope="col">Observed spread (BTC)</th><th scope="col">Interac withdrawal</th><th scope="col">Registration status</th><th scope="col"><span class="vh">Action</span></th></tr></thead>
+        <tbody>
+          <tr data-jur="multi"><th scope="row"><div class="plateforme"><span class="plateforme__logo" aria-hidden="true">S</span><span><span class="plateforme__nom">Shakepay</span><span class="plateforme__type">Montreal · dealer</span></span></div></th><td><span class="score" data-score="4.2"><span class="score__etoiles" aria-hidden="true"></span><span class="score__note">4.2</span><span class="score__sur">/5</span></span></td><td><span class="donnee">≈ 1.8%</span> <span class="donnee donnee--nd">illustrative</span></td><td><span class="donnee">&lt; 30 min</span> <span class="donnee donnee--nd">illustrative</span></td><td><span class="badge badge--conforme">Registered</span> <a href="../fr/registre.html" hreflang="fr-CA" class="donnee" style="font-size:var(--t-micro)">register ↗</a></td><td><a class="comparateur__cta" href="#">Full review</a></td></tr>
+          <tr data-jur="multi"><th scope="row"><div class="plateforme"><span class="plateforme__logo" aria-hidden="true">N</span><span><span class="plateforme__nom">Newton</span><span class="plateforme__type">Toronto · dealer</span></span></div></th><td><span class="score" data-score="4.0"><span class="score__etoiles" aria-hidden="true"></span><span class="score__note">4.0</span><span class="score__sur">/5</span></span></td><td><span class="donnee">≈ 0.7%</span> <span class="donnee donnee--nd">illustrative</span></td><td><span class="donnee">1 – 2 bus. days</span> <span class="donnee donnee--nd">illustrative</span></td><td><span class="badge badge--conforme">Registered</span> <a href="../fr/registre.html" hreflang="fr-CA" class="donnee" style="font-size:var(--t-micro)">register ↗</a></td><td><a class="comparateur__cta" href="#">Full review</a></td></tr>
+          <tr data-jur="multi"><th scope="row"><div class="plateforme"><span class="plateforme__logo" aria-hidden="true">W</span><span><span class="plateforme__nom">Wealthsimple Crypto</span><span class="plateforme__type">Toronto · investment dealer</span></span></div></th><td><span class="score" data-score="4.4"><span class="score__etoiles" aria-hidden="true"></span><span class="score__note">4.4</span><span class="score__sur">/5</span></span></td><td><span class="donnee">≈ 1.5%</span> <span class="donnee donnee--nd">illustrative</span></td><td><span class="donnee">1 – 3 bus. days</span> <span class="donnee donnee--nd">illustrative</span></td><td><span class="badge badge--conforme">Registered</span> <a href="../fr/registre.html" hreflang="fr-CA" class="donnee" style="font-size:var(--t-micro)">register ↗</a></td><td><a class="comparateur__cta" href="#">Full review</a></td></tr>
+        </tbody>
+      </table>
     </div>
-    <a class="section__lien" href="#">All guides</a>
-  </div>
-
-  <div class="grille">
-    <article class="palier palier--n1 col-4">
-      <div class="palier__niveau">
-        <span class="palier__jauge" aria-hidden="true"><i></i><i></i><i></i></span>
-        <span>Level 1 · Beginner</span>
-      </div>
-      <h3 class="palier__titre">Reporting crypto assets in Canada</h3>
-      <p class="palier__desc">
-        The basics: knowing whether a transaction is taxable, under what characterization, and what
-        records to keep.
-      </p>
-      <ul class="palier__liste">
-        <li><a href="#">Capital gain or business income: the factors the CRA applies</a></li>
-        <li><a href="#">Which transactions trigger a disposition: trade, conversion, buying goods</a></li>
-        <li><a href="#">Keeping records that hold up: what the CRA actually requires</a></li>
-        <li><a href="#">Quebec: what Revenu Québec treats differently</a></li>
-      </ul>
-      <div class="palier__pied">4 guides · ~45 min</div>
-    </article>
-
-    <article class="palier palier--n2 col-4">
-      <div class="palier__niveau">
-        <span class="palier__jauge" aria-hidden="true"><i></i><i></i><i></i></span>
-        <span>Level 2 · Intermediate</span>
-      </div>
-      <h3 class="palier__titre">Registered plans, staking and foreign property</h3>
-      <p class="palier__desc">
-        Where Canadian tax turns counter-intuitive: registered accounts, passive yield and reporting
-        property held outside Canada.
-      </p>
-      <ul class="palier__liste">
-        <li><a href="#">RRSPs and TFSAs: why direct holdings stay closed, and what fits instead</a></li>
-        <li><a href="#">Staking: income on receipt, or on disposition?</a></li>
-        <li><a href="#">Form T1135: when a crypto asset becomes specified foreign property</a></li>
-        <li><a href="#">Losses, superficial loss rules and carry-forward</a></li>
-      </ul>
-      <div class="palier__pied">4 guides · ~1 h 10</div>
-    </article>
-
-    <article class="palier palier--n3 col-4">
-      <div class="palier__niveau">
-        <span class="palier__jauge" aria-hidden="true"><i></i><i></i><i></i></span>
-        <span>Level 3 · Professional</span>
-      </div>
-      <h3 class="palier__titre">Platform compliance and asset custody</h3>
-      <p class="palier__desc">
-        For compliance departments, law firms and directors: registration, custody, AML/ATF and
-        liability.
-      </p>
-      <ul class="palier__liste">
-        <li><a href="#">From restricted dealer to CIRO: building a registration file</a></li>
-        <li><a href="#">Digital asset custody: custodian tiers and the limits of self-custody</a></li>
-        <li><a href="#">FINTRAC and Revenu Québec: two MSB regimes with no blind spot</a></li>
-        <li><a href="#">Marketing, influence and Staff Notice 21-330: mapping the risk</a></li>
-      </ul>
-      <div class="palier__pied">4 guides · ~2 h · <strong>Actio&nbsp;Pro</strong></div>
-    </article>
+    <div class="comparateur__pied">“Registered” is taken from each provincial regulator’s register and links to the official entry; it is neither a recommendation nor a guarantee. Registration is per province: check yours. Actio may earn a commission if you open an account from a review — never from this table, and always disclosed in the body of the review.</div>
   </div>
 </section>
 
 <section class="section" id="fiscalite" aria-labelledby="titre-fiscalite">
-  <div class="section__entete">
-    <div>
-      <span class="section__sur">CRA · Revenu Québec</span>
-      <h2 class="section__titre" id="titre-fiscalite">Canadian taxation</h2>
-    </div>
-    <a class="section__lien" href="#">All tax coverage</a>
-  </div>
-
+  <div class="section__entete"><div><span class="section__sur">CRA · Revenu Québec</span><h2 class="section__titre" id="titre-fiscalite">Tax &amp; practical law</h2></div><a class="section__lien" href="#">All tax coverage</a></div>
   <div class="grille">
-    <div class="col-8 grille" style="align-content:start">
-      <article class="carte col-6">
-        <div class="carte__meta">
-          <span class="badge badge--consultation">Administrative position</span>
-          <span class="juridiction juridiction--federal">CRA</span>
-        </div>
-        <h3 class="carte__titre"><a href="../fr/article.html" hreflang="fr-CA">Capital gain or
-          business income: the factors, applied to decentralized finance
-          <span class="langue-alt" lang="fr-CA">(FR)</span></a></h3>
-        <p class="carte__resume">
-          Frequency, holding period, intention, expertise, use of leverage: the tests inherited from
-          the case law on securities trading turn against the liquidity provider.
-        </p>
-        <div class="carte__pied"><span>Guide · Level 2</span><span>10 min</span></div>
-      </article>
-
-      <article class="carte col-6">
-        <div class="carte__meta">
-          <span class="badge badge--alerte">Filing obligation</span>
-          <span class="juridiction juridiction--quebec">Quebec</span>
-        </div>
-        <h3 class="carte__titre"><a href="../fr/article.html" hreflang="fr-CA">The Quebec obligation
-          the federal regime does not have <span class="langue-alt" lang="fr-CA">(FR)</span></a></h3>
-        <p class="carte__resume">
-          Revenu Québec imposes a filing tied to holding crypto assets, independent of any
-          transaction. Many taxpayers are unaware of it. The penalty is not.
-        </p>
-        <div class="carte__pied"><span>Analysis</span><span>6 min</span></div>
-      </article>
-
-      <article class="carte col-6">
-        <div class="carte__meta">
-          <span class="badge badge--info">Foreign property</span>
-          <span class="juridiction juridiction--federal">Federal</span>
-        </div>
-        <h3 class="carte__titre"><a href="../fr/article.html" hreflang="fr-CA">Form T1135: when a
-          crypto asset becomes specified foreign property <span class="langue-alt" lang="fr-CA">(FR)</span></a></h3>
-        <p class="carte__resume">
-          The answer turns on where the asset is held and on the nature of the custodian — two things
-          self-custody makes hard to establish.
-        </p>
-        <div class="carte__pied"><span>Guide · Level 2</span><span>8 min</span></div>
-      </article>
-
-      <article class="carte col-6">
-        <div class="carte__meta">
-          <span class="badge badge--consultation">GST / HST</span>
-          <span class="juridiction juridiction--federal">Federal</span>
-        </div>
-        <h3 class="carte__titre"><a href="../fr/article.html" hreflang="fr-CA">Mining and consumption
-          taxes: the denial of input tax credits <span class="langue-alt" lang="fr-CA">(FR)</span></a></h3>
-        <p class="carte__resume">
-          A distinct regime, an immediate cash-flow effect, and a persistent grey area around mining
-          pools and mining groups.
-        </p>
-        <div class="carte__pied"><span>Analysis</span><span>9 min</span></div>
-      </article>
-    </div>
-
-    <aside class="col-4 echeancier" aria-labelledby="titre-echeancier">
-      <h3 class="echeancier__titre" id="titre-echeancier">Tax calendar</h3>
-      <ul class="echeancier__liste">
-        <li>
-          <span class="echeancier__date">30 <span>Apr.</span></span>
-          <span class="echeancier__objet">
-            <strong>Individual income tax return</strong>
-            <span>Including crypto asset dispositions from the preceding calendar year.</span>
-          </span>
-        </li>
-        <li>
-          <span class="echeancier__date">15 <span>Jun.</span></span>
-          <span class="echeancier__objet">
-            <strong>Self-employed filers</strong>
-            <span>Any balance owing is still due 30 April: the filing deadline is not the payment
-            deadline.</span>
-          </span>
-        </li>
-        <li>
-          <span class="echeancier__date">15 <span>Mar.</span></span>
-          <span class="echeancier__objet">
-            <strong>Instalment payments</strong>
-            <span>A first year of active trading can pull you into instalments without notice.</span>
-          </span>
-        </li>
-        <li>
-          <span class="echeancier__date">—</span>
-          <span class="echeancier__objet">
-            <strong>Crypto-Asset Reporting Framework</strong>
-            <span>Automatic exchange of information: the Canadian timetable remains to be confirmed
-            against official sources.</span>
-          </span>
-        </li>
-      </ul>
-      <p class="echeancier__pied">
-        Indicative dates. Always confirm the deadline that applies to your situation with the CRA and
-        Revenu Québec.
-      </p>
-    </aside>
+    <article class="carte col-4" data-jur="federal"><div class="carte__meta"><span class="badge badge--info">Guide</span><span class="juridiction juridiction--federal">CRA</span></div><h3 class="carte__titre"><a href="#">Computing the adjusted cost base of a crypto asset bought in ten lots</a></h3><p class="carte__resume">The ACB is an average cost per identical property, recomputed on every acquisition. Worked example, platform fees included.</p><div class="carte__pied"><span>Guide · Intermediate</span><span>8 min</span></div></article>
+    <article class="carte col-4" data-jur="federal"><div class="carte__meta"><span class="badge badge--consultation">Administrative position</span><span class="juridiction juridiction--federal">CRA</span></div><h3 class="carte__titre"><a href="#">Capital gain or business income: the eight IT-479R factors applied to active trading</a></h3><p class="carte__resume">Frequency, holding period, intention, expertise, financing: the factors and what they mean for a day-to-day trader.</p><div class="carte__pied"><span>Analysis</span><span>10 min</span></div></article>
+    <article class="carte col-4" data-jur="quebec"><div class="carte__meta"><span class="badge badge--alerte">Filing obligation</span><span class="juridiction juridiction--quebec">Revenu Québec</span></div><h3 class="carte__titre"><a href="#">TP-21.4.39: the Quebec return due even without a transaction</a></h3><p class="carte__resume">A Quebec-only obligation, often missed, and its penalty. What to report, when, and the announced relief.</p><div class="carte__pied"><span>Guide · Intermediate</span><span>6 min</span></div></article>
   </div>
 </section>
 
-<section class="section" id="pro" aria-labelledby="titre-pro">
+<section class="section" id="research" aria-labelledby="titre-research">
   <div class="pro">
-    <div>
-      <p class="pro__sur">Actio Pro · Research</p>
-      <h2 class="pro__titre" id="titre-pro">For people whose job is compliance.</h2>
-      <p class="pro__texte">
-        Documented tracking of every Canadian regulatory file, with its materials, its deadlines and
-        its operational consequences. Built for compliance departments, law firms and directors.
-      </p>
-      <a class="btn btn--primaire" href="#">Explore Actio Pro</a>
-      <p class="pro__mention">
-        Institutional subscription. Annual billing, multiple seats, domain-based access. No sponsored
-        content in the Pro offering.
-      </p>
-    </div>
-
-    <ul class="pro__liste">
-      <li><span><strong>Research notes</strong>
-        <span>Long-form analysis of one file, with its primary sources and the status of every open question.</span></span></li>
-      <li><span><strong>File tracking</strong>
-        <span>Every consultation, notice, decision and deadline tied to the file it advances.</span></span></li>
-      <li><span><strong>Enhanced register</strong>
-        <span>Registration history, terms and exemptions platform by platform, exportable.</span></span></li>
-      <li><span><strong>Alerts</strong>
-        <span>Notification when an instrument is published affecting a tracked authority, platform or theme.</span></span></li>
-      <li><span><strong>Structured data</strong>
-        <span>Programmatic access to taxonomies, deadlines and the register.</span></span></li>
-      <li><span><strong>Editorial briefings</strong>
-        <span>Quarterly closed-door session on the state of the Canadian regulatory framework.</span></span></li>
-    </ul>
+    <div><p class="pro__sur">Actio Research · features &amp; data</p><h2 class="pro__titre" id="titre-research">What the Canadian numbers say, quarter after quarter.</h2><p class="pro__texte">Quarterly reports on institutional adoption, flows of Canadian-listed crypto ETFs, and CSA public consultations decoded before the comment deadline.</p><a class="btn btn--primaire" href="#">Browse the reports</a><p class="pro__mention">Quarterly reports are free. Raw data, history and alerts are reserved for Actio Pro (phase 4).</p></div>
+    <ul class="pro__liste"><li><span><strong>Q3 2026 report — institutional adoption</strong><span>Who holds what, through which vehicles, in which provinces.</span></span></li><li><span><strong>Crypto ETF flows (TSX)</strong><span>Weekly net inflows, management fees, premiums and discounts to NAV.</span></span></li><li><span><strong>CSA consultations decoded</strong><span>What the proposal changes, for whom, and how to respond before closing.</span></span></li><li><span><strong>Registration map</strong><span>Platform by platform, province by province, with the date of each decision.</span></span></li></ul>
   </div>
 </section>
-
 </div>
 
 <section class="section" id="infolettre" aria-labelledby="titre-infolettre">
-  <div class="contenant">
-    <div class="infolettre">
-      <div class="infolettre__inner">
-        <p class="infolettre__sur">Actio Dispatch · the newsletter</p>
-        <h2 class="infolettre__titre" id="titre-infolettre">
-          Tuesday morning: what changed in Canadian crypto asset law.
-        </h2>
-        <p class="infolettre__promesse">
-          One edition a week: a regulatory instrument decoded, the jurisdiction radar (Ottawa,
-          Quebec, Ontario, international) with its impact level, and a tax point applied to a real
-          case. Eight minutes. Sourced, dated, no buy recommendations.
-        </p>
-
-        <div class="infolettre__preuves">
-          <div class="infolettre__preuve">
-            <span class="infolettre__chiffre">Tuesday · 6:30 a.m.</span>
-            <span class="infolettre__label">Eastern Time</span>
-          </div>
-          <div class="infolettre__preuve">
-            <span class="infolettre__chiffre">8 min</span>
-            <span class="infolettre__label">Reading time</span>
-          </div>
-          <div class="infolettre__preuve">
-            <span class="infolettre__chiffre">100 %</span>
-            <span class="infolettre__label">Primary sources cited</span>
-          </div>
-        </div>
-
-        <form data-formulaire="infolettre" novalidate>
-          <label class="infolettre__consentement" style="margin:0 0 var(--e-5)">
-            <input type="checkbox" name="consentement" style="margin-top:3px;flex:none">
-            <span>
-              I expressly consent to receiving the <em>Actio Dispatch</em> newsletter and commercial
-              electronic messages from Actio, in accordance with <strong>Canada’s Anti-Spam
-              Legislation (CASL)</strong>. This consent may be withdrawn at any time using the
-              unsubscribe link in every message. See our <a href="#">privacy policy</a> and
-              <a href="#">terms of use</a>.
-            </span>
-          </label>
-
-         <div class="infolettre__form">
-          <label class="vh" for="courriel">Email address</label>
-          <input class="champ" id="courriel" name="courriel" type="email" required
-                 autocomplete="email" placeholder="first.last@firm.ca">
-          <button class="btn btn--primaire" type="submit">Get Actio Dispatch</button>
-         </div>
-
-        <p class="infolettre__reassurance">
-          <span>One edition a week</span>
-          <span>One-click unsubscribe, processed within 10 business days</span>
-          <span>Your information is never sold or transferred</span>
-          <span>Data hosted in Canada</span>
-        </p>
-
-        <p role="status" aria-live="polite" data-etat
-           style="margin:16px 0 0;font-size:var(--t-petit);min-height:1.4em;opacity:.9"></p>
-        </form>
-      </div>
-    </div>
-  </div>
+  <div class="contenant"><div class="infolettre"><div class="infolettre__inner">
+    <p class="infolettre__sur">Actio Dispatch · twice a week</p>
+    <h2 class="infolettre__titre" id="titre-infolettre">Tuesday, what regulation changed. Friday, what you need to do.</h2>
+    <p class="infolettre__promesse">Tuesday 7:00 a.m. ET: the week’s regulatory and macro analysis. Friday 12:00 p.m. ET: the recap and a practical guide. Sourced, dated, no buy recommendations, read in four minutes.</p>
+    <form data-formulaire="infolettre" novalidate>
+      <label class="infolettre__consentement" style="margin:0 0 var(--e-5)"><input type="checkbox" name="consentement" style="margin-top:3px;flex:none"><span>I expressly consent to receiving <em>Actio Dispatch</em> and commercial electronic messages from Actio, in accordance with <strong>Canada’s Anti-Spam Legislation (CASL)</strong>. Withdraw at any time via the unsubscribe link in every message. <a href="#">Privacy policy</a>.</span></label>
+      <div class="infolettre__form"><label class="vh" for="courriel">Email address</label><input class="champ" id="courriel" name="courriel" type="email" required autocomplete="email" placeholder="first.last@firm.ca"><button class="btn btn--primaire" type="submit">Get Actio Dispatch</button></div>
+      <p class="infolettre__reassurance"><span>Zero spam — two sends a week, never more</span><span>One-click unsubscribe, processed within 10 business days</span><span>Data hosted in Canada, never transferred</span></p>
+      <div class="infolettre__preuve-sociale"><span class="infolettre__avatars" aria-hidden="true"><span>JD</span><span>AL</span><span>MC</span><span>+</span></span><span>Joined by <strong>15,000 lawyers, investors and finance professionals</strong> across Canada.</span></div>
+      <p role="status" aria-live="polite" data-etat style="margin:16px 0 0;font-size:var(--t-petit);min-height:1.4em;opacity:.9"></p>
+    </form>
+  </div></div></div>
 </section>
-
 </main>
 
 <footer class="pied">
   <div class="contenant">
     <div class="pied__principal grille">
-      <div class="col-4 pied__colonne">
-        <a class="logo" href="index.html" style="margin-bottom:12px"><span>Actio<span class="logo__point">.</span></span></a>
-        <p style="font-size:var(--t-petit);color:var(--texte-secondaire);max-width:36ch">
-          Independent publication analysing the regulatory, tax and prudential framework governing
-          crypto assets in Canada. Published in French and Canadian English.
-        </p>
-        <p style="font-size:var(--t-micro);color:var(--texte-tertiaire);font-family:var(--police-donnee)">
-          Actio Média inc.<br>
-          1000 De La Gauchetière Street West, Suite 2400<br>
-          Montreal, Quebec H3B 4W5, Canada<br>
-          redaction@actio.ca
-        </p>
-      </div>
-
-      <div class="col-2 pied__colonne">
-        <h3>Sections</h3>
-        <ul class="pied__liste">
-          <li><a href="#regulation">Regulation &amp; CSA</a></li>
-          <li><a href="#marches">Markets &amp; Macro</a></li>
-          <li><a href="#guides">Guides &amp; Education</a></li>
-          <li><a href="#fiscalite">Canadian Taxation</a></li>
-          <li><a href="#pro">Actio Pro</a></li>
-        </ul>
-      </div>
-
-      <div class="col-3 pied__colonne">
-        <h3>Registers and official sources</h3>
-        <ul class="pied__liste">
-          <li><a href="https://www.securities-administrators.ca/" rel="external noopener">Canadian Securities Administrators</a></li>
-          <li><a href="https://lautorite.qc.ca/en/" rel="external noopener">Autorité des marchés financiers (Quebec)</a></li>
-          <li><a href="https://www.osc.ca/" rel="external noopener">Ontario Securities Commission</a></li>
-          <li><a href="https://www.ciro.ca/" rel="external noopener">Canadian Investment Regulatory Organization</a></li>
-          <li><a href="https://fintrac-canafe.canada.ca/" rel="external noopener">FINTRAC</a></li>
-          <li><a href="https://www.revenuquebec.ca/en/" rel="external noopener">Revenu Québec — MSB licences</a></li>
-          <li><a href="https://gazette.gc.ca/" rel="external noopener">Canada Gazette</a></li>
-        </ul>
-      </div>
-
-      <div class="col-3 pied__colonne">
-        <h3>Transparency</h3>
-        <ul class="pied__liste">
-          <li><a href="#">Editorial charter and independence</a></li>
-          <li><a href="#">Paid partnerships policy</a></li>
-          <li><a href="#">Affiliate and disclosure policy</a></li>
-          <li><a href="#">Source verification method</a></li>
-          <li><a href="#">Corrections policy</a></li>
-          <li><a href="#">Newsroom conflicts of interest</a></li>
-          <li><a href="#">Report an error</a></li>
-        </ul>
-      </div>
+      <div class="col-4 pied__colonne"><a class="logo" href="index.html" style="margin-bottom:12px"><span>Actio</span><span class="logo__point" aria-hidden="true">|</span></a><p style="font-size:var(--t-petit);color:var(--texte-secondaire);max-width:36ch">Independent Canadian publication for crypto asset and Web3 news, regulatory analysis and education. Published in French and Canadian English.</p><p style="font-size:var(--t-micro);color:var(--texte-tertiaire);font-family:var(--police-donnee)">Actio Média inc.<br>1000 De La Gauchetière Street West, Suite 2400<br>Montreal, Quebec H3B 4W5, Canada<br>redaction@actio.ca</p></div>
+      <div class="col-2 pied__colonne"><h3>Site map</h3><ul class="pied__liste"><li><a href="#barometre">News &amp; Regulation</a></li><li><a href="#academie">Guides &amp; Academy</a></li><li><a href="#comparateur">Comparisons &amp; Reviews</a></li><li><a href="#fiscalite">Tax &amp; Law</a></li><li><a href="#research">Actio Research</a></li><li><a href="../fr/registre.html" hreflang="fr-CA">Platform register <span class="langue-alt" lang="fr-CA">(FR)</span></a></li><li><a href="#">Bilingual glossary</a></li></ul></div>
+      <div class="col-3 pied__colonne"><h3>Official registers</h3><ul class="pied__liste"><li><a href="https://www.securities-administrators.ca/" rel="external noopener">CSA — National Registration Search</a></li><li><a href="https://lautorite.qc.ca/en/" rel="external noopener">AMF — register and warnings</a></li><li><a href="https://www.osc.ca/" rel="external noopener">OSC — Ontario register</a></li><li><a href="https://www.ciro.ca/" rel="external noopener">CIRO — member dealers</a></li><li><a href="https://fintrac-canafe.canada.ca/" rel="external noopener">FINTRAC — money services businesses</a></li><li><a href="https://www.revenuquebec.ca/en/" rel="external noopener">Revenu Québec — MSB licences</a></li><li><a href="https://gazette.gc.ca/" rel="external noopener">Canada Gazette</a></li></ul></div>
+      <div class="col-3 pied__colonne"><h3>Transparency and legal</h3><ul class="pied__liste"><li><a href="#">Editorial charter and independence</a></li><li><a href="#">Affiliate and disclosure policy</a></li><li><a href="#">Comparator method</a></li><li><a href="#">Corrections policy</a></li><li><a href="#">Newsroom conflicts of interest</a></li><li><a href="#">Legal notice</a></li><li><a href="#">Report an error</a></li></ul></div>
     </div>
-
     <div class="avertissement" role="note">
-      <p class="avertissement__titre">
-        <span aria-hidden="true">⚠</span> Risk warning — no advice
-      </p>
-      <p>
-        <strong>Actio does not provide investment, legal or tax advice.</strong>
-        Actio is not registered in any capacity with the Canadian Securities Administrators, the
-        Autorité des marchés financiers, the Ontario Securities Commission or the Canadian Investment
-        Regulatory Organization, and carries on no dealing, advising or portfolio management activity.
-      </p>
-      <p>
-        Our content is journalistic and educational. It describes the state of the law as at a stated
-        date; the law changes, and an analysis that was accurate when published may cease to be. No
-        content takes account of your personal circumstances, investment objectives or risk tolerance.
-        <strong>Consult a registered professional or a lawyer before making any decision.</strong>
-      </p>
-      <p>
-        Crypto assets are volatile. You may lose the entire amount invested. A platform that is not
-        registered with the securities regulator of your province affords you none of the protections
-        provided by securities legislation, including on insolvency. <strong>Always verify a
-        platform’s registration in your provincial regulator’s register before depositing
-        funds.</strong>
-      </p>
+      <p class="avertissement__titre"><span aria-hidden="true">⚠</span> Risk warning — no advice</p>
+      <p><strong>Actio does not provide investment, legal or tax advice.</strong> Actio is not registered in any capacity with the Canadian Securities Administrators, the Autorité des marchés financiers, the Ontario Securities Commission or the Canadian Investment Regulatory Organization, and carries on no dealing, advising or portfolio management activity.</p>
+      <p>Our content is journalistic and educational. It describes the state of the law as at a stated date; the law changes, and an analysis that was accurate when published may cease to be. No content takes account of your personal circumstances. <strong>Consult a registered professional or a lawyer before making any decision.</strong></p>
+      <p><strong>Crypto assets are highly volatile.</strong> You may lose the entire amount invested. A platform that is not registered with the securities regulator of your province affords you none of the protections provided by securities legislation, including on insolvency. Comparisons and reviews follow a published method and may involve affiliate compensation, always disclosed; they are never a recommendation.</p>
     </div>
-
-    <div class="pied__legal">
-      <span>© 2026 Actio Média inc. All rights reserved. Unpublished prototype.</span>
-      <nav aria-label="Legal links">
-        <a href="#">Legal notice</a>
-        <a href="#">Terms of use</a>
-        <a href="#">Privacy policy (Law 25 / PIPEDA)</a>
-        <a href="#">Cookie settings</a>
-        <a href="#">Accessibility (WCAG 2.1 AA)</a>
-        <a href="#">Contact us</a>
-      </nav>
-    </div>
+    <div class="pied__legal"><span>© 2026 Actio Média inc. All rights reserved. Unpublished prototype.</span><nav aria-label="Legal links"><a href="#">Legal notice</a><a href="#">Terms of use</a><a href="#">Privacy (Law 25 / PIPEDA)</a><a href="#">Cookies</a><a href="#">Accessibility (WCAG 2.1 AA)</a><a href="#">Contact us</a></nav></div>
   </div>
 </footer>
-
 <script src="../assets/actio.js"></script>
 </body>
 </html>

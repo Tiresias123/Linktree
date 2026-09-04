@@ -217,6 +217,168 @@
   });
 
   /* ======================================================================
+     8. Recherche universelle — combobox avec suggestions groupées
+     L'index embarqué est celui du prototype : lois, avis, autorités,
+     cryptoactifs. En production, il est servi par l'API du CMS.
+     ====================================================================== */
+  var INDEX = [
+    { g: 'Textes et avis', t: 'Avis 21-327 du personnel des ACVM', s: 'Contrat de cryptoactif — absence de livraison immédiate', h: '#' },
+    { g: 'Textes et avis', t: 'Avis conjoint 21-329 ACVM / OCRCVM', s: 'Courtier restreint, engagement préalable', h: '#' },
+    { g: 'Textes et avis', t: 'Avis conjoint 21-330', s: 'Publicité, marketing et médias sociaux des plateformes', h: '#' },
+    { g: 'Textes et avis', t: 'Avis 21-332 du personnel des ACVM', s: 'Engagement préalable renforcé (2023)', h: '#' },
+    { g: 'Textes et avis', t: 'Avis 21-333 du personnel des ACVM', s: 'Cryptoactifs arrimés à une valeur (« stablecoins »)', h: '#' },
+    { g: 'Textes et avis', t: 'Règlement 31-103', s: 'Obligations et dispenses d’inscription', h: '#' },
+    { g: 'Textes et avis', t: 'Règlement 21-101', s: 'Fonctionnement du marché', h: '#' },
+    { g: 'Textes et avis', t: 'Règlement 81-102', s: 'Fonds d’investissement — FNB de cryptoactifs', h: '#' },
+    { g: 'Textes et avis', t: 'LRPCFAT', s: 'Loi sur le recyclage des produits de la criminalité et le financement des activités terroristes', h: '#' },
+    { g: 'Textes et avis', t: 'Loi sur les entreprises de services monétaires (Québec)', s: 'Permis d’ESM — administrée par Revenu Québec [à vérifier]', h: '#' },
+    { g: 'Textes et avis', t: 'Bulletin IT-479R', s: 'Transactions de valeurs mobilières — capital ou revenu', h: '#' },
+    { g: 'Textes et avis', t: 'Formulaire T1135', s: 'Bilan de vérification du revenu étranger', h: '#' },
+    { g: 'Autorités', t: 'ACVM — Autorités canadiennes en valeurs mobilières', s: 'Forum de coordination des régulateurs provinciaux', h: '#' },
+    { g: 'Autorités', t: 'AMF — Autorité des marchés financiers', s: 'Québec', h: '#' },
+    { g: 'Autorités', t: 'CVMO / OSC — Commission des valeurs mobilières de l’Ontario', s: 'Ontario', h: '#' },
+    { g: 'Autorités', t: 'OCRI / CIRO', s: 'Organisme canadien de réglementation des investissements', h: '#' },
+    { g: 'Autorités', t: 'CANAFE / FINTRAC', s: 'Lutte contre le blanchiment — inscription des ESM', h: '#' },
+    { g: 'Autorités', t: 'ARC — Agence du revenu du Canada', s: 'Fiscalité fédérale', h: '#' },
+    { g: 'Autorités', t: 'Revenu Québec', s: 'Fiscalité québécoise — TP-21.4.39', h: '#' },
+    { g: 'Cryptoactifs', t: 'Bitcoin (BTC)', s: 'Cours CAD, FNB cotés au Canada, fiscalité', h: '#' },
+    { g: 'Cryptoactifs', t: 'Ether (ETH)', s: 'Jalonnement, FNB, qualification fiscale', h: '#' },
+    { g: 'Cryptoactifs', t: 'Solana (SOL)', s: 'Cours CAD, validateurs', h: '#' },
+    { g: 'Cryptoactifs', t: 'Cryptoactifs arrimés à une valeur (USDC, USDT)', s: 'Avis 21-333, loi fédérale sur les stablecoins', h: '#' },
+    { g: 'Plateformes', t: 'Shakepay', s: 'Fiche d’évaluation — statut d’inscription', h: '#' },
+    { g: 'Plateformes', t: 'Newton', s: 'Fiche d’évaluation — statut d’inscription', h: '#' },
+    { g: 'Plateformes', t: 'Wealthsimple Crypto', s: 'Fiche d’évaluation — statut d’inscription', h: '#' },
+    { g: 'Plateformes', t: 'Bitbuy', s: 'Fiche d’évaluation — statut d’inscription', h: '#' },
+    { g: 'Plateformes', t: 'VirgoCX', s: 'Fiche d’évaluation — statut d’inscription', h: '#' }
+  ];
+
+  function normaliser(t) {
+    return (t || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  }
+
+  document.querySelectorAll('[data-recherche]').forEach(function (bloc) {
+    var champ = bloc.querySelector('input');
+    var liste = bloc.querySelector('[role="listbox"]');
+    if (!champ || !liste) return;
+    var actif = -1, items = [];
+
+    function fermer() { liste.hidden = true; champ.setAttribute('aria-expanded', 'false'); actif = -1; }
+    function rendre(q) {
+      var nq = normaliser(q).trim();
+      liste.innerHTML = '';
+      items = [];
+      if (nq.length < 2) { fermer(); return; }
+      var trouves = INDEX.filter(function (e) {
+        return normaliser(e.t + ' ' + e.s).indexOf(nq) !== -1;
+      }).slice(0, 9);
+      if (!trouves.length) {
+        var v = document.createElement('li'); v.className = 'recherche__vide';
+        v.textContent = 'Aucun résultat pour « ' + q + ' ». Essayez un numéro d’avis, une autorité ou un cryptoactif.';
+        liste.appendChild(v);
+      } else {
+        var groupe = null;
+        trouves.forEach(function (e, i) {
+          if (e.g !== groupe) {
+            groupe = e.g;
+            var g = document.createElement('li'); g.className = 'recherche__groupe'; g.setAttribute('role', 'presentation');
+            g.textContent = groupe; liste.appendChild(g);
+          }
+          var li = document.createElement('li');
+          li.className = 'recherche__item'; li.setAttribute('role', 'option'); li.id = champ.id + '-opt-' + i;
+          li.innerHTML = '<span><strong></strong><span></span></span><kbd>↵</kbd>';
+          li.querySelector('strong').textContent = e.t;
+          li.querySelector('span span').textContent = e.s;
+          li.addEventListener('mousedown', function (ev) { ev.preventDefault(); champ.value = e.t; fermer(); });
+          liste.appendChild(li); items.push(li);
+        });
+      }
+      liste.hidden = false; champ.setAttribute('aria-expanded', 'true');
+    }
+    function surligner(i) {
+      items.forEach(function (li, k) { li.setAttribute('aria-selected', String(k === i)); });
+      actif = i;
+      champ.setAttribute('aria-activedescendant', i >= 0 && items[i] ? items[i].id : '');
+      if (items[i]) items[i].scrollIntoView({ block: 'nearest' });
+    }
+    champ.addEventListener('input', function () { rendre(champ.value); });
+    champ.addEventListener('focus', function () { if (champ.value.length >= 2) rendre(champ.value); });
+    champ.addEventListener('blur', function () { setTimeout(fermer, 120); });
+    champ.addEventListener('keydown', function (e) {
+      if (liste.hidden) return;
+      if (e.key === 'ArrowDown') { e.preventDefault(); surligner(Math.min(actif + 1, items.length - 1)); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); surligner(Math.max(actif - 1, 0)); }
+      else if (e.key === 'Enter' && actif >= 0) { e.preventDefault(); champ.value = items[actif].querySelector('strong').textContent; fermer(); }
+      else if (e.key === 'Escape') { fermer(); }
+    });
+  });
+
+  /* ======================================================================
+     9. Commutateur de juridiction
+     Pose data-juridiction sur <html> ; la feuille masque ce qui ne concerne
+     pas le lecteur. Le choix est mémorisé : un Québécois ne le refait pas à
+     chaque visite.
+     ====================================================================== */
+  var STOCKAGE_JUR = 'actio.juridiction';
+  function appliquerJuridiction(j) {
+    document.documentElement.setAttribute('data-juridiction', j);
+    document.querySelectorAll('[data-action="juridiction"]').forEach(function (b) {
+      b.setAttribute('aria-pressed', String(b.dataset.juridiction === j));
+    });
+    document.querySelectorAll('[data-juridiction-compte]').forEach(function (n) {
+      var visibles = Array.prototype.filter.call(document.querySelectorAll('[data-jur]'), function (el) {
+        return el.offsetParent !== null;
+      }).length;
+      n.textContent = visibles;
+    });
+  }
+  if (document.querySelector('[data-action="juridiction"]')) {
+    appliquerJuridiction(lire(STOCKAGE_JUR) || 'canada');
+    document.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-action="juridiction"]');
+      if (!b) return;
+      ecrire(STOCKAGE_JUR, b.dataset.juridiction);
+      appliquerJuridiction(b.dataset.juridiction);
+    });
+  }
+
+  /* ======================================================================
+     10. Horodatage relatif — « Il y a 18 min »
+     Calculé depuis l'attribut datetime, jamais écrit en dur : un « il y a
+     18 min » figé dans le HTML ment dès la 19e minute.
+     ====================================================================== */
+  function relatif(date) {
+    var d = (Date.now() - date.getTime()) / 1000;
+    if (d < 60) return 'À l’instant';
+    if (d < 3600) return 'Il y a ' + Math.round(d / 60) + ' min';
+    if (d < 86400) { var h = Math.round(d / 3600); return 'Il y a ' + h + ' h'; }
+    var j = Math.round(d / 86400);
+    return 'Il y a ' + j + (j > 1 ? ' jours' : ' jour');
+  }
+  function majRelatifs() {
+    document.querySelectorAll('time[data-relatif]').forEach(function (t) {
+      var d = new Date(t.getAttribute('datetime'));
+      if (!isNaN(d)) { t.textContent = relatif(d); t.setAttribute('title', d.toLocaleString('fr-CA')); }
+    });
+  }
+  majRelatifs();
+  setInterval(majRelatifs, 60000);
+
+  /* ======================================================================
+     11. Étoiles du score — dessinées depuis la valeur, jamais à la main
+     ====================================================================== */
+  document.querySelectorAll('[data-score]').forEach(function (n) {
+    var v = parseFloat(n.dataset.score); if (isNaN(v)) return;
+    var etoile = '<svg viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 14.9l-5.3 2.8 1.1-5.9L1.5 7.7l5.9-.8z"/></svg>';
+    var html = '';
+    for (var i = 1; i <= 5; i++) {
+      html += etoile.replace('<svg', i <= Math.round(v) ? '<svg' : '<svg class="vide"');
+    }
+    var cible = n.querySelector('.score__etoiles');
+    if (cible) cible.innerHTML = html;
+    n.setAttribute('aria-label', 'Score Actio : ' + v.toFixed(1).replace('.', ',') + ' sur 5');
+  });
+
+  /* ======================================================================
      7. Ancres : compensation de l'en-tête collant au clavier
      ====================================================================== */
   document.addEventListener('click', function (e) {

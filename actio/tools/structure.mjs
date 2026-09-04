@@ -66,9 +66,12 @@ for (const f of fichiers) {
     }
     if (attrs.trimEnd().endsWith('/')) continue;
 
-    // B. Attribut répété
+    // B. Attribut répété — les valeurs entre guillemets sont vidées d'abord :
+    //    une URI de données SVG dans un href porte ses propres width= et ne
+    //    doit pas compter comme un attribut de la balise.
+    const attrsSansValeurs = attrs.replace(/="[^"]*"/g, '=""');
     for (const a of ['class', 'style', 'id', 'href', 'src', 'width', 'align']) {
-      if ((attrs.match(new RegExp(`\\s${a}\\s*=`, 'gi')) || []).length > 1) {
+      if ((attrsSansValeurs.match(new RegExp(`\\s${a}\\s*=`, 'gi')) || []).length > 1) {
         pbs.push(`ligne ${ligne} : <${nomBalise}> porte deux fois l’attribut ${a}`);
       }
     }
