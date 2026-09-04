@@ -7,7 +7,7 @@
 <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
 <meta name="color-scheme" content="light dark">
 <meta name="supported-color-schemes" content="light dark">
-<title>Actio — Pourquoi la régulation canadienne est unique au monde</title>
+<title>Actio — Pourquoi le cadre réglementaire crypto canadien est unique (et souvent mal compris)</title>
 <!--[if mso]>
 <xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml>
 <style>
@@ -16,12 +16,17 @@
 </style>
 <![endif]-->
 <style>
-  /* Réinitialisation minimale — les clients de messagerie sont hétérogènes. */
+  /* Réinitialisation minimale — les clients de messagerie sont hétérogènes.
+     Aucune police web n'est chargée : un courriel qui appelle fonts.googleapis.com
+     transmet l'adresse IP du lecteur à un tiers à chaque ouverture (Loi 25).
+     Newsreader, Plus Jakarta Sans et JetBrains Mono sont déclarées en tête de
+     pile pour les clients qui les ont localement ; Georgia, Arial et Consolas
+     portent le rendu partout ailleurs.                                          */
   body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
   table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; }
   img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
   body { margin: 0 !important; padding: 0 !important; width: 100% !important; }
-  a { color: #0F3D68; }
+  a { color: #1D4ED8; }
 
   /* Mobile — une seule colonne, cibles tactiles élargies. */
   @media screen and (max-width: 620px) {
@@ -32,33 +37,39 @@
     .t-h1 { font-size: 26px !important; line-height: 32px !important; }
     .t-h2 { font-size: 20px !important; line-height: 26px !important; }
     .bouton a { display: block !important; }
+    .chiffre-grand { font-size: 48px !important; line-height: 48px !important; }
   }
 
   /* Mode sombre — pris en charge par Apple Mail, Outlook macOS, quelques autres.
-     On ne s'y fie jamais : la version claire doit rester lisible partout.      */
+     On ne s'y fie jamais : la version claire doit rester lisible partout.
+     Les valeurs sont celles du bloc sombre de prototype/assets/tokens.css.    */
   @media (prefers-color-scheme: dark) {
-    .fond-page   { background-color: #0B1420 !important; }
-    .fond-carte  { background-color: #111E2E !important; }
-    .fond-encart { background-color: #16263A !important; }
-    .txt-primaire   { color: #EEF2F7 !important; }
-    .txt-secondaire { color: #A9B8C9 !important; }
-    .txt-tertiaire  { color: #7C8DA1 !important; }
-    .bordure    { border-color: #24374C !important; }
-    .lien       { color: #7FB6EA !important; }
-    .inverse    { background-color: #16263A !important; }
+    .fond-page   { background-color: #020617 !important; }
+    .fond-carte  { background-color: #0F172A !important; }
+    .fond-encart { background-color: #1E293B !important; }
+    .txt-primaire   { color: #F1F5F9 !important; }
+    .txt-secondaire { color: #CBD5E1 !important; }
+    .txt-tertiaire  { color: #94A3B8 !important; }
+    .bordure    { border-color: #334155 !important; }
+    .lien       { color: #60A5FA !important; }
+    .ambre      { color: #FCD34D !important; }
+    .alerte     { color: #F87171 !important; }
+    .conforme   { color: #34D399 !important; }
+    .info       { color: #60A5FA !important; }
+    .inverse    { background-color: #0F172A !important; }
   }
 </style>
 </head>
 
-<body class="fond-page" style="margin:0;padding:0;background-color:#FAF8F4;">
+<body class="fond-page" style="margin:0;padding:0;background-color:#F8FAFC;">
 
 <!-- Pré-en-tête : première ligne visible dans la boîte de réception, jamais affichée dans le corps. -->
-<div style="display:none;font-size:1px;color:#FAF8F4;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">
+<div style="display:none;font-size:1px;color:#F8FAFC;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">
   Quatre régimes se superposent sur une même plateforme : valeurs mobilières, autoréglementation, LBC/FT fédéral, permis québécois.
   &#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;
 </div>
 
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="fond-page" style="background-color:#FAF8F4;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="fond-page" style="background-color:#F8FAFC;">
 <tr><td align="center" style="padding:0;">
 
 <!-- ============================================================ -->
@@ -67,150 +78,167 @@
 <table role="presentation" class="conteneur" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;">
 
   <!-- ---------- Barre de service ---------- -->
-  <tr><td class="marge txt-tertiaire" style="padding:12px 32px 12px;font-family:'IBM Plex Mono',Consolas,monospace;font-size:11px;line-height:16px;color:#5A6B7E;">
+  <tr><td class="marge txt-tertiaire" style="padding:12px 32px 12px;font-family:'JetBrains Mono',Consolas,'Courier New',monospace;font-size:11px;line-height:16px;color:#475569;">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
-      <td align="left" style="font-family:'IBM Plex Mono',Consolas,monospace;font-size:11px;color:#5A6B7E;">
+      <td align="left" style="font-family:'JetBrains Mono',Consolas,'Courier New',monospace;font-size:11px;color:#475569;">
         SÉQUENCE D’ACCUEIL &nbsp;·&nbsp; COURRIEL 2 SUR 3
       </td>
-      <td align="right" style="font-family:'IBM Plex Mono',Consolas,monospace;font-size:11px;color:#5A6B7E;">
-        <a href="{{lien_version_web}}" class="lien" style="color:#5A6B7E;text-decoration:underline;">Version web</a>
+      <td align="right" style="font-family:'JetBrains Mono',Consolas,'Courier New',monospace;font-size:11px;color:#475569;">
+        <a href="{{lien_version_web}}" class="lien" style="color:#475569;text-decoration:underline;">Version web</a>
       </td>
     </tr></table>
   </td></tr>
 
   <!-- ---------- En-tête de marque ---------- -->
-  <tr><td class="marge fond-carte" style="background-color:#FFFFFF;padding:28px 32px 24px;border-top:3px solid #0F3D68;border-left:1px solid #DCD7CC;border-right:1px solid #DCD7CC;" >
+  <tr><td class="marge fond-carte" style="background-color:#FFFFFF;padding:28px 32px 24px;border-top:3px solid #0F172A;border-left:1px solid #E2E8F0;border-right:1px solid #E2E8F0;" >
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
       <tr>
-        <td align="left" style="font-family:Georgia,'Times New Roman',serif;font-size:30px;line-height:34px;font-weight:bold;letter-spacing:-0.8px;color:#0E1A2B;" class="txt-primaire">
-          Actio<span style="color:#096B61;">.</span>
-          <div style="font-family:Arial,Helvetica,sans-serif;font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:#5A6B7E;padding-top:6px;font-weight:normal;" class="txt-tertiaire">
-            Dispatch &nbsp;·&nbsp; l’infolettre réglementaire
+        <td align="left" style="font-family:'Newsreader',Georgia,'Times New Roman',serif;font-size:30px;line-height:34px;font-weight:bold;letter-spacing:-0.8px;color:#0F172A;" class="txt-primaire">
+          Actio<span style="color:#2563EB;font-weight:normal;">&#8202;|</span>
+          <div style="font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:#475569;padding-top:6px;font-weight:normal;" class="txt-tertiaire">
+            Dispatch &nbsp;·&nbsp; l’infolettre réglementaire et fiscale
           </div>
         </td>
-        <td align="right" valign="top" style="font-family:'IBM Plex Mono',Consolas,monospace;font-size:11px;line-height:18px;color:#5A6B7E;" class="txt-tertiaire">
+        <td align="right" valign="top" style="font-family:'JetBrains Mono',Consolas,'Courier New',monospace;font-size:11px;line-height:18px;color:#475569;" class="txt-tertiaire">
           6 min de lecture<br>
-          5 régimes superposés
+          4 régimes superposés
         </td>
       </tr>
     </table>
   </td></tr>
 
 
-  <tr><td class="marge fond-carte" style="background-color:#FFFFFF;padding:32px 32px 8px;border-left:1px solid #DCD7CC;border-right:1px solid #DCD7CC;">
-    <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;letter-spacing:1.6px;text-transform:uppercase;color:#0F3D68;padding-bottom:6px;" class="lien">
-      ◆&nbsp; Bienvenue · courriel 2 sur 3
+  <tr><td class="marge fond-carte" style="background-color:#FFFFFF;padding:32px 32px 8px;border-left:1px solid #E2E8F0;border-right:1px solid #E2E8F0;">
+    <div style="font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;letter-spacing:1.6px;text-transform:uppercase;color:#1D4ED8;padding-bottom:6px;" class="lien">
+      &#9670;&nbsp; Bienvenue · courriel 2 sur 3
     </div>
-    <h1 class="t-h1 txt-primaire" style="margin:0 0 14px;font-family:Georgia,'Times New Roman',serif;font-size:28px;line-height:34px;font-weight:bold;letter-spacing:-0.5px;color:#0E1A2B;">
-      Il n’existe pas de commission fédérale des valeurs mobilières au Canada.
+    <h1 class="t-h1 txt-primaire" style="margin:0 0 14px;font-family:'Newsreader',Georgia,'Times New Roman',serif;font-size:28px;line-height:34px;font-weight:bold;letter-spacing:-0.5px;color:#0F172A;">
+      Pourquoi le cadre réglementaire crypto canadien est unique (et souvent mal compris)
     </h1>
-    <div style="font-family:'IBM Plex Mono',Consolas,monospace;font-size:11px;line-height:16px;color:#5A6B7E;padding-bottom:18px;border-bottom:1px solid #EBE7DE;margin-bottom:18px;" class="txt-tertiaire bordure">
-      Séquence d’accueil &nbsp;·&nbsp; 6 min &nbsp;·&nbsp; cinq couches de droit, trois autorités
+    <div style="font-family:'JetBrains Mono',Consolas,'Courier New',monospace;font-size:11px;line-height:16px;color:#475569;padding-bottom:18px;border-bottom:1px solid #E2E8F0;margin-bottom:18px;" class="txt-tertiaire bordure">
+      Séquence d’accueil &nbsp;·&nbsp; 6 min &nbsp;·&nbsp; quatre régimes sur une même plateforme
     </div>
   </td></tr>
 
-  <tr><td class="marge fond-carte txt-primaire" style="background-color:#FFFFFF;padding:0 32px 24px;border-left:1px solid #DCD7CC;border-right:1px solid #DCD7CC;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:26px;color:#0E1A2B;">
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="fond-encart bordure" style="background-color:#FBF0E0;border:1px solid rgba(150,88,0,.32);border-left:3px solid #965800;border-radius:4px;margin:4px 0 22px;">
-      <tr><td style="padding:16px 18px;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#45566A;" class="txt-secondaire">
-        <strong style="color:#965800;">ÉTAT DE VÉRIFICATION — À LIRE AVANT DE CITER CE COURRIEL</strong><br><br>
-        Les numéros d’avis, les dates et les intitulés qui suivent proviennent de résultats de
-        recherche indexés. <strong style="color:#0E1A2B;" class="txt-primaire">Aucun n’a été lu sur le
-        texte officiel</strong>&nbsp;: l’accès direct aux sites des autorités était bloqué pendant la
-        constitution de notre base documentaire. Nos propres fiches se contredisent d’ailleurs sur
-        plusieurs d’entre eux — notamment le millésime de l’Avis conjoint 21-330 et l’autorité qui
-        délivre le permis d’entreprise de services monétaires au Québec.
-        <br><br>
-        La règle d’Actio est de publier le point <em>avec</em> sa réserve plutôt que de le taire ou de
-        l’affirmer. Mais <strong style="color:#0E1A2B;" class="txt-primaire">ne vous en prévalez pas
-        sans avoir vérifié à la source</strong>&nbsp;: le registre de vérification en donne les points
-        d’entrée exacts.
+  <tr><td class="marge fond-carte txt-primaire" style="background-color:#FFFFFF;padding:0 32px 24px;border-left:1px solid #E2E8F0;border-right:1px solid #E2E8F0;font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;font-size:16px;line-height:26px;color:#0F172A;">
+    <p style="margin:0 0 16px;">
+      La plupart des lecteurs arrivent chez Actio avec un modèle en tête, importé des États-Unis ou
+      de l’Europe&nbsp;: un régulateur national, une loi dédiée, un agrément unique. Le Canada n’a
+      rien de tout cela — et c’est ce qui rend son cadre à la fois plus exigeant qu’on ne le croit et
+      plus mal compris qu’il ne le mérite.
+    </p>
+
+    <p style="margin:0 0 8px;"><strong>1. Il n’existe pas de commission fédérale des valeurs mobilières.</strong></p>
+    <p style="margin:0 0 16px;">
+      Les valeurs mobilières relèvent des provinces et des territoires. Treize autorités — l’AMF au
+      Québec, la CVMO en Ontario, et les autres — coordonnent leurs positions au sein des Autorités
+      canadiennes en valeurs mobilières, les ACVM, qui ne sont pas une autorité mais un forum. Un
+      «&nbsp;avis du personnel des ACVM&nbsp;» n’est donc ni une loi ni un règlement&nbsp;: c’est une
+      interprétation partagée, qui s’impose aux plateformes par les conditions d’inscription qu’elles
+      acceptent. Conséquence pratique&nbsp;: une inscription vaut pour une province. Vérifiez la vôtre.
+    </p>
+
+    <p style="margin:0 0 8px;"><strong>2. Ce n’est pas le jeton qui est réglementé, c’est la relation.</strong></p>
+    <p style="margin:0 0 16px;">
+      Depuis l’Avis 21-327 de janvier 2020, le raisonnement canadien tient en une phrase&nbsp;: quand
+      une plateforme ne vous livre pas immédiatement l’actif que vous achetez, elle vous doit quelque
+      chose — et cette créance, ce <em>contrat de cryptoactif</em>, est une valeur mobilière. Les
+      ACVM n’ont pas qualifié le bitcoin lui-même de valeur mobilière&nbsp;; c’est la relation avec la
+      plateforme qui le garde pour vous qui l’est. C’est pourquoi le Canada a inscrit ses plateformes des années avant la plupart des
+      pays, sans jamais adopter de loi «&nbsp;crypto&nbsp;».
+    </p>
+
+    <p style="margin:0 0 8px;"><strong>3. L’inscription se fait par paliers, et le dernier palier est désormais le seul.</strong></p>
+    <p style="margin:0 0 16px;">
+      Engagement préalable, puis courtier restreint (une catégorie transitoire, avec des plafonds),
+      puis courtier en placement membre de l’OCRI, l’organisme d’autoréglementation. Depuis août
+      2024, la voie transitoire est fermée aux nouveaux venus&nbsp;: une plateforme qui veut servir des
+      Canadiens vise directement l’OCRI, avec son cadre de garde des actifs numériques — dépositaires
+      par paliers, autogarde restreinte. Ce que vous devez retenir&nbsp;: la catégorie d’inscription de
+      votre plateforme dit ce qu’elle a le droit de vous offrir.
+    </p>
+
+    <p style="margin:0 0 8px;"><strong>4. Un second guichet, fédéral, que l’inscription provinciale ne remplace pas.</strong></p>
+    <p style="margin:0 0 16px;">
+      Une plateforme est aussi une <em>entreprise de services monétaires</em> au sens de la loi
+      fédérale contre le blanchiment&nbsp;: inscription auprès du CANAFE, déclarations d’opérations,
+      règle d’acheminement. Au Québec s’ajoute un permis d’ESM, délivré par Revenu Québec. Trois
+      formalités pour une plateforme active au Québec — et trois registres pour vous, lecteur, qui
+      voulez la vérifier.
+    </p>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="fond-encart bordure" style="background-color:#FEF3C7;border-left:3px solid #B45309;margin:4px 0 18px;">
+      <tr><td style="padding:16px 18px;font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;font-size:14px;line-height:22px;color:#334155;" class="txt-secondaire">
+        <strong style="color:#B45309;" class="ambre">Le piège du moment.</strong> La loi fédérale sur les
+        cryptomonnaies stables est adoptée, mais pas en vigueur&nbsp;: ses règlements ne sont pas pris.
+        Un texte qui dit que les émetteurs «&nbsp;doivent désormais&nbsp;» quoi que ce soit décrit un
+        avenir. Aujourd’hui, c’est l’Avis 21-333 des ACVM qui décide, plateforme par plateforme, quels
+        jetons arrimés au dollar vous pouvez acheter.
+        <br><span style="font-size:12px;">[À VÉRIFIER — dates et numéros d’avis non lus à la source à la date de rédaction&nbsp;; voir le registre de vérification.]</span>
       </td></tr>
     </table>
+
     <p style="margin:0 0 16px;">
-      Ce n’est pas un détail d’organigramme&nbsp;: c’est la clé de tout ce qui suit. La compétence en valeurs mobilières appartient aux provinces et aux territoires. Chacun a son autorité — l’Autorité des marchés financiers au Québec, la Commission des valeurs mobilières de l’Ontario, et ainsi de suite. Les <strong>Autorités canadiennes en valeurs mobilières</strong> ne sont pas une commission nationale&nbsp;: c’est le <strong>forum</strong> où ces autorités se coordonnent. Les ACVM ne délivrent aucune inscription. Elles publient des règlements et des normes que chaque province adopte pour son propre compte, des avis du personnel de la série 21-xxx, et des communiqués conjoints.
+      <strong>Ce que cela change pour vous, en une ligne.</strong> Au Canada, la question n’est jamais
+      «&nbsp;ce jeton est-il légal&nbsp;?&nbsp;» mais «&nbsp;ma plateforme est-elle inscrite dans ma
+      province, dans quelle catégorie, et auprès de quels registres&nbsp;?&nbsp;». Le guide reçu
+      avant-hier répond aux trois. Vendredi, la boîte à outils vous donnera les liens directs.
     </p>
-    <p style="margin:0 0 16px;">
-      <strong>Première conséquence&nbsp;: le droit applicable dépend de votre province de résidence.</strong> Une plateforme inscrite en Ontario ne l’est pas nécessairement au Québec. Une décision du Tribunal administratif des marchés financiers, au Québec, ne lie pas le Tribunal des marchés financiers de l’Ontario.
-    </p>
-    <p style="margin:0 0 16px;">
-      <strong>Deuxième particularité&nbsp;: ce cadre est bâti sur des avis, non sur des règlements.</strong>
-    </p>
-    <p style="margin:0 0 16px;">
-      L’ossature du régime canadien des plateformes tient dans une série d’avis du personnel et de communiqués. Selon nos sources, l’Avis 21-327 du personnel des ACVM, publié en janvier 2020, énoncerait que l’absence de livraison immédiate d’un cryptoactif fait naître une relation contractuelle soumise au droit des valeurs mobilières — c’est le «&nbsp;contrat de cryptoactif&nbsp;». L’Avis conjoint 21-329, publié en mars 2021, ouvre la voie du <strong>courtier restreint</strong> et l’<strong>engagement préalable</strong>. L’Avis 21-332, du 22 février 2023, renforce cet engagement après les faillites de 2022&nbsp;: garde, séparation des actifs, interdiction du levier. L’Avis 21-333, du 5 octobre 2023, institue un régime intérimaire pour les <strong>cryptoactifs arrimés à une valeur</strong>. Le communiqué conjoint des ACVM et de l’OCRI du 6 août 2024 met fin à l’approche intérimaire&nbsp;: les plateformes doivent désormais déposer une demande d’inscription de courtier en placement.
-    </p>
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="fond-encart bordure" style="background-color:#F3F0EA;border-left:3px solid #0F3D68;margin:4px 0 18px;">
-      <tr><td style="padding:16px 18px;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:22px;color:#45566A;" class="txt-secondaire">
-        Aucun de ces textes n’est un règlement. Ils s’imposent par les <strong style="color:#0E1A2B;" class="txt-primaire">conditions d’inscription</strong> consenties plateforme par plateforme, et par les dispenses accordées au cas par cas. C’est un cadre efficace et rapide&nbsp;; c’est aussi un cadre où la sécurité juridique et le contrôle judiciaire sont plus faibles qu’ailleurs. <strong style="color:#0E1A2B;" class="txt-primaire">Un média qui ne lit que les lois ne voit rien de ce droit-là.</strong>
-      </td></tr>
-    </table>
-    <p style="margin:0 0 16px;">
-      <strong>Troisième couche&nbsp;: l’autoréglementation.</strong> L’Organisme canadien de réglementation des investissements, né de la fusion de l’OCRCVM et de l’ACFM en 2023, encadre les plateformes devenues courtiers en placement. Ses règles imposent la garde, l’emplacement de titres agréé et une séparation quotidienne. Le cadre de garde des actifs numériques qu’il aurait publié le 3 février 2026 classerait les dépositaires par paliers et limite l’autogarde — et il est imposé par conditions d’adhésion, non par règle publiée.
-    </p>
-    <p style="margin:0 0 16px;">
-      <strong>Quatrième couche, fédérale celle-là&nbsp;: la lutte contre le recyclage des produits de la criminalité.</strong> Ici, la compétence est fédérale et le régulateur unique&nbsp;: le CANAFE. L’inscription y est <strong>déclarative</strong>&nbsp;: ni capital minimum, ni cautionnement, ni agrément prudentiel. Depuis le 1<sup>er</sup> juin 2021 s’appliquent la déclaration des réceptions de monnaie virtuelle de 10&nbsp;000&nbsp;$ et plus, la règle de 24 heures et la règle d’acheminement.
-    </p>
-    <p style="margin:0 0 16px;">
-      <strong>Cinquième couche, québécoise.</strong> Une entreprise qui offre certains services monétaires au Québec doit détenir un <strong>permis d’entreprise de services monétaires</strong>, obligatoire depuis le 1<sup>er</sup> avril 2012. Ce permis est <strong>distinct</strong> de l’inscription en valeurs mobilières et de l’inscription auprès du CANAFE&nbsp;: trois régimes, trois dossiers, trois autorités.
-    </p>
-    <p style="margin:0 0 16px;">
-      <strong>Ce que cela change pour vous, investisseur.</strong> La seule question utile n’est pas «&nbsp;cette plateforme est-elle réglementée&nbsp;?&nbsp;» mais «&nbsp;est-elle inscrite auprès de l’autorité de <strong>ma</strong> province, et à quel titre&nbsp;?&nbsp;». Une plateforme non inscrite auprès de l’autorité de votre province ne vous fait bénéficier d’aucune des protections prévues par la législation en valeurs mobilières, y compris en cas d’insolvabilité. Deux listes officielles des ACVM font foi — autorisées, proscrites — et elles sont mises à jour en continu.
-    </p>
-    <p style="margin:0 0 16px;">
-      <strong>Ce que cela change pour vous, plateforme.</strong> Vous ne cumulez pas des formalités&nbsp;: vous cumulez des régimes, dont chacun a son autorité, son vocabulaire et son calendrier propre. Un manquement dans l’un ne s’excuse pas par la conformité dans un autre. Et comme l’essentiel de l’encadrement passe par des conditions d’inscription, <strong>votre propre décision d’inscription est votre premier texte applicable</strong> — avant tout avis, avant tout règlement.
-    </p>
+
     <table role="presentation" class="bouton" cellpadding="0" cellspacing="0" border="0" style="margin:4px 0 8px;">
-      <tr><td style="background-color:#0F3D68;border-radius:4px;">
-        <a href="{{lien_carte_autorites}}" style="display:inline-block;padding:13px 26px;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:bold;color:#FFFFFF;text-decoration:none;">
-          Ouvrir la carte des autorités canadiennes →
+      <tr><td style="background-color:#2563EB;border-radius:4px;">
+        <a href="{{lien_carte_autorites}}" style="display:inline-block;padding:13px 26px;font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;font-size:14px;font-weight:bold;color:#FFFFFF;text-decoration:none;">
+          Voir la carte des autorités canadiennes →
         </a>
       </td></tr>
     </table>
-    <p style="margin:22px 0 0;font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#45566A;" class="txt-secondaire">
+
+    <p style="margin:22px 0 0;font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;font-size:15px;color:#334155;" class="txt-secondaire">
       — La rédaction d’Actio
     </p>
-    <p style="margin:14px 0 0;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:18px;color:#5A6B7E;" class="txt-tertiaire">
-      <em>Je préfère ne recevoir que l’édition du mardi&nbsp;: <a href="{{lien_arret_sequence}}" class="lien" style="color:#0F3D68;">arrêter ce dernier courriel</a>.</em>
+    <p style="margin:14px 0 0;font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;font-size:12px;line-height:18px;color:#475569;" class="txt-tertiaire">
+      <em>Je préfère ne recevoir que les éditions du mardi et du vendredi&nbsp;: <a href="{{lien_arret_sequence}}" class="lien" style="color:#1D4ED8;">arrêter le dernier courriel d’accueil</a>.</em>
     </p>
   </td></tr>
-
 
 
   <!-- ============================================================ -->
   <!-- PIED DE PAGE — CONFORMITÉ LCAP / CASL                        -->
   <!-- ============================================================ -->
-  <tr><td class="marge fond-encart bordure" style="background-color:#F3F0EA;padding:28px 32px;border:1px solid #DCD7CC;border-top:2px solid #0E1A2B;">
+  <tr><td class="marge fond-encart bordure" style="background-color:#F1F5F9;padding:28px 32px;border:1px solid #E2E8F0;border-top:2px solid #0F172A;">
 
-    <div style="font-family:Georgia,'Times New Roman',serif;font-size:20px;font-weight:bold;color:#0E1A2B;padding-bottom:4px;" class="txt-primaire">
-      Actio<span style="color:#096B61;">.</span>
+    <div style="font-family:'Newsreader',Georgia,'Times New Roman',serif;font-size:20px;font-weight:bold;color:#0F172A;padding-bottom:4px;" class="txt-primaire">
+      Actio<span style="color:#2563EB;font-weight:normal;">&#8202;|</span>
     </div>
 
-    <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:19px;color:#45566A;padding-bottom:16px;" class="txt-secondaire">
-      <strong style="color:#0E1A2B;" class="txt-primaire">Actio Média inc.</strong><br>
+    <div style="font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;font-size:12px;line-height:19px;color:#334155;padding-bottom:16px;" class="txt-secondaire">
+      <strong style="color:#0F172A;" class="txt-primaire">Actio Média inc.</strong><br>
       1000, rue De La Gauchetière Ouest, bureau 2400<br>
       Montréal (Québec) H3B 4W5, Canada<br>
-      <a href="mailto:redaction@actio.ca" class="lien" style="color:#0F3D68;">redaction@actio.ca</a> ·
-      <a href="tel:+15145550142" class="lien" style="color:#0F3D68;">+1 514 555-0142</a>
+      <a href="mailto:redaction@actio.ca" class="lien" style="color:#1D4ED8;">redaction@actio.ca</a>
+      &nbsp;·&nbsp; Rédaction à Montréal et à Toronto
     </div>
 
-    <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:19px;color:#45566A;padding-bottom:16px;border-top:1px solid #DCD7CC;padding-top:16px;" class="txt-secondaire bordure">
+    <div style="font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;font-size:12px;line-height:19px;color:#334155;padding-bottom:16px;border-top:1px solid #E2E8F0;padding-top:16px;" class="txt-secondaire bordure">
       Vous recevez ce message parce que vous avez donné votre <strong>consentement exprès</strong> à
-      recevoir l’infolettre <em>Actio Dispatch</em>, le
-      <strong>{{date_consentement}}</strong> à partir de l’adresse IP {{ip_consentement}}
-      (page&nbsp;: {{source_consentement}}). Ce message est un message électronique commercial au sens
-      de la <strong>Loi canadienne anti-pourriel (LCAP)</strong>.
+      recevoir <em>Actio Dispatch</em>, le <strong>{{date_consentement}}</strong>, depuis la page
+      {{source_consentement}}, puis confirmé ce consentement depuis votre boîte de courriel. Ce message
+      est un message électronique commercial au sens de la
+      <strong>Loi canadienne anti-pourriel (LCAP)</strong>.
       <br><br>
-      <a href="{{lien_desabonnement}}" class="lien" style="color:#0F3D68;font-weight:bold;text-decoration:underline;">Se désabonner en un clic</a>
+      <a href="{{lien_desabonnement}}" class="lien" style="color:#1D4ED8;font-weight:bold;text-decoration:underline;">Se désabonner en un clic</a>
       &nbsp;·&nbsp;
-      <a href="{{lien_preferences}}" class="lien" style="color:#0F3D68;text-decoration:underline;">Gérer mes préférences</a>
+      <a href="{{lien_preferences}}" class="lien" style="color:#1D4ED8;text-decoration:underline;">Gérer mes préférences</a>
       <br>
-      <span style="color:#5A6B7E;" class="txt-tertiaire">
-        Le désabonnement est traité dans un délai maximal de 10 jours ouvrables et le mécanisme demeure
-        fonctionnel pendant au moins 60 jours à compter de l’envoi du présent message.
+      <span style="color:#475569;" class="txt-tertiaire">
+        Le désabonnement prend effet sans confirmation ni connexion, est traité dans un délai maximal
+        de 10 jours ouvrables, et le mécanisme demeure fonctionnel pendant au moins 60 jours à compter
+        de l’envoi du présent message.
       </span>
     </div>
 
-    <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:17px;color:#5A6B7E;border-top:1px solid #DCD7CC;padding-top:16px;" class="txt-tertiaire bordure">
-      <strong style="color:#0E1A2B;" class="txt-primaire">Avertissement.</strong>
+    <div style="font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;font-size:11px;line-height:17px;color:#475569;border-top:1px solid #E2E8F0;padding-top:16px;" class="txt-tertiaire bordure">
+      <strong style="color:#0F172A;" class="txt-primaire">Avertissement.</strong>
       Actio est un média. Actio ne fournit ni conseil en placement, ni conseil juridique, ni conseil
       fiscal, et n’est inscrite à aucun titre auprès des Autorités canadiennes en valeurs mobilières,
       de l’Autorité des marchés financiers, de la Commission des valeurs mobilières de l’Ontario ou de
@@ -223,12 +251,14 @@
       avocat avant toute décision.
       <br><br>
       Vos renseignements personnels sont traités conformément à notre
-      <a href="{{lien_confidentialite}}" class="lien" style="color:#0F3D68;">politique de confidentialité</a>
-      (Loi 25 du Québec et LPRPDE), et hébergés au Canada. Ils ne sont ni vendus, ni loués, ni cédés.
+      <a href="{{lien_confidentialite}}" class="lien" style="color:#1D4ED8;">politique de confidentialité</a>.
+      Ils ne sont ni vendus, ni loués, ni cédés. Vous pouvez demander l’accès à vos renseignements, leur
+      rectification ou leur suppression en écrivant à l’adresse ci-dessus.
       <br><br>
       © 2026 Actio Média inc. Tous droits réservés.
-      &nbsp;·&nbsp; <a href="{{lien_version_web}}" class="lien" style="color:#5A6B7E;">Version web</a>
-      &nbsp;·&nbsp; <a href="{{lien_archives}}" class="lien" style="color:#5A6B7E;">Archives</a>
+      &nbsp;·&nbsp; <a href="{{lien_version_web}}" class="lien" style="color:#475569;">Version web</a>
+      &nbsp;·&nbsp; <a href="{{lien_archives}}" class="lien" style="color:#475569;">Archives</a>
+      &nbsp;·&nbsp; <a href="{{lien_corrections}}" class="lien" style="color:#475569;">Signaler une erreur</a>
     </div>
   </td></tr>
 

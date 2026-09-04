@@ -16,12 +16,17 @@
 </style>
 <![endif]-->
 <style>
-  /* Réinitialisation minimale — les clients de messagerie sont hétérogènes. */
+  /* Réinitialisation minimale — les clients de messagerie sont hétérogènes.
+     Aucune police web n'est chargée : un courriel qui appelle fonts.googleapis.com
+     transmet l'adresse IP du lecteur à un tiers à chaque ouverture (Loi 25).
+     Newsreader, Plus Jakarta Sans et JetBrains Mono sont déclarées en tête de
+     pile pour les clients qui les ont localement ; Georgia, Arial et Consolas
+     portent le rendu partout ailleurs.                                          */
   body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
   table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; }
   img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
   body { margin: 0 !important; padding: 0 !important; width: 100% !important; }
-  a { color: #0F3D68; }
+  a { color: #1D4ED8; }
 
   /* Mobile — une seule colonne, cibles tactiles élargies. */
   @media screen and (max-width: 620px) {
@@ -32,33 +37,39 @@
     .t-h1 { font-size: 26px !important; line-height: 32px !important; }
     .t-h2 { font-size: 20px !important; line-height: 26px !important; }
     .bouton a { display: block !important; }
+    .chiffre-grand { font-size: 48px !important; line-height: 48px !important; }
   }
 
   /* Mode sombre — pris en charge par Apple Mail, Outlook macOS, quelques autres.
-     On ne s'y fie jamais : la version claire doit rester lisible partout.      */
+     On ne s'y fie jamais : la version claire doit rester lisible partout.
+     Les valeurs sont celles du bloc sombre de prototype/assets/tokens.css.    */
   @media (prefers-color-scheme: dark) {
-    .fond-page   { background-color: #0B1420 !important; }
-    .fond-carte  { background-color: #111E2E !important; }
-    .fond-encart { background-color: #16263A !important; }
-    .txt-primaire   { color: #EEF2F7 !important; }
-    .txt-secondaire { color: #A9B8C9 !important; }
-    .txt-tertiaire  { color: #7C8DA1 !important; }
-    .bordure    { border-color: #24374C !important; }
-    .lien       { color: #7FB6EA !important; }
-    .inverse    { background-color: #16263A !important; }
+    .fond-page   { background-color: #020617 !important; }
+    .fond-carte  { background-color: #0F172A !important; }
+    .fond-encart { background-color: #1E293B !important; }
+    .txt-primaire   { color: #F1F5F9 !important; }
+    .txt-secondaire { color: #CBD5E1 !important; }
+    .txt-tertiaire  { color: #94A3B8 !important; }
+    .bordure    { border-color: #334155 !important; }
+    .lien       { color: #60A5FA !important; }
+    .ambre      { color: #FCD34D !important; }
+    .alerte     { color: #F87171 !important; }
+    .conforme   { color: #34D399 !important; }
+    .info       { color: #60A5FA !important; }
+    .inverse    { background-color: #0F172A !important; }
   }
 </style>
 </head>
 
-<body class="fond-page" style="margin:0;padding:0;background-color:#FAF8F4;">
+<body class="fond-page" style="margin:0;padding:0;background-color:#F8FAFC;">
 
 <!-- Pré-en-tête : première ligne visible dans la boîte de réception, jamais affichée dans le corps. -->
-<div style="display:none;font-size:1px;color:#FAF8F4;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">
+<div style="display:none;font-size:1px;color:#F8FAFC;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">
   {{PREENTETE}}
   &#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;
 </div>
 
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="fond-page" style="background-color:#FAF8F4;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="fond-page" style="background-color:#F8FAFC;">
 <tr><td align="center" style="padding:0;">
 
 <!-- ============================================================ -->
@@ -67,28 +78,28 @@
 <table role="presentation" class="conteneur" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;">
 
   <!-- ---------- Barre de service ---------- -->
-  <tr><td class="marge txt-tertiaire" style="padding:12px 32px 12px;font-family:'IBM Plex Mono',Consolas,monospace;font-size:11px;line-height:16px;color:#5A6B7E;">
+  <tr><td class="marge txt-tertiaire" style="padding:12px 32px 12px;font-family:'JetBrains Mono',Consolas,'Courier New',monospace;font-size:11px;line-height:16px;color:#475569;">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
-      <td align="left" style="font-family:'IBM Plex Mono',Consolas,monospace;font-size:11px;color:#5A6B7E;">
+      <td align="left" style="font-family:'JetBrains Mono',Consolas,'Courier New',monospace;font-size:11px;color:#475569;">
         {{SURTITRE}}
       </td>
-      <td align="right" style="font-family:'IBM Plex Mono',Consolas,monospace;font-size:11px;color:#5A6B7E;">
-        <a href="{{lien_version_web}}" class="lien" style="color:#5A6B7E;text-decoration:underline;">Version web</a>
+      <td align="right" style="font-family:'JetBrains Mono',Consolas,'Courier New',monospace;font-size:11px;color:#475569;">
+        <a href="{{lien_version_web}}" class="lien" style="color:#475569;text-decoration:underline;">Version web</a>
       </td>
     </tr></table>
   </td></tr>
 
   <!-- ---------- En-tête de marque ---------- -->
-  <tr><td class="marge fond-carte" style="background-color:#FFFFFF;padding:28px 32px 24px;border-top:3px solid #0F3D68;border-left:1px solid #DCD7CC;border-right:1px solid #DCD7CC;" >
+  <tr><td class="marge fond-carte" style="background-color:#FFFFFF;padding:28px 32px 24px;border-top:3px solid #0F172A;border-left:1px solid #E2E8F0;border-right:1px solid #E2E8F0;" >
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
       <tr>
-        <td align="left" style="font-family:Georgia,'Times New Roman',serif;font-size:30px;line-height:34px;font-weight:bold;letter-spacing:-0.8px;color:#0E1A2B;" class="txt-primaire">
-          Actio<span style="color:#096B61;">.</span>
-          <div style="font-family:Arial,Helvetica,sans-serif;font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:#5A6B7E;padding-top:6px;font-weight:normal;" class="txt-tertiaire">
-            Dispatch &nbsp;·&nbsp; l’infolettre réglementaire
+        <td align="left" style="font-family:'Newsreader',Georgia,'Times New Roman',serif;font-size:30px;line-height:34px;font-weight:bold;letter-spacing:-0.8px;color:#0F172A;" class="txt-primaire">
+          Actio<span style="color:#2563EB;font-weight:normal;">&#8202;|</span>
+          <div style="font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:#475569;padding-top:6px;font-weight:normal;" class="txt-tertiaire">
+            Dispatch &nbsp;·&nbsp; l’infolettre réglementaire et fiscale
           </div>
         </td>
-        <td align="right" valign="top" style="font-family:'IBM Plex Mono',Consolas,monospace;font-size:11px;line-height:18px;color:#5A6B7E;" class="txt-tertiaire">
+        <td align="right" valign="top" style="font-family:'JetBrains Mono',Consolas,'Courier New',monospace;font-size:11px;line-height:18px;color:#475569;" class="txt-tertiaire">
           {{META_DROITE}}
         </td>
       </tr>
@@ -96,26 +107,28 @@
   </td></tr>
 
 <!--DEBUT:COURS-->
-  <!-- ---------- Bandeau de cours ---------- -->
-  <tr><td class="marge inverse" style="background-color:#0E1A2B;padding:14px 32px;">
+  <!-- ---------- Bandeau de cours ----------
+       Les valeurs sont des champs de fusion remplis par le flux de marché au
+       moment de l'envoi. Aucun cours n'est écrit dans le gabarit : un chiffre
+       figé dans un courriel réglementaire est un chiffre faux à l'ouverture. -->
+  <tr><td class="marge inverse" style="background-color:#0A1128;padding:14px 32px;">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
-      <td class="cours-cell" style="font-family:'IBM Plex Mono',Consolas,monospace;font-size:12px;line-height:18px;color:#FFFFFF;">
-        <span style="color:#8FA0B2;">BTC</span> 148 720&nbsp;$ <span style="color:#3FCB96;">&#9650;&nbsp;1,8&nbsp;%</span>
+      <td class="cours-cell" style="font-family:'JetBrains Mono',Consolas,'Courier New',monospace;font-size:12px;line-height:18px;color:#F1F5F9;">
+        <span style="color:#94A3B8;">BTC/CAD</span> {{btc_cad}} <span style="color:#CBD5E1;">{{btc_var_24h}}</span>
       </td>
-      <td class="cours-cell" style="font-family:'IBM Plex Mono',Consolas,monospace;font-size:12px;line-height:18px;color:#FFFFFF;">
-        <span style="color:#8FA0B2;">ETH</span> 5 340&nbsp;$ <span style="color:#FF6B7F;">&#9660;&nbsp;0,6&nbsp;%</span>
+      <td class="cours-cell" style="font-family:'JetBrains Mono',Consolas,'Courier New',monospace;font-size:12px;line-height:18px;color:#F1F5F9;">
+        <span style="color:#94A3B8;">ETH/CAD</span> {{eth_cad}} <span style="color:#CBD5E1;">{{eth_var_24h}}</span>
       </td>
-      <td class="cours-cell" style="font-family:'IBM Plex Mono',Consolas,monospace;font-size:12px;line-height:18px;color:#FFFFFF;">
-        <span style="color:#8FA0B2;">SOL</span> 268&nbsp;$ <span style="color:#3FCB96;">&#9650;&nbsp;3,4&nbsp;%</span>
+      <td class="cours-cell" style="font-family:'JetBrains Mono',Consolas,'Courier New',monospace;font-size:12px;line-height:18px;color:#F1F5F9;">
+        <span style="color:#94A3B8;">SOL/CAD</span> {{sol_cad}} <span style="color:#CBD5E1;">{{sol_var_24h}}</span>
       </td>
-      <td class="cours-cell" style="font-family:'IBM Plex Mono',Consolas,monospace;font-size:12px;line-height:18px;color:#FFFFFF;">
-        <span style="color:#8FA0B2;">CAD/USD</span> 0,7412
+      <td class="cours-cell" align="right" style="font-family:'JetBrains Mono',Consolas,'Courier New',monospace;font-size:12px;line-height:18px;color:#F1F5F9;">
+        <span style="color:#94A3B8;">Marché</span> {{marche_statut}}
       </td>
     </tr></table>
-    <div style="font-family:Arial,Helvetica,sans-serif;font-size:10px;line-height:14px;color:#8FA0B2;padding-top:8px;">
-      Cours en dollars canadiens, arrêtés au lundi 7 septembre 2026 à 22&nbsp;h&nbsp;(HE).
-      <strong style="color:#E8A93C;">Gabarit&nbsp;: valeurs illustratives</strong>, injectées par le flux de marché à l’envoi.
-      Actio ne recommande aucun actif.
+    <div style="font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;font-size:10px;line-height:14px;color:#94A3B8;padding-top:8px;">
+      Cours en dollars canadiens, arrêtés le {{cours_horodatage}} (HE), source {{cours_source}}.
+      Variation sur 24 heures. Actio ne recommande aucun actif.
     </div>
   </td></tr>
 <!--FIN:COURS-->
@@ -125,39 +138,40 @@
   <!-- ============================================================ -->
   <!-- PIED DE PAGE — CONFORMITÉ LCAP / CASL                        -->
   <!-- ============================================================ -->
-  <tr><td class="marge fond-encart bordure" style="background-color:#F3F0EA;padding:28px 32px;border:1px solid #DCD7CC;border-top:2px solid #0E1A2B;">
+  <tr><td class="marge fond-encart bordure" style="background-color:#F1F5F9;padding:28px 32px;border:1px solid #E2E8F0;border-top:2px solid #0F172A;">
 
-    <div style="font-family:Georgia,'Times New Roman',serif;font-size:20px;font-weight:bold;color:#0E1A2B;padding-bottom:4px;" class="txt-primaire">
-      Actio<span style="color:#096B61;">.</span>
+    <div style="font-family:'Newsreader',Georgia,'Times New Roman',serif;font-size:20px;font-weight:bold;color:#0F172A;padding-bottom:4px;" class="txt-primaire">
+      Actio<span style="color:#2563EB;font-weight:normal;">&#8202;|</span>
     </div>
 
-    <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:19px;color:#45566A;padding-bottom:16px;" class="txt-secondaire">
-      <strong style="color:#0E1A2B;" class="txt-primaire">Actio Média inc.</strong><br>
+    <div style="font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;font-size:12px;line-height:19px;color:#334155;padding-bottom:16px;" class="txt-secondaire">
+      <strong style="color:#0F172A;" class="txt-primaire">Actio Média inc.</strong><br>
       1000, rue De La Gauchetière Ouest, bureau 2400<br>
       Montréal (Québec) H3B 4W5, Canada<br>
-      <a href="mailto:redaction@actio.ca" class="lien" style="color:#0F3D68;">redaction@actio.ca</a> ·
-      <a href="tel:+15145550142" class="lien" style="color:#0F3D68;">+1 514 555-0142</a>
+      <a href="mailto:redaction@actio.ca" class="lien" style="color:#1D4ED8;">redaction@actio.ca</a>
+      &nbsp;·&nbsp; Rédaction à Montréal et à Toronto
     </div>
 
-    <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:19px;color:#45566A;padding-bottom:16px;border-top:1px solid #DCD7CC;padding-top:16px;" class="txt-secondaire bordure">
+    <div style="font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;font-size:12px;line-height:19px;color:#334155;padding-bottom:16px;border-top:1px solid #E2E8F0;padding-top:16px;" class="txt-secondaire bordure">
       Vous recevez ce message parce que vous avez donné votre <strong>consentement exprès</strong> à
-      recevoir l’infolettre <em>Actio Dispatch</em>, le
-      <strong>{{date_consentement}}</strong> à partir de l’adresse IP {{ip_consentement}}
-      (page&nbsp;: {{source_consentement}}). Ce message est un message électronique commercial au sens
-      de la <strong>Loi canadienne anti-pourriel (LCAP)</strong>.
+      recevoir <em>Actio Dispatch</em>, le <strong>{{date_consentement}}</strong>, depuis la page
+      {{source_consentement}}, puis confirmé ce consentement depuis votre boîte de courriel. Ce message
+      est un message électronique commercial au sens de la
+      <strong>Loi canadienne anti-pourriel (LCAP)</strong>.
       <br><br>
-      <a href="{{lien_desabonnement}}" class="lien" style="color:#0F3D68;font-weight:bold;text-decoration:underline;">Se désabonner en un clic</a>
+      <a href="{{lien_desabonnement}}" class="lien" style="color:#1D4ED8;font-weight:bold;text-decoration:underline;">Se désabonner en un clic</a>
       &nbsp;·&nbsp;
-      <a href="{{lien_preferences}}" class="lien" style="color:#0F3D68;text-decoration:underline;">Gérer mes préférences</a>
+      <a href="{{lien_preferences}}" class="lien" style="color:#1D4ED8;text-decoration:underline;">Gérer mes préférences</a>
       <br>
-      <span style="color:#5A6B7E;" class="txt-tertiaire">
-        Le désabonnement est traité dans un délai maximal de 10 jours ouvrables et le mécanisme demeure
-        fonctionnel pendant au moins 60 jours à compter de l’envoi du présent message.
+      <span style="color:#475569;" class="txt-tertiaire">
+        Le désabonnement prend effet sans confirmation ni connexion, est traité dans un délai maximal
+        de 10 jours ouvrables, et le mécanisme demeure fonctionnel pendant au moins 60 jours à compter
+        de l’envoi du présent message.
       </span>
     </div>
 
-    <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:17px;color:#5A6B7E;border-top:1px solid #DCD7CC;padding-top:16px;" class="txt-tertiaire bordure">
-      <strong style="color:#0E1A2B;" class="txt-primaire">Avertissement.</strong>
+    <div style="font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;font-size:11px;line-height:17px;color:#475569;border-top:1px solid #E2E8F0;padding-top:16px;" class="txt-tertiaire bordure">
+      <strong style="color:#0F172A;" class="txt-primaire">Avertissement.</strong>
       Actio est un média. Actio ne fournit ni conseil en placement, ni conseil juridique, ni conseil
       fiscal, et n’est inscrite à aucun titre auprès des Autorités canadiennes en valeurs mobilières,
       de l’Autorité des marchés financiers, de la Commission des valeurs mobilières de l’Ontario ou de
@@ -170,12 +184,14 @@
       avocat avant toute décision.
       <br><br>
       Vos renseignements personnels sont traités conformément à notre
-      <a href="{{lien_confidentialite}}" class="lien" style="color:#0F3D68;">politique de confidentialité</a>
-      (Loi 25 du Québec et LPRPDE), et hébergés au Canada. Ils ne sont ni vendus, ni loués, ni cédés.
+      <a href="{{lien_confidentialite}}" class="lien" style="color:#1D4ED8;">politique de confidentialité</a>.
+      Ils ne sont ni vendus, ni loués, ni cédés. Vous pouvez demander l’accès à vos renseignements, leur
+      rectification ou leur suppression en écrivant à l’adresse ci-dessus.
       <br><br>
       © 2026 Actio Média inc. Tous droits réservés.
-      &nbsp;·&nbsp; <a href="{{lien_version_web}}" class="lien" style="color:#5A6B7E;">Version web</a>
-      &nbsp;·&nbsp; <a href="{{lien_archives}}" class="lien" style="color:#5A6B7E;">Archives</a>
+      &nbsp;·&nbsp; <a href="{{lien_version_web}}" class="lien" style="color:#475569;">Version web</a>
+      &nbsp;·&nbsp; <a href="{{lien_archives}}" class="lien" style="color:#475569;">Archives</a>
+      &nbsp;·&nbsp; <a href="{{lien_corrections}}" class="lien" style="color:#475569;">Signaler une erreur</a>
     </div>
   </td></tr>
 

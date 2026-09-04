@@ -7,7 +7,7 @@
 <meta name="format-detection" content="telephone=no, date=no, address=no, email=no">
 <meta name="color-scheme" content="light dark">
 <meta name="supported-color-schemes" content="light dark">
-<title>Actio — Bienvenue. Votre guide de conformité est prêt.</title>
+<title>Actio — Bienvenue. Votre guide de survie réglementaire et fiscal est prêt.</title>
 <!--[if mso]>
 <xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml>
 <style>
@@ -16,12 +16,17 @@
 </style>
 <![endif]-->
 <style>
-  /* Réinitialisation minimale — les clients de messagerie sont hétérogènes. */
+  /* Réinitialisation minimale — les clients de messagerie sont hétérogènes.
+     Aucune police web n'est chargée : un courriel qui appelle fonts.googleapis.com
+     transmet l'adresse IP du lecteur à un tiers à chaque ouverture (Loi 25).
+     Newsreader, Plus Jakarta Sans et JetBrains Mono sont déclarées en tête de
+     pile pour les clients qui les ont localement ; Georgia, Arial et Consolas
+     portent le rendu partout ailleurs.                                          */
   body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
   table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse; }
   img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
   body { margin: 0 !important; padding: 0 !important; width: 100% !important; }
-  a { color: #0F3D68; }
+  a { color: #1D4ED8; }
 
   /* Mobile — une seule colonne, cibles tactiles élargies. */
   @media screen and (max-width: 620px) {
@@ -32,33 +37,39 @@
     .t-h1 { font-size: 26px !important; line-height: 32px !important; }
     .t-h2 { font-size: 20px !important; line-height: 26px !important; }
     .bouton a { display: block !important; }
+    .chiffre-grand { font-size: 48px !important; line-height: 48px !important; }
   }
 
   /* Mode sombre — pris en charge par Apple Mail, Outlook macOS, quelques autres.
-     On ne s'y fie jamais : la version claire doit rester lisible partout.      */
+     On ne s'y fie jamais : la version claire doit rester lisible partout.
+     Les valeurs sont celles du bloc sombre de prototype/assets/tokens.css.    */
   @media (prefers-color-scheme: dark) {
-    .fond-page   { background-color: #0B1420 !important; }
-    .fond-carte  { background-color: #111E2E !important; }
-    .fond-encart { background-color: #16263A !important; }
-    .txt-primaire   { color: #EEF2F7 !important; }
-    .txt-secondaire { color: #A9B8C9 !important; }
-    .txt-tertiaire  { color: #7C8DA1 !important; }
-    .bordure    { border-color: #24374C !important; }
-    .lien       { color: #7FB6EA !important; }
-    .inverse    { background-color: #16263A !important; }
+    .fond-page   { background-color: #020617 !important; }
+    .fond-carte  { background-color: #0F172A !important; }
+    .fond-encart { background-color: #1E293B !important; }
+    .txt-primaire   { color: #F1F5F9 !important; }
+    .txt-secondaire { color: #CBD5E1 !important; }
+    .txt-tertiaire  { color: #94A3B8 !important; }
+    .bordure    { border-color: #334155 !important; }
+    .lien       { color: #60A5FA !important; }
+    .ambre      { color: #FCD34D !important; }
+    .alerte     { color: #F87171 !important; }
+    .conforme   { color: #34D399 !important; }
+    .info       { color: #60A5FA !important; }
+    .inverse    { background-color: #0F172A !important; }
   }
 </style>
 </head>
 
-<body class="fond-page" style="margin:0;padding:0;background-color:#FAF8F4;">
+<body class="fond-page" style="margin:0;padding:0;background-color:#F8FAFC;">
 
 <!-- Pré-en-tête : première ligne visible dans la boîte de réception, jamais affichée dans le corps. -->
-<div style="display:none;font-size:1px;color:#FAF8F4;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">
-  Ce qu’Actio est, ce qu’Actio n’est pas, la date de votre première édition, et une question à une ligne.
+<div style="display:none;font-size:1px;color:#F8FAFC;line-height:1px;max-height:0;max-width:0;opacity:0;overflow:hidden;">
+  Ce qu’Actio est, ce qu’Actio n’est pas, vos deux rendez-vous de la semaine, et une seule question à une ligne.
   &#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;
 </div>
 
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="fond-page" style="background-color:#FAF8F4;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="fond-page" style="background-color:#F8FAFC;">
 <tr><td align="center" style="padding:0;">
 
 <!-- ============================================================ -->
@@ -67,28 +78,28 @@
 <table role="presentation" class="conteneur" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;">
 
   <!-- ---------- Barre de service ---------- -->
-  <tr><td class="marge txt-tertiaire" style="padding:12px 32px 12px;font-family:'IBM Plex Mono',Consolas,monospace;font-size:11px;line-height:16px;color:#5A6B7E;">
+  <tr><td class="marge txt-tertiaire" style="padding:12px 32px 12px;font-family:'JetBrains Mono',Consolas,'Courier New',monospace;font-size:11px;line-height:16px;color:#475569;">
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
-      <td align="left" style="font-family:'IBM Plex Mono',Consolas,monospace;font-size:11px;color:#5A6B7E;">
+      <td align="left" style="font-family:'JetBrains Mono',Consolas,'Courier New',monospace;font-size:11px;color:#475569;">
         SÉQUENCE D’ACCUEIL &nbsp;·&nbsp; COURRIEL 1 SUR 3
       </td>
-      <td align="right" style="font-family:'IBM Plex Mono',Consolas,monospace;font-size:11px;color:#5A6B7E;">
-        <a href="{{lien_version_web}}" class="lien" style="color:#5A6B7E;text-decoration:underline;">Version web</a>
+      <td align="right" style="font-family:'JetBrains Mono',Consolas,'Courier New',monospace;font-size:11px;color:#475569;">
+        <a href="{{lien_version_web}}" class="lien" style="color:#475569;text-decoration:underline;">Version web</a>
       </td>
     </tr></table>
   </td></tr>
 
   <!-- ---------- En-tête de marque ---------- -->
-  <tr><td class="marge fond-carte" style="background-color:#FFFFFF;padding:28px 32px 24px;border-top:3px solid #0F3D68;border-left:1px solid #DCD7CC;border-right:1px solid #DCD7CC;" >
+  <tr><td class="marge fond-carte" style="background-color:#FFFFFF;padding:28px 32px 24px;border-top:3px solid #0F172A;border-left:1px solid #E2E8F0;border-right:1px solid #E2E8F0;" >
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
       <tr>
-        <td align="left" style="font-family:Georgia,'Times New Roman',serif;font-size:30px;line-height:34px;font-weight:bold;letter-spacing:-0.8px;color:#0E1A2B;" class="txt-primaire">
-          Actio<span style="color:#096B61;">.</span>
-          <div style="font-family:Arial,Helvetica,sans-serif;font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:#5A6B7E;padding-top:6px;font-weight:normal;" class="txt-tertiaire">
-            Dispatch &nbsp;·&nbsp; l’infolettre réglementaire
+        <td align="left" style="font-family:'Newsreader',Georgia,'Times New Roman',serif;font-size:30px;line-height:34px;font-weight:bold;letter-spacing:-0.8px;color:#0F172A;" class="txt-primaire">
+          Actio<span style="color:#2563EB;font-weight:normal;">&#8202;|</span>
+          <div style="font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:#475569;padding-top:6px;font-weight:normal;" class="txt-tertiaire">
+            Dispatch &nbsp;·&nbsp; l’infolettre réglementaire et fiscale
           </div>
         </td>
-        <td align="right" valign="top" style="font-family:'IBM Plex Mono',Consolas,monospace;font-size:11px;line-height:18px;color:#5A6B7E;" class="txt-tertiaire">
+        <td align="right" valign="top" style="font-family:'JetBrains Mono',Consolas,'Courier New',monospace;font-size:11px;line-height:18px;color:#475569;" class="txt-tertiaire">
           2 min de lecture<br>
           1 seule demande
         </td>
@@ -97,106 +108,134 @@
   </td></tr>
 
 
-  <tr><td class="marge fond-carte" style="background-color:#FFFFFF;padding:32px 32px 8px;border-left:1px solid #DCD7CC;border-right:1px solid #DCD7CC;">
-    <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;letter-spacing:1.6px;text-transform:uppercase;color:#0F3D68;padding-bottom:6px;" class="lien">
-      ◆&nbsp; Bienvenue · courriel 1 sur 3
+  <tr><td class="marge fond-carte" style="background-color:#FFFFFF;padding:32px 32px 8px;border-left:1px solid #E2E8F0;border-right:1px solid #E2E8F0;">
+    <div style="font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;letter-spacing:1.6px;text-transform:uppercase;color:#1D4ED8;padding-bottom:6px;" class="lien">
+      &#9670;&nbsp; Bienvenue · courriel 1 sur 3
     </div>
-    <h1 class="t-h1 txt-primaire" style="margin:0 0 14px;font-family:Georgia,'Times New Roman',serif;font-size:28px;line-height:34px;font-weight:bold;letter-spacing:-0.5px;color:#0E1A2B;">
-      Votre inscription à <em>Actio Dispatch</em> est confirmée.
+    <h1 class="t-h1 txt-primaire" style="margin:0 0 14px;font-family:'Newsreader',Georgia,'Times New Roman',serif;font-size:28px;line-height:34px;font-weight:bold;letter-spacing:-0.5px;color:#0F172A;">
+      Votre inscription à <em>Actio Dispatch</em> est confirmée. Votre guide est ici.
     </h1>
-    <div style="font-family:'IBM Plex Mono',Consolas,monospace;font-size:11px;line-height:16px;color:#5A6B7E;padding-bottom:18px;border-bottom:1px solid #EBE7DE;margin-bottom:18px;" class="txt-tertiaire bordure">
+    <div style="font-family:'JetBrains Mono',Consolas,'Courier New',monospace;font-size:11px;line-height:16px;color:#475569;padding-bottom:18px;border-bottom:1px solid #E2E8F0;margin-bottom:18px;" class="txt-tertiaire bordure">
       Séquence d’accueil &nbsp;·&nbsp; 2 min &nbsp;·&nbsp; une seule chose vous est demandée
     </div>
   </td></tr>
 
-  <tr><td class="marge fond-carte txt-primaire" style="background-color:#FFFFFF;padding:0 32px 24px;border-left:1px solid #DCD7CC;border-right:1px solid #DCD7CC;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:26px;color:#0E1A2B;">
+  <tr><td class="marge fond-carte txt-primaire" style="background-color:#FFFFFF;padding:0 32px 24px;border-left:1px solid #E2E8F0;border-right:1px solid #E2E8F0;font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;font-size:16px;line-height:26px;color:#0F172A;">
     <p style="margin:0 0 16px;">
-      Vous recevrez une édition par semaine, le mardi à 6&nbsp;h&nbsp;30, heure de l’Est. La première vous parviendra le <strong>{{date_premiere_edition}}</strong>. Entre-temps, deux courriels&nbsp;: dans deux jours, pourquoi le cadre canadien ne ressemble à aucun autre&nbsp;; dans cinq jours, par où commencer dans nos ressources. Ensuite, plus rien que l’édition du mardi.
+      Vous recevrez deux courriels par semaine, jamais plus. <strong>Le mardi à 7&nbsp;h, heure de
+      l’Est</strong>&nbsp;: l’analyse réglementaire et macro de la semaine — un grand angle, le radar
+      des juridictions, un cas pratique fiscal, un chiffre. <strong>Le vendredi à 12&nbsp;h</strong>&nbsp;:
+      le récapitulatif et un guide pratique à faire en quelques minutes. Votre première édition vous
+      parviendra le <strong>{{date_premiere_edition}}</strong>.
     </p>
     <p style="margin:0 0 16px;">
-      <strong>Votre guide est ici.</strong>
+      Entre-temps, deux courriels seulement&nbsp;: dans deux jours, pourquoi le cadre réglementaire
+      canadien est unique — et souvent mal compris&nbsp;; dans cinq jours, la boîte à outils. Ensuite,
+      plus rien que les deux rendez-vous.
+    </p>
+    <p style="margin:0 0 8px;">
+      <strong>Le guide promis.</strong>
     </p>
     <table role="presentation" class="bouton" cellpadding="0" cellspacing="0" border="0" style="margin:4px 0 8px;">
-      <tr><td style="background-color:#0F3D68;border-radius:4px;">
-        <a href="{{lien_guide}}" style="display:inline-block;padding:13px 26px;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:bold;color:#FFFFFF;text-decoration:none;">
-          Ouvrir le Guide de conformité crypto au Canada →
+      <tr><td style="background-color:#2563EB;border-radius:4px;">
+        <a href="{{lien_guide}}" style="display:inline-block;padding:13px 26px;font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;font-size:14px;font-weight:bold;color:#FFFFFF;text-decoration:none;">
+          Ouvrir le Guide de survie réglementaire et fiscal →
         </a>
       </td></tr>
     </table>
     <p style="margin:0 0 16px;">
-      Trente-quatre pages, arrêtées au {{date_arret_guide}}. Chaque affirmation y porte son texte de renvoi et sa date de consultation&nbsp;; ce qui n’est pas établi y est écrit comme n’étant pas établi.
+      <em>Le Guide de survie réglementaire et fiscal pour l’investisseur crypto canadien</em>, arrêté au
+      {{date_arret_guide}}. Huit chapitres&nbsp;: qui réglemente quoi (ACVM, AMF, CVMO, OCRI, CANAFE,
+      Banque du Canada)&nbsp;; comment vérifier qu’une plateforme est inscrite dans votre
+      province&nbsp;; ce qu’une inscription protège, et ce qu’elle ne protège pas&nbsp;; le prix de base
+      rajusté, calculé sur un exemple&nbsp;; gain en capital ou revenu d’entreprise&nbsp;; le T1135 et
+      la TP-21.4.39&nbsp;; le jalonnement et les récompenses&nbsp;; les échéances du printemps. Chaque
+      affirmation y porte son texte de renvoi et sa date de consultation&nbsp;; ce qui n’est pas établi y
+      est écrit comme n’étant pas établi.
     </p>
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="fond-encart bordure" style="background-color:#F3F0EA;border-left:3px solid #0F3D68;margin:4px 0 18px;">
-      <tr><td style="padding:16px 18px;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:22px;color:#45566A;" class="txt-secondaire">
-        <strong style="color:#0E1A2B;" class="txt-primaire">Ce qu’Actio est.</strong> Un média canadien indépendant qui lit les actes réglementaires à la source et dit ce qu’ils obligent, qui ils obligent et à partir de quand. Bilingue, établi au Québec, sans contenu commandité et sans lien d’affiliation.
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="fond-encart bordure" style="background-color:#F1F5F9;border-left:3px solid #2563EB;margin:4px 0 18px;">
+      <tr><td style="padding:16px 18px;font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;font-size:14px;line-height:22px;color:#334155;" class="txt-secondaire">
+        <strong style="color:#0F172A;" class="txt-primaire">Ce qu’Actio est.</strong> Un média canadien
+        indépendant, bilingue, établi à Montréal et à Toronto, qui lit les actes réglementaires à la
+        source et dit ce qu’ils obligent, qui ils obligent et à partir de quand. Sans contenu
+        commandité non signalé. Quand un lien d’affiliation existe, il est divulgué dans le corps du
+        texte, jamais caché dans un tableau.
       </td></tr>
     </table>
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="fond-encart bordure" style="background-color:#FBE9EC;border-left:3px solid #C8102E;margin:4px 0 18px;">
-      <tr><td style="padding:16px 18px;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:22px;color:#45566A;" class="txt-secondaire">
-        <strong style="color:#C8102E;">Ce qu’Actio n’est pas.</strong> Actio n’est inscrite à aucun titre auprès des Autorités canadiennes en valeurs mobilières, de l’Autorité des marchés financiers, de la Commission des valeurs mobilières de l’Ontario ni de l’Organisme canadien de réglementation des investissements. Nous ne fournissons ni conseil en placement, ni conseil juridique, ni conseil fiscal. Nous ne recommandons aucun actif et ne publions aucun objectif de cours. Si vous cherchez à savoir quoi acheter, vous êtes au mauvais endroit&nbsp;; si vous cherchez à savoir ce qui vous oblige, restez.
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="fond-encart bordure" style="background-color:#FEE2E2;border-left:3px solid #B91C1C;margin:4px 0 18px;">
+      <tr><td style="padding:16px 18px;font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;font-size:14px;line-height:22px;color:#334155;" class="txt-secondaire">
+        <strong style="color:#B91C1C;" class="alerte">Ce qu’Actio n’est pas.</strong> Actio n’est inscrite
+        à aucun titre auprès des Autorités canadiennes en valeurs mobilières, de l’Autorité des marchés
+        financiers, de la Commission des valeurs mobilières de l’Ontario ni de l’Organisme canadien de
+        réglementation des investissements. Nous ne fournissons ni conseil en placement, ni conseil
+        juridique, ni conseil fiscal. Nous ne recommandons aucun actif et ne publions aucun objectif de
+        cours. Si vous cherchez à savoir quoi acheter, vous êtes au mauvais endroit&nbsp;; si vous
+        cherchez à savoir ce qui vous oblige, restez.
       </td></tr>
     </table>
     <p style="margin:0 0 16px;">
-      <strong>Une seule chose vous est demandée aujourd’hui.</strong> Dites-nous comment vous lisez Actio. Cela change l’ordre des sections de votre édition, pas la matière — et jamais le pied de page.
+      <strong>Une seule chose vous est demandée aujourd’hui.</strong> Dites-nous comment vous lisez
+      Actio. Cela change l’ordre des sections de votre édition, pas la matière — et jamais le pied de
+      page.
     </p>
     <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:4px 0 10px;"><tr>
-      <td style="background-color:#0F3D68;border-radius:4px;padding:0;">
-        <a href="{{lien_profil_particulier}}" style="display:inline-block;padding:13px 22px;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:bold;color:#FFFFFF;text-decoration:none;">Je lis Actio à titre personnel</a>
+      <td style="background-color:#2563EB;border-radius:4px;padding:0;">
+        <a href="{{lien_profil_particulier}}" style="display:inline-block;padding:13px 22px;font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;font-size:14px;font-weight:bold;color:#FFFFFF;text-decoration:none;">Je lis Actio à titre personnel</a>
       </td>
       <td style="width:12px;">&nbsp;</td>
-      <td style="background-color:#0E1A2B;border-radius:4px;padding:0;">
-        <a href="{{lien_profil_professionnel}}" style="display:inline-block;padding:13px 22px;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:bold;color:#FFFFFF;text-decoration:none;">Je lis Actio pour mon métier</a>
+      <td style="background-color:#0F172A;border-radius:4px;padding:0;">
+        <a href="{{lien_profil_professionnel}}" style="display:inline-block;padding:13px 22px;font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;font-size:14px;font-weight:bold;color:#FFFFFF;text-decoration:none;">Je lis Actio pour mon métier</a>
       </td>
     </tr></table>
     <p style="margin:0;">
-      <span style="font-size:13px;color:#5A6B7E;" class="txt-tertiaire">Vous pouvez ne pas répondre&nbsp;: c’est facultatif, et la lecture reste identique.</span>
+      <span style="font-size:13px;color:#475569;" class="txt-tertiaire">Vous pouvez ne pas répondre&nbsp;: c’est facultatif, et la lecture reste identique.</span>
     </p>
-    <p style="margin:22px 0 0;font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#45566A;" class="txt-secondaire">
+    <p style="margin:22px 0 0;font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;font-size:15px;color:#334155;" class="txt-secondaire">
       — La rédaction d’Actio
     </p>
-    <p style="margin:14px 0 0;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:18px;color:#5A6B7E;" class="txt-tertiaire">
-      <em>Je préfère ne recevoir que l’édition du mardi&nbsp;: <a href="{{lien_arret_sequence}}" class="lien" style="color:#0F3D68;">arrêter ces deux courriels</a>.</em>
+    <p style="margin:14px 0 0;font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;font-size:12px;line-height:18px;color:#475569;" class="txt-tertiaire">
+      <em>Je préfère ne recevoir que les éditions du mardi et du vendredi&nbsp;: <a href="{{lien_arret_sequence}}" class="lien" style="color:#1D4ED8;">arrêter les deux prochains courriels d’accueil</a>.</em>
     </p>
   </td></tr>
-
 
 
   <!-- ============================================================ -->
   <!-- PIED DE PAGE — CONFORMITÉ LCAP / CASL                        -->
   <!-- ============================================================ -->
-  <tr><td class="marge fond-encart bordure" style="background-color:#F3F0EA;padding:28px 32px;border:1px solid #DCD7CC;border-top:2px solid #0E1A2B;">
+  <tr><td class="marge fond-encart bordure" style="background-color:#F1F5F9;padding:28px 32px;border:1px solid #E2E8F0;border-top:2px solid #0F172A;">
 
-    <div style="font-family:Georgia,'Times New Roman',serif;font-size:20px;font-weight:bold;color:#0E1A2B;padding-bottom:4px;" class="txt-primaire">
-      Actio<span style="color:#096B61;">.</span>
+    <div style="font-family:'Newsreader',Georgia,'Times New Roman',serif;font-size:20px;font-weight:bold;color:#0F172A;padding-bottom:4px;" class="txt-primaire">
+      Actio<span style="color:#2563EB;font-weight:normal;">&#8202;|</span>
     </div>
 
-    <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:19px;color:#45566A;padding-bottom:16px;" class="txt-secondaire">
-      <strong style="color:#0E1A2B;" class="txt-primaire">Actio Média inc.</strong><br>
+    <div style="font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;font-size:12px;line-height:19px;color:#334155;padding-bottom:16px;" class="txt-secondaire">
+      <strong style="color:#0F172A;" class="txt-primaire">Actio Média inc.</strong><br>
       1000, rue De La Gauchetière Ouest, bureau 2400<br>
       Montréal (Québec) H3B 4W5, Canada<br>
-      <a href="mailto:redaction@actio.ca" class="lien" style="color:#0F3D68;">redaction@actio.ca</a> ·
-      <a href="tel:+15145550142" class="lien" style="color:#0F3D68;">+1 514 555-0142</a>
+      <a href="mailto:redaction@actio.ca" class="lien" style="color:#1D4ED8;">redaction@actio.ca</a>
+      &nbsp;·&nbsp; Rédaction à Montréal et à Toronto
     </div>
 
-    <div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:19px;color:#45566A;padding-bottom:16px;border-top:1px solid #DCD7CC;padding-top:16px;" class="txt-secondaire bordure">
+    <div style="font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;font-size:12px;line-height:19px;color:#334155;padding-bottom:16px;border-top:1px solid #E2E8F0;padding-top:16px;" class="txt-secondaire bordure">
       Vous recevez ce message parce que vous avez donné votre <strong>consentement exprès</strong> à
-      recevoir l’infolettre <em>Actio Dispatch</em>, le
-      <strong>{{date_consentement}}</strong> à partir de l’adresse IP {{ip_consentement}}
-      (page&nbsp;: {{source_consentement}}). Ce message est un message électronique commercial au sens
-      de la <strong>Loi canadienne anti-pourriel (LCAP)</strong>.
+      recevoir <em>Actio Dispatch</em>, le <strong>{{date_consentement}}</strong>, depuis la page
+      {{source_consentement}}, puis confirmé ce consentement depuis votre boîte de courriel. Ce message
+      est un message électronique commercial au sens de la
+      <strong>Loi canadienne anti-pourriel (LCAP)</strong>.
       <br><br>
-      <a href="{{lien_desabonnement}}" class="lien" style="color:#0F3D68;font-weight:bold;text-decoration:underline;">Se désabonner en un clic</a>
+      <a href="{{lien_desabonnement}}" class="lien" style="color:#1D4ED8;font-weight:bold;text-decoration:underline;">Se désabonner en un clic</a>
       &nbsp;·&nbsp;
-      <a href="{{lien_preferences}}" class="lien" style="color:#0F3D68;text-decoration:underline;">Gérer mes préférences</a>
+      <a href="{{lien_preferences}}" class="lien" style="color:#1D4ED8;text-decoration:underline;">Gérer mes préférences</a>
       <br>
-      <span style="color:#5A6B7E;" class="txt-tertiaire">
-        Le désabonnement est traité dans un délai maximal de 10 jours ouvrables et le mécanisme demeure
-        fonctionnel pendant au moins 60 jours à compter de l’envoi du présent message.
+      <span style="color:#475569;" class="txt-tertiaire">
+        Le désabonnement prend effet sans confirmation ni connexion, est traité dans un délai maximal
+        de 10 jours ouvrables, et le mécanisme demeure fonctionnel pendant au moins 60 jours à compter
+        de l’envoi du présent message.
       </span>
     </div>
 
-    <div style="font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:17px;color:#5A6B7E;border-top:1px solid #DCD7CC;padding-top:16px;" class="txt-tertiaire bordure">
-      <strong style="color:#0E1A2B;" class="txt-primaire">Avertissement.</strong>
+    <div style="font-family:'Plus Jakarta Sans',Arial,Helvetica,sans-serif;font-size:11px;line-height:17px;color:#475569;border-top:1px solid #E2E8F0;padding-top:16px;" class="txt-tertiaire bordure">
+      <strong style="color:#0F172A;" class="txt-primaire">Avertissement.</strong>
       Actio est un média. Actio ne fournit ni conseil en placement, ni conseil juridique, ni conseil
       fiscal, et n’est inscrite à aucun titre auprès des Autorités canadiennes en valeurs mobilières,
       de l’Autorité des marchés financiers, de la Commission des valeurs mobilières de l’Ontario ou de
@@ -209,12 +248,14 @@
       avocat avant toute décision.
       <br><br>
       Vos renseignements personnels sont traités conformément à notre
-      <a href="{{lien_confidentialite}}" class="lien" style="color:#0F3D68;">politique de confidentialité</a>
-      (Loi 25 du Québec et LPRPDE), et hébergés au Canada. Ils ne sont ni vendus, ni loués, ni cédés.
+      <a href="{{lien_confidentialite}}" class="lien" style="color:#1D4ED8;">politique de confidentialité</a>.
+      Ils ne sont ni vendus, ni loués, ni cédés. Vous pouvez demander l’accès à vos renseignements, leur
+      rectification ou leur suppression en écrivant à l’adresse ci-dessus.
       <br><br>
       © 2026 Actio Média inc. Tous droits réservés.
-      &nbsp;·&nbsp; <a href="{{lien_version_web}}" class="lien" style="color:#5A6B7E;">Version web</a>
-      &nbsp;·&nbsp; <a href="{{lien_archives}}" class="lien" style="color:#5A6B7E;">Archives</a>
+      &nbsp;·&nbsp; <a href="{{lien_version_web}}" class="lien" style="color:#475569;">Version web</a>
+      &nbsp;·&nbsp; <a href="{{lien_archives}}" class="lien" style="color:#475569;">Archives</a>
+      &nbsp;·&nbsp; <a href="{{lien_corrections}}" class="lien" style="color:#475569;">Signaler une erreur</a>
     </div>
   </td></tr>
 

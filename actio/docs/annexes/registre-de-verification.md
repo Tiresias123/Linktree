@@ -191,10 +191,47 @@ plateformes nommées (V-15, V-16), preuve sociale (V-25), parcours chiffrés (V-
 
 ### A.5 Lignes de l'infolettre
 
-Section ouverte au Module 2 : chaque édition d'Actio Dispatch et chaque courriel de la séquence de
-bienvenue y ajoutent leurs lignes (`nl-042`, `nl-b1`, `nl-b2`, `nl-b3`), sous la même règle A.4.
-Une infolettre envoyée ne se corrige pas : le gel du lundi 12 h et du jeudi 15 h est le dernier
-point où une ligne peut être levée.
+Chaque édition d'Actio Dispatch et chaque courriel de la séquence de bienvenue ajoutent leurs lignes
+ici, sous la même règle A.4. Une infolettre envoyée ne se corrige pas : le gel du lundi 12 h et du
+jeudi 15 h (HE) est le dernier point où une ligne peut être levée. Localisation : `nl-042` =
+`newsletter/contenus/dispatch-042.html` · `nl-b1`, `nl-b2`, `nl-b3` = `newsletter/contenus/bienvenue-1.html`,
+`bienvenue-2.html`, `bienvenue-3.html` · `ch` = `newsletter/chassis.html`.
+
+| # | Affirmation | Où | Source | État | Contrôle |
+|---|---|---|---|---|---|
+| N-01 | Conditions de l'Avis 21-333 : un seul actif de référence, engagements de réserve, de rachat et de divulgation, inscription du jeton aux conditions d'inscription | nl-042 grand angle ; nl-b2 encadré | Base §3.1 ; U-04 ; encadré « état de vérification » présent | À VÉRIFIER | Conforme au stade prototype : l'encadré ambre annonce l'état. Lire le PDF avant le gel ; aucune date de jour n'est citée |
+| N-02 | Loi fédérale « adoptée au printemps dans un projet de loi d'exécution budgétaire », supervision par la Banque du Canada, non en vigueur | nl-042 grand angle ; nl-b2 | U-59, C-09, U-36 | À VÉRIFIER | Aucun numéro de projet de loi, aucune date de jour : conforme. LEGISinfo avant le gel |
+| N-03 | Conditions d'inscription « accordées par son autorité principale puis reconnues par les autres » | nl-042 grand angle | Base §3.1 (passeport) | À VÉRIFIER | Reprend V-38 ; même contrôle |
+| N-04 | Révocations d'inscriptions d'ESM par le CANAFE en 2026, « plusieurs dizaines », majorité liées aux cryptoactifs | nl-042 radar Ottawa | C-14 | À VÉRIFIER | Aucun chiffre cité et marqueur `[À VÉRIFIER]` visible : conforme. Lire la liste des révocations du CANAFE ; « majorité » à confirmer par décompte |
+| N-05 | Une plateforme dont l'inscription d'ESM est révoquée « ne peut plus légalement recevoir vos fonds pour les convertir » | nl-042 radar Ottawa | Base §3.2 (obligation d'inscription d'ESM) | À VÉRIFIER | Vérifier la formulation sur la page du CANAFE : l'interdiction porte sur l'exploitation d'une ESM non inscrite ; ne pas durcir |
+| N-06 | TP-21.4.39 exigible même sans transaction, pénalité, allègement annoncé au printemps 2025 | nl-042 radar Québec ; nl-b1, nl-b3 (mention) | U-41 | À VÉRIFIER | Reprend V-21 ; « reste à confirmer » écrit dans le corps : conforme |
+| N-07 | CARF : application reportée par le Canada, calendrier « à confirmer sur la partie XXI de la LIR », déclaration par les plateformes | nl-042 radar International | C-06, U-35 | À VÉRIFIER | Aucune date : conforme. Ne pas écrire « 2027 » avant lecture |
+| N-08 | Jalonnement : « l'ARC n'a publié aucune position formelle que nous ayons pu consulter » ; pratique des cabinets = revenu à la JVM à la réception | nl-042 cas pratique | U-37 | VÉRIFIÉ | Énoncé portant sur notre propre consultation, formulé comme tel ; la pratique est attribuée aux cabinets, jamais à l'ARC (U-37) |
+| N-09 | Bulletin IT-479R « archivé ; reste appliqué par les tribunaux » | nl-042 cas pratique | v1 V-27 (archivé) ; aucune décision citée pour « appliqué par les tribunaux » | À VÉRIFIER | Citer une décision de la CCI qui l'applique, ou écrire « encore invoqué » |
+| N-10 | Cas d'Élise : 32 jetons, 0,9 de récompenses, Ontario | nl-042 cas pratique | Cas fictif, dit fictif | VÉRIFIÉ | Conforme (charte §1.5, règle 4). Les nombres sont ceux du cas, pas des données |
+| N-11 | Chiffre de la semaine : entrées nettes hebdomadaires des FNB de bitcoin au comptant cotés à la TSX | nl-042 chiffre | Aucune valeur dans le gabarit ; U-15 pour la liste des FNB | VÉRIFIÉ | Conforme : `{{chiffre_semaine}}`, `{{flux_s0}}`…`{{flux_s4}}` sont des champs de fusion. La **source** (`{{flux_source}}`) et la méthode de relevé sont à fixer au Module 4 avant le premier envoi ; un flux non sourcé n'est pas injecté |
+| N-12 | Bandeau de cours BTC/ETH/SOL en CAD | ch | Champs de fusion ; aucune valeur | VÉRIFIÉ | Conforme. Source de cours à choisir (Module 4) ; `{{cours_source}}` l'affiche |
+| N-13 | « Deux courriels par semaine, jamais plus » ; mardi 7 h HE, vendredi 12 h HE | nl-b1, nl-b3 ; ch (surtitre) | Fait interne, cahier des charges | VÉRIFIÉ | Réattester si la cadence change ; `tools/emails.mjs` refuse « EST/EDT » |
+| N-14 | « Le Guide de survie réglementaire et fiscal pour l'investisseur crypto canadien », huit chapitres, arrêté au `{{date_arret_guide}}` | nl-b1 | Aucune : guide non écrit | NON VÉRIFIÉ — NE PAS PUBLIER | C1 ne part pas tant que le guide n'existe pas et que le champ est vide. Le sommaire en huit chapitres engage la rédaction |
+| N-15 | « Treize autorités » coordonnées au sein des ACVM | nl-b2 §1 | Base §1 (10 provinces + 3 territoires) | À VÉRIFIER | Vérifier le décompte sur le site des ACVM (membres) |
+| N-16 | « Depuis l'Avis 21-327 de janvier 2020 » ; contrat de cryptoactif ; « les ACVM n'ont pas qualifié le bitcoin lui-même de valeur mobilière ; c'est la relation avec la plateforme qui l'est » | nl-b2 §2 | C-01 (mois seulement) ; base §3.1 | À VÉRIFIER | Reformulé le 4 septembre 2026 (l'ancienne rédaction, « n'a jamais été qualifié au Canada », affirmait une absence). Le mois seul est conforme à C-01 ; lire l'Avis 21-327 |
+| N-17 | « Depuis août 2024, la voie transitoire est fermée aux nouveaux venus » | nl-b2 §3 | C-05 | À VÉRIFIER | Reprendre la formulation C-05 (approche intérimaire close le 6 août 2024), muette sur les inscriptions actives (U-05) |
+| N-18 | Cadre de garde de l'OCRI : « dépositaires par paliers, autogarde restreinte » | nl-b2 §3 | C-13, U-03 | À VÉRIFIER | Aucun seuil, aucun numéro : conforme |
+| N-19 | Permis d'ESM délivré par Revenu Québec ; trois formalités au Québec | nl-b2 §4 | C-04 | À VÉRIFIER | Reprend V-19 v1 ; lire la page ESM de revenuquebec.ca |
+| N-20 | Fiches des plateformes autorisées : catégorie, provinces, dépositaire déclaré, ESM, permis, date de décision | nl-b3 outil 1 | Aucune fiche publiée | NON VÉRIFIÉ — NE PAS PUBLIER | `{{lien_fiches_plateformes}}` ne peut pointer que vers des fiches publiées avec statut lu (V-15). C3 ne part pas avant la première fiche |
+| N-21 | Trois parcours de l'Académie et leur contenu | nl-b3 outil 2 | `prototype/fr/index.html` `.parcours` — guides non écrits | NON VÉRIFIÉ — NE PAS PUBLIER | Reprend V-14 ; `{{lien_academie}}` ne pointe que vers des guides publiés |
+| N-22 | Sept registres officiels réunis | nl-b3 outil 3 | Base §7 : URL repérées, non ouvertes (U-66, U-76) | À VÉRIFIER | Reprend V-41 ; ouvrir les sept URL |
+| N-23 | Adresse postale, « Rédaction à Montréal et à Toronto », `redaction@actio.ca` | ch pied | Aucune (V-26) | NON VÉRIFIÉ — NE PAS PUBLIER | La LCAP exige une adresse valide ; Toronto suppose un bureau ou une personne. Aucun envoi avant constitution et bail |
+| N-24 | Désabonnement « sans confirmation ni connexion », 10 jours ouvrables, 60 jours ; en-têtes `List-Unsubscribe` | ch pied ; manifeste | Base §3.5 ; U-46 | À VÉRIFIER | Reprend V-23 ; tester le désabonnement en un clic chez le prestataire avant le premier envoi |
+| N-25 | Consentement « puis confirmé depuis votre boîte de courriel » ; IP conservée au journal, jamais affichée | ch pied ; manifeste `preuve_du_consentement` | Arbitrage v2 (v1 V-35 clos) | VÉRIFIÉ | Décision interne, à inscrire à la politique de confidentialité et au contrat du prestataire |
+| N-26 | « Vos renseignements … ne sont ni vendus, ni loués, ni cédés » ; droit d'accès, de rectification, de suppression | ch pied | Fait interne ; Loi 25 (droits) | VÉRIFIÉ | Réattester à chaque nouveau sous-traitant ; la mention « hébergés au Canada » de la v1 a été retirée (V-24) |
+| N-27 | « Cette édition ne comporte aucun contenu commandité et aucun lien d'affiliation » | nl-042 transparence | Fait interne, par envoi | VÉRIFIÉ | Réattester à chaque édition ; la phrase change dès qu'un lien d'affiliation entre dans un envoi |
+| N-28 | Signature « La rédaction » sans nom | nl-042, nl-b1, nl-b2, nl-b3 | Décision v2 (V-30) | VÉRIFIÉ | Conforme ; aucune personne fictive ne signe l'infolettre |
+
+**État au 4 septembre 2026 (infolettre) :** sur 28 lignes, 9 sont `VÉRIFIÉ`, 15 sont `À VÉRIFIER`,
+4 sont `NON VÉRIFIÉ — NE PAS PUBLIER` (N-14, N-20, N-21, N-23). L'édition nº 042 n'est bloquée
+que par N-23 (adresse), commune à tout envoi ; la séquence de bienvenue l'est en outre par le guide
+(N-14), les fiches (N-20) et les guides de l'Académie (N-21).
 
 ---
 

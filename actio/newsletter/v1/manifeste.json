@@ -1,0 +1,162 @@
+{
+  "_lisez_moi": "Manifeste des envois d'Actio Dispatch. Le châssis (chassis.html) porte l'en-tête de marque et le pied de page de conformité LCAP ; chaque envoi n'est qu'un fragment de contenu plus une entrée ici. Une correction apportée aux mentions obligatoires se propage donc à tous les envois sans qu'on puisse en oublier un. tools/emails.mjs refuse d'assembler un envoi auquel manque une de ces mentions. Quand une entrée porte un champ « reference », l'outil compare l'assemblage à ce fichier de référence et échoue s'ils divergent : la duplication devient un contrôle au lieu d'être un risque.",
+  "expediteur": {
+    "nom_affiche": "Actio Dispatch",
+    "adresse": "dispatch@actio.ca",
+    "repondre_a": "redaction@actio.ca",
+    "domaine_envoi": "dispatch.actio.ca",
+    "authentification": [
+      "SPF",
+      "DKIM",
+      "DMARC"
+    ]
+  },
+  "envois": [
+    {
+      "cle": "dispatch-001",
+      "type": "edition-hebdomadaire",
+      "contenu": "dispatch-001.html",
+      "objet": "Le contrat d’investissement a trouvé sa limite",
+      "objet_variante_b": "Ce que le TMF vient de retirer du champ des valeurs mobilières",
+      "titre": "Actio Dispatch nº 001 — Le contrat d’investissement a trouvé sa limite",
+      "preentete": "Gérer les fonds d’autrui, ou vendre de l’information : le TMF vient de tracer la ligne, et elle est étroite.",
+      "surtitre": "ÉDITION Nº 001 &nbsp;·&nbsp; MARDI 8 SEPTEMBRE 2026",
+      "meta_droite": "8 min de lecture<br>\n          5 sources primaires",
+      "bandeau_cours": true,
+      "envoi": {
+        "vague_1": {
+          "heure": "06:30",
+          "fuseau": "America/Toronto",
+          "provinces": [
+            "QC",
+            "ON",
+            "NB",
+            "NS",
+            "PE",
+            "NL"
+          ]
+        },
+        "vague_2": {
+          "heure": "06:30",
+          "fuseau": "America/Vancouver",
+          "provinces": [
+            "BC",
+            "AB",
+            "SK",
+            "MB",
+            "YT",
+            "NT",
+            "NU"
+          ]
+        }
+      },
+      "segments": [
+        "b2c-investisseurs",
+        "b2b-conformite"
+      ],
+      "autorisation": {
+        "requise": false,
+        "motif": "Édition régulière du mardi. La double signature n’est exigée que pour une « Alerte Actio » hors cycle."
+      },
+      "reference": "actio-dispatch-001.html"
+    },
+    {
+      "cle": "bienvenue-1",
+      "type": "sequence-bienvenue",
+      "contenu": "bienvenue-1.html",
+      "jour": "J+0",
+      "objet": "Bienvenue. Votre guide de conformité est prêt.",
+      "objet_variante_b": "Votre guide de conformité canadienne est prêt",
+      "titre": "Actio — Bienvenue. Votre guide de conformité est prêt.",
+      "preentete": "Ce qu’Actio est, ce qu’Actio n’est pas, la date de votre première édition, et une question à une ligne.",
+      "surtitre": "SÉQUENCE D’ACCUEIL &nbsp;·&nbsp; COURRIEL 1 SUR 3",
+      "meta_droite": "2 min de lecture<br>\n          1 seule demande",
+      "bandeau_cours": false,
+      "segments": [
+        "nouvel-abonne"
+      ],
+      "autorisation": {
+        "requise": false,
+        "motif": "Séquence automatisée, contenu figé et relu une fois."
+      }
+    },
+    {
+      "cle": "bienvenue-2",
+      "type": "sequence-bienvenue",
+      "contenu": "bienvenue-2.html",
+      "jour": "J+2",
+      "objet": "Aucune commission fédérale des valeurs mobilières",
+      "objet_variante_b": "Pourquoi le cadre canadien ne ressemble à aucun autre",
+      "titre": "Actio — Pourquoi la régulation canadienne est unique au monde",
+      "preentete": "Quatre régimes se superposent sur une même plateforme : valeurs mobilières, autoréglementation, LBC/FT fédéral, permis québécois.",
+      "surtitre": "SÉQUENCE D’ACCUEIL &nbsp;·&nbsp; COURRIEL 2 SUR 3",
+      "meta_droite": "6 min de lecture<br>\n          5 régimes superposés",
+      "bandeau_cours": false,
+      "segments": [
+        "nouvel-abonne"
+      ],
+      "autorisation": {
+        "requise": false,
+        "motif": "Séquence automatisée, contenu figé et relu une fois."
+      }
+    },
+    {
+      "cle": "bienvenue-3",
+      "type": "sequence-bienvenue",
+      "contenu": "bienvenue-3.html",
+      "jour": "J+5",
+      "objet": "Par où commencer dans les ressources d’Actio",
+      "objet_variante_b": "Le registre, l’agenda, les trois parcours",
+      "titre": "Actio — Par où commencer dans les ressources d’Actio",
+      "preentete": "Cinq rubriques, trois paliers de guides, un registre daté et un agenda : chacun résout un problème précis.",
+      "surtitre": "SÉQUENCE D’ACCUEIL &nbsp;·&nbsp; COURRIEL 3 SUR 3",
+      "meta_droite": "4 min de lecture<br>\n          dernier de la séquence",
+      "bandeau_cours": false,
+      "segments": [
+        "nouvel-abonne"
+      ],
+      "autorisation": {
+        "requise": false,
+        "motif": "Séquence automatisée, contenu figé et relu une fois."
+      }
+    }
+  ],
+  "sequence_bienvenue": {
+    "declenchement": "confirmation du double consentement",
+    "sortie": [
+      "désabonnement",
+      "arrêt de séquence demandé",
+      "fin des trois envois"
+    ],
+    "regle_de_collision": "Aucun envoi de séquence le mardi : si J+2 ou J+5 tombe un mardi, l’envoi glisse au mercredi. Un abonné ne reçoit jamais deux courriels le même jour."
+  },
+  "jetons_de_fusion": {
+    "_lisez_moi": "Liste fermée des champs de fusion admis. Tout {{jeton}} employé dans un contenu sans figurer ici fait échouer l'assemblage : un champ non déclaré est un champ que le prestataire d'envoi laissera vide, et un courriel expédié avec « {{lien_guide}} » en toutes lettres est une perte de crédibilité que rien ne rattrape.",
+    "obligatoires_lcap": [
+      "lien_desabonnement",
+      "date_consentement",
+      "ip_consentement",
+      "source_consentement"
+    ],
+    "admis": [
+      "date_arret_guide",
+      "date_consentement",
+      "date_premiere_edition",
+      "ip_consentement",
+      "lien_archives",
+      "lien_arret_sequence",
+      "lien_article_grand_angle",
+      "lien_carte_autorites",
+      "lien_charte",
+      "lien_confidentialite",
+      "lien_corrections",
+      "lien_desabonnement",
+      "lien_guide",
+      "lien_preferences",
+      "lien_profil_particulier",
+      "lien_profil_professionnel",
+      "lien_version_web",
+      "source_consentement"
+    ]
+  }
+}

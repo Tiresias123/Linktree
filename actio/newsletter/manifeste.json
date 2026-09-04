@@ -1,5 +1,5 @@
 {
-  "_lisez_moi": "Manifeste des envois d'Actio Dispatch. Le châssis (chassis.html) porte l'en-tête de marque et le pied de page de conformité LCAP ; chaque envoi n'est qu'un fragment de contenu plus une entrée ici. Une correction apportée aux mentions obligatoires se propage donc à tous les envois sans qu'on puisse en oublier un. tools/emails.mjs refuse d'assembler un envoi auquel manque une de ces mentions. Quand une entrée porte un champ « reference », l'outil compare l'assemblage à ce fichier de référence et échoue s'ils divergent : la duplication devient un contrôle au lieu d'être un risque.",
+  "_lisez_moi": "Manifeste des envois d'Actio Dispatch (v2, cadence bi-hebdomadaire). Le châssis (chassis.html) porte l'en-tête de marque, le bandeau de cours et le pied de page de conformité LCAP ; chaque envoi n'est qu'un fragment de contenu plus une entrée ici. Une correction apportée aux mentions obligatoires se propage donc à tous les envois sans qu'on puisse en oublier un. tools/emails.mjs refuse d'assembler un envoi auquel manque une de ces mentions. Quand une entrée porte un champ « reference », l'outil compare l'assemblage à ce fichier de référence et échoue s'ils divergent : la duplication devient un contrôle au lieu d'être un risque.",
   "expediteur": {
     "nom_affiche": "Actio Dispatch",
     "adresse": "dispatch@actio.ca",
@@ -8,48 +8,101 @@
     "authentification": [
       "SPF",
       "DKIM",
-      "DMARC"
+      "DMARC (p=reject après 30 jours en p=quarantine)"
+    ],
+    "entetes_desabonnement": [
+      "List-Unsubscribe: <mailto:desabonnement@dispatch.actio.ca?subject=unsubscribe>, <{{lien_desabonnement}}>",
+      "List-Unsubscribe-Post: List-Unsubscribe=One-Click"
     ]
+  },
+  "cadence": {
+    "_lisez_moi": "Deux rendez-vous fixes par semaine. L'heure est exprimée en heure de l'Est (HE), qui bascule entre HNE et HAE : le fuseau IANA fait foi, jamais « EST ». Diffusion en deux vagues pour que l'heure locale de réception reste la même d'un océan à l'autre.",
+    "mardi": {
+      "type": "edition-mardi",
+      "contenu_type": "Grand angle réglementaire ou macro (≈ 400 mots) · Radar des juridictions (3 brèves : Ottawa, Québec ou Ontario, International, avec niveau d'impact) · Cas pratique fiscal (≈ 200 mots) · Chiffre de la semaine (tableau ou ASCII)",
+      "lecture_cible_minutes": 4,
+      "gel_du_contenu": "lundi 12:00 America/Toronto",
+      "vague_1": {
+        "heure": "07:00",
+        "fuseau": "America/Toronto",
+        "provinces": [
+          "QC",
+          "ON",
+          "NB",
+          "NS",
+          "PE",
+          "NL"
+        ]
+      },
+      "vague_2": {
+        "heure": "07:00",
+        "fuseau": "America/Vancouver",
+        "provinces": [
+          "BC",
+          "AB",
+          "SK",
+          "MB",
+          "YT",
+          "NT",
+          "NU"
+        ]
+      }
+    },
+    "vendredi": {
+      "type": "edition-vendredi",
+      "contenu_type": "Récapitulatif de la semaine (5 lignes datées, une par jour) · Un guide pratique à faire en moins de 10 minutes · Agenda des échéances des 14 jours à venir (consultations, entrées en vigueur, dates fiscales)",
+      "lecture_cible_minutes": 3,
+      "gel_du_contenu": "jeudi 15:00 America/Toronto",
+      "vague_1": {
+        "heure": "12:00",
+        "fuseau": "America/Toronto",
+        "provinces": [
+          "QC",
+          "ON",
+          "NB",
+          "NS",
+          "PE",
+          "NL"
+        ]
+      },
+      "vague_2": {
+        "heure": "12:00",
+        "fuseau": "America/Vancouver",
+        "provinces": [
+          "BC",
+          "AB",
+          "SK",
+          "MB",
+          "YT",
+          "NT",
+          "NU"
+        ]
+      }
+    },
+    "hors_cycle": {
+      "type": "alerte-actio",
+      "seuils": [
+        "A. Entrée en vigueur ou échéance à moins de 7 jours",
+        "B. Ajout à la liste des plateformes proscrites des ACVM, ordonnance de blocage, ou mise en garde visant une plateforme figurant dans nos fiches",
+        "C. Sanction d'un ordre de grandeur inédit",
+        "D. Décision modifiant une qualification déjà affirmée par le Dispatch"
+      ],
+      "autorisation": "double signature : rédaction en chef ET révision juridique, avec identifiant de la source primaire lue",
+      "plafond": "deux alertes par 30 jours glissants, jamais deux la même semaine civile"
+    }
   },
   "envois": [
     {
-      "cle": "dispatch-001",
-      "type": "edition-hebdomadaire",
-      "contenu": "dispatch-001.html",
-      "objet": "Le contrat d’investissement a trouvé sa limite",
-      "objet_variante_b": "Ce que le TMF vient de retirer du champ des valeurs mobilières",
-      "titre": "Actio Dispatch nº 001 — Le contrat d’investissement a trouvé sa limite",
-      "preentete": "Gérer les fonds d’autrui, ou vendre de l’information : le TMF vient de tracer la ligne, et elle est étroite.",
-      "surtitre": "ÉDITION Nº 001 &nbsp;·&nbsp; MARDI 8 SEPTEMBRE 2026",
-      "meta_droite": "8 min de lecture<br>\n          5 sources primaires",
+      "cle": "dispatch-042",
+      "type": "edition-mardi",
+      "contenu": "dispatch-042.html",
+      "objet": "Stablecoins : ce que votre plateforme peut vous vendre",
+      "objet_variante_b": "Québec, Ontario : pourquoi la liste des jetons diffère",
+      "titre": "Actio Dispatch nº 042 — Stablecoins : ce que les ACVM autorisent aujourd’hui",
+      "preentete": "Un même jeton, deux régimes : l’Avis 21-333 s’applique aujourd’hui, la loi fédérale plus tard. Et c’est la plateforme qui décide.",
+      "surtitre": "ÉDITION Nº 042 &nbsp;·&nbsp; MARDI 8 SEPTEMBRE 2026 &nbsp;·&nbsp; 7 H HE",
+      "meta_droite": "4 min de lecture<br>\n          4 sections",
       "bandeau_cours": true,
-      "envoi": {
-        "vague_1": {
-          "heure": "06:30",
-          "fuseau": "America/Toronto",
-          "provinces": [
-            "QC",
-            "ON",
-            "NB",
-            "NS",
-            "PE",
-            "NL"
-          ]
-        },
-        "vague_2": {
-          "heure": "06:30",
-          "fuseau": "America/Vancouver",
-          "provinces": [
-            "BC",
-            "AB",
-            "SK",
-            "MB",
-            "YT",
-            "NT",
-            "NU"
-          ]
-        }
-      },
       "segments": [
         "b2c-investisseurs",
         "b2b-conformite"
@@ -58,17 +111,18 @@
         "requise": false,
         "motif": "Édition régulière du mardi. La double signature n’est exigée que pour une « Alerte Actio » hors cycle."
       },
-      "reference": "actio-dispatch-001.html"
+      "reference": "actio-dispatch-042.html"
     },
     {
       "cle": "bienvenue-1",
       "type": "sequence-bienvenue",
       "contenu": "bienvenue-1.html",
       "jour": "J+0",
-      "objet": "Bienvenue. Votre guide de conformité est prêt.",
-      "objet_variante_b": "Votre guide de conformité canadienne est prêt",
-      "titre": "Actio — Bienvenue. Votre guide de conformité est prêt.",
-      "preentete": "Ce qu’Actio est, ce qu’Actio n’est pas, la date de votre première édition, et une question à une ligne.",
+      "delai": "≤ 5 minutes après le clic de confirmation, tous jours, tous fuseaux",
+      "objet": "Bienvenue. Votre guide de survie est prêt.",
+      "objet_variante_b": "Votre guide réglementaire et fiscal canadien est prêt",
+      "titre": "Actio — Bienvenue. Votre guide de survie réglementaire et fiscal est prêt.",
+      "preentete": "Ce qu’Actio est, ce qu’Actio n’est pas, vos deux rendez-vous de la semaine, et une seule question à une ligne.",
       "surtitre": "SÉQUENCE D’ACCUEIL &nbsp;·&nbsp; COURRIEL 1 SUR 3",
       "meta_droite": "2 min de lecture<br>\n          1 seule demande",
       "bandeau_cours": false,
@@ -85,12 +139,13 @@
       "type": "sequence-bienvenue",
       "contenu": "bienvenue-2.html",
       "jour": "J+2",
+      "delai": "11:00 locales (vague 1 : 11:00 America/Toronto ; vague 2 : 11:00 America/Vancouver) ; jamais un mardi, un vendredi, un samedi ni un dimanche",
       "objet": "Aucune commission fédérale des valeurs mobilières",
       "objet_variante_b": "Pourquoi le cadre canadien ne ressemble à aucun autre",
-      "titre": "Actio — Pourquoi la régulation canadienne est unique au monde",
+      "titre": "Actio — Pourquoi le cadre réglementaire crypto canadien est unique (et souvent mal compris)",
       "preentete": "Quatre régimes se superposent sur une même plateforme : valeurs mobilières, autoréglementation, LBC/FT fédéral, permis québécois.",
       "surtitre": "SÉQUENCE D’ACCUEIL &nbsp;·&nbsp; COURRIEL 2 SUR 3",
-      "meta_droite": "6 min de lecture<br>\n          5 régimes superposés",
+      "meta_droite": "6 min de lecture<br>\n          4 régimes superposés",
       "bandeau_cours": false,
       "segments": [
         "nouvel-abonne"
@@ -105,10 +160,11 @@
       "type": "sequence-bienvenue",
       "contenu": "bienvenue-3.html",
       "jour": "J+5",
-      "objet": "Par où commencer dans les ressources d’Actio",
-      "objet_variante_b": "Le registre, l’agenda, les trois parcours",
-      "titre": "Actio — Par où commencer dans les ressources d’Actio",
-      "preentete": "Cinq rubriques, trois paliers de guides, un registre daté et un agenda : chacun résout un problème précis.",
+      "delai": "11:00 locales, mêmes vagues et mêmes jours interdits que J+2",
+      "objet": "La boîte à outils : fiches, Académie, registres",
+      "objet_variante_b": "Trois outils, chacun pour un problème précis",
+      "titre": "Actio — La boîte à outils : fiches des plateformes autorisées, Académie, registres",
+      "preentete": "Une fiche par plateforme inscrite, trois parcours de guides et sept registres officiels réunis : chacun résout un problème précis.",
       "surtitre": "SÉQUENCE D’ACCUEIL &nbsp;·&nbsp; COURRIEL 3 SUR 3",
       "meta_droite": "4 min de lecture<br>\n          dernier de la séquence",
       "bandeau_cours": false,
@@ -122,27 +178,57 @@
     }
   ],
   "sequence_bienvenue": {
-    "declenchement": "confirmation du double consentement",
+    "declenchement": "confirmation du double consentement (clic depuis la boîte de courriel)",
     "sortie": [
       "désabonnement",
       "arrêt de séquence demandé",
       "fin des trois envois"
     ],
-    "regle_de_collision": "Aucun envoi de séquence le mardi : si J+2 ou J+5 tombe un mardi, l’envoi glisse au mercredi. Un abonné ne reçoit jamais deux courriels le même jour."
+    "regle_de_collision": "Aucun envoi de séquence un mardi ni un vendredi (jours d'édition), ni le week-end : si J+2 ou J+5 tombe l'un de ces jours, l'envoi glisse au jour ouvrable autorisé suivant, même heure. Un abonné ne reçoit jamais deux courriels d'Actio le même jour ; la séquence cède toujours le pas à l'édition."
+  },
+  "preuve_du_consentement": {
+    "_lisez_moi": "La LCAP fait peser la preuve du consentement sur l'expéditeur ; la Loi 25 impose la minimisation. Arbitrage : la date, l'heure, la page de dépôt et l'horodatage du clic de confirmation sont conservés et rappelés dans chaque courriel ; l'adresse IP de dépôt est conservée dans le journal de consentement (preuve), mais n'est jamais affichée ni réutilisée à une autre fin.",
+    "affiches_dans_le_courriel": [
+      "date_consentement",
+      "source_consentement"
+    ],
+    "conserves_au_journal": [
+      "date_consentement",
+      "source_consentement",
+      "horodatage_confirmation",
+      "ip_depot",
+      "libelle_du_consentement_affiche"
+    ]
   },
   "jetons_de_fusion": {
-    "_lisez_moi": "Liste fermée des champs de fusion admis. Tout {{jeton}} employé dans un contenu sans figurer ici fait échouer l'assemblage : un champ non déclaré est un champ que le prestataire d'envoi laissera vide, et un courriel expédié avec « {{lien_guide}} » en toutes lettres est une perte de crédibilité que rien ne rattrape.",
+    "_lisez_moi": "Liste fermée des champs de fusion admis. Tout {{jeton}} employé dans un contenu sans figurer ici fait échouer l'assemblage : un champ non déclaré est un champ que le prestataire d'envoi laissera vide, et un courriel expédié avec « {{lien_guide}} » en toutes lettres est une perte de crédibilité que rien ne rattrape. Les champs de marché (btc_cad, flux_s0…) sont remplis par le flux d'Actio Research à l'envoi ; le gabarit ne contient aucune valeur.",
     "obligatoires_lcap": [
       "lien_desabonnement",
       "date_consentement",
-      "ip_consentement",
       "source_consentement"
     ],
     "admis": [
+      "btc_cad",
+      "btc_var_24h",
+      "eth_cad",
+      "eth_var_24h",
+      "sol_cad",
+      "sol_var_24h",
+      "marche_statut",
+      "cours_horodatage",
+      "cours_source",
+      "chiffre_semaine",
+      "flux_s0",
+      "flux_s1",
+      "flux_s2",
+      "flux_s3",
+      "flux_s4",
+      "flux_releve",
+      "flux_source",
       "date_arret_guide",
       "date_consentement",
       "date_premiere_edition",
-      "ip_consentement",
+      "lien_academie",
       "lien_archives",
       "lien_arret_sequence",
       "lien_article_grand_angle",
@@ -151,10 +237,13 @@
       "lien_confidentialite",
       "lien_corrections",
       "lien_desabonnement",
+      "lien_fiches_plateformes",
       "lien_guide",
       "lien_preferences",
       "lien_profil_particulier",
       "lien_profil_professionnel",
+      "lien_registre_verification",
+      "lien_registres",
       "lien_version_web",
       "source_consentement"
     ]

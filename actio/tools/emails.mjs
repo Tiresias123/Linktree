@@ -149,6 +149,14 @@ for (const envoi of manifeste.envois) {
     echecs++;
   }
 
+  // « EST » n'est en vigueur que de novembre à mars : un envoi calé « 7 h EST »
+  // partirait à 8 h locales tout l'été. Seule l'abréviation « HE » est admise.
+  const texteVisible = sortie.replace(/<[^>]+>/g, ' ');
+  if (/\b(EST|EDT|HNE|HAE)\b/.test(texteVisible)) {
+    console.error(`  ÉCHEC ${envoi.cle} — fuseau écrit « EST/EDT/HNE/HAE » : écrire « HE » (heure de l'Est).`);
+    echecs++;
+  }
+
   const restants = sortie.match(/\{\{[A-Z_]+\}\}/g);
   if (restants) {
     console.error(`  ÉCHEC ${envoi.cle} — emplacements non remplis : ${[...new Set(restants)].join(', ')}`);
