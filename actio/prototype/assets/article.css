@@ -85,7 +85,7 @@
   align-items: start;
   padding-block: var(--e-8) var(--e-16);
 }
-@media (max-width: 1080px) {
+@media (max-width: 1100px) {
   .article__corps { grid-template-columns: minmax(0, 1fr); gap: var(--e-8); }
   .sommaire { position: static !important; max-height: none !important; order: -1; }
 }

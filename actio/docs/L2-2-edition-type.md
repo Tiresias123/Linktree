@@ -1,6 +1,6 @@
 ## 2. L'édition type — *Actio Dispatch* nº 001 et spécification de son gabarit
 
-Deux fichiers font foi : `newsletter/actio-dispatch-001.html` (l'édition nº 001, 33 650 octets) et
+Deux fichiers font foi : `newsletter/actio-dispatch-001.html` (l'édition nº 001, 35 159 octets) et
 `newsletter/chassis.html` (le gabarit vide, 11 476 octets, corps remplacé par `{{CONTENU}}`, bandeau
 de cours délimité par `<!--DEBUT:COURS-->` / `<!--FIN:COURS-->`). `newsletter/contenus/` reçoit les
 fragments de corps ; `newsletter/dist/` reçoit le fichier assemblé et envoyé.
@@ -285,7 +285,7 @@ cellule. Un `<v:roundrect>` ne servirait qu'à imposer des coins arrondis — ce
 exigence.
 
 **Troncature Gmail.** Gmail coupe au-delà d'environ **102 Ko**, à l'octet, et affiche « Message
-tronqué ». L'édition nº 001 pèse **33 650 octets, soit 32,9 Ko — 33 % du seuil**, ce qui autorise
+tronqué ». L'édition nº 001 pèse **35 159 octets, soit 34,3 Ko — 34 % du seuil**, ce qui autorise
 environ le triple du corps actuel. Règle d'exploitation : **plafond interne de 80 Ko** sur le fichier
 de `dist/`, mesuré par `wc -c` avant envoi. `[À VÉRIFIER — constante d'ingénierie du courriel ; la
 base factuelle ne documente aucune donnée de délivrabilité (fiche 09).]`

@@ -44,6 +44,45 @@ const navigateur = await chromium.launch({
 
 let echecs = 0;
 
+/* ---------------------------------------------------------------------------
+   Balayage des seuils de rupture.
+   Le PRD arrête quatre seuils canoniques : 560, 760, 900 et 1100 px. Un seuil
+   ne se vérifie pas au milieu d'un palier mais de part et d'autre de sa
+   frontière : c'est à 1 px près qu'une règle bascule et qu'une colonne déborde.
+   On balaye donc chaque frontière et quelques largeurs d'appareil réelles, sans
+   capture — le contrôle est rapide et sans image à comparer.
+--------------------------------------------------------------------------- */
+const SEUILS = [560, 760, 900, 1100];
+const LARGEURS_SONDE = [
+  320, 360, 375, 390, 414,
+  ...SEUILS.flatMap((s) => [s - 1, s, s + 1]),
+  834, 1024, 1280, 1440, 1920,
+].sort((a, b) => a - b);
+
+console.log(`Balayage de ${LARGEURS_SONDE.length} largeurs sur ${PAGES.length} écrans…`);
+for (const page of PAGES) {
+  const ctx = await navigateur.newContext({ viewport: { width: 1440, height: 900 }, locale: 'fr-CA' });
+  const p = await ctx.newPage();
+  await p.goto(pathToFileURL(join(PROTO, page.fichier)).href, { waitUntil: 'load' });
+  const fautifs = [];
+  for (const w of LARGEURS_SONDE) {
+    await p.setViewportSize({ width: w, height: 900 });
+    const r = await p.evaluate(() => ({
+      scroll: document.documentElement.scrollWidth,
+      client: document.documentElement.clientWidth,
+    }));
+    if (r.scroll > r.client + 1) fautifs.push(`${w} px (document ${r.scroll})`);
+  }
+  if (fautifs.length) {
+    console.error(`  ÉCHEC ${page.nom} : débordement horizontal à ${fautifs.join(', ')}`);
+    echecs++;
+  } else {
+    console.log(`  ${page.nom.padEnd(14)} aucun débordement sur ${LARGEURS_SONDE.length} largeurs`);
+  }
+  await ctx.close();
+}
+console.log('');
+
 for (const page of PAGES) {
   for (const t of THEMES) {
     for (const l of LARGEURS) {

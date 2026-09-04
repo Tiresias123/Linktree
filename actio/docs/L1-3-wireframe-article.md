@@ -74,7 +74,7 @@ Surlignage : `actio.js` pose `aria-current="true"` sur le lien courant ; `.somma
 
 Progression : `.sommaire__barre` de 3 px, fond `--bordure`, remplissage `--actio-turquoise-fonce` (`#096B61` en clair, `#3FD8C7` en sombre), `transition: width var(--mvt-rapide)` (120 ms). Le pourcentage se calcule sur la hauteur de `.prose` moins une hauteur de fenêtre et est **doublé en texte** dans `[data-progression-texte]`. `@media (prefers-reduced-motion: reduce)` ramène la transition à 0,01 ms.
 
-**Seuil de bascule : 1080 px.** En dessous, `.article__corps` passe à une colonne, `gap` tombe à `--e-8`, et `.sommaire` reçoit `position: static !important; max-height: none !important; order: -1` — il remonte au-dessus de la prose. Conséquence assumée : la barre de progression sort de l'écran avec lui et devient un indicateur de longueur au chargement. On ne compense pas par une barre fixe en haut d'écran, qui doublerait l'en-tête déjà collant.
+**Seuil de bascule : 1100 px.** En dessous, `.article__corps` passe à une colonne, `gap` tombe à `--e-8`, et `.sommaire` reçoit `position: static !important; max-height: none !important; order: -1` — il remonte au-dessus de la prose. Conséquence assumée : la barre de progression sort de l'écran avec lui et devient un indicateur de longueur au chargement. On ne compense pas par une barre fixe en haut d'écran, qui doublerait l'en-tête déjà collant.
 
 Le sommaire du prototype est saisi à la main ; en production il est **généré** depuis les `h2` porteurs d'un `id` `s1`…`sN`. Un `h2` argumentatif sans `id` est un défaut de saisie.
 
@@ -152,7 +152,7 @@ Trois éléments requis, tels que posés dans le prototype : Actio n'est inscrit
 
 ### 3.11 Suite de lecture
 
-`.suite` : filet haut `--trait-fort` en `--texte-primaire` — le seul en pleine encre de la page, qui marque la sortie de l'article — `padding-top: var(--e-6)`, `margin-top: var(--e-12)`, titre en `--t-h4`. Trois `.carte.col-4` dans une `.grille` de 12 colonnes : **toujours trois, jamais deux ni quatre**, puisque `col-4 × 3 = 12`. Repli `span 6` sous 1024 px, `span 12` sous 640 px.
+`.suite` : filet haut `--trait-fort` en `--texte-primaire` — le seul en pleine encre de la page, qui marque la sortie de l'article — `padding-top: var(--e-6)`, `margin-top: var(--e-12)`, titre en `--t-h4`. Trois `.carte.col-4` dans une `.grille` de 12 colonnes : **toujours trois, jamais deux ni quatre**, puisque `col-4 × 3 = 12`. Repli `span 6` sous 1100 px, `span 12` sous 760 px.
 
 Sélection éditoriale, jamais algorithmique : une carte de la même sous-rubrique, une de la même juridiction dans une autre rubrique, une pédagogique de niveau 1. Chaque carte porte `.carte__meta` (badge de type + pastille de juridiction), un titre de 60 à 90 signes, un `.carte__resume` de 60 à 110 signes énonçant la thèse et non le sujet, et un `.carte__pied` format + durée. Aucune ne renvoie vers un comparatif affilié ni une offre d'abonnement : `.suite` est une continuation de lecture, pas un tunnel de conversion (fiche 08).
 
@@ -211,7 +211,7 @@ Liste opposable : un seul point non coché bloque la mise en ligne. Le contrôle
 - [ ] **12.** `.bio__declaration` couvre les sept points du § 3.9, même à l'état négatif ; « Contact sécurisé » et « Clé publique » résolvent. *(rédactrice en chef adjointe)*
 - [ ] **13.** `.avertissement` est présent, non modifié, en dernier bloc de `.prose`. *(rédactrice en chef adjointe)*
 - [ ] **14.** Tous les `h2` argumentatifs portent un `id` `s1`…`sN` et figurent dans `.sommaire`. *(intégrateur)*
-- [ ] **15.** Rendu contrôlé à 1440, 1080, 900, 640 et 360 px : bascule du sommaire à 1080 px, `.bio` à 560 px, aucun défilement horizontal du corps de page. *(intégrateur)*
+- [ ] **15.** Rendu contrôlé à 1440, 1080, 900, 640 et 360 px : bascule du sommaire à 1100 px, `.bio` à 560 px, aucun défilement horizontal du corps de page. *(intégrateur)*
 - [ ] **16.** Rendu contrôlé en modes clair et sombre : aucun texte sous 4,5:1, tout aplat sous texte blanc en `--fill-primaire`. *(intégrateur)*
 - [ ] **17.** Parcours clavier complet — `.evitement`, fil, sommaire, renvois, zones de tableau défilantes, outils — anneau `3px --actio-turquoise` visible partout. *(intégrateur)*
 - [ ] **18.** Aperçu d'impression : aucune boîte coupée, URL externes affichées, `.avertissement` présent. *(chef de pupitre)*
@@ -223,7 +223,7 @@ Liste opposable : un seul point non coché bloque la mise en ligne. Le contrôle
 1. **La variante `.maj--correction`.** Le rouge `--statut-alerte` distingue la correction de la mise à jour, mais met deux blocs rouges sur la même page (`.maj` en tête, `.avertissement` en pied). Alternative : garder l'ambre et ne changer que l'étiquette.
 2. **La ligne « Portée » dans `.retenir`.** Le § 1.5 la rend obligatoire, le gabarit ne la prévoit pas. Choisir entre un quatrième élément hors liste — retenu ici — et une ligne de méta dans le bloc-titre.
 3. **Le nombre de sections `h2`.** Le gabarit en pose quatre et le sommaire en vit. Un décryptage de brève actualité n'en justifie pas quatre : seuil (pas de `.sommaire` sous trois `h2`) ou second gabarit court, distinct de celui-ci ?
-4. **La barre de progression sous 1080 px.** L'accepter, la déplacer en filet de 3 px collant sous `.entete`, ou la supprimer sur petit écran. Aucune option n'est neutre pour la hauteur d'en-tête, câblée en dur à 96 px en quatre endroits.
+4. **La barre de progression sous 1100 px.** L'accepter, la déplacer en filet de 3 px collant sous `.entete`, ou la supprimer sur petit écran. Aucune option n'est neutre pour la hauteur d'en-tête, câblée en dur à 96 px en quatre endroits.
 5. **Une sixième valeur de `.sources__type`.** Les bulletins d'OAR sont typés « Avis ». Si l'OCRI devient une source régulière — le bulletin 26-0033 du 3 février 2026 le laisse penser (fiche 01) —, une valeur « Bulletin » s'imposera.
 6. **Le commentaire d'accessibilité de `tokens.css`.** Il annonce 4,9:1 pour le blanc sur turquoise foncé, valeur établie pour la valeur antérieure du jeton ; `--actio-turquoise-fonce` vaut désormais `#096B61`. Les ratios doivent être recalculés, faute de quoi la règle opposable cesse de l'être.
 7. **La date d'arrêté du gabarit.** Toutes les références employées ici viennent des fiches 01 à 09, constituées le 4 septembre 2026 alors que l'accès sortant aux sites des régulateurs était bloqué. Aucune n'a été lue à la source : le gabarit est spécifié, les exemples qu'il contient ne sont pas publiables en l'état.

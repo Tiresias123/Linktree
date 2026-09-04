@@ -6,14 +6,16 @@ Cette section spécifie `prototype/fr/index.html` (911 lignes) tel qu'il est éc
 
 `.contenant` : `max-width: var(--grille-max)` = 1320 px, `padding-inline: var(--grille-marge)` = `clamp(16px, 4vw, 48px)` — saturé à 48 px dès 1200 px de fenêtre. `.grille` : `repeat(12, minmax(0,1fr))`, `gap: var(--grille-gouttiere)` = 24 px, ramené à 16 px sous 900 px. Largeur utile : 1320 − 96 = **1224 px** ; colonne unitaire (1224 − 11 × 24) / 12 = **80 px exactement**. Ce nombre rond est la raison d'être du couple 1320 / 24 : il doit survivre à toute modification de l'un des deux.
 
-| Portée | 1320 px | ≤ 1024 px | ≤ 640 px | | Portée | 1320 px | ≤ 1024 px | ≤ 640 px |
+| Portée | 1320 px | ≤ 1100 px | ≤ 760 px | | Portée | 1320 px | ≤ 1100 px | ≤ 760 px |
 |---|---|---|---|---|---|---|---|---|
 | `.col-8` | 808 px | 12 | 12 | | `.col-4` | 392 px | **6** | **12** |
 | `.col-7` | 704 px | 12 | 12 | | `.col-3` | 288 px | **6** | **12** |
 | `.col-6` | 600 px | 12 | 12 | | `.col-2` | *non défini* | — | — |
 | `.col-5` | 496 px | 12 | 12 | | gouttière | 24 px | 24 px (16 px ≤ 900) | 16 px |
 
-Le point de rupture **1100 px** ne touche que l'en-tête ; **900 px**, la gouttière et le bloc `.pro`. Les deux ruptures structurantes sont **1024 px** et **640 px**.
+**Quatre seuils, et quatre seulement : 560, 760, 900 et 1100 px** — les seuils canoniques arrêtés au § 2.5 du livrable 3. Le prototype en comptait neuf, arrivés par accrétion (1100, 1080, 1024, 900, 760, 640, 560, 520, plus le 620 px propre au gabarit de courriel, qui obéit à un conteneur de 600 px et reste hors de ce jeu). Les deux ruptures structurantes de la grille sont **1100 px** — où les blocs larges passent en pleine largeur et où l'en-tête se replie — et **760 px**, la mesure de lecture elle-même (`--grille-max-etroit`), où tout s'empile. **900 px** ne touche que la gouttière et le bloc `.pro` ; **560 px**, la bio d'expert et le portail de langue.
+
+Les espacements de l'en-tête sont **fluides et non paliers** : juste au-dessus de 1100 px, cinq rubriques aux libellés français, deux sélecteurs et un bouton d'abonnement ne tenaient pas, et le document débordait de 78 px entre 1100 et environ 1180. Un cinquième seuil aurait résolu le symptôme au prix du principe ; une compression continue en `clamp()` le résout sans. Le harnais balaye désormais trente largeurs de 320 à 1920 px, frontières de seuil comprises à 1 px près.
 
 ### 2.1 Bandeau de probité
 
@@ -35,7 +37,7 @@ Le point de rupture **1100 px** ne touche que l'en-tête ; **900 px**, la goutti
 
 | Attribut | Spécification |
 |---|---|
-| Grille | Piste flex unique dans `.contenant`, `gap: var(--e-6)` 24 px, `overflow-x: auto` avec ascenseur masqué. **Ne se replie jamais** : sous 640 px elle défile. `.conformite` porte `margin-left: auto` : poussé au bord droit tant que la piste tient, dernier élément atteignable au défilement au-delà. |
+| Grille | Piste flex unique dans `.contenant`, `gap: var(--e-6)` 24 px, `overflow-x: auto` avec ascenseur masqué. **Ne se replie jamais** : sous 760 px elle défile. `.conformite` porte `margin-left: auto` : poussé au bord droit tant que la piste tient, dernier élément atteignable au défilement au-delà. |
 | Espacements | `padding-block: var(--e-2)` 8 px ; `.conformite` : `padding-left: var(--e-6)` 24 px et filet `color-mix(in srgb, var(--encre-texte) 25%, transparent)`. Aucune hauteur fixée : elle résulte du contenu, l'élément le plus haut étant le badge « Démo » (≈ 24,5 px), soit **≈ 40 px** au total. |
 | Typographie | `var(--police-donnee)` pour tout le bandeau — un cours est une donnée, pas de la prose. Corps `var(--t-petit)` 13 px ; `.cours__sym` graisse 700 à `.04em` ; `.cours__val` en `tabular-nums`, obligatoire sans quoi les chiffres sautent au rafraîchissement ; `.cours__var` et `.conformite` `var(--t-micro)` 11 px, la seconde en majuscules. |
 | Couleurs | Famille « bandes d'encre », **invariante** : `--encre-fond` #0E1A2B clair / #16263A sombre, `--encre-texte` #F4F7FA dans les deux. La bande reste sombre en mode clair **comme en mode sombre** : elle ne s'inverse pas. Variation : `--encre-hausse` #3FCB96, `--encre-baisse` #FF6B7F, `--encre-stable` #8FA0B2. |
@@ -64,7 +66,7 @@ Le point de rupture **1100 px** ne touche que l'en-tête ; **900 px**, la goutti
 | Attribut | Spécification |
 |---|---|
 | Grille | `position: sticky; top: 0; z-index: var(--z-entete)` 200 ; fond `color-mix(in srgb, var(--fond-page) 92%, transparent)` avec `backdrop-filter: saturate(160%) blur(12px)` — le contenu défilant transparaît à 8 %. `.entete__barre` : flex, `gap: var(--e-6)`, `min-height: 64px`. |
-| Ruptures | **> 1100 px** : logo, nav 5 entrées, deux sélecteurs, bouton sur une ligne ; `.burger` en `display: none`, donc hors tabulation. **≤ 1100 px** : burger 42 × 42 px ; `.nav` et `.entete__actions` masqués, rétablis sous `.entete[data-ouvert="true"]` ; nav en colonne, `.nav__lien` à `var(--e-4) var(--e-2)` et `var(--t-base)`, filets `--bordure-douce` ; `.btn--pro` en `flex: 1 1 100%` ; le mega-menu devient `static` et se déplie sur place, `padding-block: var(--e-5)`. **≤ 1024 px** : les quatre `col-3` du menu passent à `span 6` (2 × 2). **≤ 640 px** : `span 12`. |
+| Ruptures | **> 1100 px** : logo, nav 5 entrées, deux sélecteurs, bouton sur une ligne ; `.burger` en `display: none`, donc hors tabulation. **≤ 1100 px** : burger 42 × 42 px ; `.nav` et `.entete__actions` masqués, rétablis sous `.entete[data-ouvert="true"]` ; nav en colonne, `.nav__lien` à `var(--e-4) var(--e-2)` et `var(--t-base)`, filets `--bordure-douce` ; `.btn--pro` en `flex: 1 1 100%` ; le mega-menu devient `static` et se déplie sur place, `padding-block: var(--e-5)`. **≤ 1100 px** : les quatre `col-3` du menu passent à `span 6` (2 × 2). **≤ 760 px** : `span 12`. |
 | Espacements | `.nav { gap: var(--e-1) }` ; `.nav__lien { padding: var(--e-2) var(--e-3) }` ; `.entete__actions { gap: var(--e-2) }` ; `.megamenu__grille { padding-block: var(--e-8) }` 32 px ; `.megamenu__vedette { padding: var(--e-5) }`. |
 | Typographie | `.logo` `var(--police-titre)` 1,5 rem, 700, `-.03em` ; `.nav__lien` 13 px graisse 600 ; `.megamenu__colonne h3` 11 px majuscules 0,085 em ; `.selecteur button` 11 px, 600, `.06em`. |
 | Couleurs | Nav `var(--texte-primaire)` sur `var(--fond-page)` : **16,5:1** dans les deux modes ; survol `--fond-surface-2` ; page courante `--actio-bleu-palais` (**10,5:1**) plus soulignement `::after` de 2 px. `.logo__point` en `var(--actio-turquoise-fonce)` #096B61 (**6,0:1**) / #3FD8C7 (**10,5:1**). `.btn--pro` : encre sur vélin **16,5:1**, survol `var(--fill-primaire)` + `var(--fill-primaire-texte)` **11,1:1** clair / **7,1:1** sombre. |
@@ -81,7 +83,7 @@ Les trois axes ne sont pas décoratifs : ils reproduisent la manière dont le dr
 
 | Attribut | Spécification |
 |---|---|
-| Grille | `.col-7` + `.col-5` = 1224 px. À **1024 px** les deux passent à `span 12` : le filet vertical devient horizontal et le rembourrage bascule en `padding-bottom: var(--e-8)`. Le DOM est déjà dans l'ordre de lecture voulu. |
+| Grille | `.col-7` + `.col-5` = 1224 px. À **1100 px** les deux passent à `span 12` : le filet vertical devient horizontal et le rembourrage bascule en `padding-bottom: var(--e-8)`. Le DOM est déjà dans l'ordre de lecture voulu. |
 | Espacements | `.une { padding-block: var(--e-10) var(--e-12) }` 40 / 48 px ; `.une__principal { gap: var(--e-4) }` ; `.breves { gap: var(--e-5) }` ; `.breve { gap: var(--e-2); padding-bottom: var(--e-5) }`, filets `--bordure-douce`, la dernière sans filet ni rembourrage. |
 | Typographie | `.une__titre` `--t-h1` = `clamp(2,125rem, 1,62rem + 2,2vw, 3,375rem)` → 34 à 54 px, Source Serif 4, 700, `--lh-serre` 1,15. `.une__chapeau` `--t-lead` → 18 à 21 px, Inter 400, `--lh-moyen` 1,35. `.une__signature` 13 px (nom en 600) ; `time` et `.lecture` 11 px en `--police-donnee`. `.breves__titre` 11 px majuscules 0,085 em. `.breve__titre` `--t-h6` 17 px, Source Serif 4, 700. |
 | Couleurs | Titre **16,5:1**, survol `--actio-bleu-palais` **10,5:1** ; chapeau `--texte-secondaire` **7,1:1** ; signature `--texte-tertiaire` **5,2:1**. `.une__visuel` : `aspect-ratio: 16 / 9`, `border-radius: var(--rayon-3)` 10 px, dégradé à 135°. |
@@ -112,7 +114,7 @@ Les trois axes ne sont pas décoratifs : ils reproduisent la manière dont le dr
 
 | Attribut | Spécification |
 |---|---|
-| Grille | Trois `.carte.col-4` de 392 px ; `span 6` à 1024 px, `span 12` à 640 px. `height: 100%` avec `align-items: stretch` : hauteurs égales sur une ligne ; `.carte__pied { margin-top: auto }` colle les métadonnées au bas. |
+| Grille | Trois `.carte.col-4` de 392 px ; `span 6` à 1100 px, `span 12` à 760 px. `height: 100%` avec `align-items: stretch` : hauteurs égales sur une ligne ; `.carte__pied { margin-top: auto }` colle les métadonnées au bas. |
 | Espacements | `.section { padding-block: var(--e-16) }` 64 px avec `.section + .section { padding-top: 0 }` — règle qui **ne s'applique pas** ici, le frère précédent étant `.une.grille` : cette section conserve 64 px en haut, toutes les suivantes du `.contenant` n'en ont aucun. `.section__entete` : `padding-bottom: var(--e-4)`, `margin-bottom: var(--e-8)`, filet bas de 2 px en `--texte-primaire`. `.carte { padding: var(--e-5); gap: var(--e-3) }` ; `.carte__synthese { padding: var(--e-3) var(--e-4) }`. |
 | Typographie | `.section__sur` 11 px majuscules ; `.section__titre` `--t-h2` = `clamp(1,75rem, 1,52rem + 1,0vw, 2,375rem)` → 28 à 38 px ; `.carte__titre` `--t-h5` → 18 à 20 px ; `.carte__resume` 13 px `--lh-moyen` ; `.carte__synthese` 13 px `--lh-dense` 1,45 ; `.carte__pied` 11 px en `--police-donnee`, points médians générés. |
 | Couleurs | Carte `--fond-surface` / `--bordure`, rayon 6 px. `.carte__synthese` : `--fond-surface-2` avec **filet gauche de 3 px** en `--actio-bleu-palais`, rayon `0 3px 3px 0`. Contrastes : résumé **7,5:1**, synthèse **6,6:1**, « Résumé exécutif. » **15,7:1**, pied **5,5:1**. |
@@ -141,7 +143,7 @@ Elles s'intercalent entre le schéma et les guides (Marchés) puis entre les gui
 
 | Section | Grille à 1320 px | Ruptures | Point de conception |
 |---|---|---|---|
-| Marchés & macro (`.depeche`) | `76px 1fr auto`, `gap: var(--e-4)`, `padding: var(--e-4) 0`, filet bas `--bordure-douce`, filet haut sur la première | `1fr` à **640 px** | Une dépêche n'est pas une analyse : ni carte, ni ombre — balayage vertical. Heure en `--police-donnee` avec `tabular-nums`, horodatée à la minute (« 4 sept. · 14 h 05 »). Survol : `--fond-surface-2` sur toute la ligne. |
+| Marchés & macro (`.depeche`) | `76px 1fr auto`, `gap: var(--e-4)`, `padding: var(--e-4) 0`, filet bas `--bordure-douce`, filet haut sur la première | `1fr` à **760 px** | Une dépêche n'est pas une analyse : ni carte, ni ombre — balayage vertical. Heure en `--police-donnee` avec `tabular-nums`, horodatée à la minute (« 4 sept. · 14 h 05 »). Survol : `--fond-surface-2` sur toute la ligne. |
 | Fiscalité (`.carte` × 4 dans `.col-8.grille` + `.echeancier` en `.col-4`) | grille imbriquée dans un `.col-8` de 808 px : quatre `.col-6` de **392 px** (2 × 2) ; échéancier 392 px | voir D14 | Échéancier en `<aside aria-labelledby>`, filet supérieur de 3 px en `--statut-consultation` ; titre **5,7:1** clair / **8,1:1** sombre ; lignes en `58px 1fr`. |
 | Actio Pro (`.pro`) | `1.15fr 1fr`, `gap` et `padding` à `var(--e-12)` 48 px, cadre `var(--trait-fort)` en `--texte-primaire` | `1fr`, gap 32 px, padding 24 px à **900 px** | Seul bloc cerné d'un filet d'encre de 2 px. Six bénéfices préfixés d'une flèche en `--actio-turquoise-fonce`. Mention obligatoire : « Aucun contenu commandité dans l'offre Pro. » |
 
@@ -178,7 +180,7 @@ La dernière ligne de l'échéancier est le patron à suivre : date « — », o
 
 | Attribut | Spécification |
 |---|---|
-| Grille et espacements | Trois `.palier.col-4` de 392 px ; 6 colonnes à 1024 px, 12 à 640 px. `display: grid; gap: var(--e-4); padding: var(--e-6); height: 100%` ; `.palier__pied { margin-top: auto }` aligne les pieds. |
+| Grille et espacements | Trois `.palier.col-4` de 392 px ; 6 colonnes à 1100 px, 12 à 760 px. `display: grid; gap: var(--e-4); padding: var(--e-6); height: 100%` ; `.palier__pied { margin-top: auto }` aligne les pieds. |
 | Typographie | `.palier__niveau` 11 px `--police-donnee`, majuscules, `.08em`, `--texte-tertiaire` (**5,5:1**) ; `.palier__titre` `--t-h5` → 18 à 20 px ; `.palier__desc` 13 px `--lh-moyen` ; `.palier__liste li` 13 px, `padding-left: var(--e-5)` 20 px, puce remplacée par un tiret de 10 × 2 px en `--bordure-forte` posé à `top: .62em`. |
 | Jauge | `.palier__jauge` contient exactement **trois `<i>`** de 16 × 4 px, rayon 2 px, `gap: 3px`, en `--bordure-forte` par défaut. Coloration purement sélectorielle (`i:nth-child(-n+1)`, `(-n+2)`, `(-n+3)`) : **le nombre de segments allumés est le niveau**, aucun attribut à saisir. Le filet supérieur de 3 px de la carte reprend la même couleur : jauge et filet forment un seul signal. |
 | États et accessibilité | `.palier__liste a:hover` : `--texte-lien` et soulignement. Aucune zone cliquable étendue — quatre liens distincts, un `::after { inset: 0 }` les rendrait inatteignables. `.palier__jauge` est `aria-hidden="true"` : le niveau est déjà porté par le texte adjacent. |
@@ -197,7 +199,7 @@ Le titre « Jalonnement : revenu au moment de la réception, ou à la dispositio
 
 | Attribut | Spécification |
 |---|---|
-| Grille | La section est **hors du `.contenant` principal** — frère du `div.contenant` de `<main>` —, d'où son propre conteneur et un rembourrage plein de `var(--e-16)` 64 px haut et bas (`.section + .section` ne s'y applique pas). `.infolettre` : rayon `var(--rayon-4)` 16 px. `.infolettre__inner { padding: var(--e-12) var(--e-10) }` 48 / 40 px, ramené à `var(--e-8) var(--e-5)` 32 / 20 px sous **640 px**. `.infolettre__form { max-width: 620px }` et `.champ { flex: 1 1 260px }` : champ et bouton se replient sous environ 420 px. |
+| Grille | La section est **hors du `.contenant` principal** — frère du `div.contenant` de `<main>` —, d'où son propre conteneur et un rembourrage plein de `var(--e-16)` 64 px haut et bas (`.section + .section` ne s'y applique pas). `.infolettre` : rayon `var(--rayon-4)` 16 px. `.infolettre__inner { padding: var(--e-12) var(--e-10) }` 48 / 40 px, ramené à `var(--e-8) var(--e-5)` 32 / 20 px sous **760 px**. `.infolettre__form { max-width: 620px }` et `.champ { flex: 1 1 260px }` : champ et bouton se replient sous environ 420 px. |
 | Typographie | `.infolettre__sur` 11 px majuscules en `--encre-accent` #35D6C4 ; `.infolettre__titre` `--t-h2`, **`max-width: 22ch`** — mesure courte volontaire, deux lignes ; `.infolettre__promesse` `--t-lead`, `--encre-texte-2`, `56ch` ; `.infolettre__chiffre` `--t-h4` en `--police-donnee` 700. |
 | Couleurs | Même famille invariante que le bandeau de cotations : `--encre-fond` / `--encre-texte`, plus deux dégradés radiaux en `::before` (turquoise 26 % en haut à droite, `--actio-bleu-palais-clair` 24 % en bas à gauche), `pointer-events: none`. |
 | Contrastes | `--encre-texte` **16,3:1** clair / **14,2:1** sombre ; `--encre-texte-2` **8,6:1** et **7,6:1** sur l'aplat, **5,8:1** au point le plus clair du halo en clair. En sombre ce même point tombe à **4,2:1** : la géométrie actuelle maintient tout texte hors du rayon le plus lumineux (centré à 88 % / 8 %), mais rien ne le garantit après réécriture — à mesurer sur capture au gel de la maquette ; correctif, ramener la teinte de 26 % à 18 % en sombre, ce qui rétablit **5,1:1**. |
@@ -266,7 +268,7 @@ Trois dispositifs typographiques portent seuls la hiérarchie, sans recours à l
 
 | # | Défaut | Correction, à jeton constant |
 |---|---|---|
-| D1 | `.col-2` n'est **pas défini** dans `actio.css` ; la colonne « Rubriques » (l. 829) est placée sur une piste de 80 px et ses cinq intitulés se replient sur trois à cinq lignes | Ajouter `.col-2 { grid-column: span 2 }` après `.col-3`, puis `span 6` à 1024 px et `span 12` à 640 px |
+| D1 | `.col-2` n'est **pas défini** dans `actio.css` ; la colonne « Rubriques » (l. 829) est placée sur une piste de 80 px et ses cinq intitulés se replient sur trois à cinq lignes | Ajouter `.col-2 { grid-column: span 2 }` après `.col-3`, puis `span 6` à 1100 px et `span 12` à 760 px |
 | D2 | ~~`docs/annexes/registre-de-verification.md` n'existe pas~~ — **écrit**, et le lien du bandeau de probité, qui pointait vers `../docs/` (soit `prototype/docs/`), a été corrigé en `../../docs/` (l. 37) | — |
 | D3 | `.demo a { color: #fff }` (l. 742) : valeur brute | `var(--demo-texte)` |
 | D4 | Hausse et baisse portées par la seule couleur et par des glyphes `::before` (règle 1.4.1) | Le texte de `.cours__var` porte toujours le signe (`+2,4 %`, `−1,8 %`) ; `.cours__val` doublé d'un `<span class="vh">` « valeur non disponible » plutôt que « — » |
@@ -279,7 +281,7 @@ Trois dispositifs typographiques portent seuls la hiérarchie, sans recours à l
 | D11 | ~~Valeurs brutes dans le SVG de la une et `#000` dans le dégradé~~ — **corrigé** : le SVG (l. 206-225) n'emploie plus que `var(--encre-texte)`, `var(--encre-texte-2)`, `var(--statut-alerte-fixe)`, `var(--encre-accent)` et `var(--encre-accent-texte)` ; le `#FFFFFF` résiduel est posé sur `--statut-alerte-fixe`, appariement autorisé (5,9:1) | — |
 | D12 | ~~Carte 2 : l'Avis 21-330 présenté comme une sanction ontarienne de l'OCRI~~ — **corrigé** : la carte porte `badge--info` « Avis du personnel » et `juridiction--multi` « ACVM · OCRI » (l. 330-331) | Reste ouvert : date de 2021 (fiche 01) contre 2022 (fiche 08), **[À VÉRIFIER]** |
 | **D13** | `.badge` employé pour deux fonctions incompatibles : les sections Marchés et Fiscalité posent « Analyse », « Dossier », « Biens étrangers », « TPS / TVH », « Position administrative », « Obligation déclarative » — des sujets et des formats, pas des statuts. Deux contredisent leur jeton : une position administrative de l'ARC n'est pas une consultation ouverte, une obligation en vigueur n'est ni une sanction ni une mise en garde. **Défaut le plus grave** : il vide la charte du § 2.5, puisqu'un aplat rouge ne permet plus de déduire l'existence d'un acte coercitif | Créer `.etiquette` — sans pastille, en `--bordure-forte` et `--texte-secondaire`, sur le modèle de `.juridiction` — et réserver `.badge` aux sept emplois de la charte |
-| D14 | À 1024 px, `.col-8` passe à `span 12` et `.col-4` à `span 6` : les quatre cartes s'empilent en pleine largeur puis l'échéancier apparaît seul sur une demi-colonne | Retirer `col-4` du balisage, donner `grid-column: span 4` à `.echeancier` et `span 12` sous 1024 px |
+| D14 | À 1100 px, `.col-8` passe à `span 12` et `.col-4` à `span 6` : les quatre cartes s'empilent en pleine largeur puis l'échéancier apparaît seul sur une demi-colonne | Retirer `col-4` du balisage, donner `grid-column: span 4` à `.echeancier` et `span 12` sous 1100 px |
 | **D15** | `.flux__etape--futur { opacity: .72 }` s'applique au texte : `.flux__detail` (11 px) tombe à **3,5:1** sur `--fond-surface-2` | Supprimer l'`opacity` ; exprimer la futurité par `border-style: dashed` et `.flux__etape--futur .flux__num { color: var(--statut-neutre) }` = **4,8:1** |
 | D16 | `.flux__etape::after` posée à `right: calc(var(--e-3) * -1 - 5px)` = −17 px pour une gouttière de 12 px : la flèche déborde de 5 px et le fond opaque de l'étape suivante la recouvre | `left: 100%; right: auto; transform: translate(-50%, -50%)` |
 | **D17** | ~~Ordre de tabulation contraire à la logique du consentement : la case suit le bouton d'envoi~~ — **corrigé** : le `<label class="infolettre__consentement">` (l. 769-778) précède désormais le `div.infolettre__form` (l. 780-786) dans le DOM | — |

@@ -67,7 +67,7 @@ comme si elle était en vigueur. Le récit historique du § 1.5 a été conserv�
 | C-20 | `docs/L1-2-wireframe-accueil.md` § 2.0 | `.col-8` = 664 px | **808 px**. La grille du document pose colonne unitaire 80 px et gouttière 24 px : 8 × 80 + 7 × 24 = 808. 664 supposait une seule gouttière. Toutes les autres largeurs du tableau sont exactes |
 | C-21 | `docs/L1-2-wireframe-accueil.md` § 2.6 | Quatre `.col-6` de 320 px dans le bloc Fiscalité | **392 px**. 320 px était la conséquence arithmétique du 664 px erroné |
 | C-22 | `docs/L1-2-wireframe-accueil.md`, chapeau | « `prototype/fr/index.html` (907 lignes) » | 911 lignes |
-| C-23 | `docs/L2-2-edition-type.md`, chapeau et § 2.2.2 | 33 383 octets pour l'édition nº 001 ; 11 492 pour le châssis ; « 32,6 Ko — 32 % du seuil » | 33 650 et 11 476 octets ; « 32,9 Ko — 33 % du seuil ». Le plafond interne de 80 Ko reste largement tenu |
+| C-23 | `docs/L2-2-edition-type.md`, chapeau et § 2.2.2 | 33 383 octets pour l'édition nº 001 ; 11 492 pour le châssis ; « 32,6 Ko — 32 % du seuil » | Valeurs mesurées à la relecture : 35 159 et 11 476 octets ; « 34,3 Ko — 34 % du seuil ». Le plafond interne de 80 Ko reste largement tenu. **Ce chiffre rancit à chaque modification de contenu et aucun outil ne le contrôle** : il a déjà bougé pendant la relecture. Le seul contrôle qui tienne est le plafond de 80 Ko appliqué par `tools/emails.mjs` — envisager de retirer la valeur absolue du document |
 
 #### Renvois de ligne dérivés
 
@@ -103,6 +103,8 @@ production, taux de remplissage du parrainage) comptent **44 éditions par an**.
 d'écart, qui portent le coût direct (35 640 $), l'inventaire publicitaire et la promesse faite à
 l'inscription. Décider le calendrier, puis l'annoncer sur la page d'inscription — ou passer les
 modèles à 52.
+
+**T-02 — ~~Les points de rupture s'annulent d'un livrable à l'autre~~ — RÉSOLU.** La décision du livrable 3 a été appliquée : le code ne porte plus que 560, 760, 900 et 1100 px, et les livrables 1 et 3 sont réécrits en conséquence. L'application a révélé ce que la contradiction masquait — à 1101 px, l'en-tête débordait de 78 px — corrigé par des espacements fluides plutôt que par un cinquième seuil. Le harnais balaye trente largeurs de 320 à 1920 px, frontières comprises à 1 px près : aucun débordement. *Constat d'origine ci-dessous, conservé.*
 
 **T-02 — Les points de rupture s'annulent d'un livrable à l'autre.**
 `docs/L1-2-wireframe-accueil.md` § 2.0 : « les deux ruptures structurantes sont **1024 px** et
@@ -355,7 +357,20 @@ pour introduire une rubrique de fiscalité qui n'est ni une consultation ni un p
 
 ---
 
-### B.4 Comment revérifier
+### B.4 Note sur l'état du dépôt à la relecture
+
+Le dépôt a été modifié par ailleurs pendant cette relecture : le pré-en-tête de l'édition nº 001,
+le corps de `newsletter/contenus/dispatch-001.html`, celui de `bienvenue-2.html` et les contrôles
+de `tools/emails.mjs` (bornes de pré-en-tête, non-reprise de l'objet) ont changé sous elle. Les
+constats portant sur ces fichiers sont datés d'aujourd'hui et doivent être recoupés avant emploi ;
+ceux qui portent sur les documents, sur `prototype/` et sur `assets/tokens.css` ne sont pas
+affectés. Le contrôle de bornes du pré-en-tête ajouté à `tools/emails.mjs` retient 90 à 130
+caractères : il tranche donc **de fait** le point T-03 en faveur de `docs/L2-2-edition-type.md`,
+sans que `docs/L2-1-strategie-mailing.md` § 1.3, qui dit 90 à 120, en ait été informé.
+
+---
+
+### B.5 Comment revérifier
 
 `npm run tout` couvre désormais, dans l'ordre : balisage, références des livrables au code,
 mentions LCAP et bornes d'objet, liens, accessibilité et contrastes sur le DOM rendu dans les deux
