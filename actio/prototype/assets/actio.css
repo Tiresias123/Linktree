@@ -677,6 +677,51 @@ p { margin: 0 0 var(--e-4); }
 .avertissement p { font-size: var(--t-petit); line-height: 1.62; color: var(--texte-secondaire); margin-bottom: var(--e-3); }
 .avertissement p:last-child { margin-bottom: 0; }
 
+/* ==========================================================================
+   Divulgation de contenu commandité et de lien rémunéré
+   --------------------------------------------------------------------------
+   Calqué sur .avertissement, mais sur les jetons de CONSULTATION et non
+   d'alerte : une divulgation n'est pas un danger, et mobiliser le rouge pour
+   la porter épuiserait la seule couleur qu'Actio réserve aux mises en garde
+   et aux sanctions.
+   Deux règles opposables, imposées par le Livrable 3, § 3.1.4 :
+     — le corps de la divulgation n'est JAMAIS plus petit que le texte qu'il
+       qualifie ;
+     — la divulgation figure dans le corps du contenu, jamais renvoyée à une
+       page de mentions.
+   Formule imposée, sans variante : « Contenu commandité par [entité,
+   n° d'inscription], payé par cet annonceur. Ce contenu n'a pas été rédigé par
+   la rédaction d'Actio. » Sont proscrits « en partenariat avec », « présenté
+   par », « avec le soutien de » : ils décrivent une relation sans nommer un
+   paiement.
+   ========================================================================== */
+.commandite {
+  border: var(--trait) solid var(--statut-consultation);
+  border-left: var(--trait-editorial) solid var(--statut-consultation);
+  background: var(--statut-consultation-pale);
+  border-radius: var(--rayon-2);
+  padding: var(--e-5) var(--e-6);
+  margin-block: var(--e-8);
+}
+.commandite__titre {
+  font-family: var(--police-texte); font-size: var(--t-micro);
+  font-weight: var(--graisse-grasse); letter-spacing: var(--interlettre-etiq);
+  text-transform: uppercase; color: var(--statut-consultation);
+  margin-bottom: var(--e-3); display: flex; align-items: center; gap: var(--e-2);
+}
+.commandite p {
+  font-size: var(--t-petit); line-height: 1.62;
+  color: var(--texte-secondaire); margin-bottom: var(--e-3);
+}
+.commandite p:last-child { margin-bottom: 0; }
+.commandite strong { color: var(--texte-primaire); }
+.commandite__inscription {
+  display: block; margin-top: var(--e-3); padding-top: var(--e-3);
+  border-top: var(--trait) solid color-mix(in srgb, var(--statut-consultation) 30%, transparent);
+  font-family: var(--police-donnee); font-size: var(--t-micro);
+  color: var(--texte-tertiaire);
+}
+
 .pied__legal {
   border-top: var(--trait) solid var(--bordure);
   padding-block: var(--e-6);
