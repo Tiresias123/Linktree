@@ -138,7 +138,10 @@ p { margin: 0 0 var(--e-4); }
   background: transparent;
   white-space: nowrap; line-height: 1.5;
 }
-.etiquette--demo { border-style: solid; border-color: var(--demo-fond); color: var(--demo-fond); }
+/* Posée sur la bande d'encre : ses couleurs viennent du jeu d'encre.
+   L'ambre de surface claire (#8A5300) y tombe à 2,8:1 ; l'ambre d'encre
+   (#E8A93C) y tient 8,5:1 en clair et 7,4:1 en sombre. */
+.etiquette--demo { border-style: solid; border-color: var(--encre-ambre); color: var(--encre-ambre); }
 
 /* Pastille de juridiction — forme distincte des badges de statut. */
 .juridiction {

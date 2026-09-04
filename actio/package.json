@@ -5,11 +5,12 @@
   "type": "module",
   "description": "Actio — média d'analyse du cadre réglementaire des cryptoactifs au Canada. Prototype et livrables de lancement.",
   "scripts": {
-    "captures": "node tools/captures.mjs",
-    "verifier": "node tools/verifier.mjs",
-    "emails": "node tools/emails.mjs",
+    "structure": "node tools/structure.mjs",
     "docs": "node tools/docs.mjs",
-    "tout": "npm run docs && npm run emails && npm run verifier"
+    "emails": "node tools/emails.mjs",
+    "verifier": "node tools/verifier.mjs",
+    "captures": "node tools/captures.mjs",
+    "tout": "npm run structure && npm run docs && npm run emails && npm run verifier"
   },
   "devDependencies": {
     "playwright-core": "^1.56.0"

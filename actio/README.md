@@ -90,7 +90,8 @@ npm run captures                 # 30 rendus (5 écrans × 2 thèmes × 3 largeu
 npm run verifier                 # liens, accessibilité, contraste sur le DOM rendu
 npm run emails                   # assemblage des courriels + contrôle des mentions LCAP
 npm run docs                     # références des livrables au code : chemins, classes, jetons
-npm run tout                     # les trois, dans l’ordre
+npm run structure                # balisage : équilibre, attributs répétés, identifiants en double
+npm run tout                     # structure, docs, courriels, vérification — dans l’ordre
 ```
 
 Chaque outil sort en erreur plutôt qu’en avertissement, et nomme le fautif :
@@ -109,6 +110,10 @@ Chaque outil sort en erreur plutôt qu’en avertissement, et nomme le fautif :
   de messagerie en perd un en silence), ou qui emploie une couleur absente de
   `tokens.css` — un courriel ne pouvant pas lire une variable CSS, c’est le seul
   moyen de le rattacher au système de design.
+- **`structure.mjs`** lit le balisage sans moteur de rendu. Un navigateur répare
+  silencieusement une balise mal fermée&nbsp;; un client de messagerie, non — et
+  un gabarit qui se disloque chez la moitié des destinataires ne se voit pas au
+  navigateur. Il attrape aussi l’attribut répété et l’identifiant en double.
 - **`docs.mjs`** échoue si un livrable cite un chemin de fichier, une classe CSS
   ou un jeton qui n’existe pas. Les trois livrables ne décrivent pas une
   intention&nbsp;: ils spécifient des fichiers. Une classe citée mais inexistante

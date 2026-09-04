@@ -163,7 +163,10 @@ for (const fichier of PAGES) {
       const som = await p.evaluate(() => {
         const s = document.querySelector('[data-sommaire]');
         if (!s) return null;
-        const titres = [...document.querySelectorAll('.prose h2')].map((h) => ({
+        // Seuls les enfants DIRECTS de .prose sont des sections d'argumentation.
+        // Les titres des sources, de la bio et de l'avertissement appartiennent
+        // à l'appareil de l'article et n'ont pas à figurer au sommaire.
+        const titres = [...document.querySelectorAll('.prose > h2')].map((h) => ({
           id: h.id || null, texte: (h.textContent || '').trim().slice(0, 50),
         }));
         const entrees = [...s.querySelectorAll('a[href^="#"]')].map((a) => a.getAttribute('href').slice(1));
