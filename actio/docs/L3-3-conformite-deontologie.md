@@ -8,11 +8,11 @@ Document opposable interne, arrêté au **4 septembre 2026**. Les règles de pro
 
 #### 3.1.1 La règle générale et le risque qu'elle traite
 
-L'absence d'inscription d'Actio, déclarée dans `.avertissement` du pied de `prototype/fr/index.html`, est une protection tant qu'Actio reste un média et une exposition dès qu'elle devient un canal de commercialisation.
+L'absence d'inscription d'Actio, déclarée dans `.avertissement` du pied de `prototype/fr/index.html`, protège tant qu'Actio reste un média et expose dès qu'elle devient un canal de commercialisation.
 
-Le point de rupture : l'**Avis conjoint 21-330 ACVM/OCRCVM sur la publicité, le marketing et les médias sociaux** retient que le marketing diffusé par un tiers **pour le compte** d'une plateforme engage celle-ci [À VÉRIFIER — millésime non arrêté, contradiction `C-03` ; l'avis n'a pas été ouvert]. La conséquence est asymétrique, et c'est ce qui la rend dangereuse : le contenu rémunéré d'Actio devient un manquement **de la plateforme**. Actio ne subit pas la sanction ; elle la cause. Un partenaire qui découvre que sa page chez Actio l'expose à une revue de conformité ne renouvelle pas.
+Point de rupture : l'**Avis conjoint 21-330 ACVM/OCRCVM sur la publicité, le marketing et les médias sociaux** retient que le marketing diffusé par un tiers **pour le compte** d'une plateforme engage celle-ci [À VÉRIFIER — millésime non arrêté, contradiction `C-03` ; l'avis n'a pas été ouvert]. La conséquence est asymétrique : le contenu rémunéré d'Actio devient un manquement **de la plateforme**. Actio ne subit pas la sanction, elle la cause — et un partenaire qui l'apprend ne renouvelle pas.
 
-Second axe, applicable à Actio directement : la *Loi sur la concurrence* sanctionne les indications fausses ou trompeuses et impose la divulgation du **lien matériel** — affiliation, commandite, avantage reçu [À VÉRIFIER — numéro d'article]. Troisième axe : la fiche 08 relève qu'un comparatif affilié mettant en avant une plateforme, **même inscrite**, peut être analysé comme du matériel de marketing diffusé pour son compte. Le comparatif est donc traité ici comme un format publicitaire.
+Deuxième axe, applicable à Actio directement : la *Loi sur la concurrence* sanctionne les indications fausses ou trompeuses et impose la divulgation du **lien matériel** — affiliation, commandite, avantage reçu [À VÉRIFIER — numéro d'article]. Troisième axe : la fiche 08 relève qu'un comparatif affilié mettant en avant une plateforme, **même inscrite**, peut être analysé comme du matériel de marketing diffusé pour son compte. Le comparatif est donc traité ici comme un format publicitaire.
 
 #### 3.1.2 Liste fermée
 
@@ -23,18 +23,16 @@ Second axe, applicable à Actio directement : la *Loi sur la concurrence* sancti
 | Contenu commandité identifié, rédigé par l'annonceur, non signé par la rédaction | **Accepté sous § 3.2.2** | Le lecteur doit pouvoir l'écarter en un coup d'œil |
 | Événement ou formation coproduits avec un cabinet ou un ordre professionnel ; offre d'emploi ; avis institutionnel | **Accepté** | Aucune recommandation d'actif ni de plateforme |
 | **Lien d'affiliation vers une plateforme de négociation de cryptoactifs** | **Refusé, sans exception** | Rémunération indexée sur l'ouverture de compte : Actio est payée à l'acte de placement du lecteur |
-| Affiliation vers un portefeuille, un service de jalonnement, un prêt adossé à des cryptoactifs | **Refusé** | Le communiqué des ACVM du 22 octobre 2025 rappelle que ces prêts relèvent de l'inscription et du prospectus |
-| Rémunération d'un émetteur ou d'un promoteur de jeton | **Refusé** | Risque de placement illégal |
+| Affiliation vers un portefeuille, un service de jalonnement, un prêt adossé à des cryptoactifs ; rémunération d'un émetteur ou promoteur de jeton | **Refusé** | Le communiqué des ACVM du 22 octobre 2025 rappelle que ces prêts relèvent de l'inscription et du prospectus ; risque de placement illégal |
 | Codes de parrainage, primes de bienvenue, concours de type ludique | **Refusé** | Expressément visés par l'Avis conjoint 21-330 [À VÉRIFIER] |
-| Partenariat avec une plateforme **non inscrite** dans la province du lecteur | **Refusé** | § 3.1.3 |
-| Publicité programmatique par réseau tiers non filtré | **Refusé** | L'annonceur servi n'est ni visible ni certifiable : le contrôle d'inscription devient impossible |
+| Partenariat avec une plateforme **non inscrite** dans la province du lecteur ; publicité programmatique par réseau tiers non filtré | **Refusé** | § 3.1.3 ; un annonceur servi par un réseau n'est ni visible ni certifiable |
 | Création imitant le gabarit d'analyse (`.retenir`, `.boite--risque`, `.sources__liste`) | **Refusé** | Ces composants signalent une analyse indépendante |
 
 #### 3.1.3 La règle de l'inscription préalable
 
 **Règle.** Aucun partenariat, aucune affiliation, aucune mention promotionnelle — payée ou échangée — avec une plateforme non inscrite auprès de l'autorité de **chaque province où l'annonce est servie**. Le critère n'est pas « inscrite au Canada » : un lecteur montréalais relève de l'AMF, un lecteur torontois de la CVMO.
 
-**Preuve.** Seules les **listes publiques des plateformes autorisées et proscrites des ACVM** font foi ; aucun nom repris d'une source secondaire ne vaut vérification (`U-07`). Le nombre d'inscrits évolue : consulter à la date du contrôle (`U-09`). Le contrôle porte sur **l'entité juridique inscrite**, non sur la marque — une même marque peut couvrir une entité inscrite et une entité étrangère qui ne l'est pas. Le contrat nomme l'entité et son numéro d'inscription.
+**Preuve.** Seules les **listes publiques des plateformes autorisées et proscrites des ACVM** font foi ; aucun nom repris d'une source secondaire ne vaut vérification (`U-07`), et le nombre d'inscrits évolue (`U-09`). Le contrôle porte sur **l'entité juridique inscrite**, non sur la marque : une même marque peut couvrir une entité inscrite et une entité étrangère qui ne l'est pas.
 
 | Contrôle | Responsable | Support | Fréquence |
 |---|---|---|---|
@@ -52,7 +50,7 @@ Second axe, applicable à Actio directement : la *Loi sur la concurrence* sancti
 | Ordonnance de blocage, ordonnance d'interdiction d'opérations sur valeurs, mise en garde nominative, avis de PAP du CANAFE, révocation d'inscription d'ESM | **24 h** | Suspension conservatoire ; réexamen sous 5 jours ouvrables |
 | Annonce d'enquête sans acte d'autorité | — | Décision de la rédactrice en chef sous 5 jours ouvrables |
 
-Les sommes de la période non servie sont **remboursées au prorata**, jamais compensées par une prolongation : prolonger revient à négocier la durée d'exposition d'un partenaire déchu. **L'archive publiée ne se dépublie pas** : les articles citant l'ancien partenaire restent en ligne, seules les créations publicitaires disparaissent. Un média qui retire ses articles avec ses bandeaux avoue que les deux relevaient du même contrat.
+Les sommes de la période non servie sont **remboursées au prorata**, jamais compensées par une prolongation — prolonger revient à négocier la durée d'exposition d'un partenaire déchu. **L'archive publiée ne se dépublie pas** : les articles citant l'ancien partenaire restent en ligne, seules les créations disparaissent. Un média qui retire ses articles avec ses bandeaux avoue que les deux relevaient du même contrat.
 
 #### 3.1.4 Format de divulgation
 
@@ -68,11 +66,11 @@ Les sommes de la période non servie sont **remboursées au prorata**, jamais co
 >
 > **[ ].1** L'Annonceur déclare et garantit être inscrit, à la signature et pendant toute la durée du Contrat, auprès de l'autorité en valeurs mobilières de chacune des provinces et de chacun des territoires où les Créations seront diffusées, et n'être inscrit sur aucune liste de plateformes proscrites publiée par un membre des Autorités canadiennes en valeurs mobilières. Il communique la dénomination exacte de l'entité inscrite et son numéro d'inscription.
 >
-> **[ ].2** L'Annonceur informe l'Éditeur **dans les vingt-quatre (24) heures** de toute radiation, suspension, expiration ou modification des conditions de son inscription, mise en garde nominative, ordonnance de blocage, ordonnance d'interdiction d'opérations sur valeurs, avis de pénalité administrative pécuniaire ou révocation d'inscription d'entreprise de services monétaires le visant, lui ou une entité de son groupe.
+> **[ ].2** L'Annonceur informe l'Éditeur **dans les vingt-quatre (24) heures** de toute radiation, suspension, expiration ou modification des conditions de son inscription, mise en garde nominative, ordonnance de blocage ou d'interdiction d'opérations sur valeurs, avis de pénalité administrative pécuniaire ou révocation d'inscription d'entreprise de services monétaires le visant, lui ou une entité de son groupe.
 >
 > **[ ].3** L'Éditeur peut suspendre ou retirer immédiatement toute Création, sans préavis ni indemnité et sans que ce retrait constitue une inexécution, dès qu'un événement de l'article [ ].2 est constaté. Les sommes de la période non servie sont remboursées au prorata dans les trente (30) jours.
 >
-> **[ ].4** Le Contrat ne confère aucun droit de regard, de relecture, d'approbation, de suggestion ni d'information préalable sur le contenu rédactionnel de l'Éditeur, sa programmation ou le choix de ses sujets. Toute stipulation contraire, écrite ou verbale, est réputée non écrite. Aucune clause ne subordonne le paiement, le renouvellement ou le volume à la teneur d'un contenu rédactionnel.
+> **[ ].4** Le Contrat ne confère aucun droit de regard, de relecture, d'approbation, de suggestion ni d'information préalable sur le contenu rédactionnel de l'Éditeur, sa programmation ou le choix de ses sujets ; toute stipulation contraire est réputée non écrite. Aucune clause ne subordonne le paiement, le renouvellement ou le volume à la teneur d'un contenu rédactionnel.
 >
 > **[ ].5** Toute Création porte la mention de divulgation dans la forme, la position et la typographie fixées par la charte de l'Éditeur, que l'Annonceur reconnaît avoir reçue et qu'il ne peut ni déplacer, ni réduire, ni reformuler.
 >
@@ -96,7 +94,7 @@ Les sommes de la période non servie sont **remboursées au prorata**, jamais co
 | Réviseur juridique | Rédactrice en chef, rattachement fonctionnel à la conformité | Oui, pour le seul contrôle d'inscription | Oui |
 | Directeur des revenus, studio de contenus commandités | Direction générale, **hors rédaction** | Oui | Oui |
 
-Trois interdits structurels : la direction des revenus n'a **aucun** accès en écriture au système de gestion de contenu ni à la liste des sujets en préparation ; un journaliste ne détient pas la liste des annonceurs, qui lui serait un biais avant d'être une information ; le studio ne signe jamais du nom d'un journaliste et n'emploie ni `.retenir`, ni `.boite--risque`, ni `.sources__liste`, ni `.provenance`.
+Trois interdits structurels : la direction des revenus n'a **aucun** accès en écriture au système de gestion de contenu ni à la liste des sujets en préparation ; un journaliste ne détient pas la liste des annonceurs, qui lui serait un biais avant d'être une information ; le studio ne signe jamais du nom d'un journaliste et n'emploie ni `.retenir`, ni `.boite--risque`, ni `.sources__liste`.
 
 #### 3.2.2 Production d'un contenu commandité
 
@@ -115,7 +113,7 @@ L'annonceur ne relit jamais le contenu rédactionnel voisin ; la rédaction ne r
 
 #### 3.2.3 Le veto de la rédaction en chef
 
-Veto **d'adjacence et de publication**, exerçable sans motivation économique, sans recours interne, dans trois cas et trois seulement. **Adjacence** : la création est servie sur une page, une édition ou une rubrique traitant du commanditaire, de son secteur immédiat ou d'une procédure le visant → déplacement ou report, jamais réécriture. **Confusion** : la création emprunte les signes du contenu indépendant → refus jusqu'à correction. **Contradiction factuelle** : la création affirme un état du droit contraire à ce qu'Actio publie — par exemple qu'un régime « est en vigueur » alors qu'il est seulement édicté → refus définitif. Le veto est écrit, versé au dossier, motivé au directeur des revenus. Il n'est jamais fondé sur la qualité éditoriale de la création : ce n'est pas le travail de la rédaction.
+Veto **d'adjacence et de publication**, exerçable sans motivation économique et sans recours interne, dans trois cas. **Adjacence** : création servie sur une page, une édition ou une rubrique traitant du commanditaire, de son secteur immédiat ou d'une procédure le visant → déplacement ou report, jamais réécriture. **Confusion** : la création emprunte les signes du contenu indépendant → refus jusqu'à correction. **Contradiction factuelle** : la création affirme un état du droit contraire à ce qu'Actio publie — qu'un régime « est en vigueur » alors qu'il est seulement édicté → refus définitif. Le veto est écrit, versé au dossier, motivé au directeur des revenus, et jamais fondé sur la qualité éditoriale de la création : ce n'est pas le travail de la rédaction.
 
 #### 3.2.4 Le test de vérité : un annonceur sanctionné
 
@@ -132,9 +130,9 @@ Deux règles écrites pour être citées le jour venu : **un annonceur sanctionn
 
 #### 3.2.5 Déclaration d'intérêts et détention personnelle
 
-Sept rubriques, à l'état positif comme négatif, sur le patron du `.bio__declaration` déjà publié dans `prototype/fr/article.html` : (1) détention directe ou indirecte de cryptoactifs, y compris via un fonds négocié en bourse, un régime enregistré ou un portefeuille auto-gardé ; (2) positions dérivées, prêts adossés à des cryptoactifs, jalonnement, participation à une organisation autonome décentralisée ; (3) rémunérations, honoraires, défraiements et invitations reçus d'une entité citée ou de son groupe sur 24 mois ; (4) mandats, sièges d'administrateur, fonctions consultatives ; (5) liens familiaux et personnels proches avec un dirigeant, un inscrit, un employé d'une autorité ou d'un cabinet cité ; (6) enseignement et conférences rémunérés dans le secteur ; (7) tout financement externe d'un travail journalistique, bourse comprise.
+Sept rubriques, à l'état positif comme négatif, sur le patron du `.bio__declaration` déjà publié dans `prototype/fr/article.html` : (1) détention directe ou indirecte de cryptoactifs, y compris via un fonds négocié en bourse, un régime enregistré ou un portefeuille auto-gardé ; (2) positions dérivées, prêts adossés à des cryptoactifs, jalonnement, participation à une organisation autonome décentralisée ; (3) rémunérations, honoraires, défraiements et invitations reçus d'une entité citée ou de son groupe sur 24 mois ; (4) mandats, sièges d'administrateur, fonctions consultatives ; (5) liens familiaux proches avec un dirigeant, un inscrit ou un employé d'une autorité ou d'un cabinet cité ; (6) enseignement et conférences rémunérés dans le secteur ; (7) tout financement externe d'un travail journalistique, bourse comprise.
 
-**Fréquence.** Dépôt à l'embauche ; mise à jour **annuelle au 31 janvier** ; mise à jour **événementielle sous 5 jours ouvrables** ; confirmation ponctuelle à chaque article touchant une entité déclarée. Registre tenu par la rédactrice en chef adjointe, détail non public, **résumé publié** dans `.bio__declaration` de chaque article.
+**Fréquence.** Dépôt à l'embauche ; mise à jour **annuelle au 31 janvier** ; mise à jour **événementielle sous 5 jours ouvrables** ; confirmation à chaque article touchant une entité déclarée. Registre tenu par la rédactrice en chef adjointe, détail non public, **résumé publié** dans `.bio__declaration`.
 
 **Récusation**, sans possibilité de passer outre : position détenue dans un actif ou une entité au cœur du sujet ; somme perçue d'une partie citée dans les 24 mois ; lien familial proche avec une partie ; qualité de client, d'employé ou de conseil d'une partie dans les 24 mois. Le doute impose la récusation.
 
@@ -149,7 +147,7 @@ Sept rubriques, à l'état positif comme négatif, sur le patron du `.bio__decla
 | Toute transaction autorisée | **Blocage 30 jours avant et 30 jours après** toute publication signée touchant l'actif ou l'émetteur |
 | Jalonnement, largage, levée de fonds, programme de récompense | **Interdits** |
 
-L'interdiction totale est écartée parce qu'elle serait invérifiable sans exiger les relevés de portefeuille de chaque journaliste — collecte disproportionnée au regard de la Loi 25 —, donc décorative. La déclaration seule est écartée parce qu'elle laisse écrire sur un actif que l'on peut vendre le lendemain.
+L'interdiction totale est écartée : invérifiable sans exiger les relevés de portefeuille de chaque journaliste — collecte disproportionnée au regard de la Loi 25 —, elle serait décorative. La déclaration seule est écartée : elle laisse écrire sur un actif que l'on peut vendre le lendemain.
 
 ---
 
@@ -161,7 +159,7 @@ Le français fait foi ; l'anglais est une traduction de service, non publiable s
 
 *Risque couvert :* exercice illégal d'activité de conseil ou de courtage ; réclamation d'un lecteur ayant subi une perte ; imputation à Actio d'une qualité d'inscrit qu'elle n'a pas.
 
-Le texte français est **déjà en production** dans `.avertissement` de `prototype/fr/index.html` — trois paragraphes : absence de conseil et d'inscription ; état du droit daté ; volatilité et plateformes non inscrites. Il est réputé arrêté et n'est modifiable qu'à l'initiative du réviseur juridique. Version anglaise à publier dans `prototype/en/index.html` :
+Le texte français est **déjà en production** dans `.avertissement` de `prototype/fr/index.html` — absence de conseil et d'inscription ; état du droit daté ; volatilité et plateformes non inscrites. Il est réputé arrêté et n'est modifiable qu'à l'initiative du réviseur juridique. Version anglaise à publier dans `prototype/en/index.html` :
 
 > **Risk warning — no advice.** Actio does not provide investment, legal or tax advice. Actio is not registered in any capacity with the Canadian Securities Administrators, the Autorité des marchés financiers, the Ontario Securities Commission or the Canadian Investment Regulatory Organization, and carries on no dealing, advising or portfolio management activity.
 > Our content is journalistic and educational. It describes the state of the law as at a stated date; the law changes, and an analysis that was accurate when published may cease to be. No content takes account of your personal circumstances, investment objectives or risk tolerance. Consult a registered professional or a lawyer before making any decision.
@@ -169,7 +167,7 @@ Le texte français est **déjà en production** dans `.avertissement` de `protot
 
 #### 3.3.2 Article d'analyse réglementaire
 
-*Risque couvert :* le lecteur — souvent un juriste — traite l'article comme un avis opposable, applique en Ontario une règle propre au Québec, ou tient pour en vigueur un texte seulement édicté. Ce dernier point est le piège central du dossier fédéral.
+*Risque couvert :* le lecteur traite l'article comme un avis opposable, applique en Ontario une règle propre au Québec, ou tient pour en vigueur un texte seulement édicté — le piège central du dossier fédéral.
 
 > **Portée de cette analyse.** Cet article décrit l'état du droit tel qu'il se présentait le [date], pour les juridictions suivantes : [juridictions]. Il ne constitue ni un avis juridique, ni un conseil en placement, ni une recommandation. Les avis du personnel des autorités ne sont pas des règlements : ils expriment l'interprétation d'un régulateur, sans force obligatoire propre. Un texte adopté ou sanctionné n'est pas nécessairement en vigueur — son entrée en vigueur peut dépendre d'un décret et de règlements non encore pris. Vérifiez l'état du texte à la source primaire avant de vous en prévaloir.
 
@@ -177,7 +175,7 @@ Le texte français est **déjà en production** dans `.avertissement` de `protot
 
 #### 3.3.3 Article de fiscalité
 
-*Risque couvert :* le lecteur applique une position administrative à une situation qu'elle ne couvre pas, ou attribue à l'Agence du revenu du Canada une position qu'elle n'a jamais publiée — zone la plus dangereuse du corpus, le jalonnement, les largages et les embranchements ne faisant l'objet d'aucune ligne directrice formelle (`U-37`).
+*Risque couvert :* le lecteur attribue à l'Agence du revenu du Canada une position qu'elle n'a jamais publiée — le jalonnement, les largages et les embranchements ne faisant l'objet d'aucune ligne directrice formelle (`U-37`).
 
 > **Avertissement fiscal.** Actio n'est ni comptable professionnel agréé, ni fiscaliste, ni conseiller juridique, et cet article ne constitue pas un conseil fiscal. La qualification fiscale d'une opération sur cryptoactifs dépend des faits propres à chaque contribuable, notamment de la fréquence des opérations, de l'intention, de la durée de détention et du mode de financement. Les positions administratives de l'Agence du revenu du Canada et de Revenu Québec ne sont pas des textes de loi et peuvent être modifiées sans préavis. Plusieurs traitements — jalonnement, largages, finance décentralisée — ne font l'objet d'aucune ligne directrice formelle publiée : la pratique dominante des cabinets et des comptables professionnels agréés ne saurait être attribuée à l'administration fiscale. Consultez un professionnel avant de produire une déclaration.
 
@@ -193,7 +191,7 @@ Le texte français est **déjà en production** dans `.avertissement` de `protot
 
 #### 3.3.5 Schéma et donnée
 
-*Risque couvert :* la donnée est le point de rupture d'Actio. `prototype/fr/registre.html` l'admet déjà dans `.provenance` : publier des statuts d'inscription approximatifs serait plus dommageable que de n'en publier aucun, car un lecteur qui déposerait des fonds sur la foi d'une donnée périmée n'aurait aucun recours.
+*Risque couvert :* la donnée est le point de rupture d'Actio. `.provenance` de `prototype/fr/registre.html` l'admet déjà : publier des statuts d'inscription approximatifs serait plus dommageable que de n'en publier aucun, un lecteur qui déposerait des fonds sur la foi d'une donnée périmée n'ayant aucun recours.
 
 > **Source et arrêté des données.** Ce schéma est établi à partir de [source] et arrêté au [date, heure]. Il représente une lecture d'Actio, non une publication officielle. Les statuts d'inscription évoluent en continu : seuls les registres des autorités compétentes font foi à la date de votre consultation. Les données non vérifiées à la source primaire sont signalées comme telles. Aucune donnée n'est saisie à la main.
 
@@ -203,7 +201,7 @@ Emplacements : `.schema__pied` pour un schéma, `<caption>` pour un `.tableau`, 
 
 #### 3.3.6 Limitation de responsabilité et état du droit
 
-*Risque couvert :* plafonnement de l'exposition civile et opposabilité de la date d'arrêté. La force d'une clause limitative n'est pas acquise et dépend du droit applicable, notamment des règles québécoises sur les clauses abusives des contrats d'adhésion [À VÉRIFIER].
+*Risque couvert :* plafonnement de l'exposition civile et opposabilité de la date d'arrêté. La force d'une clause limitative n'est pas acquise : elle dépend du droit applicable, notamment des règles québécoises sur les clauses abusives des contrats d'adhésion [À VÉRIFIER].
 
 > **Limitation de responsabilité.** Les contenus d'Actio sont fournis à titre d'information générale, en l'état, sans garantie d'exactitude, d'exhaustivité ni d'actualité. Actio Média inc., ses dirigeants, ses employés et ses collaborateurs déclinent toute responsabilité à l'égard des décisions prises sur la foi de ces contenus et des dommages, directs ou indirects, qui en résulteraient, dans la mesure permise par le droit applicable. Les liens vers des sites tiers ne valent ni approbation, ni vérification. **État du droit arrêté au [date].** Le droit postérieur à cette date n'est pas pris en compte.
 
@@ -215,7 +213,7 @@ Emplacements : `.schema__pied` pour un schéma, `<caption>` pour un `.tableau`, 
 
 #### 3.4.1 Loi canadienne anti-pourriel
 
-Le pied de `newsletter/actio-dispatch-001.html` exécute déjà l'essentiel : identification d'`Actio Média inc.`, adresse postale, courriel et téléphone, `{{lien_desabonnement}}` en un clic, mention du traitement sous **10 jours ouvrables** et de la validité **60 jours** du mécanisme, rappel du fondement du consentement avec `{{date_consentement}}`, `{{ip_consentement}}` et `{{source_consentement}}`.
+Le pied de `newsletter/actio-dispatch-001.html` exécute déjà l'essentiel : identification d'`Actio Média inc.`, adresse postale, courriel et téléphone, `{{lien_desabonnement}}` en un clic, traitement sous **10 jours ouvrables**, validité **60 jours** du mécanisme, fondement du consentement rappelé par `{{date_consentement}}`, `{{ip_consentement}}` et `{{source_consentement}}`.
 
 | Obligation | Exécution | Preuve conservée |
 |---|---|---|
@@ -225,7 +223,7 @@ Le pied de `newsletter/actio-dispatch-001.html` exécute déjà l'essentiel : id
 | Fardeau de la preuve du consentement | Aucune adresse importée, achetée, louée ou moissonnée n'entre dans la liste | Registre de consentement |
 | Diligence raisonnable (art. 33) | Programme écrit, formé, **actif au moment de la violation** — condition posée par le Bulletin d'information de Conformité et Enquêtes CRTC 2014-326 | Attestations de formation annuelles |
 
-Exposition : sanctions administratives pécuniaires — **jamais « amendes »** — jusqu'à 1 000 000 $ (personne physique) et 10 000 000 $ (personne morale), avec responsabilité personnelle possible des dirigeants [À VÉRIFIER — montants non rouverts]. Le **droit privé d'action** a été suspendu par décret avant son entrée en vigueur prévue en 2017 et n'a pas été abrogé : risque dormant, à réévaluer à chaque revue annuelle.
+Exposition : sanctions administratives pécuniaires — **jamais « amendes »** — jusqu'à 1 000 000 $ (personne physique) et 10 000 000 $ (personne morale), avec responsabilité personnelle possible des dirigeants [À VÉRIFIER — montants non rouverts]. Le **droit privé d'action**, suspendu par décret avant son entrée en vigueur prévue en 2017, n'a pas été abrogé : risque dormant, à réévaluer à chaque revue annuelle.
 
 #### 3.4.2 Loi 25 et LPRPDE
 
@@ -239,13 +237,13 @@ Exposition : sanctions administratives pécuniaires — **jamais « amendes »**
 | **EFVP avant toute communication hors Québec** | Bloquante : aucun prestataire d'envoi, d'analyse ou d'hébergement hors Québec activé sans évaluation écrite versée au dossier | Avant contractualisation |
 | Minimisation | Un seul champ obligatoire à l'inscription ; le `select` de fonction reste facultatif, « je préfère ne pas répondre » présélectionnée | Permanent |
 
-Deux pièges de rédaction, confirmés par deux fiches et repris comme règles internes : **il n'existe aucun délai de 72 heures dans la Loi 25** — contamination du Règlement général sur la protection des données ; l'expression « RGPD canadien » est proscrite. Les plafonds de sanction ne sont pas publiables en l'état (`C-11`), ni la date d'entrée en vigueur du volet des sanctions (`C-12`). L'articulation LPRPDE / Loi 25 pour une entreprise québécoise reste à vérifier (`U-56`) : Actio applique d'ici là **la règle la plus exigeante des deux**, ce qui est une position de conformité, non une analyse juridique.
+Deux pièges repris comme règles internes : **il n'existe aucun délai de 72 heures dans la Loi 25** — contamination du Règlement général sur la protection des données ; l'expression « RGPD canadien » est proscrite. Les plafonds de sanction ne sont pas publiables (`C-11`), ni la date d'entrée en vigueur du volet des sanctions (`C-12`). L'articulation LPRPDE / Loi 25 restant à vérifier (`U-56`), Actio applique **la règle la plus exigeante des deux** — position de conformité, non analyse juridique.
 
 #### 3.4.3 Charte de la langue française
 
-L'article 52 vise les publications commerciales, sites web et réseaux sociaux compris : la version française doit être d'une qualité et d'une accessibilité **au moins égales**. L'article 55, dans sa version en vigueur depuis le 1er juin 2023, impose que le contrat d'adhésion soit remis d'abord en français.
+L'article 52 vise les publications commerciales, sites web et réseaux sociaux compris : la version française doit être d'une qualité et d'une accessibilité **au moins égales**. L'article 55, en vigueur dans sa version modifiée depuis le 1er juin 2023, impose que le contrat d'adhésion soit remis d'abord en français.
 
-Conséquences exécutables. (i) Le bilinguisme est **une paire d'URL à parité** — `prototype/fr/article.html` et son jumeau `/en/` —, jamais une traduction publiée plus tard. (ii) Règle opératoire de la fiche 06 : *le risque n'est pas d'écrire en anglais, mais de publier en anglais avant, plus vite ou mieux qu'en français*. (iii) Version anglaise non prête : absence assumée, `hreflang="fr-CA"` seul et `/en/…` en 404, jamais une page anglaise orpheline. (iv) Conditions d'utilisation et offre d'abonnement, qui sont des contrats d'adhésion, établies et présentées en français d'abord. (v) L'infolettre bilingue diffusée au Québec est **non instruite** (`U-58`) : à trancher **avant** le premier envoi ; rien ne peut en être affirmé aujourd'hui. Les montants des amendes pénales de la Charte ne sont pas publiables (`U-23`).
+Conséquences exécutables. (i) Le bilinguisme est **une paire d'URL à parité** — `prototype/fr/article.html` et son jumeau `/en/` —, jamais une traduction publiée plus tard. (ii) Règle opératoire de la fiche 06 : *le risque n'est pas d'écrire en anglais, mais de publier en anglais avant, plus vite ou mieux qu'en français*. (iii) Version anglaise non prête : absence assumée, `hreflang="fr-CA"` seul et `/en/…` en 404, jamais une page anglaise orpheline. (iv) Conditions d'utilisation et offre d'abonnement, contrats d'adhésion, établies en français d'abord. (v) L'infolettre bilingue diffusée au Québec est **non instruite** (`U-58`) : à trancher **avant** le premier envoi. Les montants des amendes pénales de la Charte ne sont pas publiables (`U-23`).
 
 #### 3.4.4 Accessibilité
 
@@ -256,7 +254,7 @@ Conséquences exécutables. (i) Le bilinguisme est **une paire d'URL à parité*
 | LAPHO, Normes d'accessibilité intégrées, Règl. Ont. 191/11 | Sites web publics conformes à **WCAG 2.0 AA** — et non 2.1 — au-delà de 50 employés ; rapport de conformité au-delà de 20 employés | Sous les seuils ; à réexaminer à chaque franchissement |
 | Québec, secteur privé | Aucune obligation équivalente identifiée (`U-55`) | — |
 
-Actio vise **WCAG 2.1 AA volontairement, comme norme éditoriale**, sans invoquer d'obligation légale — c'est ce qu'annonce le lien « Accessibilité (WCAG 2.1 AA) » de `.pied__legal`. Le socle est déjà opposable dans `tokens.css`, dont le bloc final impose des ratios calculés et interdit six jetons de texte comme aplats. Recette : rendu à 1440, 1080, 900, 640 et 360 px ; modes clair et sombre ; parcours clavier complet avec anneau de 3 px en `--actio-turquoise`. **WCAG 2.2 n'est pas mentionnée** (`U-54`).
+Actio vise **WCAG 2.1 AA volontairement, comme norme éditoriale**, sans invoquer d'obligation légale — c'est ce qu'annonce le lien « Accessibilité (WCAG 2.1 AA) » de `.pied__legal`. Le socle est opposable dans `tokens.css`, dont le bloc final impose des ratios calculés et interdit six jetons de texte comme aplats. Recette : rendu à 1440, 1080, 900, 640 et 360 px ; modes clair et sombre ; parcours clavier complet, anneau de 3 px en `--actio-turquoise`. **WCAG 2.2 n'est pas mentionnée** (`U-54`).
 
 #### 3.4.5 Droit d'auteur et reproduction
 
@@ -289,7 +287,7 @@ La variante `.maj--correction` **existe désormais** dans `article.css`, sur `--
 
 #### 3.5.2 Journal public des corrections
 
-Page permanente `/fr/corrections/`, raccordée au lien « Politique de correction » de `.pied__legal` et à `{{lien_corrections}}` de l'infolettre. Une ligne par correction de niveau 2 à 4, **jamais supprimée** : date de publication d'origine · date de correction · titre et lien · niveau · ce qui était affirmé · ce qui est désormais écrit · origine de l'erreur · signalant (lecteur, autorité, interne) · initiales du valideur. Fil RSS distinct. Le journal est public parce qu'un lectorat de juristes évalue un média à la façon dont il documente ses fautes, non à leur absence.
+Page permanente `/fr/corrections/`, raccordée au lien « Politique de correction » de `.pied__legal` et à `{{lien_corrections}}` de l'infolettre. Une ligne par correction de niveau 2 à 4, **jamais supprimée** : date de publication d'origine · date de correction · titre et lien · niveau · ce qui était affirmé · ce qui est désormais écrit · origine de l'erreur · signalant (lecteur, autorité, interne) · initiales du valideur. Fil RSS distinct. Un lectorat de juristes évalue un média à la façon dont il documente ses fautes, non à leur absence.
 
 #### 3.5.3 Signalement
 
@@ -300,7 +298,7 @@ Page permanente `/fr/corrections/`, raccordée au lien « Politique de correctio
 | **Autorité de réglementation** | Courriel dédié + ligne directe de la rédactrice en chef | **4 heures ouvrées** | 2 jours ouvrables, réviseur juridique **et** rédactrice en chef |
 | Interne | Chef de pupitre | Immédiat | 1 jour ouvrable |
 
-Un signalement n'est jamais traité par l'auteur seul. La qualification appartient au chef de pupitre, sauf le niveau 4, réservé à la rédactrice en chef. Un rejet est **motivé par écrit au signalant** et inscrit au registre interne des signalements, distinct du journal public.
+Un signalement n'est jamais traité par l'auteur seul. La qualification appartient au chef de pupitre, sauf le niveau 4, réservé à la rédactrice en chef. Un rejet est **motivé par écrit au signalant** et inscrit au registre interne, distinct du journal public.
 
 #### 3.5.4 Mise en demeure
 
@@ -313,7 +311,7 @@ Un signalement n'est jamais traité par l'auteur seul. La qualification appartie
 | 5 j ouvrables | Décision écrite : correction de niveau 2 à 4, droit de réponse, ou maintien intégral motivé | Rédactrice en chef, avec l'avocat |
 | 30 j | Inscription au registre des mises en demeure : date, demandeur, article visé, issue | Rédactrice en chef adjointe |
 
-Trois règles à écrire avant d'en avoir besoin. **Une mise en demeure n'est pas un signalement d'erreur** : elle ne déclenche aucune correction automatique et n'établit rien par sa seule réception. **La correction, si elle est due, l'est parce que le fait est faux, jamais parce que la lettre est arrivée** — sans quoi la politique de correction devient un canal de pression. **Une dépublication ne se négocie pas** : elle est décidée par la rédactrice en chef ou ordonnée par un tribunal.
+Trois règles écrites avant d'en avoir besoin. **Une mise en demeure n'est pas un signalement d'erreur** : sa réception n'établit rien et ne déclenche aucune correction. **La correction, si elle est due, l'est parce que le fait est faux, jamais parce que la lettre est arrivée** — sans quoi la politique de correction devient un canal de pression. **Une dépublication ne se négocie pas** : elle est décidée par la rédactrice en chef ou ordonnée par un tribunal.
 
 ---
 
