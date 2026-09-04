@@ -56,8 +56,15 @@ p { margin: 0 0 var(--e-4); }
 
 .vh { /* visuellement masqué, lu par les lecteurs d'écran */
   position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
-  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%);
+  white-space: nowrap; border: 0;
 }
+/* PIÈGE. Étant en position absolue, un .vh se place par rapport au premier
+   ancêtre positionné — et non par rapport au conteneur qui le contient
+   visuellement. Placé dans un conteneur à défilement horizontal qui n'est pas
+   lui-même positionné, il s'en échappe et allonge le document entier : c'est
+   ainsi que la page d'accueil débordait de 275 px sur mobile. Tout ancêtre
+   direct d'un .vh doit donc être positionné. */
 
 /* ---------- 1. Grille 12 colonnes ------------------------------------- */
 .contenant {
@@ -238,7 +245,7 @@ p { margin: 0 0 var(--e-4); }
   overflow-x: auto; scrollbar-width: none;
 }
 .cotations__piste::-webkit-scrollbar { display: none; }
-.cours { display: inline-flex; align-items: baseline; gap: var(--e-2); white-space: nowrap; }
+.cours { position: relative; display: inline-flex; align-items: baseline; gap: var(--e-2); white-space: nowrap; }
 .cours__sym { font-weight: var(--graisse-grasse); letter-spacing: .04em; }
 .cours__val { font-variant-numeric: tabular-nums; }
 .cours__var { font-size: var(--t-micro); font-variant-numeric: tabular-nums; }
@@ -755,3 +762,23 @@ p { margin: 0 0 var(--e-4); }
 .pro__liste strong { color: var(--texte-primaire); }
 .pro__liste span { color: var(--texte-secondaire); }
 .pro__mention { margin-top: var(--e-6); font-size: var(--t-micro); color: var(--texte-tertiaire); line-height: 1.6; }
+
+/* ==========================================================================
+   18. Marqueur de version dans l'autre langue
+   Un lien qui mène à un document rédigé dans l'autre langue doit le dire —
+   c'est une exigence d'accessibilité (WCAG 3.1.2) autant qu'un service rendu
+   au lecteur. Le marqueur reste lu par les technologies d'assistance grâce à
+   son attribut lang ; il ne doit simplement pas concurrencer le titre.
+   ========================================================================== */
+.langue-alt {
+  font-family: var(--police-donnee);
+  /* Le marqueur suit la taille de son titre mais ne descend jamais sous le
+     plancher typographique de la maison ; à .58em d'une métadonnée de 11 px
+     il tombait à 6,4 px, illisible. */
+  font-size: max(.7em, var(--t-micro));
+  font-weight: var(--graisse-moyenne);
+  letter-spacing: .04em; vertical-align: .18em;
+  /* Il hérite de la couleur de son contexte : posé aussi bien sur un titre de
+     54 px que sur une bande d'encre, une couleur fixe échouerait quelque part. */
+  color: inherit; opacity: 1; white-space: nowrap;
+}

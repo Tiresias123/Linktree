@@ -15,7 +15,7 @@ et qu’on peut ouvrir dans un navigateur.
 
 | # | Livrable | Documents | Artefact exécutable correspondant |
 |---|---|---|---|
-| 1 | Architecture globale et wireframe UI/UX | [`docs/L1-1-arborescence.md`](docs/L1-1-arborescence.md) · [`L1-2-wireframe-accueil.md`](docs/L1-2-wireframe-accueil.md) · [`L1-3-wireframe-article.md`](docs/L1-3-wireframe-article.md) | [`prototype/index.html`](prototype/index.html) · [`prototype/article.html`](prototype/article.html) |
+| 1 | Architecture globale et wireframe UI/UX | [`docs/L1-1-arborescence.md`](docs/L1-1-arborescence.md) · [`L1-2-wireframe-accueil.md`](docs/L1-2-wireframe-accueil.md) · [`L1-3-wireframe-article.md`](docs/L1-3-wireframe-article.md) | [`prototype/fr/index.html`](prototype/fr/index.html) · [`fr/article.html`](prototype/fr/article.html) · [`fr/registre.html`](prototype/fr/registre.html) · [`en/index.html`](prototype/en/index.html) |
 | 2 | Système et design de l’infolettre « Actio Dispatch » | [`docs/L2-1-strategie-mailing.md`](docs/L2-1-strategie-mailing.md) · [`L2-2-edition-type.md`](docs/L2-2-edition-type.md) · [`L2-3-sequence-bienvenue.md`](docs/L2-3-sequence-bienvenue.md) | [`newsletter/actio-dispatch-001.html`](newsletter/actio-dispatch-001.html) · [`newsletter/chassis.html`](newsletter/chassis.html) |
 | 3 | Fiche générale et technique du produit (PRD) | [`docs/L3-1-identite-marque.md`](docs/L3-1-identite-marque.md) · [`L3-2-stack-technique.md`](docs/L3-2-stack-technique.md) · [`L3-3-conformite-deontologie.md`](docs/L3-3-conformite-deontologie.md) · [`L3-4-modele-roadmap.md`](docs/L3-4-modele-roadmap.md) | [`prototype/assets/tokens.css`](prototype/assets/tokens.css) |
 
@@ -38,13 +38,19 @@ actio/
 │   ├── 00-base-factuelle-consolidee.md   document de référence interne
 │   └── 01-09-*.md                fiches par domaine (ACVM, AMF, OCRI, CANAFE, ARC, LCAP…)
 ├── prototype/
-│   ├── index.html                page d’accueil — Livrable 1, section 2
-│   ├── article.html              gabarit d’analyse — Livrable 1, section 3
+│   ├── index.html                portail de langue (« / » → 302 vers /fr/)
+│   ├── fr/
+│   │   ├── index.html            page d’accueil — Livrable 1, section 2
+│   │   ├── article.html          gabarit d’analyse — Livrable 1, section 3
+│   │   └── registre.html         registre des plateformes autorisées
+│   ├── en/
+│   │   └── index.html            home page, Canadian English
 │   └── assets/
 │       ├── tokens.css            jetons de design — SOURCE DE VÉRITÉ unique
 │       ├── actio.css             composants
 │       ├── article.css           gabarit d’article
-│       └── actio.js              thème, bilinguisme, menu, sommaire, consentement
+│       ├── registre.css          registre des plateformes
+│       └── actio.js              thème, menu, sommaire, consentement LCAP
 ├── newsletter/
 │   ├── actio-dispatch-001.html   édition complète, prête à l’envoi
 │   ├── chassis.html              en-tête de marque + pied de conformité LCAP
@@ -53,6 +59,7 @@ actio/
 │   └── dist/                     courriels assemblés (générés)
 └── tools/
     ├── captures.mjs              rendu multi-thème / multi-largeur + invariants
+    ├── verifier.mjs              liens, accessibilité, contraste sur le DOM rendu
     └── emails.mjs                assemblage des courriels + contrôle LCAP
 ```
 
@@ -64,7 +71,9 @@ Aucune compilation. Les pages sont du HTML statique.
 
 ```bash
 python3 -m http.server 8080 --directory actio/prototype
-# puis http://localhost:8080/index.html
+# puis http://localhost:8080/            portail de langue
+#      http://localhost:8080/fr/         accueil français
+#      http://localhost:8080/en/         home page, English
 ```
 
 Le prototype charge ses polices depuis Google Fonts **à titre de démonstration
@@ -77,13 +86,29 @@ repli sont définies dans `tokens.css` et le rendu reste correct hors ligne.
 
 ```bash
 cd actio && npm install          # playwright-core seulement ; Chromium est préinstallé
-npm run captures                 # 12 rendus + invariants de mise en page
-npm run verifier                 # assemblage des courriels + contrôle des mentions LCAP
+npm run captures                 # 30 rendus (5 écrans × 2 thèmes × 3 largeurs) + invariants
+npm run verifier                 # liens, accessibilité, contraste sur le DOM rendu
+npm run emails                   # assemblage des courriels + contrôle des mentions LCAP
 ```
 
-`captures.mjs` échoue si une page déborde horizontalement ou si la colonne de
-lecture dépasse la mesure fixée. `emails.mjs` refuse d’assembler un courriel
-auquel manque une mention rendue obligatoire par la Loi canadienne anti-pourriel.
+Chaque outil sort en erreur plutôt qu’en avertissement, et nomme le fautif :
+
+- **`captures.mjs`** échoue si une page déborde horizontalement — il nomme alors
+  les éléments qui dépassent — ou si la colonne de lecture excède la mesure fixée.
+- **`verifier.mjs`** échoue sur un lien interne mort, une ancre inexistante, un
+  lien externe sans `rel="noopener"`, un `h1` absent ou dupliqué, un saut de
+  niveau de titre, un champ sans étiquette, un repère `<nav>` anonyme, ou un
+  rapport de contraste sous le seuil AA. Le contraste est mesuré sur le DOM
+  rendu, fonds translucides composés et opacité héritée comprises&nbsp;: c’est
+  le seul contrôle qui attrape une régression de jeton.
+- **`emails.mjs`** refuse d’assembler un courriel auquel manque une mention
+  rendue obligatoire par la Loi canadienne anti-pourriel, ou qui dépasse le
+  seuil de troncature de Gmail.
+
+Ces trois outils ont trouvé des défauts réels que la relecture visuelle avait
+laissés passer&nbsp;: une navigation sans comportement mobile, six composants
+dont le texte devenait illisible en mode sombre, et une case de consentement
+placée après le bouton d’envoi dans l’ordre de tabulation.
 
 ---
 

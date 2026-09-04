@@ -10,7 +10,7 @@
  * Usage :  node actio/tools/emails.mjs
  * Sortie :  newsletter/dist/<clé>.html
  */
-import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -73,6 +73,23 @@ for (const envoi of manifeste.envois) {
   if (octets > 102400) {
     console.error(`  ÉCHEC ${envoi.cle} — ${octets} octets : Gmail tronque au-delà de 102 400.`);
     echecs++;
+  }
+
+  // Une édition de référence versionnée sert de contrôle : le châssis doit la
+  // reproduire exactement. Si l'un des deux dérive, la production s'arrête.
+  if (envoi.reference) {
+    const ref = join(NL, envoi.reference);
+    if (!existsSync(ref)) {
+      console.error(`  ÉCHEC ${envoi.cle} — référence introuvable : ${envoi.reference}`);
+      echecs++;
+    } else {
+      const norm = (t) => t.replace(/[ \t]+$/gm, '').replace(/\n{2,}/g, '\n').trim();
+      if (norm(readFileSync(ref, 'utf8')) !== norm(sortie)) {
+        console.error(`  ÉCHEC ${envoi.cle} — l'assemblage diverge de ${envoi.reference}. ` +
+          `Le châssis, le fragment de contenu ou la référence ont été modifiés séparément.`);
+        echecs++;
+      }
+    }
   }
 
   writeFileSync(join(DIST, `${envoi.cle}.html`), sortie, 'utf8');

@@ -1,0 +1,67 @@
+{
+  "_lisez_moi": "Manifeste des envois d'Actio Dispatch. Le châssis (chassis.html) porte l'en-tête de marque et le pied de page de conformité LCAP ; chaque envoi n'est qu'un fragment de contenu plus une entrée ici. Une correction apportée aux mentions obligatoires se propage donc à tous les envois sans qu'on puisse en oublier un. tools/emails.mjs refuse d'assembler un envoi auquel manque une de ces mentions. Quand une entrée porte un champ « reference », l'outil compare l'assemblage à ce fichier de référence et échoue s'ils divergent : la duplication devient un contrôle au lieu d'être un risque.",
+  "expediteur": {
+    "nom_affiche": "Actio Dispatch",
+    "adresse": "dispatch@actio.ca",
+    "repondre_a": "redaction@actio.ca",
+    "domaine_envoi": "dispatch.actio.ca",
+    "authentification": [
+      "SPF",
+      "DKIM",
+      "DMARC"
+    ]
+  },
+  "envois": [
+    {
+      "cle": "dispatch-001",
+      "type": "edition-hebdomadaire",
+      "contenu": "dispatch-001.html",
+      "objet": "Le contrat d’investissement a trouvé sa limite",
+      "objet_variante_b": "Ce que le TMF vient de retirer du champ des valeurs mobilières",
+      "titre": "Actio Dispatch nº 001 — Le contrat d’investissement a trouvé sa limite",
+      "preentete": "Le TMF distingue la gestion des fonds d’autrui de la vente d’information — et rétrécit le contrat d’investissement.",
+      "surtitre": "ÉDITION Nº 001 &nbsp;·&nbsp; MARDI 8 SEPTEMBRE 2026",
+      "meta_droite": "8 min de lecture<br>\n          5 sources primaires",
+      "bandeau_cours": true,
+      "envoi": {
+        "vague_1": {
+          "heure": "06:30",
+          "fuseau": "America/Toronto",
+          "provinces": [
+            "QC",
+            "ON",
+            "NB",
+            "NS",
+            "PE",
+            "NL"
+          ]
+        },
+        "vague_2": {
+          "heure": "06:30",
+          "fuseau": "America/Vancouver",
+          "provinces": [
+            "BC",
+            "AB",
+            "SK",
+            "MB",
+            "YT",
+            "NT",
+            "NU"
+          ]
+        }
+      },
+      "segments": [
+        "b2c-investisseurs",
+        "b2b-conformite"
+      ],
+      "autorisation": {
+        "requise": false,
+        "motif": "Édition régulière du mardi. La double signature n’est exigée que pour une « Alerte Actio » hors cycle."
+      },
+      "reference": "actio-dispatch-001.html"
+    }
+  ],
+  "_a_venir": [
+    "bienvenue-1, bienvenue-2 et bienvenue-3 : la séquence d’accueil, rédigée au Livrable 2, section 3."
+  ]
+}

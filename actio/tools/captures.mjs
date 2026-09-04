@@ -83,14 +83,16 @@ for (const page of PAGES) {
         // Identifier les coupables aide plus qu'un simple constat.
         const coupables = await p.evaluate((limite) =>
           [...document.querySelectorAll('body *')]
+            // On ne filtre plus par conteneur : un élément en position absolue
+            // peut s'échapper d'un conteneur à défilement et allonger le
+            // document. Exclure ces conteneurs revenait à taire le coupable.
             .filter((el) => {
               const r = el.getBoundingClientRect();
-              return r.width > 0 && r.right > limite + 1 &&
-                     getComputedStyle(el).overflowX !== 'auto' &&
-                     !el.closest('[style*="overflow"], .tableau, .schema__corps, .cotations__piste');
+              return r.width > 0 && r.right > limite + 1;
             })
-            .slice(0, 6)
-            .map((el) => `${el.tagName.toLowerCase()}.${[...el.classList].join('.')} → ${Math.round(el.getBoundingClientRect().right)} px`),
+            .slice(0, 8)
+            .map((el) => `${el.tagName.toLowerCase()}.${[...el.classList].join('.')} → ${Math.round(el.getBoundingClientRect().right)} px` +
+              ` (position: ${getComputedStyle(el).position})`),
           debord.client
         );
         coupables.forEach((c) => console.error(`         ${c}`));
