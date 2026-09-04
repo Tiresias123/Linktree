@@ -28,22 +28,20 @@ courriel de confirmation et la page `/fr/infolettre/confirmation/` avant toute a
 `[À VÉRIFIER — la base ne fournit aucun repère de marché ; 55 % est un seuil de déclenchement interne.]`
 
 **Le courriel de confirmation.** Il n'est pas le courriel 1 : il ne livre rien et ne promeut rien.
-Expéditeur `Actio Dispatch <dispatch@actio.ca>`, identique aux trois courriels pour n'entraîner qu'une
-seule réputation d'expéditeur. Objet : « Confirmez votre inscription à Actio Dispatch » (44 car.).
-Pré-en-tête : « Un seul clic, valable sept jours. Sans lui, votre adresse est supprimée et vous ne recevez
-rien. » (98 car.). Corps : le libellé **intégral** du consentement affiché dans `.infolettre__consentement`,
-reproduit à l'identique ; la date, l'heure, l'adresse IP et l'URL de dépôt ; un bouton unique « Confirmer
-mon inscription », jeton à usage unique **valable 7 jours** ; un lien « Je n'ai rien demandé — supprimer
-définitivement cette adresse » ; l'identification d'`Actio Média inc.`, son adresse postale et
-l'avertissement d'absence de conseil. Aucun lien de rubrique, pas le guide.
+Expéditeur `Actio Dispatch <dispatch@actio.ca>`. Objet : « Confirmez votre inscription à Actio Dispatch »
+(44 car.). Pré-en-tête : « Un seul clic, valable sept jours. Sans lui, votre adresse est supprimée et vous
+ne recevez rien. » (98 car.). Corps : le libellé **intégral** du consentement affiché dans
+`.infolettre__consentement`, reproduit à l'identique ; la date, l'heure, l'adresse IP et l'URL de dépôt ;
+un bouton unique « Confirmer mon inscription », jeton à usage unique **valable 7 jours** ; un lien « Je
+n'ai rien demandé — supprimer définitivement cette adresse » ; l'identification d'`Actio Média inc.`, son
+adresse postale et l'avertissement d'absence de conseil. Aucun lien de rubrique, pas le guide.
 
 **Arbitrage sur la qualification.** Un message adressé à qui vient d'en faire la demande n'a pas de
 finalité promotionnelle, mais la fiche 06 pose que « traiter tout envoi comme un MEC est la seule position
 défendable ». Position retenue : il porte **l'identification, l'adresse postale et un mécanisme d'exclusion
 fonctionnel** — donc satisfait aux exigences de forme s'il devait être requalifié — sans aucun contenu
 commercial. **Une seule relance, à +48 h**, ne contenant que le lien. **Purge à J+7** : la fiche en attente
-est détruite, non archivée, la Loi 25 imposant la minimisation ; ce n'est pas une liste de suppression, et
-l'adresse peut être redéposée.
+est détruite, non archivée, la Loi 25 imposant la minimisation ; ce n'est pas une liste de suppression.
 
 #### 3.1.2 Le calendrier des trois courriels
 
@@ -409,18 +407,18 @@ décrochage à la sixième édition signifient qu'elle a menti sur le produit.
 
 | Paramètre | Règle |
 |---|---|
-| Ce qu'on teste | **Un seul élément à la fois** : (1) objet de C1 ; (2) position du bouton du guide ; (3) formulation de l'appel à l'action de C1 ; (4) objet de C2. Le pied de page, les mentions obligatoires et l'expéditeur affiché **ne sont jamais testés** — invariants de conformité et de réputation |
-| Ce qui arbitre | Le **clic**, jamais l'ouverture : un test d'objet arbitré à l'ouverture sélectionne le sensationnalisme, ce que le § 1.6 refuse. Pour C1, l'arbitre est le taux de déclaration de profil ; pour C2, le clic unique |
-| Échantillon | **1 000 abonnés confirmés par bras**, soit 2 000 par test. Les 2 000 par bras du § 1.6 visent l'édition, dont le volume est acquis d'un coup ; ici l'échantillon s'accumule inscription par inscription. **Contrepartie assumée** : sous **3 points de pourcentage**, l'écart n'est pas concluant `[À VÉRIFIER — aucune donnée de puissance statistique dans la base ; règles internes]` |
-| Durée | **21 jours minimum, 60 jours maximum** : trois cycles hebdomadaires lissent l'effet du jour d'inscription, et au-delà de soixante jours l'actualité réglementaire a changé — les bras ne sont plus comparables |
+| Ce qu'on teste | **Un seul élément à la fois** : (1) objet de C1 ; (2) position du bouton du guide ; (3) appel à l'action de C1 ; (4) objet de C2. Pied de page, mentions obligatoires et expéditeur affiché **ne sont jamais testés** — invariants de conformité et de réputation |
+| Ce qui arbitre | Le **clic**, jamais l'ouverture : un test d'objet arbitré à l'ouverture sélectionne le sensationnalisme, ce que le § 1.6 refuse. Pour C1, la déclaration de profil ; pour C2, le clic unique |
+| Échantillon | **1 000 abonnés confirmés par bras**, soit 2 000 par test. Les 2 000 par bras du § 1.6 visent l'édition, dont le volume est acquis d'un coup ; ici l'échantillon s'accumule inscription par inscription. **Contrepartie assumée** : sous **3 points de pourcentage**, l'écart n'est pas concluant `[À VÉRIFIER — aucune donnée de puissance statistique dans la base]` |
+| Durée | **21 jours minimum, 60 jours maximum** : trois cycles hebdomadaires lissent l'effet du jour d'inscription ; au-delà de soixante jours, l'actualité réglementaire a changé et les bras ne sont plus comparables |
 | Répartition | Aléatoire à la confirmation, **stable pour toute la séquence** : un abonné ne change pas de bras entre C1 et C3 |
 | Arrêt anticipé | Interdit sur résultat favorable ; **obligatoire** si un bras dépasse 0,15 % de plaintes ou 2 % de désabonnement |
-| Consignation et rôles | Un enregistrement par test dans `docs/annexes/` — hypothèse, date, effectifs, résultat, décision ; un test non consigné n'a pas eu lieu. **R** définit l'hypothèse · **J** valide la conformité des deux bras **avant** ouverture · **I** implante la répartition · **D** surveille plaintes et rebonds chaque jour |
+| Consignation et rôles | Un enregistrement par test dans `docs/annexes/` — hypothèse, date, effectifs, résultat, décision ; un test non consigné n'a pas eu lieu. **R** définit l'hypothèse · **J** valide les deux bras **avant** ouverture · **I** implante la répartition · **D** surveille plaintes et rebonds chaque jour |
 
-**Cadence de révision.** Revue complète tous les **six mois**, et immédiate à la survenance de l'un des
-trois événements suivants : entrée en vigueur par décret d'un volet du projet de loi C-12 ; entrée en
-vigueur du régime fédéral des cryptomonnaies stables ; résolution de la contradiction C-04. Les trois
-touchent le corps de C2 et les chapitres 5 ou 6 du guide.
+**Cadence de révision.** Revue complète tous les **six mois**, et immédiate à l'un des trois événements
+suivants : entrée en vigueur par décret d'un volet du projet de loi C-12 ; entrée en vigueur du régime
+fédéral des cryptomonnaies stables ; résolution de la contradiction C-04. Les trois touchent le corps de
+C2 et les chapitres 5 ou 6 du guide.
 
 ### Ce qui reste à trancher
 
@@ -435,9 +433,12 @@ touchent le corps de C2 et les chapitres 5 ou 6 du guide.
 3. **La langue de la séquence.** La Charte de la langue française appliquée à une infolettre bilingue
    diffusée au Québec n'est pas instruite (U-58). Règle provisoire : la séquence anglaise est traduite
    intégralement et publiée **en même temps** que la française, jamais avant.
-4. **`manifeste.json` et les quatre jetons nouveaux.** `{{lien_guide}}`, `{{lien_carte_autorites}}`,
-   `{{lien_parcours}}` et `{{date_premiere_edition}}` n'existent ni dans `chassis.html` ni au § 2.2.5, et
-   `newsletter/manifeste.json` est absent du dépôt. Trois tickets, dans cet ordre.
+4. ~~**`manifeste.json` et les quatre jetons nouveaux**~~ — **exécuté.** `newsletter/manifeste.json`
+   existe, décrit les quatre envois et porte une **liste fermée** des dix-huit champs de fusion admis.
+   `tools/emails.mjs` refuse d'assembler un courriel employant un champ non déclaré, ou auquel manque
+   l'un des quatre champs de preuve du consentement exigés par la LCAP. Un courriel expédié avec
+   « {{lien_guide}} » en toutes lettres est une perte de crédibilité que rien ne rattrape : le
+   contrôle vaut mieux que la relecture.
 5. **La variante par défaut de C3.** Si la déclaration de profil se stabilise sous 12 %, la variante par
    défaut devient le cas général : maintenir trois versions d'un courriel lu par une minorité, ou n'en
    garder qu'une ?

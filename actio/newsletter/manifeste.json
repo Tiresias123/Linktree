@@ -129,5 +129,34 @@
       "fin des trois envois"
     ],
     "regle_de_collision": "Aucun envoi de séquence le mardi : si J+2 ou J+5 tombe un mardi, l’envoi glisse au mercredi. Un abonné ne reçoit jamais deux courriels le même jour."
+  },
+  "jetons_de_fusion": {
+    "_lisez_moi": "Liste fermée des champs de fusion admis. Tout {{jeton}} employé dans un contenu sans figurer ici fait échouer l'assemblage : un champ non déclaré est un champ que le prestataire d'envoi laissera vide, et un courriel expédié avec « {{lien_guide}} » en toutes lettres est une perte de crédibilité que rien ne rattrape.",
+    "obligatoires_lcap": [
+      "lien_desabonnement",
+      "date_consentement",
+      "ip_consentement",
+      "source_consentement"
+    ],
+    "admis": [
+      "date_arret_guide",
+      "date_consentement",
+      "date_premiere_edition",
+      "ip_consentement",
+      "lien_archives",
+      "lien_arret_sequence",
+      "lien_article_grand_angle",
+      "lien_carte_autorites",
+      "lien_charte",
+      "lien_confidentialite",
+      "lien_corrections",
+      "lien_desabonnement",
+      "lien_guide",
+      "lien_preferences",
+      "lien_profil_particulier",
+      "lien_profil_professionnel",
+      "lien_version_web",
+      "source_consentement"
+    ]
   }
 }

@@ -44,11 +44,16 @@
   --fill-primaire-survol: #0A2B4B;
   --fill-primaire-texte:  #FFFFFF;
 
-  /* ---------- 2 ter. Bandes d'encre — INVARIANTES par thème ------------- *
-   * Un bandeau de cotations ou un bloc d'abonnement reste sombre en mode
-   * clair comme en mode sombre. Les couleurs qu'il porte (hausse, baisse,
+  /* ---------- 2 ter. Bandes d'encre — TOUJOURS SOMBRES ------------------ *
+   * Un bandeau de cotations ou un bloc d'abonnement reste sombre en mode clair
+   * comme en mode sombre. Les couleurs qu'il porte (texte, hausse, baisse,
    * accent) sont réglées pour un fond foncé et ne survivraient pas à une
-   * inversion : c'est précisément le défaut qu'un jeton « inverse » produit. */
+   * inversion : c'est le défaut qu'un jeton « inverse » produit.
+   * Précision utile : seul --encre-fond bouge, et d'un cran seulement
+   * (#0E1A2B en clair, #16263A en sombre, pour se détacher d'une page déjà
+   * sombre). Les couleurs PORTÉES, elles, ne bougent pas — c'est ce qui rend
+   * la bande transposable telle quelle dans un courriel, où les valeurs sont
+   * nécessairement écrites en clair. */
   --encre-fond:    #0E1A2B;
   --encre-texte:   #F4F7FA;
   --encre-texte-2: #A9B8C9;

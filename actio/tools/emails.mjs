@@ -66,6 +66,43 @@ for (const envoi of manifeste.envois) {
     sortie = sortie.replace('<!--DEBUT:COURS-->\n', '').replace('<!--FIN:COURS-->\n', '');
   }
 
+  // --- Doctrine de la ligne d'objet (Livrable 2, § 1.3) -------------------
+  // 28 à 52 caractères, plafond dur à 60 ; aucun émoji dans un contexte
+  // juridique ; l'objet expédié n'est pas le titre d'archive.
+  const objet = envoi.objet || '';
+  if (!objet) { console.error(`  ÉCHEC ${envoi.cle} — champ « objet » absent.`); echecs++; }
+  if (objet.length > 60) {
+    console.error(`  ÉCHEC ${envoi.cle} — objet de ${objet.length} caractères, plafond dur à 60.`);
+    echecs++;
+  }
+  if (objet && objet.length < 28) {
+    console.error(`  ÉCHEC ${envoi.cle} — objet de ${objet.length} caractères, plancher à 28.`);
+    echecs++;
+  }
+  if (/\p{Extended_Pictographic}/u.test(objet + (envoi.objet_variante_b || ''))) {
+    console.error(`  ÉCHEC ${envoi.cle} — émoji dans la ligne d'objet : proscrit en contexte juridique.`);
+    echecs++;
+  }
+  if (objet && envoi.titre && objet.trim() === envoi.titre.trim()) {
+    console.error(`  ÉCHEC ${envoi.cle} — l'objet expédié est identique au titre d'archive.`);
+    echecs++;
+  }
+
+  // --- Champs de fusion : liste fermée -----------------------------------
+  const declares = new Set(manifeste.jetons_de_fusion?.admis || []);
+  const employes = [...new Set([...sortie.matchAll(/\{\{([a-z_]+)\}\}/g)].map((x) => x[1]))];
+  const indeclares = employes.filter((j) => !declares.has(j));
+  if (indeclares.length) {
+    console.error(`  ÉCHEC ${envoi.cle} — champ(s) de fusion non déclaré(s) : ${indeclares.join(', ')}`);
+    echecs++;
+  }
+  const lcapManquants = (manifeste.jetons_de_fusion?.obligatoires_lcap || [])
+    .filter((j) => !employes.includes(j));
+  if (lcapManquants.length) {
+    console.error(`  ÉCHEC ${envoi.cle} — champ(s) de preuve du consentement absent(s) : ${lcapManquants.join(', ')}`);
+    echecs++;
+  }
+
   const manquantes = MENTIONS_OBLIGATOIRES.filter((m) => !sortie.includes(m.motif));
   if (manquantes.length) {
     console.error(`  ÉCHEC ${envoi.cle} — mentions LCAP absentes : ` +

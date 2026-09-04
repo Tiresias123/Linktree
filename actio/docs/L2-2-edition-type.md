@@ -410,8 +410,12 @@ ne documente ni SPF, ni DKIM, ni DMARC, ni aucune donnée de délivrabilité (U-
 
 #### 2.2.7 Ce qui reste à trancher
 
-1. **La bascule des bandes d'encre.** Retirer `.inverse` du bloc `@media`, ou amender le § 2 ter de
-   `tokens.css`. Les deux fichiers ne peuvent rester contradictoires.
+1. ~~**La bascule des bandes d'encre**~~ — **tranché : amender le § 2 ter.** La classe `.inverse` du
+   gabarit est conservée ; c'était la formulation du jeton qui était imprécise. Une bande d'encre n'est
+   pas *invariante* : elle est **toujours sombre**. Seul `--encre-fond` bouge, d'un cran (`#0E1A2B`
+   clair, `#16263A` sombre) pour se détacher d'une page déjà sombre. Les couleurs **portées** ne bougent
+   pas — c'est précisément ce qui rend la bande transposable telle quelle dans un courriel, où les
+   valeurs sont nécessairement écrites en clair. `tokens.css` dit désormais cela.
 2. **16 px contre `--t-base` 17 px.** Aligner les deux supports coûte environ deux lignes par écran
    mobile.
 3. **La langue.** Édition anglaise séparée ou envoi bilingue ? Tant que la question de la Charte
