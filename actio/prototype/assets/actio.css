@@ -361,7 +361,7 @@ p { margin: 0 0 var(--e-4); }
 }
 .nav__chevron { width: 10px; height: 10px; transition: transform var(--mvt-rapide); }
 .nav__lien[aria-expanded="true"] .nav__chevron { transform: rotate(180deg); }
-.entete__actions { display: flex; align-items: center; gap: var(--e-2); margin-left: auto; }
+.entete__actions { display: flex; align-items: center; gap: var(--e-2); margin-left: auto; min-width: 0; }
 
 /* Bouton d'ouverture du menu — visible seulement sous le point de rupture. */
 .burger {
@@ -902,7 +902,7 @@ p { margin: 0 0 var(--e-4); }
    embarqué dans actio.js pour le prototype ; en production il est servi par
    l'API de recherche du CMS.
    ========================================================================== */
-.recherche { position: relative; flex: 1 1 220px; max-width: 420px; }
+.recherche { position: relative; flex: 1 1 140px; min-width: 0; max-width: 420px; }
 .recherche__champ {
   width: 100%; padding: 9px var(--e-3) 9px 36px;
   font-size: var(--t-petit); background: var(--fond-surface-2);
@@ -1102,7 +1102,15 @@ p { margin: 0 0 var(--e-4); }
 }
 @media (max-width: 760px) { .comparateur__methode { grid-template-columns: 1fr; } }
 .comparateur__arrete { font-family: var(--police-donnee); font-size: var(--t-micro); color: var(--texte-tertiaire); white-space: nowrap; text-align: right; }
-.comparateur__defilement { overflow-x: auto; }
+.comparateur__defilement { overflow-x: auto; min-width: 0; position: relative; }
+/* position: relative — le tableau contient des .vh (légende, en-têtes lus par
+   les lecteurs d'écran) en position absolue ; sans ancêtre positionné DANS le
+   conteneur défilant, ils se placent hors de lui, à la position du tableau, et
+   élargissent le document de 1 px à 800 px du bord : c'est la page qui déborde. */
+/* Un enfant de grille ne peut pas rétrécir sous sa largeur de contenu tant
+   que min-width vaut auto : sans ces deux règles, le conteneur défilant
+   n'a rien à faire défiler et c'est la page qui déborde. */
+.comparateur, .comparateur > * { min-width: 0; }
 .comparateur table { width: 100%; border-collapse: collapse; font-size: var(--t-petit); min-width: 820px; }
 .comparateur thead th {
   text-align: left; padding: var(--e-3) var(--e-4); background: var(--fond-surface);

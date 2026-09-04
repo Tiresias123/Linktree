@@ -71,7 +71,7 @@ l'infolettre (`nl`) sont ajoutées à la section A.5 au fur et à mesure du Modu
 | V-21 | Fiscalité, carte 3 : TP-21.4.39 « exigible même sans transaction », « l'allègement annoncé » | idx fiscalité | U-41 | À VÉRIFIER | Reprendre la formulation U-41 ; vérifier l'année d'imposition visée par l'allègement sur revenuquebec.ca |
 | V-22 | Actio Dispatch paraît le mardi 7 h HE et le vendredi 12 h HE | idx infolettre ; en | Fait interne, cahier des charges | VÉRIFIÉ | Réattester si le calendrier change ; « HE » et non « EST » (l'heure de l'Est bascule à l'heure avancée) |
 | V-23 | « Désabonnement en un clic, traité sous 10 jours ouvrables » ; consentement exprès LCAP | idx formulaire | Base §3.5 ; U-46 ; DORS/2012-36 | À VÉRIFIER | Aucun renvoi d'article : conforme. Vérifier le délai de 10 jours ouvrables et la validité de 60 jours du mécanisme |
-| V-24 | « Données hébergées au Canada, jamais cédées » | idx infolettre ; en | U-75 ; U-56 ; aucun contrat signé | NON VÉRIFIÉ — NE PAS PUBLIER | Distinguer application, base, diffusion, journaux, et lire les engagements de résidence du fournisseur d'infolettre retenu (Module 4) avant d'afficher la promesse |
+| V-24 | « Preuve de consentement conservée chez Actio, jamais cédée » | idx infolettre ; en | Fait interne ; manifeste `preuve_du_consentement` | VÉRIFIÉ | Reformulé le 4 septembre 2026 : « Données hébergées au Canada » a été retiré, les métadonnées du réseau de diffusion sortant du Canada (`docs/M4-prd-seo-conformite-monetisation.md` § 2.2). Réattester à chaque nouveau sous-traitant |
 | V-25 | « Rejoint par 15 000 juristes, investisseurs et professionnels de la finance au Canada » | idx `.infolettre__preuve-sociale` ; en | Aucune : aucun abonné | NON VÉRIFIÉ — NE PAS PUBLIER | Preuve sociale fausse à la date de lancement = pratique trompeuse. La ligne se calcule depuis la liste (arrondie au millier inférieur) et disparaît sous 1 000 abonnés |
 | V-26 | Actio Média inc., 1000, rue De La Gauchetière Ouest, bureau 2400, Montréal H3B 4W5 ; `redaction@actio.ca` | idx pied ; art JSON-LD ; en | Aucune | NON VÉRIFIÉ — NE PAS PUBLIER | La LCAP exige une adresse **valide** de l'expéditeur. Constituer la personne morale, obtenir le bail ou le domicile, enregistrer le domaine, avant tout envoi. Le numéro de téléphone fictif de la v1 a été retiré (v1 V-38 close pour cette part) |
 | V-27 | « Actio n'est inscrite à aucun titre… n'exerce aucune activité de courtage, de conseil ou de gestion de portefeuille » | idx `.avertissement` ; en | Fait interne | VÉRIFIÉ | Réattester à chaque évolution d'Actio Pro (phase 4) et de l'affiliation ; un lien d'affiliation n'est pas une activité de courtage, mais l'Avis 21-330 (V-18) borne ce qu'Actio peut dire pour le compte d'une plateforme |
@@ -178,8 +178,8 @@ signalée par une autorité suit le délai de 4 heures ouvrées de la politique 
 | `À VÉRIFIER` | Publiable dans la seule formulation prudente, marqueur visible | Réviseur juridique, contresigné par la rédactrice en chef |
 | `NON VÉRIFIÉ — NE PAS PUBLIER` | Bloque tout le contenu concerné | Rédactrice en chef, sur pièce primaire seulement |
 
-**État au 4 septembre 2026 :** sur 45 lignes, 10 sont `VÉRIFIÉ` — dont aucune ne porte sur le
-droit ; 17 sont `À VÉRIFIER` ; 18 sont `NON VÉRIFIÉ — NE PAS PUBLIER`. Aucune page du prototype
+**État au 4 septembre 2026 :** sur 45 lignes, 11 sont `VÉRIFIÉ` — dont aucune ne porte sur le
+droit ; 17 sont `À VÉRIFIER` ; 17 sont `NON VÉRIFIÉ — NE PAS PUBLIER`. Aucune page du prototype
 n'est publiable au sens de la règle 1. Par rapport à la v1 (44 lignes, 24 bloquantes), la v2 a
 clos six lignes bloquantes (téléphone fictif, « 100 % sources primaires », « cinq ans après »,
 « Banque du Canada ouvre les consultations », extension au jalonnement, lien du bandeau) et en a

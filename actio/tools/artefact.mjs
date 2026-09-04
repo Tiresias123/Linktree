@@ -1,7 +1,8 @@
 /**
  * Actio — fusion du prototype en un document unique consultable.
  *
- * Le prototype est fait de cinq pages qui partagent des feuilles de style et un
+ * Le prototype est fait de cinq pages (la galerie de composants Tailwind,
+ * prototype/composants/index.html, a sa propre feuille et reste à part) qui partagent des feuilles de style et un
  * script externes. Un artefact publié est un document unique : il faut donc
  * tout replier dedans, sans réécrire une ligne du système de design.
  *
@@ -102,7 +103,7 @@ const barre = ECRANS.map((e) =>
 const sortie = `<title>Actio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
 
 <style>
 ${css}
@@ -123,7 +124,7 @@ ${css}
 .ecrans__titre {
   font-family: var(--police-texte); font-size: var(--t-micro);
   font-weight: var(--graisse-grasse); letter-spacing: var(--interlettre-etiq);
-  text-transform: uppercase; color: var(--encre-ambre); margin-right: var(--e-2);
+  text-transform: uppercase; color: var(--encre-accent); margin-right: var(--e-2);
 }
 .ecrans__lien {
   background: transparent; border: var(--trait) solid transparent;

@@ -1,23 +1,32 @@
 # Actio
 
-> Média canadien indépendant d’analyse du cadre réglementaire, fiscal et prudentiel
-> des cryptoactifs. Bilingue français / anglais canadien.
+> Média canadien indépendant d’actualité, d’analyse réglementaire et d’éducation aux
+> cryptoactifs et au Web3. Bilingue français / anglais canadien.
 > *Actio*, du latin : action en justice, acte juridique, capacité d’agir.
 
-Ce dépôt contient le blueprint de lancement complet — architecture, système de
-mailing et fiche produit — **et le prototype exécutable qui en découle**. Les
-documents ne décrivent pas une intention : ils spécifient du code qui fonctionne
-et qu’on peut ouvrir dans un navigateur.
+Ce dépôt contient le blueprint de lancement complet en **quatre modules** — architecture et
+maquettes, système d’infolettre, direction artistique et design system, fiche produit — **et le
+prototype exécutable qui en découle**. Les documents ne décrivent pas une intention : ils
+spécifient des fichiers qui existent et qu’on peut ouvrir dans un navigateur. La version v1
+(trois livrables, palette « Encre et Vélin », cadence hebdomadaire) est archivée sous
+`docs/v1/` et `newsletter/v1/`.
 
 ---
 
-## Les trois livrables
+## Les quatre modules
 
-| # | Livrable | Documents | Artefact exécutable correspondant |
+| # | Module | Document | Artefacts exécutables |
 |---|---|---|---|
-| 1 | Architecture globale et wireframe UI/UX | [`docs/L1-1-arborescence.md`](docs/L1-1-arborescence.md) · [`L1-2-wireframe-accueil.md`](docs/L1-2-wireframe-accueil.md) · [`L1-3-wireframe-article.md`](docs/L1-3-wireframe-article.md) | [`prototype/fr/index.html`](prototype/fr/index.html) · [`fr/article.html`](prototype/fr/article.html) · [`fr/registre.html`](prototype/fr/registre.html) · [`en/index.html`](prototype/en/index.html) |
-| 2 | Système et design de l’infolettre « Actio Dispatch » | [`docs/L2-1-strategie-mailing.md`](docs/L2-1-strategie-mailing.md) · [`L2-2-edition-type.md`](docs/L2-2-edition-type.md) · [`L2-3-sequence-bienvenue.md`](docs/L2-3-sequence-bienvenue.md) | [`newsletter/actio-dispatch-001.html`](newsletter/actio-dispatch-001.html) · [`newsletter/chassis.html`](newsletter/chassis.html) |
-| 3 | Fiche générale et technique du produit (PRD) | [`docs/L3-1-identite-marque.md`](docs/L3-1-identite-marque.md) · [`L3-2-stack-technique.md`](docs/L3-2-stack-technique.md) · [`L3-3-conformite-deontologie.md`](docs/L3-3-conformite-deontologie.md) · [`L3-4-modele-roadmap.md`](docs/L3-4-modele-roadmap.md) | [`prototype/assets/tokens.css`](prototype/assets/tokens.css) |
+| 1 | Architecture, arborescence, page d’accueil et gabarit d’article | [`docs/M1-architecture-wireframes.md`](docs/M1-architecture-wireframes.md) | [`prototype/fr/index.html`](prototype/fr/index.html) · [`fr/article.html`](prototype/fr/article.html) · [`fr/registre.html`](prototype/fr/registre.html) · [`en/index.html`](prototype/en/index.html) · [`index.html`](prototype/index.html) |
+| 2 | *Actio Dispatch* — infolettre bi-hebdomadaire, édition pilote nº 042, séquence d’accueil | [`docs/M2-newsletter-actio-dispatch.md`](docs/M2-newsletter-actio-dispatch.md) | [`newsletter/actio-dispatch-042.html`](newsletter/actio-dispatch-042.html) · [`newsletter/chassis.html`](newsletter/chassis.html) · [`newsletter/contenus/`](newsletter/contenus/) · [`newsletter/manifeste.json`](newsletter/manifeste.json) |
+| 3 | Direction artistique, typographies, design system, trois composants Tailwind | [`docs/M3-direction-artistique-design-system.md`](docs/M3-direction-artistique-design-system.md) | [`prototype/assets/tokens.css`](prototype/assets/tokens.css) · [`prototype/composants/index.html`](prototype/composants/index.html) · [`badge-statut.html`](prototype/composants/badge-statut.html) · [`encadre-en-bref.html`](prototype/composants/encadre-en-bref.html) · [`carte-plateforme.html`](prototype/composants/carte-plateforme.html) |
+| 4 | PRD : stack Next.js 14 / Strapi / Resend, hébergement `ca-central-1` et Loi 25, veille, SEO/GEO et Schema.org, déontologie, revenus tripartite, feuille de route 12 mois | [`docs/M4-prd-seo-conformite-monetisation.md`](docs/M4-prd-seo-conformite-monetisation.md) | — (spécification d’exécution des trois modules précédents) |
+
+Deux annexes opposables les accompagnent :
+[`docs/annexes/registre-de-verification.md`](docs/annexes/registre-de-verification.md) — l’état de
+vérification de chaque fait avancé par le prototype (45 lignes) et par l’infolettre (28 lignes) —
+et [`docs/annexes/rapport-de-coherence.md`](docs/annexes/rapport-de-coherence.md) — la relecture
+croisée des quatre modules et du code.
 
 ---
 
@@ -26,41 +35,57 @@ et qu’on peut ouvrir dans un navigateur.
 ```
 actio/
 ├── README.md                     ce document
-├── package.json                  outillage (playwright-core, hors production)
+├── package.json                  outillage (playwright-core, tailwindcss — hors production)
 ├── docs/
-│   ├── L1-*.md                   Livrable 1 — architecture et wireframes
-│   ├── L2-*.md                   Livrable 2 — système de mailing
-│   ├── L3-*.md                   Livrable 3 — PRD
-│   └── annexes/
-│       ├── registre-de-verification.md   état de vérification de chaque fait avancé
-│       └── rapport-de-coherence.md       relecture croisée des livrables
+│   ├── M1-architecture-wireframes.md
+│   ├── M2-newsletter-actio-dispatch.md
+│   ├── M3-direction-artistique-design-system.md
+│   ├── M4-prd-seo-conformite-monetisation.md
+│   ├── annexes/
+│   │   ├── registre-de-verification.md   état de vérification de chaque fait avancé
+│   │   └── rapport-de-coherence.md       relecture croisée des modules et du code
+│   └── v1/                       livrables et annexes de la première version (archive)
 ├── research/                     base factuelle — veille sur sources primaires
 │   ├── 00-base-factuelle-consolidee.md   document de référence interne
 │   └── 01-09-*.md                fiches par domaine (ACVM, AMF, OCRI, CANAFE, ARC, LCAP…)
 ├── prototype/
 │   ├── index.html                portail de langue (« / » → 302 vers /fr/)
 │   ├── fr/
-│   │   ├── index.html            page d’accueil — Livrable 1, section 2
-│   │   ├── article.html          gabarit d’analyse — Livrable 1, section 3
+│   │   ├── index.html            page d’accueil — cinq piliers, commutateur de juridiction,
+│   │   │                         Baromètre réglementaire, Académie, comparateur, infolettre
+│   │   ├── article.html          gabarit d’analyse — En bref, sommaire, note de conformité,
+│   │   │                         mise en garde, sources, fiche auteur
 │   │   └── registre.html         registre des plateformes autorisées
 │   ├── en/
 │   │   └── index.html            home page, Canadian English
+│   ├── composants/
+│   │   ├── index.html            galerie des composants Tailwind (rendu + source)
+│   │   ├── badge-statut.html     composant 1 — badge de statut réglementaire
+│   │   ├── encadre-en-bref.html  composant 2 — encadré « En bref »
+│   │   ├── carte-plateforme.html composant 3 — carte comparative de plateforme
+│   │   ├── composants.tw.css     source Tailwind v4 : chaque utilitaire renvoie à un jeton
+│   │   └── composants.css        feuille compilée localement (aucun CDN)
 │   └── assets/
 │       ├── tokens.css            jetons de design — SOURCE DE VÉRITÉ unique
-│       ├── actio.css             composants
+│       ├── actio.css             composants du site
 │       ├── article.css           gabarit d’article
 │       ├── registre.css          registre des plateformes
-│       └── actio.js              thème, menu, sommaire, consentement LCAP
+│       └── actio.js              thème, menu, recherche, juridiction, horodatages, score
 ├── newsletter/
-│   ├── actio-dispatch-001.html   édition complète, prête à l’envoi
-│   ├── chassis.html              en-tête de marque + pied de conformité LCAP
-│   ├── contenus/                 fragments de contenu, un par envoi
-│   ├── manifeste.json            objets, pré-en-têtes, métadonnées d’envoi
-│   └── dist/                     courriels assemblés (générés)
+│   ├── actio-dispatch-042.html   édition pilote nº 042, assemblée (référence versionnée)
+│   ├── chassis.html              en-tête, bandeau de cours, pied de conformité LCAP
+│   ├── contenus/                 dispatch-042, bienvenue-1, bienvenue-2, bienvenue-3
+│   ├── manifeste.json            cadence mardi 7 h / vendredi 12 h HE, objets, champs de fusion
+│   ├── dist/                     courriels assemblés (générés)
+│   └── v1/                       châssis, contenus et manifeste de la première version
 └── tools/
+    ├── structure.mjs             balisage : équilibre, attributs répétés, identifiants en double
+    ├── docs.mjs                  références des documents au code : chemins, classes, jetons
+    ├── emails.mjs                assemblage des courriels + contrôle LCAP, couleurs, « HE »
+    ├── composants.mjs            galerie des composants : injection, classes compilées, couleurs
+    ├── verifier.mjs              liens, accessibilité, contraste sur le DOM rendu (6 pages)
     ├── captures.mjs              rendu multi-thème / multi-largeur + invariants
-    ├── verifier.mjs              liens, accessibilité, contraste sur le DOM rendu
-    └── emails.mjs                assemblage des courriels + contrôle LCAP
+    └── artefact.mjs              document unique consultable en ligne
 ```
 
 ---
@@ -71,136 +96,103 @@ Aucune compilation. Les pages sont du HTML statique.
 
 ```bash
 python3 -m http.server 8080 --directory actio/prototype
-# puis http://localhost:8080/            portail de langue
-#      http://localhost:8080/fr/         accueil français
-#      http://localhost:8080/en/         home page, English
+# puis http://localhost:8080/               portail de langue
+#      http://localhost:8080/fr/            accueil français
+#      http://localhost:8080/fr/article.html
+#      http://localhost:8080/en/            home page, English
+#      http://localhost:8080/composants/    composants Tailwind
 ```
 
-Le prototype charge ses polices depuis Google Fonts **à titre de démonstration
-seulement**. En production, elles doivent être auto-hébergées : le chargement
-depuis un tiers transmet l’adresse IP du lecteur à ce tiers, ce qui constitue
-une communication de renseignement personnel au sens de la Loi 25. Les piles de
-repli sont définies dans `tokens.css` et le rendu reste correct hors ligne.
+Le prototype charge ses polices (Newsreader, Plus Jakarta Sans, JetBrains Mono) depuis Google
+Fonts **à titre de démonstration seulement**. En production, elles doivent être auto-hébergées :
+le chargement depuis un tiers transmet l’adresse IP du lecteur à ce tiers, ce qui constitue une
+communication de renseignement personnel au sens de la Loi 25. Les piles de repli sont définies
+dans `tokens.css` et le rendu reste correct hors ligne. La galerie de composants et les courriels
+ne chargent aucune ressource tierce.
 
 ## Version consultable en ligne
 
-Le prototype est aussi publié en un document unique, tous écrans réunis, avec
-leur navigation réelle&nbsp;:
+Le prototype est aussi publié en un document unique, tous écrans réunis, avec leur navigation
+réelle :
 **[claude.ai/code/artifact/e33beee5-e998-48d5-b1dd-ffb984705ac5](https://claude.ai/code/artifact/e33beee5-e998-48d5-b1dd-ffb984705ac5)**
 
 ```bash
 npm run artefact                 # régénère le document unique
 ```
 
-`tools/artefact.mjs` replie les quatre feuilles de style et le script dans un
-seul fichier, espace les identifiants — les cinq pages en partagent (`#principal`,
-`#courriel`, `#regulation`) et, réunies, ils deviendraient ambigus — et remplace
-les liens entre fichiers par des changements d'écran en conservant l'ancre visée.
-**Il ne modifie ni le balisage, ni les feuilles de style, ni le script** : ce que
-l'artefact montre est exactement ce que le prototype rend.
+`tools/artefact.mjs` replie les quatre feuilles de style et le script dans un seul fichier, espace
+les identifiants et remplace les liens entre fichiers par des changements d’écran en conservant
+l’ancre visée. **Il ne modifie ni le balisage, ni les feuilles de style, ni le script.**
 
 ## Vérifier
 
 ```bash
-cd actio && npm install          # playwright-core seulement ; Chromium est préinstallé
-npm run captures                 # 30 rendus (5 écrans × 2 thèmes × 3 largeurs) + invariants
-npm run verifier                 # liens, accessibilité, contraste sur le DOM rendu
-npm run emails                   # assemblage des courriels + contrôle des mentions LCAP
-npm run docs                     # références des livrables au code : chemins, classes, jetons
-npm run structure                # balisage : équilibre, attributs répétés, identifiants en double
-npm run tout                     # structure, docs, courriels, vérification — dans l’ordre
+cd actio && npm install          # playwright-core et tailwindcss ; Chromium est préinstallé
+npm run tout                     # structure → docs → courriels → composants → vérificateur
+npm run captures                 # 36 rendus (6 écrans × 2 thèmes × 3 largeurs) + invariants
+npm run tailwind                 # recompile composants.css depuis composants.tw.css
+npm run artefact                 # régénère le document unique
 ```
 
 Chaque outil sort en erreur plutôt qu’en avertissement, et nomme le fautif :
 
-- **`captures.mjs`** échoue si une page déborde horizontalement — il nomme alors
-  les éléments qui dépassent — ou si la colonne de lecture excède la mesure fixée.
-- **`verifier.mjs`** échoue sur un lien interne mort, une ancre inexistante, un
-  lien externe sans `rel="noopener"`, un `h1` absent ou dupliqué, un saut de
-  niveau de titre, un champ sans étiquette, un repère `<nav>` anonyme, ou un
-  rapport de contraste sous le seuil AA. Le contraste est mesuré sur le DOM
-  rendu, fonds translucides composés et opacité héritée comprises&nbsp;: c’est
-  le seul contrôle qui attrape une régression de jeton.
-- **`emails.mjs`** refuse d’assembler un courriel auquel manque une mention
-  rendue obligatoire par la Loi canadienne anti-pourriel, qui dépasse le seuil
-  de troncature de Gmail, qui répète un attribut sur une même balise (un client
-  de messagerie en perd un en silence), ou qui emploie une couleur absente de
-  `tokens.css` — un courriel ne pouvant pas lire une variable CSS, c’est le seul
-  moyen de le rattacher au système de design.
-- **`structure.mjs`** lit le balisage sans moteur de rendu. Un navigateur répare
-  silencieusement une balise mal fermée&nbsp;; un client de messagerie, non — et
-  un gabarit qui se disloque chez la moitié des destinataires ne se voit pas au
-  navigateur. Il attrape aussi l’attribut répété et l’identifiant en double.
-- **`docs.mjs`** échoue si un livrable cite un chemin de fichier, une classe CSS
-  ou un jeton qui n’existe pas. Les trois livrables ne décrivent pas une
-  intention&nbsp;: ils spécifient des fichiers. Une classe citée mais inexistante
-  est une instruction que personne ne pourra exécuter.
-
-Ces trois outils ont trouvé des défauts réels que la relecture visuelle avait
-laissés passer&nbsp;: une navigation sans comportement mobile, six composants
-dont le texte devenait illisible en mode sombre, et une case de consentement
-placée après le bouton d’envoi dans l’ordre de tabulation.
+- **`structure.mjs`** lit le balisage sans moteur de rendu : balise mal fermée, attribut répété,
+  identifiant en double — ce qu’un navigateur répare en silence et qu’un client de messagerie
+  disloque.
+- **`docs.mjs`** échoue si un document cite un chemin, une classe CSS ou un jeton qui n’existe pas.
+  Les documents spécifient des fichiers ; une classe citée mais inexistante est une instruction
+  que personne ne pourra exécuter.
+- **`emails.mjs`** refuse d’assembler un courriel auquel manque une mention rendue obligatoire par
+  la Loi canadienne anti-pourriel, qui dépasse le seuil de troncature de Gmail, qui emploie une
+  couleur absente de `tokens.css`, un champ de fusion non déclaré, ou l’abréviation « EST » à la
+  place de « HE ». Il compare l’assemblage à la référence versionnée et échoue s’ils divergent.
+- **`composants.mjs`** injecte chaque fragment Tailwind dans la galerie (rendu et source), vérifie
+  que chaque classe employée a été compilée et qu’aucune couleur n’est écrite en dur.
+- **`verifier.mjs`** échoue sur un lien interne mort, une ancre inexistante, un lien externe sans
+  `rel="noopener"`, un `h1` absent ou dupliqué, un saut de niveau de titre, un champ sans
+  étiquette, un `<nav>` anonyme, un sommaire qui ne suit pas les sections, ou un rapport de
+  contraste sous le seuil AA — mesuré sur le DOM rendu, deux thèmes, six pages, pseudo-éléments
+  et opacité héritée compris.
+- **`captures.mjs`** échoue si une page déborde horizontalement ou si la colonne de lecture
+  excède la mesure fixée.
 
 ---
 
-## Deux règles qui gouvernent tout le reste
+## Trois règles qui gouvernent tout le reste
 
-**1. La couleur porte un statut, jamais une décoration.**
-Chaque badge de `tokens.css` correspond à une catégorie d’acte réglementaire
-opposable — consultation publique, avis du personnel, décision, mise en garde,
-inscription en vigueur. Employer une couleur de statut pour un usage décoratif
-est un défaut, au même titre qu’une erreur de fait.
+**1. La couleur porte un statut, jamais une décoration.** Chaque jeton de statut de `tokens.css`
+correspond à une catégorie d’acte réglementaire opposable — mise en garde, consultation, avis du
+personnel, inscription en vigueur, archivé. Les couleurs imposées par le cahier des charges qui ne
+tiennent pas le contraste AA comme texte (`#F59E0B`, `#10B981`, `#EF4444`) sont des **aplats** ;
+leurs variantes « 700 » portent le texte. Les composants Tailwind n’ont aucune couleur propre :
+chaque utilitaire renvoie à un jeton.
 
-**2. Rien n’est publié qui n’ait été vérifié sur la source primaire.**
-La base factuelle de `research/` a été constituée alors que l’accès direct aux
-sites des régulateurs était bloqué par la politique réseau de l’environnement :
-les références proviennent de résultats de recherche indexés, non de la lecture
-des textes officiels. Aucune n’a été inventée, et chacune est recensée dans
-[`docs/annexes/registre-de-verification.md`](docs/annexes/registre-de-verification.md)
-avec son état. **Les contenus du prototype et de l’infolettre sont des maquettes
-éditoriales et portent un bandeau qui le dit.**
+**2. Rien n’est publié qui n’ait été vérifié sur la source primaire.** La base factuelle de
+`research/` a été constituée alors que l’accès direct aux sites des régulateurs était bloqué :
+les références proviennent de résultats de recherche indexés. Aucune n’a été inventée, et chacune
+est recensée dans le registre de vérification avec son état. **Les contenus du prototype et de
+l’infolettre sont des maquettes éditoriales et portent un bandeau qui le dit** ; les chiffres du
+comparateur sont marqués « illustratif » ; le bandeau de cours et le Chiffre de la semaine ne
+contiennent aucune valeur.
+
+**3. Aucune promotion sans autorisation des ACVM.** Une plateforme absente de la liste des
+plateformes autorisées, présente sur la liste des proscrites ou visée par une mise en garde ne
+peut être ni comparée, ni affiliée, ni commanditaire. L’affiliation, admise pour les courtiers
+inscrits, est encadrée par douze garde-fous codés (Module 4, § 5.2).
 
 ---
 
 ## Ce qui reste à décider — et qui ne relève pas de la conception
 
-Les livrables tranchent tout ce qui pouvait l'être sur pièces. Trois questions
-ne le pouvaient pas : ce sont des engagements, pas des valeurs. Elles sont
-signalées dans les documents concernés par un encadré ⚠, et recensées dans
-[`docs/annexes/rapport-de-coherence.md`](docs/annexes/rapport-de-coherence.md)
-avec trente autres points d'arbitrage.
+Chaque module se ferme sur ses points à trancher. Les cinq qui bloquent une mise en ligne :
 
-**1. Cadence : 52 éditions par an, ou 44&nbsp;?** La stratégie de mailing pose
-une cadence hebdomadaire et le courriel d'accueil la promet à l'abonné&nbsp;; le
-modèle économique compte 44 éditions. Huit semaines d'écart, qui portent le coût
-direct, l'inventaire de parrainage et le seuil de rentabilité. Retenir 44 oblige
-à réécrire la promesse faite à l'inscription, faute de quoi elle devient
-trompeuse. *C'est la décision la plus structurante du lot.*
-
-**2. Le guide de conformité n'existe pas.** Le premier courriel d'accueil le
-remet en deuxième position, avant tout discours de marque. Son sommaire est
-écrit, chapitre par chapitre&nbsp;; son chapitre fiscal exige à lui seul une
-relecture sur source primaire. **Aucune séquence ne part avant que le guide soit
-publié et daté.**
-
-**3. La date de réouverture des sources.** La base factuelle a été constituée
-alors que l'accès aux sites des régulateurs était bloqué. Tant que l'Avis
-conjoint 21-330, la Charte de la langue française, la LCAP et la Loi 25 n'ont pas
-été lus à la source, la politique de conformité lie la rédaction mais ne
-s'oppose à aucun tiers.
-
-Une quatrième, purement technique&nbsp;: **l'auto-hébergement des polices**. Cinq
-pages appellent encore un service tiers, ce que `npm run verifier` rappelle à
-chaque exécution. Aucune évaluation des facteurs relatifs à la vie privée ne peut
-conclure d'ici là.
-
----
-
-## Avertissement
-
-Actio est un média. Actio ne fournit ni conseil en placement, ni conseil
-juridique, ni conseil fiscal, et n’est inscrite à aucun titre auprès des
-Autorités canadiennes en valeurs mobilières, de l’Autorité des marchés
-financiers, de la Commission des valeurs mobilières de l’Ontario ou de
-l’Organisme canadien de réglementation des investissements. Le présent dépôt
-est un travail de conception ; il ne constitue pas un avis juridique.
+1. **La signature.** La fiche auteur du gabarit affiche une juriste fictive avec une appartenance
+   au Barreau : attribuer à la rédaction ou recruter la personne qui signera (registre V-30).
+2. **Le comparateur au lancement.** Trois plateformes réelles sont nommées en page d’accueil ;
+   aucun relevé daté n’existe. Afficher le statut seul, ou attendre le mois 4 (V-15, V-16).
+3. **La preuve sociale « 15 000 ».** Fausse à la date de lancement ; à retirer jusqu’à 1 000
+   abonnés ou à remplacer par une preuve vraie (V-25).
+4. **L’adresse et la personne morale.** La LCAP exige une adresse valide de l’expéditeur ; Actio
+   Média inc. n’existe pas encore (V-26, N-23).
+5. **Le prestataire d’envoi.** Resend + React Email sous condition d’une évaluation des facteurs
+   relatifs à la vie privée ; Amazon SES `ca-central-1` en repli (Module 4, § 1.3).
