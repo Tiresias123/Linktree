@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="fr-CA" data-page="registre">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Registre des plateformes inscrites — Actio</title>
+<meta name="description" content="Vue unifiée et horodatée des inscriptions des plateformes de négociation de cryptoactifs auprès des autorités canadiennes. Chaque ligne renvoie à la fiche officielle.">
+<meta name="theme-color" content="#FAF8F4">
+<link rel="alternate" hreflang="fr-CA" href="/fr/">
+<link rel="alternate" hreflang="en-CA" href="/en/">
+<link rel="alternate" hreflang="x-default" href="/fr/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<script>
+(function(){try{var t=localStorage.getItem('actio.theme');
+if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/actio.css">
+<link rel="stylesheet" href="../assets/registre.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230F3D68'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' font-weight='700' fill='%23FAF8F4' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<a class="evitement" href="#principal">Aller au contenu principal</a>
+
+<div class="demo" role="note">
+  <strong>Prototype éditorial</strong> — Le registre est présenté <em>sans données</em>, à dessein :
+  voir la note de provenance ci-dessous et le <a href="../../docs/annexes/registre-de-verification.md">registre de vérification</a>.
+</div>
+
+<header class="entete">
+  <div class="contenant">
+    <div class="entete__barre">
+      <a class="logo" href="index.html" aria-label="Actio, accueil"><span>Actio</span><span class="logo__point" aria-hidden="true">|</span></a>
+      <button class="burger" type="button" data-menu-mobile aria-expanded="false"
+              aria-controls="nav-principale" aria-label="Ouvrir le menu">
+        <span class="burger__trait" aria-hidden="true"></span>
+      </button>
+      <nav class="nav" id="nav-principale" aria-label="Navigation principale">
+        <a class="nav__lien" href="index.html#barometre">Actualités &amp; Régulation</a>
+        <a class="nav__lien" href="index.html#academie">Académie</a>
+        <a class="nav__lien" href="index.html#comparateur" aria-current="true">Comparatifs</a>
+        <a class="nav__lien" href="index.html#fiscalite">Fiscalité &amp; Droit</a>
+        <a class="nav__lien" href="index.html#research">Actio Research</a>
+      </nav>
+      <div class="entete__actions">
+        <div class="selecteur" role="group" aria-label="Langue du site">
+          <a href="registre.html" hreflang="fr-CA" lang="fr-CA" aria-current="true">FR</a>
+          <a href="../en/index.html" hreflang="en-CA" lang="en-CA" title="Cette page n’est pas disponible en anglais. Le bouton mène à l’accueil anglais.">EN</a>
+        </div>
+        <div class="selecteur" role="group" aria-label="Thème d’affichage">
+          <button type="button" data-action="theme" data-theme="light" aria-pressed="false" title="Mode clair">☀</button>
+          <button type="button" data-action="theme" data-theme="auto" aria-pressed="true" title="Suivre le système">A</button>
+          <button type="button" data-action="theme" data-theme="dark" aria-pressed="false" title="Mode sombre">☾</button>
+        </div>
+        <a class="btn btn--pro" href="index.html#infolettre">S’abonner</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="principal">
+<div class="contenant">
+
+  <nav class="ariane" aria-label="Fil d’Ariane">
+    <ol>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="index.html#comparateur">Comparatifs &amp; Avis</a></li>
+      <li><span aria-current="page">Registre des plateformes</span></li>
+    </ol>
+  </nav>
+
+  <section class="section" style="padding-top:var(--e-6)" aria-labelledby="titre-registre">
+    <div class="section__entete">
+      <div>
+        <span class="section__sur">Outil de vérification</span>
+        <h1 class="section__titre" id="titre-registre">Registre des plateformes de négociation de cryptoactifs</h1>
+      </div>
+      <a class="section__lien" href="#legende">Comprendre les statuts</a>
+    </div>
+
+    <p style="font-size:var(--t-lead);color:var(--texte-secondaire);max-width:70ch;line-height:1.55;margin-bottom:var(--e-6)">
+      Une seule question, posée simplement&nbsp;: <strong style="color:var(--texte-primaire)">cette
+      plateforme est-elle inscrite auprès de l’autorité de ma province&nbsp;?</strong> La réponse
+      détermine si vous bénéficiez, ou non, des protections prévues par la législation en valeurs
+      mobilières — notamment en cas d’insolvabilité.
+    </p>
+
+    <!-- ============================================================
+         NOTE DE PROVENANCE — l'élément le plus important de la page
+         ============================================================ -->
+    <div class="provenance" role="note">
+      <div>
+        <p class="provenance__titre">Provenance des données</p>
+        <p>
+          Actio ne tient pas un registre concurrent de ceux des autorités&nbsp;: elle en propose une
+          <strong>vue unifiée</strong>, alimentée par synchronisation depuis les registres officiels
+          des membres des ACVM, avec renvoi systématique à la fiche d’origine. Aucune ligne n’est
+          saisie à la main.
+          <strong style="color:var(--statut-alerte)">Dans ce prototype, la synchronisation n’est pas
+          branchée&nbsp;; le tableau est donc vide.</strong> Publier des statuts d’inscription
+          approximatifs serait plus dommageable que de n’en publier aucun&nbsp;: un lecteur qui déposerait
+          des fonds sur la foi d’une donnée périmée n’aurait aucun recours.
+        </p>
+      </div>
+      <div class="provenance__horodatage">
+        Dernière synchronisation<br>
+        <strong style="color:var(--texte-secondaire)">— aucune —</strong><br>
+        Fréquence cible&nbsp;: 6&nbsp;h<br>
+        Sources&nbsp;: 13 autorités
+      </div>
+    </div>
+
+    <!-- ---------- Filtres ---------- -->
+    <form class="filtres" role="search" aria-label="Filtrer le registre">
+      <div class="filtre">
+        <label for="f-juridiction">Ma province</label>
+        <select id="f-juridiction" name="juridiction">
+          <option value="">Toutes les provinces</option>
+          <option value="qc">Québec — AMF</option>
+          <option value="on">Ontario — CVMO</option>
+          <option value="bc">Colombie-Britannique — BCSC</option>
+          <option value="ab">Alberta — ASC</option>
+          <option value="autres">Autres provinces et territoires</option>
+        </select>
+      </div>
+      <div class="filtre">
+        <label for="f-statut">Statut d’inscription</label>
+        <select id="f-statut" name="statut">
+          <option value="">Tous les statuts</option>
+          <option value="courtier-placement">Courtier en placement · membre OCRI</option>
+          <option value="courtier-restreint">Courtier restreint</option>
+          <option value="engagement">Engagement préalable déposé</option>
+          <option value="non-inscrite">Non inscrite</option>
+          <option value="mise-en-garde">Faisant l’objet d’une mise en garde</option>
+        </select>
+      </div>
+      <div class="filtre">
+        <label for="f-esm">Régime LBC/FT</label>
+        <select id="f-esm" name="esm">
+          <option value="">Indifférent</option>
+          <option value="canafe">Inscrite au CANAFE</option>
+          <option value="rq">Permis d’ESM — Revenu Québec</option>
+          <option value="deux">Les deux</option>
+        </select>
+      </div>
+      <div class="filtre" style="flex:2 1 240px">
+        <label for="f-nom">Nom de la plateforme</label>
+        <input id="f-nom" name="nom" type="search" placeholder="Nom commercial ou dénomination sociale" autocomplete="off">
+      </div>
+      <div class="filtres__actions">
+        <button class="btn btn--primaire" type="submit">Filtrer</button>
+        <button class="btn btn--secondaire" type="reset">Réinitialiser</button>
+      </div>
+      <p class="filtres__compte" role="status" aria-live="polite">
+        0 plateforme affichée — la source de données n’est pas branchée dans ce prototype.
+      </p>
+    </form>
+
+    <!-- ---------- Tableau ---------- -->
+    <div class="registre">
+      <div class="registre__defilement">
+        <table>
+          <caption class="vh">Plateformes de négociation de cryptoactifs et statut de leur inscription au Canada</caption>
+          <thead>
+            <tr>
+              <th scope="col">Plateforme</th>
+              <th scope="col">Statut en valeurs mobilières</th>
+              <th scope="col">Autorité principale</th>
+              <th scope="col">Provinces couvertes</th>
+              <th scope="col">Régime LBC/FT</th>
+              <th scope="col">Dernière décision</th>
+              <th scope="col">Fiche officielle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="7" style="padding:0">
+                <div class="vide">
+                  <span class="vide__glyphe" aria-hidden="true">⌸</span>
+                  <h2 class="vide__titre">Aucune donnée chargée</h2>
+                  <p class="vide__texte">
+                    La synchronisation avec les registres officiels n’est pas active dans ce prototype.
+                    En attendant, consultez directement le registre de l’autorité de votre province —
+                    c’est de toute façon la seule source qui fait foi.
+                  </p>
+                  <div class="vide__liens">
+                    <a class="btn btn--secondaire" href="https://lautorite.qc.ca/" rel="external noopener">Registre de l’AMF (Québec)</a>
+                    <a class="btn btn--secondaire" href="https://www.osc.ca/" rel="external noopener">Registre de la CVMO (Ontario)</a>
+                    <a class="btn btn--secondaire" href="https://www.autorites-valeurs-mobilieres.ca/" rel="external noopener">Recherche nationale des ACVM</a>
+                    <a class="btn btn--secondaire" href="https://fintrac-canafe.canada.ca/" rel="external noopener">Inscriptions d’ESM — CANAFE</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ---------- Légende des statuts ---------- -->
+    <h2 class="section__titre" id="legende" style="font-size:var(--t-h3);margin-top:var(--e-16);padding-bottom:var(--e-4);border-bottom:var(--trait-fort) solid var(--texte-primaire)">
+      Ce que chaque statut veut dire — et ne veut pas dire
+    </h2>
+
+    <div class="legende">
+      <div class="legende__item">
+        <span class="badge badge--conforme">Courtier en placement · OCRI</span>
+        <p>
+          La plateforme est inscrite à titre de courtier en placement et membre de l’Organisme
+          canadien de réglementation des investissements. C’est la destination visée par les ACVM
+          depuis l’annonce du 6 août 2024. <strong>Ne signifie pas</strong> que vos actifs sont
+          garantis, ni qu’un placement est approuvé.
+        </p>
+      </div>
+      <div class="legende__item">
+        <span class="badge badge--info">Courtier restreint</span>
+        <p>
+          Inscription transitoire, assortie de conditions et de dispenses propres à chaque
+          plateforme — plafonds d’achat, actifs négociables, obligations de garde.
+          <strong>Ne signifie pas</strong> que toutes les plateformes de cette catégorie sont
+          soumises aux mêmes conditions&nbsp;: lisez la décision d’inscription.
+        </p>
+      </div>
+      <div class="legende__item">
+        <span class="badge badge--consultation">Engagement préalable</span>
+        <p>
+          La plateforme a déposé un engagement préalable à l’inscription et exploite sous conditions
+          en attendant la décision. <strong>Ne signifie pas</strong> qu’elle est inscrite&nbsp;:
+          l’engagement est une étape, pas un aboutissement.
+        </p>
+      </div>
+      <div class="legende__item">
+        <span class="badge badge--alerte">Non inscrite</span>
+        <p>
+          Aucune inscription auprès de l’autorité de la province concernée. Vous ne bénéficiez
+          d’aucune des protections prévues par la législation en valeurs mobilières, y compris en
+          cas d’insolvabilité de la plateforme.
+        </p>
+      </div>
+      <div class="legende__item">
+        <span class="badge badge--alerte">Mise en garde</span>
+        <p>
+          L’autorité a publiquement mis en garde le public contre cette plateforme, ou a rendu une
+          ordonnance à son endroit. Le renvoi vers la mise en garde officielle est systématique.
+        </p>
+      </div>
+      <div class="legende__item">
+        <span class="badge badge--neutre">Retirée / archivée</span>
+        <p>
+          Inscription expirée, retirée ou cessation d’activité au Canada. La ligne est conservée
+          pour l’historique, avec sa date d’effet. <strong>Ne signifie pas</strong> que la
+          plateforme a fermé ailleurs.
+        </p>
+      </div>
+    </div>
+
+    <div class="avertissement" role="note">
+      <p class="avertissement__titre"><span aria-hidden="true">⚠</span> La source qui fait foi est le registre officiel</p>
+      <p>
+        Ce tableau est un outil de repérage, pas un acte administratif. Seuls les registres tenus par
+        les autorités provinciales et par le CANAFE font foi, et eux seuls sont opposables. En cas de
+        divergence entre cette page et un registre officiel, <strong>le registre officiel
+        prévaut</strong>. Actio ne recommande, n’approuve ni ne déconseille aucune plateforme&nbsp;:
+        l’inscription est un fait juridique, pas une appréciation de qualité.
+      </p>
+      <p>
+        Une plateforme peut être inscrite dans une province et non dans une autre. Vérifiez toujours
+        le registre de <em>votre</em> province de résidence, et non celui d’une autre.
+      </p>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer class="pied">
+  <div class="contenant">
+    <div class="pied__legal" style="border-top:0">
+      <span>© 2026 Actio Média inc. — Prototype non publié.</span>
+      <nav aria-label="Liens légaux">
+        <a href="index.html">Accueil</a>
+        <a href="#">Méthode de synchronisation</a>
+        <a href="#">Signaler une erreur de registre</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/actio.js"></script>
+</body>
+</html>

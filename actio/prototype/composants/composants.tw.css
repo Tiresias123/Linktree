@@ -1,0 +1,116 @@
+/* ==========================================================================
+   ACTIO — Source Tailwind v4 des composants (prototype/composants/)
+   --------------------------------------------------------------------------
+   Compilé par `npm run tailwind` en composants.css (versionné : le prototype
+   s'ouvre sans compilation ; aucun CDN, aucune ressource tierce).
+
+   Principe : Tailwind ne possède AUCUNE couleur propre ici. La palette par
+   défaut est effacée (`--color-*: initial`) et chaque utilitaire de couleur
+   renvoie, par `@theme inline`, à un jeton de prototype/assets/tokens.css.
+   Conséquences voulues :
+     - `bg-bleu` vaut `background-color: var(--marque-bleu)` — le mode sombre,
+       les variantes 700/400 et les rapports de contraste calculés dans
+       tokens.css s'appliquent sans que le composant ait à les connaître ;
+     - une couleur qui n'existe pas dans tokens.css n'a pas d'utilitaire :
+       `bg-yellow-400` ne compile pas, et c'est le but ;
+     - tools/composants.mjs vérifie que chaque classe employée par un
+       fragment a bien été compilée.
+   ========================================================================== */
+@import "tailwindcss";
+@source "./*.html";
+
+@theme inline {
+  /* On efface la palette, les polices et les rayons par défaut. */
+  --color-*: initial;
+  --font-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+  --text-*: initial;
+
+  /* ---- Marque ---- */
+  --color-navy:          var(--marque-navy);
+  --color-navy-profond:  var(--marque-navy-profond);
+  --color-bleu:          var(--marque-bleu);
+  --color-bleu-fonce:    var(--marque-bleu-fonce);
+  --color-bleu-pale:     var(--marque-bleu-pale);
+  --color-ambre:         var(--marque-ambre);
+  --color-ambre-fonce:   var(--marque-ambre-fonce);
+  --color-ambre-pale:    var(--marque-ambre-pale);
+
+  /* ---- Statuts réglementaires (couleurs de TEXTE) et leurs pâles ---- */
+  --color-alerte:            var(--statut-alerte);
+  --color-alerte-pale:       var(--statut-alerte-pale);
+  --color-consultation:      var(--statut-consultation);
+  --color-consultation-pale: var(--statut-consultation-pale);
+  --color-conforme:          var(--statut-conforme);
+  --color-conforme-pale:     var(--statut-conforme-pale);
+  --color-info:              var(--statut-info);
+  --color-info-pale:         var(--statut-info-pale);
+  --color-neutre:            var(--statut-neutre);
+  --color-neutre-pale:       var(--statut-neutre-pale);
+
+  /* ---- Aplats (invariants par thème) ---- */
+  --color-fill-primaire:        var(--fill-primaire);
+  --color-fill-primaire-survol: var(--fill-primaire-survol);
+  --color-fill-primaire-texte:  var(--fill-primaire-texte);
+  --color-fill-ambre:           var(--fill-ambre);
+  --color-fill-ambre-texte:     var(--fill-ambre-texte);
+  --color-fill-alerte:          var(--fill-alerte);
+  --color-fill-alerte-texte:    var(--fill-alerte-texte);
+  --color-fill-conforme:        var(--fill-conforme);
+  --color-fill-conforme-texte:  var(--fill-conforme-texte);
+
+  /* ---- Bandes d'encre ---- */
+  --color-encre:          var(--encre-fond);
+  --color-encre-texte:    var(--encre-texte);
+  --color-encre-texte-2:  var(--encre-texte-2);
+  --color-encre-accent:   var(--encre-accent);
+  --color-encre-hausse:   var(--encre-hausse);
+  --color-encre-baisse:   var(--encre-baisse);
+  --color-encre-stable:   var(--encre-stable);
+
+  /* ---- Juridictions ---- */
+  --color-jur-federal: var(--jur-federal);
+  --color-jur-quebec:  var(--jur-quebec);
+  --color-jur-ontario: var(--jur-ontario);
+  --color-jur-multi:   var(--jur-multi);
+  --color-jur-intl:    var(--jur-intl);
+
+  /* ---- Surfaces, textes, bordures (suivent le thème) ---- */
+  --color-page:      var(--fond-page);
+  --color-surface:   var(--fond-surface);
+  --color-surface-2: var(--fond-surface-2);
+  --color-surface-3: var(--fond-surface-3);
+  --color-texte:     var(--texte-primaire);
+  --color-texte-2:   var(--texte-secondaire);
+  --color-texte-3:   var(--texte-tertiaire);
+  --color-lien:      var(--texte-lien);
+  --color-bordure:       var(--bordure);
+  --color-bordure-forte: var(--bordure-forte);
+  --color-bordure-douce: var(--bordure-douce);
+
+  /* ---- Typographie ---- */
+  --font-titre:  var(--police-titre);
+  --font-texte:  var(--police-texte);
+  --font-donnee: var(--police-donnee);
+  --text-micro: var(--t-micro);
+  --text-petit: var(--t-petit);
+  --text-base:  var(--t-base);
+  --text-lead:  var(--t-lead);
+  --text-h5:    var(--t-h5);
+  --text-h4:    var(--t-h4);
+  --text-h3:    var(--t-h3);
+  --text-h2:    var(--t-h2);
+  --tracking-etiq: var(--interlettre-etiq);
+  --tracking-titre: var(--interlettre-titre);
+
+  /* ---- Rayons, ombres ---- */
+  --radius-1: var(--rayon-1);
+  --radius-2: var(--rayon-2);
+  --radius-3: var(--rayon-3);
+  --radius-4: var(--rayon-4);
+  --radius-plein: var(--rayon-plein);
+  --shadow-1: var(--ombre-1);
+  --shadow-2: var(--ombre-2);
+  --shadow-3: var(--ombre-3);
+}

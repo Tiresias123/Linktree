@@ -1,0 +1,166 @@
+/* ==========================================================================
+   ACTIO — Gabarit « Décryptage / Analyse réglementaire » (v2)
+   Dépend de tokens.css et actio.css.
+   Sommaire collant en colonne de GAUCHE sur bureau, colonne de lecture de
+   760 px, trois encadrés normés : En bref (bleu glacier), Note de conformité
+   (filet doré), Mise en garde investisseur (rouge feutré).
+   ========================================================================== */
+
+/* ---------- 0. Mesure de lecture --------------------------------------- */
+[data-page="article"] .contenant { max-width: 1200px; }
+:root { --mesure-lecture: 760px; }
+
+/* ---------- 1. Fil d'Ariane -------------------------------------------- */
+.ariane { padding-block: var(--e-5) var(--e-3); font-size: var(--t-micro); color: var(--texte-tertiaire); font-family: var(--police-donnee); }
+.ariane ol { list-style: none; display: flex; flex-wrap: wrap; gap: var(--e-2); margin: 0; padding: 0; }
+.ariane li + li::before { content: "›"; margin-right: var(--e-2); color: var(--bordure-forte); }
+.ariane a { color: var(--texte-secondaire); text-decoration: none; }
+.ariane a:hover { color: var(--texte-lien); text-decoration: underline; }
+.ariane [aria-current="page"] { color: var(--texte-tertiaire); }
+
+/* ---------- 2. Bloc-titre ---------------------------------------------- */
+.article__entete { padding-bottom: var(--e-8); border-bottom: var(--trait) solid var(--bordure); max-width: 900px; }
+.article__etiquettes { display: flex; gap: var(--e-3); flex-wrap: wrap; align-items: center; margin-bottom: var(--e-5); }
+.article__titre { font-size: var(--t-h1); font-weight: var(--graisse-demi); }
+.article__chapeau { font-size: var(--t-lead); line-height: 1.55; color: var(--texte-secondaire); margin: var(--e-5) 0 0; max-width: 64ch; }
+.article__signature { display: flex; align-items: center; gap: var(--e-4); flex-wrap: wrap; margin-top: var(--e-6); font-size: var(--t-petit); color: var(--texte-tertiaire); }
+.article__auteur { display: flex; align-items: center; gap: var(--e-3); }
+.article__portrait { width: 40px; height: 40px; border-radius: var(--rayon-plein); flex: none; background: linear-gradient(135deg, var(--degrade-2), var(--degrade-3)); display: grid; place-items: center; color: #FFFFFF; font-family: var(--police-titre); font-weight: var(--graisse-grasse); font-size: .85rem; }
+.article__auteur strong { display: block; color: var(--texte-primaire); font-weight: var(--graisse-demi); font-size: var(--t-petit); }
+.article__auteur span { font-size: var(--t-micro); }
+.article__dates { font-family: var(--police-donnee); font-size: var(--t-micro); display: grid; gap: 2px; }
+.article__outils { margin-left: auto; display: flex; gap: var(--e-2); }
+
+/* Niveau de technicité — Débutant / Confirmé / Spécialiste */
+.niveau { display: inline-flex; align-items: center; gap: 6px; font-family: var(--police-donnee); font-size: var(--t-micro); letter-spacing: .04em; padding: 2px var(--e-2); border-radius: var(--rayon-plein); border: var(--trait) solid var(--bordure-forte); color: var(--texte-secondaire); }
+.niveau__jauge { display: inline-flex; gap: 2px; }
+.niveau__jauge i { width: 5px; height: 9px; border-radius: 1px; background: var(--bordure-forte); }
+.niveau--debutant .niveau__jauge i:nth-child(1) { background: var(--statut-conforme); }
+.niveau--confirme .niveau__jauge i:nth-child(-n+2) { background: var(--marque-bleu); }
+.niveau--specialiste .niveau__jauge i { background: var(--marque-ambre-fonce); }
+
+/* ---------- 3. Mise à jour et correction ------------------------------- */
+.maj { display: flex; gap: var(--e-3); align-items: flex-start; padding: var(--e-4) var(--e-5); margin-block: var(--e-6); background: var(--statut-consultation-pale); border: var(--trait) solid color-mix(in srgb, var(--statut-consultation) 32%, transparent); border-radius: var(--rayon-2); font-size: var(--t-petit); line-height: 1.55; max-width: var(--mesure-lecture); }
+.maj--correction { background: var(--statut-alerte-pale); border-color: color-mix(in srgb, var(--statut-alerte) 32%, transparent); }
+.maj--correction .maj__etiq { color: var(--statut-alerte); }
+.maj__etiq { font-family: var(--police-donnee); font-size: var(--t-micro); font-weight: var(--graisse-grasse); letter-spacing: .06em; text-transform: uppercase; color: var(--statut-consultation); white-space: nowrap; padding-top: 2px; }
+
+/* ---------- 4. « En bref » — bleu glacier ------------------------------ *
+ * Le résumé en trente secondes. Trois à quatre puces, jamais plus : au-delà
+ * ce n'est plus un résumé mais un second article.                          */
+.en-bref {
+  background: var(--marque-bleu-pale);
+  border: var(--trait) solid color-mix(in srgb, var(--marque-bleu-fonce) 30%, transparent);
+  border-left: 5px solid var(--marque-bleu-fonce);
+  border-radius: 0 var(--rayon-3) var(--rayon-3) 0;
+  padding: var(--e-6); margin-block: var(--e-8); max-width: var(--mesure-lecture);
+}
+.en-bref__titre { display: flex; align-items: center; gap: var(--e-2); font-family: var(--police-texte); font-size: var(--t-micro); font-weight: var(--graisse-grasse); letter-spacing: var(--interlettre-etiq); text-transform: uppercase; color: var(--marque-bleu-fonce); margin-bottom: var(--e-4); }
+.en-bref__titre svg { width: 16px; height: 16px; }
+.en-bref__lecture { margin-left: auto; font-family: var(--police-donnee); letter-spacing: 0; text-transform: none; font-weight: var(--graisse-moyenne); color: var(--texte-tertiaire); }
+.en-bref__liste { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--e-3); }
+.en-bref__liste li { display: grid; grid-template-columns: 18px 1fr; gap: var(--e-3); font-size: var(--t-petit); line-height: 1.6; color: var(--texte-secondaire); }
+.en-bref__liste li::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--marque-bleu-fonce); transform: rotate(45deg) translateY(6px); }
+.en-bref__liste strong { color: var(--texte-primaire); }
+
+/* ---------- 5. Deux colonnes : sommaire à GAUCHE ------------------------ */
+.article__corps { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: var(--e-12); align-items: start; padding-block: var(--e-8) var(--e-16); }
+@media (max-width: 1100px) {
+  .article__corps { grid-template-columns: minmax(0, 1fr); gap: var(--e-8); }
+  .sommaire { position: static !important; max-height: none !important; }
+}
+.sommaire { position: sticky; top: 96px; max-height: calc(100vh - 128px); overflow-y: auto; border-right: var(--trait) solid var(--bordure); padding-right: var(--e-5); font-size: var(--t-petit); }
+@media (max-width: 1100px) { .sommaire { border-right: 0; padding-right: 0; border-bottom: var(--trait) solid var(--bordure); padding-bottom: var(--e-5); } }
+.sommaire__titre { font-family: var(--police-texte); font-size: var(--t-micro); font-weight: var(--graisse-grasse); letter-spacing: var(--interlettre-etiq); text-transform: uppercase; color: var(--texte-tertiaire); margin-bottom: var(--e-3); }
+.sommaire ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; counter-reset: som; }
+.sommaire li { counter-increment: som; }
+.sommaire a { display: block; padding: var(--e-2) var(--e-2) var(--e-2) var(--e-6); color: var(--texte-secondaire); text-decoration: none; border-left: var(--trait-fort) solid transparent; line-height: 1.4; position: relative; border-radius: 0 var(--rayon-1) var(--rayon-1) 0; }
+.sommaire a::before { content: counter(som) "."; position: absolute; left: var(--e-2); top: var(--e-2); font-family: var(--police-donnee); font-size: var(--t-micro); line-height: 1.4; color: var(--texte-tertiaire); font-variant-numeric: tabular-nums; }
+.sommaire a:hover { color: var(--texte-primaire); background: var(--fond-surface-2); }
+.sommaire a[aria-current="true"] { color: var(--marque-bleu-fonce); font-weight: var(--graisse-demi); border-left-color: var(--marque-bleu); background: var(--marque-bleu-pale); }
+.sommaire__progression { margin-top: var(--e-5); padding-top: var(--e-4); border-top: var(--trait) solid var(--bordure-douce); font-family: var(--police-donnee); font-size: var(--t-micro); color: var(--texte-tertiaire); }
+.sommaire__barre { height: 3px; border-radius: 2px; background: var(--bordure); margin-top: var(--e-2); overflow: hidden; }
+.sommaire__barre i { display: block; height: 100%; width: 0; background: var(--marque-bleu); transition: width var(--mvt-rapide); }
+
+/* ---------- 6. Prose ---------------------------------------------------- */
+.prose { max-width: var(--mesure-lecture); font-size: var(--t-base); line-height: var(--lh-texte); }
+.prose > * + * { margin-top: var(--e-5); }
+.prose h2 { font-size: var(--t-h3); font-weight: var(--graisse-demi); margin-top: var(--e-12); padding-top: var(--e-4); border-top: var(--trait) solid var(--bordure); scroll-margin-top: 96px; }
+.prose h3 { font-size: var(--t-h4); font-weight: var(--graisse-demi); margin-top: var(--e-8); scroll-margin-top: 96px; }
+.prose h4 { font-size: var(--t-h5); margin-top: var(--e-6); font-family: var(--police-texte); font-weight: var(--graisse-grasse); }
+.prose p { margin-bottom: 0; }
+.prose a { font-weight: var(--graisse-moyenne); }
+.prose ul, .prose ol { padding-left: var(--e-6); display: grid; gap: var(--e-2); }
+.prose li::marker { color: var(--marque-bleu-fonce); font-weight: var(--graisse-grasse); }
+.prose blockquote { margin: var(--e-8) 0; padding: var(--e-2) 0 var(--e-2) var(--e-6); border-left: var(--trait-editorial) solid var(--marque-ambre); font-family: var(--police-titre); font-size: var(--t-h5); line-height: 1.45; color: var(--texte-primaire); font-style: italic; }
+.prose blockquote cite { display: block; margin-top: var(--e-3); font-family: var(--police-texte); font-size: var(--t-petit); font-style: normal; color: var(--texte-tertiaire); }
+.prose abbr[title] { text-decoration: underline dotted; cursor: help; text-underline-offset: 3px; }
+.renvoi { font-family: var(--police-donnee); font-size: .7em; vertical-align: super; line-height: 0; padding: 0 2px; text-decoration: none; color: var(--marque-bleu-fonce); font-weight: var(--graisse-grasse); }
+
+/* ---------- 7. Encadrés récurrents ------------------------------------- *
+ * Deux encadrés, jamais mélangés :
+ *   .note-conformite  — « Avis du juriste » : filet doré, texte de loi applicable
+ *   .mise-en-garde    — risque investisseur : rouge feutré                  */
+.encadre { margin-block: var(--e-8); border-radius: var(--rayon-3); overflow: hidden; background: var(--fond-surface); }
+.encadre__entete { display: flex; align-items: center; gap: var(--e-3); padding: var(--e-3) var(--e-5); font-family: var(--police-texte); font-size: var(--t-micro); font-weight: var(--graisse-grasse); letter-spacing: var(--interlettre-etiq); text-transform: uppercase; }
+.encadre__entete svg { width: 16px; height: 16px; flex: none; }
+.encadre__corps { padding: var(--e-5); font-size: var(--t-petit); line-height: 1.65; }
+.encadre__corps > * + * { margin-top: var(--e-3); }
+.encadre__corps p { margin: 0; }
+.encadre__ref { display: block; font-family: var(--police-donnee); font-size: var(--t-micro); color: var(--texte-tertiaire); margin-top: var(--e-4); padding-top: var(--e-3); border-top: var(--trait) solid var(--bordure-douce); }
+.encadre__loi { font-family: var(--police-donnee); font-size: var(--t-micro); background: var(--fond-surface-2); border: var(--trait) solid var(--bordure); border-radius: var(--rayon-1); padding: 1px 6px; white-space: nowrap; }
+
+.note-conformite { border: var(--trait) solid color-mix(in srgb, var(--marque-ambre) 55%, transparent); border-left: 4px solid var(--marque-ambre); }
+.note-conformite .encadre__entete { background: var(--marque-ambre-pale); color: var(--marque-ambre-fonce); border-bottom: var(--trait) solid color-mix(in srgb, var(--marque-ambre) 40%, transparent); }
+.note-conformite__signature { display: flex; align-items: center; gap: var(--e-2); margin-top: var(--e-4); font-size: var(--t-micro); color: var(--texte-tertiaire); }
+.note-conformite__signature strong { color: var(--texte-primaire); }
+
+.mise-en-garde { border: var(--trait) solid color-mix(in srgb, var(--statut-alerte) 40%, transparent); border-left: 4px solid var(--statut-alerte); }
+.mise-en-garde .encadre__entete { background: var(--statut-alerte-pale); color: var(--statut-alerte); border-bottom: var(--trait) solid color-mix(in srgb, var(--statut-alerte) 30%, transparent); }
+.mise-en-garde__risques { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--e-2); }
+.mise-en-garde__risques li { display: grid; grid-template-columns: 18px 1fr; gap: var(--e-2); }
+.mise-en-garde__risques li::before { content: "▲"; font-size: 9px; color: var(--statut-alerte); padding-top: 4px; }
+
+/* ---------- 8. Tableau comparatif ----------------------------------------- */
+.tableau { margin-block: var(--e-8); overflow-x: auto; border: var(--trait) solid var(--bordure); border-radius: var(--rayon-2); }
+.tableau table { width: 100%; border-collapse: collapse; font-size: var(--t-petit); line-height: var(--lh-dense); min-width: 560px; }
+.tableau caption { caption-side: top; text-align: left; padding: var(--e-4) var(--e-5); font-family: var(--police-texte); font-size: var(--t-micro); font-weight: var(--graisse-grasse); letter-spacing: var(--interlettre-etiq); text-transform: uppercase; color: var(--texte-tertiaire); background: var(--fond-surface-2); border-bottom: var(--trait) solid var(--bordure); }
+.tableau th, .tableau td { padding: var(--e-3) var(--e-4); text-align: left; vertical-align: top; border-bottom: var(--trait) solid var(--bordure-douce); }
+.tableau thead th { background: var(--fond-surface-2); font-weight: var(--graisse-grasse); font-size: var(--t-micro); letter-spacing: .04em; text-transform: uppercase; color: var(--texte-secondaire); border-bottom: var(--trait-fort) solid var(--bordure-forte); position: sticky; top: 0; }
+.tableau tbody tr:last-child td { border-bottom: 0; }
+.tableau tbody tr:hover { background: var(--fond-surface-2); }
+.tableau td[data-num] { font-family: var(--police-donnee); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.tableau th[scope="row"] { font-weight: var(--graisse-demi); color: var(--texte-primaire); }
+
+/* ---------- 9. Sources officielles citées ------------------------------ */
+.sources { margin-block: var(--e-12) var(--e-8); padding: var(--e-6); background: var(--fond-surface-2); border: var(--trait) solid var(--bordure); border-radius: var(--rayon-3); }
+.sources__titre { font-family: var(--police-texte); font-size: var(--t-micro); font-weight: var(--graisse-grasse); letter-spacing: var(--interlettre-etiq); text-transform: uppercase; color: var(--texte-tertiaire); margin-bottom: var(--e-4); }
+.sources__liste { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--e-4); counter-reset: src; }
+.sources__liste li { counter-increment: src; display: grid; grid-template-columns: 26px 1fr; gap: var(--e-3); font-size: var(--t-petit); line-height: 1.55; }
+.sources__liste li::before { content: "[" counter(src) "]"; font-family: var(--police-donnee); font-size: var(--t-micro); color: var(--marque-bleu-fonce); font-weight: var(--graisse-grasse); }
+.sources__liste a { word-break: break-word; }
+.sources__type { display: inline-block; font-family: var(--police-donnee); font-size: var(--t-micro); color: var(--texte-tertiaire); border: var(--trait) solid var(--bordure-forte); border-radius: var(--rayon-1); padding: 0 5px; margin-left: var(--e-2); text-transform: uppercase; letter-spacing: .04em; }
+
+/* ---------- 10. Fiche auteur ------------------------------------------- */
+.bio { display: grid; grid-template-columns: 72px 1fr; gap: var(--e-5); margin-block: var(--e-8); padding: var(--e-6); border: var(--trait) solid var(--bordure); border-left: var(--trait-editorial) solid var(--marque-navy); border-radius: 0 var(--rayon-3) var(--rayon-3) 0; background: var(--fond-surface); }
+@media (max-width: 560px) { .bio { grid-template-columns: 1fr; } }
+.bio__portrait { width: 72px; height: 72px; border-radius: var(--rayon-plein); background: linear-gradient(135deg, var(--degrade-2), var(--degrade-3)); display: grid; place-items: center; color: #FFFFFF; font-family: var(--police-titre); font-weight: var(--graisse-grasse); font-size: 1.4rem; }
+.bio__nom { font-size: var(--t-h5); margin-bottom: 2px; }
+.bio__fonction { font-size: var(--t-petit); color: var(--marque-bleu-fonce); font-weight: var(--graisse-demi); margin-bottom: var(--e-3); }
+.bio__qualifs { display: flex; flex-wrap: wrap; gap: var(--e-2); margin-bottom: var(--e-3); }
+.bio__qualif { font-family: var(--police-donnee); font-size: var(--t-micro); padding: 2px var(--e-2); border-radius: var(--rayon-1); background: var(--fond-surface-2); border: var(--trait) solid var(--bordure); color: var(--texte-secondaire); }
+.bio__texte { font-size: var(--t-petit); color: var(--texte-secondaire); line-height: 1.6; margin: 0; }
+.bio__liens { display: flex; gap: var(--e-4); margin-top: var(--e-4); font-size: var(--t-micro); font-family: var(--police-donnee); }
+.bio__declaration { margin-top: var(--e-4); padding-top: var(--e-3); border-top: var(--trait) solid var(--bordure-douce); font-size: var(--t-micro); color: var(--texte-tertiaire); line-height: 1.55; }
+
+/* ---------- 11. Suite de lecture et impression -------------------------- */
+.suite { border-top: var(--trait-fort) solid var(--texte-primaire); padding-top: var(--e-6); margin-top: var(--e-12); }
+.suite__titre { font-size: var(--t-h4); margin-bottom: var(--e-6); }
+@media print {
+  .entete, .cotations, .juridictions, .sommaire, .infolettre, .demo, .article__outils, .suite { display: none !important; }
+  body { background: #fff; color: #000; font-size: 11pt; }
+  .article__corps { grid-template-columns: 1fr; }
+  .prose { max-width: none; }
+  .encadre, .en-bref, .sources, .tableau { break-inside: avoid; border-color: #999; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8pt; color: #555; word-break: break-all; }
+}

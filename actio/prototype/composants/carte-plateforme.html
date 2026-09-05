@@ -1,0 +1,89 @@
+<!-- Composant 3 — Carte comparative de plateforme
+     Note globale /5, statut d'inscription lu au registre et daté, trois
+     données relevées (marquées « illustratif » tant qu'aucun relevé daté
+     n'existe), avantages et inconvénients en étiquettes, divulgation
+     d'affiliation DANS la carte, deux appels à l'action. Une carte ne se
+     publie que pour une plateforme inscrite auprès d'au moins un membre des
+     ACVM ; sinon elle n'existe pas. -->
+<article class="grid gap-5 max-w-[420px] p-6 bg-surface border border-bordure rounded-3 shadow-1 font-texte text-texte" aria-labelledby="carte-ws-titre">
+
+  <!-- En-tête : identité + statut -->
+  <header class="flex items-start gap-3">
+    <span class="grid place-items-center size-11 shrink-0 rounded-2 bg-navy text-encre-texte font-titre font-bold text-lead" aria-hidden="true">W</span>
+    <div class="min-w-0 flex-1">
+      <h3 id="carte-ws-titre" class="m-0 font-titre font-bold text-h5 leading-tight tracking-titre">Wealthsimple Crypto</h3>
+      <p class="m-0 mt-0.5 font-donnee text-micro text-texte-3">Toronto · courtier en placement · membre de l’OCRI</p>
+    </div>
+    <span class="inline-flex items-center gap-2 font-texte text-micro font-bold tracking-etiq uppercase leading-normal whitespace-nowrap px-2 py-[3px] rounded-1 border text-conforme bg-conforme-pale border-conforme/30">
+      <span class="size-1.5 rounded-plein bg-current shrink-0" aria-hidden="true"></span>
+      <span class="sr-only">Statut réglementaire :</span>Inscrite
+    </span>
+  </header>
+
+  <!-- Note globale -->
+  <div class="flex items-end justify-between gap-4 pb-4 border-b border-bordure">
+    <div>
+      <p class="m-0 font-texte text-micro font-bold tracking-etiq uppercase text-texte-3 whitespace-nowrap">Score Actio</p>
+      <p class="m-0 mt-1 flex items-baseline gap-1 font-donnee tabular-nums whitespace-nowrap">
+        <span class="font-titre font-bold text-h2 leading-none text-texte">4,4</span>
+        <span class="text-petit text-texte-3">/ 5</span>
+      </p>
+    </div>
+    <div class="text-right">
+      <span class="inline-flex gap-px text-ambre" role="img" aria-label="4,4 étoiles sur 5">
+        <svg class="size-4" viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 14.9l-5.3 2.8 1.1-5.9L1.5 7.7l5.9-.8z"/></svg>
+        <svg class="size-4" viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 14.9l-5.3 2.8 1.1-5.9L1.5 7.7l5.9-.8z"/></svg>
+        <svg class="size-4" viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 14.9l-5.3 2.8 1.1-5.9L1.5 7.7l5.9-.8z"/></svg>
+        <svg class="size-4" viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 14.9l-5.3 2.8 1.1-5.9L1.5 7.7l5.9-.8z"/></svg>
+        <svg class="size-4 text-bordure-forte" viewBox="0 0 20 20" aria-hidden="true"><path fill="currentColor" d="M10 1.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9L10 14.9l-5.3 2.8 1.1-5.9L1.5 7.7l5.9-.8z"/></svg>
+      </span>
+      <p class="m-0 mt-1 font-donnee text-micro text-texte-3">garde 40 % · frais 30 % · service 20 % · conformité 10 %</p>
+    </div>
+  </div>
+
+  <!-- Données relevées -->
+  <dl class="grid grid-cols-3 gap-3 m-0">
+    <div class="grid gap-1">
+      <dt class="font-texte text-micro font-bold tracking-etiq uppercase text-texte-3">Écart (BTC)</dt>
+      <dd class="m-0 font-donnee tabular-nums text-petit font-semibold text-texte">≈ 1,5 %</dd>
+      <dd class="m-0 font-donnee text-micro text-consultation">illustratif</dd>
+    </div>
+    <div class="grid gap-1">
+      <dt class="font-texte text-micro font-bold tracking-etiq uppercase text-texte-3">Retrait Interac</dt>
+      <dd class="m-0 font-donnee tabular-nums text-petit font-semibold text-texte">1 – 3 j ouvr.</dd>
+      <dd class="m-0 font-donnee text-micro text-consultation">illustratif</dd>
+    </div>
+    <div class="grid gap-1">
+      <dt class="font-texte text-micro font-bold tracking-etiq uppercase text-texte-3">Garde</dt>
+      <dd class="m-0 font-donnee text-petit font-semibold text-texte">Dépositaire tiers</dd>
+      <dd class="m-0 font-donnee text-micro text-texte-3">déclaré</dd>
+    </div>
+  </dl>
+
+  <!-- Avantages / inconvénients -->
+  <div class="grid gap-2">
+    <ul class="flex flex-wrap gap-2 m-0 p-0 list-none" aria-label="Avantages">
+      <li class="font-texte text-micro font-semibold px-2 py-[3px] rounded-1 text-conforme bg-conforme-pale">+ Membre de l’OCRI</li>
+      <li class="font-texte text-micro font-semibold px-2 py-[3px] rounded-1 text-conforme bg-conforme-pale">+ Compte enregistré (CELI, REER) via FNB</li>
+      <li class="font-texte text-micro font-semibold px-2 py-[3px] rounded-1 text-conforme bg-conforme-pale">+ Interface en français</li>
+    </ul>
+    <ul class="flex flex-wrap gap-2 m-0 p-0 list-none" aria-label="Inconvénients">
+      <li class="font-texte text-micro font-semibold px-2 py-[3px] rounded-1 text-alerte bg-alerte-pale">− Pas de retrait vers un portefeuille externe pour tous les actifs</li>
+      <li class="font-texte text-micro font-semibold px-2 py-[3px] rounded-1 text-alerte bg-alerte-pale">− Écart plus large qu’un carnet d’ordres</li>
+    </ul>
+  </div>
+
+  <!-- Statut daté + divulgation -->
+  <p class="m-0 font-donnee text-micro text-texte-3 leading-relaxed">
+    Statut lu à la recherche nationale d’inscription des ACVM le <time datetime="2026-09-04">4 sept. 2026</time>
+    · <a href="../fr/registre.html" class="text-lien underline underline-offset-2">fiche au registre ↗</a>.
+    Une inscription vaut pour une province&nbsp;: vérifiez la vôtre.
+    <strong class="text-texte-2 font-medium">Divulgation&nbsp;:</strong> Actio peut percevoir une commission si vous ouvrez un compte depuis le second bouton. Le score n’en tient pas compte.
+  </p>
+
+  <!-- Appels à l'action -->
+  <div class="flex flex-wrap gap-2">
+    <a href="../fr/article.html" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-2 font-texte text-petit font-semibold bg-fill-primaire text-fill-primaire-texte hover:bg-fill-primaire-survol transition-colors">Fiche complète</a>
+    <a href="#" rel="sponsored noopener" class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-2 font-texte text-petit font-semibold border border-bordure-forte text-texte-2 hover:border-navy hover:text-texte transition-colors">Ouvrir un compte ↗ <span class="sr-only">(lien d’affiliation)</span></a>
+  </div>
+</article>

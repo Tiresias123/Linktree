@@ -1,0 +1,29 @@
+<!-- Composant 2 — Encadré « En bref » / Points clés
+     Fond bleu glacier (--marque-bleu-pale), filet gauche de 5 px en bleu
+     foncé, trois à quatre puces en losange. Placé sous le chapô, avant le
+     sommaire ; largeur bornée à la mesure de lecture (760 px). -->
+<aside class="bg-bleu-pale border border-bleu-fonce/30 border-l-[5px] border-l-bleu-fonce rounded-r-3 p-6 my-8 max-w-[760px]" aria-labelledby="en-bref-titre-composant">
+  <p id="en-bref-titre-composant" class="flex items-center gap-2 m-0 mb-4 font-texte text-micro font-bold tracking-etiq uppercase text-bleu-fonce">
+    <svg class="size-4 shrink-0" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5l1.8 4.2 4.5.4-3.4 3 1 4.4L8 11.2l-3.9 2.3 1-4.4-3.4-3 4.5-.4z" fill="currentColor"/></svg>
+    En bref
+    <span class="ml-auto font-donnee font-medium tracking-normal normal-case text-texte-3">30 secondes</span>
+  </p>
+  <ul class="grid gap-3 m-0 p-0 list-none">
+    <li class="grid grid-cols-[18px_1fr] gap-3 text-petit leading-relaxed text-texte-2">
+      <span class="mt-[7px] size-2 rounded-[2px] bg-bleu-fonce rotate-45" aria-hidden="true"></span>
+      <span><strong class="text-texte">Deux régimes sur un même jeton.</strong> La loi fédérale sur les cryptomonnaies stables est adoptée mais non en vigueur&nbsp;; l’Avis 21-333 des ACVM, lui, s’applique aujourd’hui à toute plateforme inscrite.</span>
+    </li>
+    <li class="grid grid-cols-[18px_1fr] gap-3 text-petit leading-relaxed text-texte-2">
+      <span class="mt-[7px] size-2 rounded-[2px] bg-bleu-fonce rotate-45" aria-hidden="true"></span>
+      <span><strong class="text-texte">C’est la plateforme qui décide, pas vous.</strong> Un jeton n’est disponible que s’il figure dans les conditions d’inscription de votre plateforme, province par province.</span>
+    </li>
+    <li class="grid grid-cols-[18px_1fr] gap-3 text-petit leading-relaxed text-texte-2">
+      <span class="mt-[7px] size-2 rounded-[2px] bg-bleu-fonce rotate-45" aria-hidden="true"></span>
+      <span><strong class="text-texte">Québec et Ontario ne divergent pas — encore.</strong> L’AMF et la CVMO appliquent le même avis harmonisé&nbsp;; la divergence viendra des décisions d’inscription individuelles.</span>
+    </li>
+    <li class="grid grid-cols-[18px_1fr] gap-3 text-petit leading-relaxed text-texte-2">
+      <span class="mt-[7px] size-2 rounded-[2px] bg-bleu-fonce rotate-45" aria-hidden="true"></span>
+      <span><strong class="text-texte">Aucune règle de conflit identifiée.</strong> Au 4 septembre 2026, la rédaction n’a repéré aucun texte qui organise la primauté d’un régime sur l’autre.</span>
+    </li>
+  </ul>
+</aside>

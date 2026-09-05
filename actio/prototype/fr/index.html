@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="fr-CA" data-page="accueil">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Actio — Actualité, régulation et éducation aux cryptoactifs au Canada</title>
+<meta name="description" content="Actio est le média canadien de référence sur l’actualité, l’analyse réglementaire, la fiscalité et l’éducation aux cryptoactifs et au Web3. ACVM, AMF, CVMO, OCRI, CANAFE, ARC — décryptés pour les investisseurs et les professionnels.">
+<meta name="theme-color" content="#F8FAFC">
+<link rel="alternate" hreflang="fr-CA" href="/fr/">
+<link rel="alternate" hreflang="en-CA" href="/en/">
+<link rel="alternate" hreflang="x-default" href="/fr/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<script>
+(function(){try{var t=localStorage.getItem('actio.theme');
+if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);
+var j=localStorage.getItem('actio.juridiction');if(j)document.documentElement.setAttribute('data-juridiction',j);}catch(e){}})();
+</script>
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/actio.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230F172A'/%3E%3Ctext x='29' y='45' font-family='Georgia,serif' font-size='38' font-weight='700' fill='%23F8FAFC' text-anchor='middle'%3EA%3C/text%3E%3Crect x='46' y='24' width='4' height='20' rx='1' fill='%232563EB'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsMediaOrganization",
+  "name": "Actio",
+  "alternateName": "Actio Média",
+  "url": "https://actio.ca/",
+  "logo": "https://actio.ca/assets/logo.svg",
+  "foundingLocation": { "@type": "Place", "name": "Montréal, Québec, Canada" },
+  "areaServed": "CA",
+  "knowsLanguage": ["fr-CA", "en-CA"],
+  "ethicsPolicy": "https://actio.ca/fr/charte-editoriale/",
+  "correctionsPolicy": "https://actio.ca/fr/corrections/",
+  "publishingPrinciples": "https://actio.ca/fr/charte-editoriale/",
+  "diversityPolicy": "https://actio.ca/fr/charte-editoriale/",
+  "sameAs": []
+}
+</script>
+</head>
+<body>
+
+<a class="evitement" href="#principal">Aller au contenu principal</a>
+
+<div class="demo" role="note">
+  <strong>Prototype éditorial</strong> — Les contenus ci-dessous sont des <em>maquettes de démonstration</em>
+  rédigées à partir de faits réglementaires arrêtés au 4 septembre 2026, non lus à la source. Les chiffres du
+  comparateur sont illustratifs et signalés comme tels. Voir le
+  <a href="../../docs/annexes/registre-de-verification.md">registre de vérification</a>.
+</div>
+
+<!-- ===================================================================
+     BANDEAU SUPÉRIEUR — ticker, statut du marché, compteur de conformité
+     =================================================================== -->
+<div class="cotations">
+  <div class="contenant">
+    <div class="cotations__piste" role="region" aria-label="Cours en direct et statut réglementaire">
+      <span class="etiquette etiquette--demo" data-arrete>Démo</span>
+
+      <span class="cours"><span class="cours__sym">BTC/CAD</span>
+        <span class="cours__val" data-arrete>—</span>
+        <span class="cours__var cours__var--stable"><span class="vh">variation 24 h : </span>n. d.</span></span>
+      <span class="cours"><span class="cours__sym">ETH/CAD</span>
+        <span class="cours__val" data-arrete>—</span>
+        <span class="cours__var cours__var--stable"><span class="vh">variation 24 h : </span>n. d.</span></span>
+      <span class="cours"><span class="cours__sym">SOL/CAD</span>
+        <span class="cours__val" data-arrete>—</span>
+        <span class="cours__var cours__var--stable"><span class="vh">variation 24 h : </span>n. d.</span></span>
+
+      <span class="marche" title="Les marchés de cryptoactifs sont ouverts en continu. Le statut reflète la disponibilité du flux, pas une séance boursière.">
+        Marché ouvert 24/7 · flux non branché
+      </span>
+
+      <a class="conformite" href="registre.html" title="Plateformes de négociation de cryptoactifs inscrites auprès d’un membre des ACVM. Compteur alimenté par la synchronisation du registre — vide dans ce prototype.">
+        <span class="conformite__pastille" aria-hidden="true"></span>
+        <span>Plateformes enregistrées ACVM&nbsp;:
+          <span class="conformite__compte" data-registre-compte>—</span> autorisées à ce jour</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ===================================================================
+     EN-TÊTE — logo, méga-menu, recherche universelle, CTA
+     =================================================================== -->
+<header class="entete">
+  <div class="contenant">
+    <div class="entete__barre">
+      <a class="logo" href="index.html" aria-label="Actio, accueil">
+        <span>Actio</span><span class="logo__point" aria-hidden="true">|</span>
+      </a>
+
+      <button class="burger" type="button" data-menu-mobile aria-expanded="false" aria-controls="nav-principale" aria-label="Ouvrir le menu">
+        <span class="burger__trait" aria-hidden="true"></span>
+      </button>
+
+      <nav class="nav" id="nav-principale" aria-label="Navigation principale">
+        <button class="nav__lien" type="button" aria-expanded="false" aria-controls="mm-actualites" data-menu-declencheur style="background:none;border:0;cursor:pointer;font:inherit">
+          <span>Actualités &amp; Régulation</span>
+          <svg class="nav__chevron" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+        </button>
+        <button class="nav__lien" type="button" aria-expanded="false" aria-controls="mm-academie" data-menu-declencheur style="background:none;border:0;cursor:pointer;font:inherit">
+          <span>Académie</span>
+          <svg class="nav__chevron" viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+        </button>
+        <a class="nav__lien" href="#comparateur">Comparatifs</a>
+        <a class="nav__lien" href="#fiscalite">Fiscalité &amp; Droit</a>
+        <a class="nav__lien" href="#research">Actio Research</a>
+      </nav>
+
+      <div class="entete__actions">
+        <div class="recherche" data-recherche>
+          <svg class="recherche__icone" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 13l5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <label class="vh" for="recherche-globale">Rechercher un texte, une autorité, un cryptoactif</label>
+          <input class="recherche__champ" id="recherche-globale" type="search" placeholder="Loi, avis, cryptoactif…"
+                 role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="recherche-globale-liste" autocomplete="off">
+          <ul class="recherche__liste" id="recherche-globale-liste" role="listbox" hidden></ul>
+        </div>
+        <div class="selecteur" role="group" aria-label="Langue du site">
+          <a href="index.html" hreflang="fr-CA" lang="fr-CA" aria-current="true">FR</a>
+          <a href="../en/index.html" hreflang="en-CA" lang="en-CA">EN</a>
+        </div>
+        <div class="selecteur" role="group" aria-label="Thème d’affichage">
+          <button type="button" data-action="theme" data-theme="light" aria-pressed="false" title="Mode clair">☀</button>
+          <button type="button" data-action="theme" data-theme="auto" aria-pressed="true" title="Suivre le système">A</button>
+          <button type="button" data-action="theme" data-theme="dark" aria-pressed="false" title="Mode sombre">☾</button>
+        </div>
+        <a class="btn btn--pro" href="#infolettre">S’abonner à la newsletter</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Méga-menu : Actualités & Régulation -->
+  <div class="megamenu" id="mm-actualites" hidden>
+    <div class="contenant">
+      <div class="grille megamenu__grille">
+        <div class="col-3 megamenu__colonne">
+          <h3>Fédéral</h3>
+          <ul class="megamenu__liste">
+            <li><a href="#">CANAFE et lutte contre le blanchiment</a></li>
+            <li><a href="#">Banque du Canada et paiements de détail</a></li>
+            <li><a href="#">Loi fédérale sur les stablecoins</a></li>
+            <li><a href="#">Gazette du Canada — projets de règlement</a></li>
+          </ul>
+        </div>
+        <div class="col-3 megamenu__colonne">
+          <h3>Provincial</h3>
+          <ul class="megamenu__liste">
+            <li><a href="#">AMF — Québec</a></li>
+            <li><a href="#">CVMO — Ontario</a></li>
+            <li><a href="#">ACVM — avis harmonisés</a></li>
+            <li><a href="#">OCRI — autoréglementation</a></li>
+          </ul>
+        </div>
+        <div class="col-3 megamenu__colonne">
+          <h3>Affaires juridiques &amp; litiges</h3>
+          <ul class="megamenu__liste">
+            <li><a href="#">Décisions du TMF et de la CVMO</a></li>
+            <li><a href="#">Mises en garde et ordonnances</a></li>
+            <li><a href="#">Insolvabilités de plateformes</a></li>
+            <li><a href="#">Recours collectifs</a></li>
+          </ul>
+        </div>
+        <div class="col-3 megamenu__colonne">
+          <h3>Jalonnement &amp; FNB institutionnels</h3>
+          <ul class="megamenu__liste">
+            <li><a href="#">FNB de cryptoactifs cotés au Canada</a></li>
+            <li><a href="#">Jalonnement dans les fonds</a></li>
+            <li><a href="#">Garde institutionnelle</a></li>
+            <li><a href="#">Flux et adoption</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Méga-menu : Académie -->
+  <div class="megamenu" id="mm-academie" hidden>
+    <div class="contenant">
+      <div class="grille megamenu__grille">
+        <div class="col-3 megamenu__colonne">
+          <h3>Débutant</h3>
+          <ul class="megamenu__liste">
+            <li><a href="#">Comprendre la chaîne de blocs</a></li>
+            <li><a href="#">Premier achat par virement Interac</a></li>
+            <li><a href="#">Choisir une plateforme inscrite</a></li>
+            <li><a href="#">Sécuriser son compte</a></li>
+          </ul>
+        </div>
+        <div class="col-3 megamenu__colonne">
+          <h3>Intermédiaire</h3>
+          <ul class="megamenu__liste">
+            <li><a href="#">Finance décentralisée (DeFi)</a></li>
+            <li><a href="#">Autogarde et stockage à froid</a></li>
+            <li><a href="#">Jalonnement : mécanique et risques</a></li>
+            <li><a href="#">Lire une décision d’inscription</a></li>
+          </ul>
+        </div>
+        <div class="col-3 megamenu__colonne">
+          <h3>Avancé</h3>
+          <ul class="megamenu__liste">
+            <li><a href="#">Contrats intelligents</a></li>
+            <li><a href="#">Exploiter un nœud validateur</a></li>
+            <li><a href="#">Conformité LBC/FT d’une plateforme</a></li>
+            <li><a href="#">Garde d’actifs numériques (cadre OCRI)</a></li>
+          </ul>
+        </div>
+        <div class="col-3 megamenu__vedette">
+          <span class="badge badge--info" style="margin-bottom:12px">Lexique</span>
+          <h3 style="font-family:var(--police-titre);font-size:var(--t-h5);text-transform:none;letter-spacing:normal;color:var(--texte-primaire);margin-bottom:8px">
+            Le glossaire bilingue Actio
+          </h3>
+          <p style="font-size:var(--t-petit);color:var(--texte-secondaire);margin:0">
+            Cryptoactif, courtier restreint, engagement préalable, cryptoactif arrimé à une valeur&nbsp;:
+            la terminologie officielle des autorités, en français et en anglais canadien.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===================================================================
+     COMMUTATEUR DE JURIDICTION
+     =================================================================== -->
+<div class="juridictions">
+  <div class="contenant">
+    <div class="juridictions__barre">
+      <span class="juridictions__libelle">Ma juridiction</span>
+      <div class="commutateur" role="group" aria-label="Filtrer par juridiction">
+        <button type="button" class="commutateur__option" data-action="juridiction" data-juridiction="canada" aria-pressed="true">Tout Canada</button>
+        <button type="button" class="commutateur__option" data-action="juridiction" data-juridiction="quebec" aria-pressed="false">Québec (AMF)</button>
+        <button type="button" class="commutateur__option" data-action="juridiction" data-juridiction="ontario" aria-pressed="false">Ontario (CVMO)</button>
+        <button type="button" class="commutateur__option" data-action="juridiction" data-juridiction="intl" aria-pressed="false">International</button>
+      </div>
+      <span class="juridictions__note">Le filtre masque ce qui ne s’applique pas à votre province. Il ne trie pas, il ne recommande rien.</span>
+    </div>
+  </div>
+</div>
+
+<main id="principal">
+<div class="contenant">
+
+<h1 class="vh">Actio — actualité, régulation et éducation aux cryptoactifs au Canada</h1>
+
+<!-- ===================================================================
+     HERO — 8 / 4 : la une + quatre actualités chaudes
+     =================================================================== -->
+<section class="une grille" aria-labelledby="titre-une">
+  <h2 id="titre-une" class="vh">À la une</h2>
+
+  <article class="col-8 une__principal" data-jur="multi federal">
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+      <a class="rubrique" href="#barometre">Actualités &amp; Régulation</a>
+      <span class="badge badge--consultation">Consultation publique</span>
+      <span class="juridiction juridiction--multi">ACVM · Fédéral</span>
+    </div>
+
+    <h3 class="une__titre">
+      <a href="article.html">Stablecoins&nbsp;: entre l’Avis 21-333 des ACVM et la loi fédérale, qui décide
+      de ce qu’un Québécois ou un Ontarien peut acheter&nbsp;?</a>
+    </h3>
+
+    <p class="une__chapeau">
+      La loi fédérale sur les cryptomonnaies stables est adoptée mais pas en vigueur&nbsp;; le régime
+      intérimaire des ACVM, lui, continue de dicter aux plateformes quels jetons arrimés au dollar elles
+      peuvent offrir. Deux régimes, deux logiques, et une question que personne n’a tranchée&nbsp;: lequel
+      prime quand ils se contredisent. Décryptage à l’intention des investisseurs et des directions
+      de la conformité.
+    </p>
+
+    <div class="une__visuel" role="img" aria-label="Schéma : deux régimes superposés sur un même jeton — le régime prudentiel fédéral, édicté mais non en vigueur, et le régime intérimaire des ACVM, en vigueur.">
+      <svg viewBox="0 0 720 400" style="width:100%;height:100%" aria-hidden="true" fill="none">
+        <defs><pattern id="q" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0v28" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1"/></pattern></defs>
+        <rect width="720" height="400" fill="url(#q)"/>
+        <rect x="60" y="60" width="600" height="120" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.35)" stroke-dasharray="6 6" stroke-width="2"/>
+        <text x="84" y="96" fill="var(--encre-texte)" font-family="Newsreader,Georgia,serif" font-size="22">Régime fédéral — Banque du Canada</text>
+        <text x="84" y="126" fill="var(--encre-texte-2)" font-family="Plus Jakarta Sans,sans-serif" font-size="15">Loi adoptée · décrets et règlements non pris</text>
+        <rect x="84" y="140" width="176" height="26" rx="4" fill="var(--fill-alerte)"/>
+        <text x="172" y="158" fill="#FFFFFF" font-family="Plus Jakarta Sans,sans-serif" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="1">ÉDICTÉ ≠ EN VIGUEUR</text>
+        <rect x="60" y="220" width="600" height="120" rx="8" fill="rgba(255,255,255,.1)" stroke="var(--encre-accent)" stroke-width="2"/>
+        <text x="84" y="256" fill="var(--encre-texte)" font-family="Newsreader,Georgia,serif" font-size="22">Régime intérimaire — Avis 21-333 des ACVM</text>
+        <text x="84" y="286" fill="var(--encre-texte-2)" font-family="Plus Jakarta Sans,sans-serif" font-size="15">En vigueur · conditions imposées plateforme par plateforme</text>
+        <rect x="84" y="300" width="130" height="26" rx="4" fill="var(--encre-accent)"/>
+        <text x="149" y="318" fill="var(--encre-accent-texte)" font-family="Plus Jakarta Sans,sans-serif" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="1">EN VIGUEUR</text>
+        <text x="360" y="378" fill="var(--encre-texte-2)" font-family="JetBrains Mono,monospace" font-size="12" text-anchor="middle">un même jeton · deux autorités · aucune règle de conflit publiée</text>
+      </svg>
+    </div>
+
+    <div class="une__signature">
+      <span><strong>Marie-Claude Fortin</strong>, juriste en valeurs mobilières</span>
+      <span class="juridiction juridiction--multi">ACVM / Fédéral</span>
+      <time datetime="2026-09-04">4 septembre 2026</time>
+      <span class="lecture">9 min</span>
+    </div>
+  </article>
+
+  <div class="col-4 chaud">
+    <h3 class="chaud__titre">
+      <span>Actualités chaudes</span>
+      <span class="chaud__direct">En continu</span>
+    </h3>
+
+    <article class="actu" data-jur="quebec">
+      <div class="actu__vignette" aria-hidden="true">
+        <svg viewBox="0 0 84 63"><rect width="84" height="63" fill="var(--jur-quebec)" opacity=".18"/><path d="M14 44l14-16 12 10 16-20 14 14" stroke="var(--jur-quebec)" stroke-width="3" fill="none"/></svg>
+      </div>
+      <div>
+        <h4 class="actu__titre"><a href="article.html">Blocage d’accès&nbsp;: l’AMF obtient une nouvelle ordonnance visant une plateforme non inscrite</a></h4>
+        <div class="actu__meta"><time data-relatif datetime="2026-09-04T13:42:00-04:00">Il y a 18 min</time><span>· Québec</span></div>
+      </div>
+    </article>
+
+    <article class="actu" data-jur="federal">
+      <div class="actu__vignette" aria-hidden="true">
+        <svg viewBox="0 0 84 63"><rect width="84" height="63" fill="var(--jur-federal)" opacity=".18"/><rect x="18" y="18" width="48" height="28" rx="3" stroke="var(--jur-federal)" stroke-width="3" fill="none"/><path d="M18 30h48" stroke="var(--jur-federal)" stroke-width="3"/></svg>
+      </div>
+      <div>
+        <h4 class="actu__titre"><a href="article.html">CANAFE&nbsp;: nouvelle vague de révocations d’inscriptions d’entreprises de services monétaires</a></h4>
+        <div class="actu__meta"><time data-relatif datetime="2026-09-04T12:55:00-04:00">Il y a 1 h</time><span>· Fédéral</span></div>
+      </div>
+    </article>
+
+    <article class="actu" data-jur="ontario">
+      <div class="actu__vignette" aria-hidden="true">
+        <svg viewBox="0 0 84 63"><rect width="84" height="63" fill="var(--jur-ontario)" opacity=".18"/><circle cx="42" cy="31" r="14" stroke="var(--jur-ontario)" stroke-width="3" fill="none"/><path d="M42 21v10l7 5" stroke="var(--jur-ontario)" stroke-width="3" fill="none"/></svg>
+      </div>
+      <div>
+        <h4 class="actu__titre"><a href="article.html">FNB de bitcoin cotés à Toronto&nbsp;: les entrées nettes hebdomadaires repassent en positif</a></h4>
+        <div class="actu__meta"><time data-relatif datetime="2026-09-04T10:20:00-04:00">Il y a 3 h</time><span>· Ontario · TSX</span></div>
+      </div>
+    </article>
+
+    <article class="actu" data-jur="intl">
+      <div class="actu__vignette" aria-hidden="true">
+        <svg viewBox="0 0 84 63"><rect width="84" height="63" fill="var(--jur-intl)" opacity=".18"/><circle cx="42" cy="31" r="15" stroke="var(--jur-intl)" stroke-width="3" fill="none"/><path d="M27 31h30M42 16c-6 8-6 22 0 30M42 16c6 8 6 22 0 30" stroke="var(--jur-intl)" stroke-width="2.5" fill="none"/></svg>
+      </div>
+      <div>
+        <h4 class="actu__titre"><a href="article.html">Cadre de déclaration des cryptoactifs de l’OCDE&nbsp;: ce que l’échange automatique changera pour l’ARC</a></h4>
+        <div class="actu__meta"><time data-relatif datetime="2026-09-03T17:05:00-04:00">Hier</time><span>· International</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===================================================================
+     LE BAROMÈTRE RÉGLEMENTAIRE — exclusivité Actio
+     =================================================================== -->
+<section class="section" id="barometre" aria-labelledby="titre-barometre">
+  <div class="section__entete">
+    <div>
+      <span class="section__sur">Exclusivité Actio</span>
+      <h2 class="section__titre" id="titre-barometre">Le Baromètre réglementaire</h2>
+    </div>
+    <a class="section__lien" href="#">Tous les textes suivis</a>
+  </div>
+
+  <div class="barometre">
+    <article class="baro baro--consultation" data-jur="federal">
+      <div class="baro__statut">
+        <span class="badge badge--consultation">En consultation publique</span>
+        <span class="baro__date">Clôture&nbsp;: à confirmer</span>
+      </div>
+      <h3 class="baro__titre"><a href="article.html">Règlements d’application de la loi fédérale sur les cryptomonnaies stables</a></h3>
+      <div class="baro__impact">
+        <strong>Impact investisseur</strong>
+        Aucun aujourd’hui&nbsp;: la loi est adoptée, non en vigueur. Un émetteur qui prépare son
+        inscription doit bâtir sur deux régimes, le fédéral à venir et l’Avis 21-333 en vigueur.
+      </div>
+      <div class="baro__source">
+        <a href="https://gazette.gc.ca/" rel="external noopener">Gazette du Canada, Partie I</a>
+        <span class="baro__verif">[à vérifier]</span>
+      </div>
+    </article>
+
+    <article class="baro baro--avis" data-jur="multi">
+      <div class="baro__statut">
+        <span class="badge badge--info">Nouvel avis du personnel ACVM</span>
+        <span class="baro__date">22 oct. 2025</span>
+      </div>
+      <h3 class="baro__titre"><a href="article.html">Prêts adossés à des cryptoactifs&nbsp;: rappel des obligations d’inscription et de prospectus</a></h3>
+      <div class="baro__impact">
+        <strong>Impact investisseur</strong>
+        Une offre de liquidité contre nantissement de cryptoactifs peut constituer un placement. Vérifiez
+        que la plateforme prêteuse est inscrite dans votre province avant de déposer un actif.
+      </div>
+      <div class="baro__source">
+        <a href="https://www.autorites-valeurs-mobilieres.ca/" rel="external noopener">Communiqué des ACVM</a>
+        <span class="baro__verif">[à vérifier]</span>
+      </div>
+    </article>
+
+    <article class="baro baro--vigueur" data-jur="multi">
+      <div class="baro__statut">
+        <span class="badge badge--conforme">Entrée en vigueur</span>
+        <span class="baro__date">3 févr. 2026</span>
+      </div>
+      <h3 class="baro__titre"><a href="article.html">Cadre de garde des actifs numériques de l’OCRI&nbsp;: dépositaires par paliers</a></h3>
+      <div class="baro__impact">
+        <strong>Impact investisseur</strong>
+        Vos cryptoactifs détenus chez un courtier membre de l’OCRI doivent l’être auprès d’un
+        dépositaire acceptable. Demandez à votre plateforme le nom de son dépositaire et son palier.
+      </div>
+      <div class="baro__source">
+        <a href="https://www.ciro.ca/" rel="external noopener">Bulletin de l’OCRI</a>
+        <span class="baro__verif">[à vérifier]</span>
+      </div>
+    </article>
+
+    <article class="baro baro--garde" data-jur="quebec">
+      <div class="baro__statut">
+        <span class="badge badge--alerte">Mise en garde AMF</span>
+        <span class="baro__date">31 août 2026</span>
+      </div>
+      <h3 class="baro__titre"><a href="article.html">Plateforme non inscrite ciblant des résidents du Québec — ordonnance de blocage</a></h3>
+      <div class="baro__impact">
+        <strong>Impact investisseur</strong>
+        Une plateforme visée par une mise en garde ne vous fait bénéficier d’aucune protection prévue
+        par la législation en valeurs mobilières, y compris en cas d’insolvabilité. Retirez vos actifs si
+        vous le pouvez encore.
+      </div>
+      <div class="baro__source">
+        <a href="https://lautorite.qc.ca/" rel="external noopener">Mise en garde de l’AMF</a>
+        <span class="baro__verif">[nom à confirmer]</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===================================================================
+     GUIDES & ACADÉMIE — trois parcours
+     =================================================================== -->
+<section class="section" id="academie" aria-labelledby="titre-academie">
+  <div class="section__entete">
+    <div>
+      <span class="section__sur">L’Académie Actio</span>
+      <h2 class="section__titre" id="titre-academie">Guides &amp; Académie</h2>
+    </div>
+    <a class="section__lien" href="#">Tous les guides</a>
+  </div>
+
+  <div class="parcours-grille">
+    <article class="parcours parcours--debut">
+      <div class="parcours__glyphe" aria-hidden="true">
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="14" width="40" height="26" rx="4"/><path d="M6 22h40M14 32h8"/></svg>
+      </div>
+      <div>
+        <div class="parcours__niveau">Débutant · 4 guides · 45 min</div>
+        <h3 class="parcours__titre"><a href="#">Je débute au Canada</a></h3>
+        <p class="parcours__desc">Dépôts par virement Interac, choix d’une plateforme inscrite, sécurité du compte. Tout ce qui précède le premier achat.</p>
+        <ol class="parcours__etapes">
+          <li>Comprendre la chaîne de blocs en dix minutes</li>
+          <li>Vérifier qu’une plateforme est inscrite dans ma province</li>
+          <li>Premier dépôt par virement Interac&nbsp;: délais, plafonds, frais</li>
+          <li>Sécuriser son compte&nbsp;: authentification, hameçonnage, retraits</li>
+        </ol>
+        <div class="parcours__pied">Prochaine étape&nbsp;: Intermédiaire — autogarde et DeFi</div>
+      </div>
+    </article>
+
+    <article class="parcours parcours--fiscal">
+      <div class="parcours__glyphe" aria-hidden="true">
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 6h18l10 10v30H14z"/><path d="M32 6v10h10M20 28h12M20 36h12M20 20h6"/></svg>
+      </div>
+      <div>
+        <div class="parcours__niveau">Intermédiaire · 5 guides · 1 h 20</div>
+        <h3 class="parcours__titre"><a href="#">Je déclare mes cryptos</a></h3>
+        <p class="parcours__desc">ARC et Revenu Québec&nbsp;: calcul du prix de base rajusté, gain en capital ou revenu d’entreprise, formulaire T1135, TP-21.4.39.</p>
+        <ol class="parcours__etapes">
+          <li>Quelles opérations sont des dispositions</li>
+          <li>Calculer le prix de base rajusté (PBR) lot par lot</li>
+          <li>Gain en capital ou revenu d’entreprise&nbsp;: les facteurs du bulletin IT-479R</li>
+          <li>T1135 et biens étrangers déterminés</li>
+          <li>Québec&nbsp;: la déclaration TP-21.4.39</li>
+        </ol>
+        <div class="parcours__pied">À jour pour l’année d’imposition 2025 · révisé chaque printemps</div>
+      </div>
+    </article>
+
+    <article class="parcours parcours--ctp">
+      <div class="parcours__glyphe" aria-hidden="true">
+        <svg viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M26 6l18 7v12c0 10-8 17-18 21C16 42 8 35 8 25V13z"/><path d="M18 26l6 6 10-12"/></svg>
+      </div>
+      <div>
+        <div class="parcours__niveau">Avancé · 4 guides · 2 h</div>
+        <h3 class="parcours__titre"><a href="#">Je comprends la régulation des CTPs</a></h3>
+        <p class="parcours__desc">Du contrat de cryptoactif de l’Avis 21-327 à l’adhésion à l’OCRI&nbsp;: comment une plateforme devient, et reste, autorisée au Canada.</p>
+        <ol class="parcours__etapes">
+          <li>Le contrat de cryptoactif&nbsp;: pourquoi la plateforme est réglementée, pas le jeton</li>
+          <li>Engagement préalable, courtier restreint, courtier en placement</li>
+          <li>Garde des actifs&nbsp;: paliers de dépositaires et limites de l’autogarde</li>
+          <li>Le second guichet&nbsp;: CANAFE et permis québécois d’ESM</li>
+        </ol>
+        <div class="parcours__pied">Public&nbsp;: conformité, cabinets, administrateurs</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===================================================================
+     COMPARATEUR TRANSPARENT DES PLATEFORMES CANADIENNES
+     =================================================================== -->
+<section class="section" id="comparateur" aria-labelledby="titre-comparateur">
+  <div class="section__entete">
+    <div>
+      <span class="section__sur">Comparatifs &amp; avis</span>
+      <h2 class="section__titre" id="titre-comparateur">Comparateur transparent des plateformes canadiennes</h2>
+    </div>
+    <a class="section__lien" href="#">Toutes les fiches d’évaluation</a>
+  </div>
+
+  <div class="comparateur">
+    <div class="comparateur__methode">
+      <div>
+        <strong style="color:var(--texte-primaire)">Méthode.</strong> Seules figurent des plateformes inscrites auprès d’au moins un membre des ACVM.
+        Le score Actio /5 pondère sécurité de la garde (40&nbsp;%), transparence des frais (30&nbsp;%), qualité du service (20&nbsp;%) et
+        conformité documentée (10&nbsp;%). Les écarts (spreads) sont relevés à heure fixe sur un achat de 1&nbsp;000&nbsp;$&nbsp;CA en BTC.
+        Aucun lien d’affiliation n’influe sur le score&nbsp;; toute rémunération est divulguée dans la fiche.
+        <br><span style="color:var(--statut-consultation)"><strong>Prototype&nbsp;:</strong> les valeurs chiffrées ci-dessous sont
+        <strong>illustratives</strong> et n’ont pas été relevées. Aucune ne doit être publiée avant relevé daté.</span>
+      </div>
+      <div class="comparateur__arrete">Relevé du&nbsp;: —<br>Prochain relevé&nbsp;: mensuel</div>
+    </div>
+
+    <div class="comparateur__defilement">
+      <table>
+        <caption class="vh">Comparaison de trois plateformes de négociation de cryptoactifs inscrites au Canada</caption>
+        <thead>
+          <tr>
+            <th scope="col">Plateforme</th>
+            <th scope="col">Score Actio</th>
+            <th scope="col">Écart constaté (BTC)</th>
+            <th scope="col">Retrait Interac</th>
+            <th scope="col">Statut d’inscription</th>
+            <th scope="col"><span class="vh">Action</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-jur="multi">
+            <th scope="row"><div class="plateforme"><span class="plateforme__logo" aria-hidden="true">S</span><span><span class="plateforme__nom">Shakepay</span><span class="plateforme__type">Montréal · courtier</span></span></div></th>
+            <td><span class="score" data-score="4.2"><span class="score__etoiles" aria-hidden="true"></span><span class="score__note">4,2</span><span class="score__sur">/5</span></span></td>
+            <td><span class="donnee">≈ 1,8&nbsp;%</span> <span class="donnee donnee--nd">illustratif</span></td>
+            <td><span class="donnee">&lt; 30 min</span> <span class="donnee donnee--nd">illustratif</span></td>
+            <td><span class="badge badge--conforme">Inscrite</span> <a href="registre.html" class="donnee" style="font-size:var(--t-micro)">registre ↗</a></td>
+            <td><a class="comparateur__cta" href="#">Fiche complète</a></td>
+          </tr>
+          <tr data-jur="multi">
+            <th scope="row"><div class="plateforme"><span class="plateforme__logo" aria-hidden="true">N</span><span><span class="plateforme__nom">Newton</span><span class="plateforme__type">Toronto · courtier</span></span></div></th>
+            <td><span class="score" data-score="4.0"><span class="score__etoiles" aria-hidden="true"></span><span class="score__note">4,0</span><span class="score__sur">/5</span></span></td>
+            <td><span class="donnee">≈ 0,7&nbsp;%</span> <span class="donnee donnee--nd">illustratif</span></td>
+            <td><span class="donnee">1 – 2 j ouvr.</span> <span class="donnee donnee--nd">illustratif</span></td>
+            <td><span class="badge badge--conforme">Inscrite</span> <a href="registre.html" class="donnee" style="font-size:var(--t-micro)">registre ↗</a></td>
+            <td><a class="comparateur__cta" href="#">Fiche complète</a></td>
+          </tr>
+          <tr data-jur="multi">
+            <th scope="row"><div class="plateforme"><span class="plateforme__logo" aria-hidden="true">W</span><span><span class="plateforme__nom">Wealthsimple Crypto</span><span class="plateforme__type">Toronto · courtier en placement</span></span></div></th>
+            <td><span class="score" data-score="4.4"><span class="score__etoiles" aria-hidden="true"></span><span class="score__note">4,4</span><span class="score__sur">/5</span></span></td>
+            <td><span class="donnee">≈ 1,5&nbsp;%</span> <span class="donnee donnee--nd">illustratif</span></td>
+            <td><span class="donnee">1 – 3 j ouvr.</span> <span class="donnee donnee--nd">illustratif</span></td>
+            <td><span class="badge badge--conforme">Inscrite</span> <a href="registre.html" class="donnee" style="font-size:var(--t-micro)">registre ↗</a></td>
+            <td><a class="comparateur__cta" href="#">Fiche complète</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="comparateur__pied">
+      Le statut « Inscrite » est repris du registre de l’autorité de chaque province et renvoie à la fiche officielle&nbsp;; il
+      n’est ni une recommandation ni une garantie. Une inscription vaut pour une province&nbsp;: vérifiez la vôtre.
+      Actio peut percevoir une commission si vous ouvrez un compte depuis une fiche — jamais depuis ce tableau, et toujours
+      divulguée dans le corps de la fiche.
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================
+     FISCALITÉ & DROIT PRATIQUE + ACTIO RESEARCH (rubriques 4 et 5)
+     =================================================================== -->
+<section class="section" id="fiscalite" aria-labelledby="titre-fiscalite">
+  <div class="section__entete">
+    <div>
+      <span class="section__sur">ARC · Revenu Québec</span>
+      <h2 class="section__titre" id="titre-fiscalite">Fiscalité &amp; droit pratique</h2>
+    </div>
+    <a class="section__lien" href="#">Toute la fiscalité</a>
+  </div>
+  <div class="grille">
+    <article class="carte col-4" data-jur="federal">
+      <div class="carte__meta"><span class="badge badge--info">Guide</span><span class="juridiction juridiction--federal">ARC</span></div>
+      <h3 class="carte__titre"><a href="#">Calculer le prix de base rajusté d’un cryptoactif acheté en dix fois</a></h3>
+      <p class="carte__resume">Le PBR est un coût moyen par bien identique, recalculé à chaque acquisition. Exemple chiffré, avec les frais de plateforme inclus.</p>
+      <div class="carte__pied"><span>Guide · Intermédiaire</span><span>8 min</span></div>
+    </article>
+    <article class="carte col-4" data-jur="federal">
+      <div class="carte__meta"><span class="badge badge--consultation">Position administrative</span><span class="juridiction juridiction--federal">ARC</span></div>
+      <h3 class="carte__titre"><a href="#">Gain en capital ou revenu d’entreprise&nbsp;: les huit facteurs du bulletin IT-479R appliqués au négoce actif</a></h3>
+      <p class="carte__resume">Fréquence, durée de détention, intention, expertise, financement&nbsp;: le faisceau d’indices et ce qu’il implique pour un trader du quotidien.</p>
+      <div class="carte__pied"><span>Décryptage</span><span>10 min</span></div>
+    </article>
+    <article class="carte col-4" data-jur="quebec">
+      <div class="carte__meta"><span class="badge badge--alerte">Obligation déclarative</span><span class="juridiction juridiction--quebec">Revenu Québec</span></div>
+      <h3 class="carte__titre"><a href="#">TP-21.4.39&nbsp;: la déclaration québécoise exigible même sans transaction</a></h3>
+      <p class="carte__resume">Une obligation propre au Québec, souvent ignorée, et sa pénalité. Ce qu’on déclare, quand, et l’allègement annoncé.</p>
+      <div class="carte__pied"><span>Guide · Intermédiaire</span><span>6 min</span></div>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="research" aria-labelledby="titre-research">
+  <div class="pro">
+    <div>
+      <p class="pro__sur">Actio Research · dossiers de fond &amp; données</p>
+      <h2 class="pro__titre" id="titre-research">Ce que les chiffres canadiens disent, trimestre après trimestre.</h2>
+      <p class="pro__texte">Rapports trimestriels sur l’adoption institutionnelle, flux des FNB de cryptoactifs cotés au Canada, consultations publiques des ACVM décryptées avant la date limite de commentaires.</p>
+      <a class="btn btn--primaire" href="#">Consulter les dossiers</a>
+      <p class="pro__mention">Gratuit pour les rapports trimestriels. Les données brutes, l’historique et les alertes sont réservés à Actio Pro (phase 4).</p>
+    </div>
+    <ul class="pro__liste">
+      <li><span><strong>Rapport T3 2026 — adoption institutionnelle</strong><span>Qui détient quoi, via quels véhicules, dans quelles provinces.</span></span></li>
+      <li><span><strong>Flux des FNB de cryptoactifs (TSX)</strong><span>Entrées nettes hebdomadaires, frais de gestion, écarts à la valeur liquidative.</span></span></li>
+      <li><span><strong>Consultations des ACVM décryptées</strong><span>Ce que le projet change, pour qui, et comment répondre avant la clôture.</span></span></li>
+      <li><span><strong>Cartographie des inscriptions</strong><span>Plateforme par plateforme, province par province, avec la date de chaque décision.</span></span></li>
+    </ul>
+  </div>
+</section>
+
+</div><!-- /contenant -->
+
+<!-- ===================================================================
+     BANDEAU D'ACQUISITION — LCAP / CASL
+     =================================================================== -->
+<section class="section" id="infolettre" aria-labelledby="titre-infolettre">
+  <div class="contenant">
+    <div class="infolettre">
+      <div class="infolettre__inner">
+        <p class="infolettre__sur">Actio Dispatch · deux fois par semaine</p>
+        <h2 class="infolettre__titre" id="titre-infolettre">Le mardi, ce que la régulation a changé. Le vendredi, ce que vous devez faire.</h2>
+        <p class="infolettre__promesse">
+          Mardi 7 h HE&nbsp;: l’analyse réglementaire et macro de la semaine. Vendredi 12 h HE&nbsp;: le récapitulatif et un guide
+          pratique. Sourcé, daté, sans recommandation d’achat, lu en quatre minutes.
+        </p>
+        <form data-formulaire="infolettre" novalidate>
+          <label class="infolettre__consentement" style="margin:0 0 var(--e-5)">
+            <input type="checkbox" name="consentement" style="margin-top:3px;flex:none">
+            <span>Je consens expressément à recevoir <em>Actio Dispatch</em> et les communications électroniques commerciales d’Actio,
+            conformément à la <strong>Loi canadienne anti-pourriel (LCAP)</strong>. Retrait possible en tout temps par le lien de
+            désabonnement de chaque message. <a href="#">Politique de confidentialité</a>.</span>
+          </label>
+          <div class="infolettre__form">
+            <label class="vh" for="courriel">Adresse de courriel</label>
+            <input class="champ" id="courriel" name="courriel" type="email" required autocomplete="email" placeholder="prenom.nom@cabinet.ca">
+            <button class="btn btn--primaire" type="submit">Recevoir Actio Dispatch</button>
+          </div>
+          <p class="infolettre__reassurance">
+            <span>Zéro pourriel — deux envois par semaine, jamais plus</span>
+            <span>Désabonnement en un clic, traité sous 10 jours ouvrables</span>
+            <span>Preuve de consentement conservée chez Actio, jamais cédée</span>
+          </p>
+          <div class="infolettre__preuve-sociale">
+            <span class="infolettre__avatars" aria-hidden="true"><span>JD</span><span>AL</span><span>MC</span><span>+</span></span>
+            <span>Rejoint par <strong>15 000 juristes, investisseurs et professionnels de la finance</strong> au Canada.</span>
+          </div>
+          <p role="status" aria-live="polite" data-etat style="margin:16px 0 0;font-size:var(--t-petit);min-height:1.4em;opacity:.9"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================================================================
+     PIED DE PAGE INSTITUTIONNEL
+     =================================================================== -->
+<footer class="pied">
+  <div class="contenant">
+    <div class="pied__principal grille">
+      <div class="col-4 pied__colonne">
+        <a class="logo" href="index.html" style="margin-bottom:12px"><span>Actio</span><span class="logo__point" aria-hidden="true">|</span></a>
+        <p style="font-size:var(--t-petit);color:var(--texte-secondaire);max-width:36ch">Média canadien indépendant d’actualité, d’analyse réglementaire et d’éducation aux cryptoactifs et au Web3. Publié en français et en anglais canadien.</p>
+        <p style="font-size:var(--t-micro);color:var(--texte-tertiaire);font-family:var(--police-donnee)">Actio Média inc.<br>1000, rue De La Gauchetière Ouest, bureau 2400<br>Montréal (Québec) H3B 4W5, Canada<br>redaction@actio.ca</p>
+      </div>
+      <div class="col-2 pied__colonne">
+        <h3>Plan du site</h3>
+        <ul class="pied__liste">
+          <li><a href="#barometre">Actualités &amp; Régulation</a></li>
+          <li><a href="#academie">Guides &amp; Académie</a></li>
+          <li><a href="#comparateur">Comparatifs &amp; Avis</a></li>
+          <li><a href="#fiscalite">Fiscalité &amp; Droit</a></li>
+          <li><a href="#research">Actio Research</a></li>
+          <li><a href="registre.html">Registre des plateformes</a></li>
+          <li><a href="#">Lexique bilingue</a></li>
+          <li><a href="#">Plan du site complet</a></li>
+        </ul>
+      </div>
+      <div class="col-3 pied__colonne">
+        <h3>Registres officiels</h3>
+        <ul class="pied__liste">
+          <li><a href="https://www.autorites-valeurs-mobilieres.ca/" rel="external noopener">ACVM — recherche nationale d’inscription</a></li>
+          <li><a href="https://lautorite.qc.ca/" rel="external noopener">AMF — registre et mises en garde</a></li>
+          <li><a href="https://www.osc.ca/" rel="external noopener">CVMO — registre de l’Ontario</a></li>
+          <li><a href="https://www.ciro.ca/" rel="external noopener">OCRI — courtiers membres</a></li>
+          <li><a href="https://fintrac-canafe.canada.ca/" rel="external noopener">CANAFE — entreprises de services monétaires</a></li>
+          <li><a href="https://www.revenuquebec.ca/" rel="external noopener">Revenu Québec — permis d’ESM</a></li>
+          <li><a href="https://gazette.gc.ca/" rel="external noopener">Gazette du Canada</a></li>
+        </ul>
+      </div>
+      <div class="col-3 pied__colonne">
+        <h3>Transparence et légal</h3>
+        <ul class="pied__liste">
+          <li><a href="#">Charte éditoriale et indépendance</a></li>
+          <li><a href="#">Politique d’affiliation et de divulgation</a></li>
+          <li><a href="#">Méthode du comparateur</a></li>
+          <li><a href="#">Politique de correction</a></li>
+          <li><a href="#">Conflits d’intérêts de la rédaction</a></li>
+          <li><a href="#">Mentions légales</a></li>
+          <li><a href="#">Nous signaler une erreur</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="avertissement" role="note">
+      <p class="avertissement__titre"><span aria-hidden="true">⚠</span> Avertissement sur les risques et absence de conseil</p>
+      <p><strong>Actio ne fournit ni conseil en placement, ni conseil juridique, ni conseil fiscal.</strong> Actio n’est inscrite à aucun titre auprès des Autorités canadiennes en valeurs mobilières, de l’Autorité des marchés financiers, de la Commission des valeurs mobilières de l’Ontario ou de l’Organisme canadien de réglementation des investissements, et n’exerce aucune activité de courtage, de conseil ou de gestion de portefeuille.</p>
+      <p>Les contenus publiés sont de nature journalistique et éducative. Ils décrivent un état du droit à une date donnée&nbsp;; le droit évolue, et une analyse exacte à sa date de publication peut cesser de l’être. Aucun contenu ne tient compte de votre situation personnelle. <strong>Consultez un professionnel inscrit ou un avocat avant toute décision.</strong></p>
+      <p><strong>Les cryptoactifs sont des actifs hautement volatils.</strong> Vous pouvez perdre la totalité des sommes investies. Une plateforme non inscrite auprès de l’autorité de votre province ne vous fait bénéficier d’aucune des protections prévues par la législation en valeurs mobilières, y compris en cas d’insolvabilité. Les comparatifs et fiches d’évaluation sont établis selon une méthode publiée et peuvent donner lieu à une rémunération d’affiliation, toujours divulguée&nbsp;; ils ne constituent jamais une recommandation.</p>
+    </div>
+
+    <div class="pied__legal">
+      <span>© 2026 Actio Média inc. Tous droits réservés. Prototype non publié.</span>
+      <nav aria-label="Liens légaux">
+        <a href="#">Mentions légales</a>
+        <a href="#">Conditions d’utilisation</a>
+        <a href="#">Confidentialité (Loi 25 / LPRPDE)</a>
+        <a href="#">Témoins</a>
+        <a href="#">Accessibilité (WCAG 2.1 AA)</a>
+        <a href="#">Nous joindre</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/actio.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="fr-CA" data-page="portail">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Actio — Choisir une langue / Choose a language</title>
+<meta name="description" content="Actio — analyse du cadre réglementaire des cryptoactifs au Canada. Crypto asset regulation in Canada.">
+<meta name="theme-color" content="#FAF8F4">
+<meta name="robots" content="noindex,follow">
+<link rel="alternate" hreflang="fr-CA" href="/fr/">
+<link rel="alternate" hreflang="en-CA" href="/en/">
+<link rel="alternate" hreflang="x-default" href="/fr/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400;1,6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<script>
+(function(){try{var t=localStorage.getItem('actio.theme');
+if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+<link rel="stylesheet" href="assets/tokens.css">
+<link rel="stylesheet" href="assets/actio.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230F3D68'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' font-weight='700' fill='%23FAF8F4' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<style>
+  /* Portail de langue — le seul écran d'Actio qui n'appartient à aucune langue.
+     En production, « / » répond par une redirection 302 vers « /fr/ », jamais
+     301 (le choix doit rester révisable) et jamais selon l'adresse IP du
+     visiteur : traiter une adresse IP pour deviner une langue reviendrait à
+     traiter un renseignement personnel sans nécessité. Cette page est ce que
+     voit un visiteur qui atteint la racine sans suivre la redirection. */
+  .portail { min-height: 100svh; display: grid; place-items: center; padding: var(--e-8); }
+  .portail__carte {
+    max-width: 620px; width: 100%; text-align: center;
+    background: var(--fond-surface); border: var(--trait) solid var(--bordure);
+    border-top: var(--trait-editorial) solid var(--marque-bleu-fonce);
+    border-radius: var(--rayon-3); padding: var(--e-12) var(--e-8);
+  }
+  .portail__logo { font-size: 2.75rem; margin-bottom: var(--e-2); justify-content: center; }
+  .portail__accroche {
+    font-size: var(--t-petit); color: var(--texte-secondaire);
+    margin: 0 auto var(--e-10); max-width: 46ch; line-height: 1.6;
+  }
+  .portail__choix { display: grid; gap: var(--e-4); grid-template-columns: 1fr 1fr; }
+  @media (max-width: 560px) { .portail__choix { grid-template-columns: 1fr; } }
+  .portail__lien {
+    display: grid; gap: 4px; padding: var(--e-6) var(--e-5);
+    border: var(--trait) solid var(--bordure-forte); border-radius: var(--rayon-2);
+    text-decoration: none; color: var(--texte-primaire);
+    transition: border-color var(--mvt-rapide), background var(--mvt-rapide);
+  }
+  .portail__lien:hover { border-color: var(--marque-bleu-fonce); background: var(--fond-surface-2); }
+  .portail__langue { font-family: var(--police-titre); font-size: var(--t-h4); font-weight: var(--graisse-grasse); }
+  .portail__sous { font-size: var(--t-petit); color: var(--texte-secondaire); }
+  .portail__note {
+    margin-top: var(--e-10); padding-top: var(--e-5);
+    border-top: var(--trait) solid var(--bordure-douce);
+    font-size: var(--t-micro); color: var(--texte-tertiaire);
+    line-height: 1.65; text-align: left;
+  }
+</style>
+</head>
+<body>
+<main class="portail" id="principal">
+  <div class="portail__carte">
+    <h1 class="logo portail__logo"><span>Actio</span><span class="logo__point" aria-hidden="true">|</span></h1>
+
+    <p class="portail__accroche" lang="fr-CA">
+      Le cadre réglementaire, fiscal et prudentiel des cryptoactifs au Canada.
+      <br><span lang="en-CA">The regulatory, tax and prudential framework governing crypto assets in Canada.</span>
+    </p>
+
+    <nav class="portail__choix" aria-label="Choix de la langue / Language selection">
+      <a class="portail__lien" href="fr/index.html" hreflang="fr-CA" lang="fr-CA">
+        <span class="portail__langue">Français</span>
+        <span class="portail__sous">Version française — langue par défaut</span>
+      </a>
+      <a class="portail__lien" href="en/index.html" hreflang="en-CA" lang="en-CA">
+        <span class="portail__langue">English</span>
+        <span class="portail__sous">Canadian English edition</span>
+      </a>
+    </nav>
+
+    <p class="portail__note">
+      <strong>Pourquoi cette page existe.</strong> En production, la racine du domaine répond par une
+      redirection temporaire vers <code>/fr/</code>. Elle n’est jamais fondée sur l’adresse IP du
+      visiteur&nbsp;: deviner une langue à partir d’une adresse IP suppose de traiter un renseignement
+      personnel sans nécessité. Le français est la langue par défaut parce qu’Actio est établie au
+      Québec, et aucun contenu n’est publié en anglais avant, plus vite ou plus complètement qu’en
+      français.
+      <br><br>
+      <span lang="en-CA"><strong>Why this page exists.</strong> In production, the domain root returns
+      a temporary redirect to <code>/fr/</code>, never based on the visitor’s IP address. French is
+      the default language because Actio is established in Quebec, and no content is published in
+      English earlier, faster or more completely than in French.</span>
+    </p>
+  </div>
+</main>
+<script src="assets/actio.js"></script>
+</body>
+</html>
